@@ -1,0 +1,29 @@
+{
+  "title": "TEA-Sim: reproducibility package for standards-compatible TrustEvidence interface simulation",
+  "version": "v2.0.0",
+  "upload_type": "software",
+  "description": "Clean v2.0.0 reproducibility package for TrustEvidence interface simulation and reference artefacts. The package contains source code, tests, experiment scripts, schemas, draft FHIR Shorthand artefacts, documentation, generated local outputs and checksum manifests. It does not claim production FHIR deployment, FHIR/BALP conformance, blockchain deployment, clinical validation, legal compliance or cryptographic benchmarking.",
+  "creators": [
+    {
+      "name": "Clim, Antonio",
+      "affiliation": "Bucharest University of Economic Studies"
+    }
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "health information exchange",
+    "FHIR",
+    "audit evidence",
+    "trust evidence",
+    "tamper-evident logging",
+    "simulation",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.21134217",
+      "relation": "isNewVersionOf",
+      "scheme": "doi"
+    }
+  ]
+}
