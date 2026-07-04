@@ -1,0 +1,12 @@
+{
+  "workload_id": "W4",
+  "source_scenario": "S4",
+  "label": "High-dispute/high-revocation",
+  "organisations": 5,
+  "access_per_subject_day": "0.50",
+  "revocation_probability": "0.080",
+  "dispute_risk": "0.85",
+  "signature_profile": "classical",
+  "faithful_mapping": "Stress setting for non-equivocation pressure, verifier-state retention and consent-state transitions.",
+  "evidence_class": ""
+}

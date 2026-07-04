@@ -1,0 +1,12 @@
+{
+  "workload_id": "W3",
+  "source_scenario": "S3",
+  "label": "Secondary-use governance",
+  "organisations": 4,
+  "access_per_subject_day": "0.06",
+  "revocation_probability": "0.030",
+  "dispute_risk": "0.60",
+  "signature_profile": "classical",
+  "faithful_mapping": "Lower direct access but higher policy/purpose sensitivity. Emphasises provenance, policy-version binding and audit-query v2.0.0 development.",
+  "evidence_class": ""
+}
