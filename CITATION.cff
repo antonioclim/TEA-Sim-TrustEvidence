@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If you use this software, cite the archived record for the exact version used."
-title: "TEA-Sim TrustEvidence: formal, FHIR and measurement artefacts for auditable health information exchange"
+message: "If you use this software, cite the archived Zenodo record for the exact version used."
+title: "TEA-Sim: reproducibility package for standards-compatible TrustEvidence interface simulation"
 version: "v2.0.0"
 type: software
 date-released: "2026-07-04"
@@ -8,18 +8,19 @@ authors:
   - family-names: "Clim"
     given-names: "Antonio"
     orcid: "https://orcid.org/0000-0003-4745-0431"
-abstract: "v2.0.0 package for TrustEvidence interfaces, including formal properties, executable local backends, external-baseline adapters, draft FHIR artefacts, legal traceability and measurement protocols."
-repository-code: "https://github.com/antonioclim/TEA-Sim"
-url: "https://github.com/antonioclim/TEA-Sim"
+abstract: "Clean v2.0.0 reproducibility package for TrustEvidence interface simulation and reference artefacts, including source code, tests, experiment scripts, schemas, draft FHIR Shorthand artefacts, documentation, generated local outputs and checksum manifests."
+repository-code: "https://github.com/antonioclim/TEA-Sim-TrustEvidence"
+url: "https://doi.org/10.5281/zenodo.21193829"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.21134217"
-    description: "v1.5.1 immutable historical DOI; v2.0.0 should be deposited as a new Zenodo version."
+    value: "10.5281/zenodo.21193829"
+    description: "Archived Zenodo DOI for TEA-Sim v2.0.0."
 keywords:
   - health information exchange
   - audit evidence
   - FHIR
-  - transparency log
-  - TrustEvidence
-  - legal traceability
+  - trust evidence
+  - tamper-evident logging
+  - simulation
+  - reproducibility
 license: "Apache-2.0"

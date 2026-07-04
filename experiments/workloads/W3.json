@@ -7,6 +7,6 @@
   "revocation_probability": "0.030",
   "dispute_risk": "0.60",
   "signature_profile": "classical",
-  "faithful_mapping": "Lower direct access but higher policy/purpose sensitivity. Emphasises provenance, policy-version binding and audit-query v2.0.0 development.",
+  "faithful_mapping": "Lower direct access but higher policy/purpose sensitivity. Emphasises provenance, policy-version binding and audit-query independent audit support.",
   "evidence_class": ""
 }

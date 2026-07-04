@@ -23,7 +23,7 @@ This document defines the system boundary for the TrustEvidence reference artefa
 
 - External tamperer attempting to alter payloads or evidence artefacts.
 - Malicious custodian insider suppressing or modifying evidence before emission.
-- Compromised evidence-log log log operator attempting deletion, rollback or inconsistent histories.
+- Compromised evidence-log operator attempting deletion, rollback or inconsistent histories.
 - Colluding custodian and backend participants.
 - Split-view backend presenting inconsistent checkpoints to different verifiers.
 

@@ -1,52 +1,36 @@
-# LJI 2.0: Axiomatic decision layer for evidence-storage proportionality
+# LJI 2.0: decision layer for evidence-storage proportionality
 
+## Purpose
 
-## 1. Purpose
+LJI 2.0 replaces the v1 Ledger Justification Index as a structured decision layer for choosing the minimum sufficient TrustEvidence backend. Its question is not whether a blockchain is generally useful. Its question is narrower: given a health-audit workload, threat assumptions, standards duties and available measurements, which evidence-storage backend is proportionate — central audit, append-only hash log, ledger-like replicated backend, or no decision because the evidence-emission boundary is not adequately instrumented?
 
-LJI 2.0 replaces the v1 Ledger Justification Index as a decision layer for choosing the minimum sufficient TrustEvidence backend. Its decision object is not “whether blockchain is good”. Its decision object is: given a stated health-audit workload, threat model, legal/standards duties and measurement evidence, which evidence-storage backend is proportionate: `BE-A1` central audit, `BE-A2` append-only hash log, `BE-A3` ledger-like replicated backend, or `NO-DECISION` because the emission boundary is not instrumented.
+The v1 fixed thresholds `-0.05` and `+0.10` are retained only as historical information. LJI 2.0 does not publish fixed adoption thresholds without expert calibration and sensitivity analysis.
 
-The v1 LJI is not inherited as an adoption rule. The v1 fixed thresholds `-0.05` and `+0.10` are retained only as archived v1 history. LJI 2.0 has no fixed adoption thresholds in decision layer. Thresholds and weights are parameters until Delphi calibration and sensitivity reporting Delphi calibration required.
+## Inputs
 
-## 2. Inputs
+The decision layer consumes four classes of input:
 
-The model consumes four classes of input:
+- `T`: threat and assumption state, including whether witness/gossip support or quorum/finality support is available.
+- `D`: property-demand vector over tamper-evidence, append-only consistency, inclusion verifiability, non-equivocation, boundary completeness, freshness and legal traceability.
+- `C`: backend capability matrix derived from the formal core, with no credit where the necessary assumption is absent.
+- `B`: backend burden vector covering metadata exposure, storage/proof burden, latency/throughput burden, governance complexity, assumption fragility and cryptographic-agility burden.
 
-- `T`: threat model/formal review threat and assumption state, including adversaries and whether `A7` witness/gossip or `A8` quorum/finality are satisfied.
-- `D`: property-demand vector over tamper-evidence, append-only consistency, inclusion verifiability, non-equivocation, boundary completeness, freshness and legal traceability, normalised to the unit interval.
-- `C`: backend capability matrix derived from the formal definitions/formal review formal core, with zero credit where the required assumption is absent.
-- `B`: backend burden vector covering metadata exposure, storage/proof burden, latency/throughput burden, governance complexity, assumption fragility and cryptographic-agility burden. Measurement-dependent burden components remain `external measurement required`.
+## Screens before scoring
 
-## 3. Lexicographic screens before scoring
+LJI 2.0 applies mandatory screens before any weighted comparison. If the evidence-emission boundary is incomplete, the procedure returns `NO-DECISION`. If non-equivocation is mandatory, a cheaper backend cannot be selected merely because it has a lower burden score. If replication would expose excessive metadata, the ledger-like option is blocked until minimisation and retention controls are specified.
 
-LJI 2.0 is intentionally not a raw weighted sum. The screens in `tables/lji2_screening_rules.csv` execute first. They implement non-compensability: if an in-scope workload requires non-equivocation, a cheaper backend cannot be selected merely because its burden score is lower. If the evidence-emission boundary is incomplete, the procedure returns `NO-DECISION`; no backend can prove events that were never emitted.
+## Parametric value function
 
-## 4. Parametric value function
+For each eligible backend `b` and scenario `s`:
 
-For each eligible backend `b`, define:
+`U(b | s) = Σ_p alpha_p * demand_p(s) * capability_b,p(T)`
 
-`U(b | s) = Σ_p alpha_p * demand_p(s) * capability_b,p(T)`.
+`K(b | s) = Σ_q beta_q * burden_b,q(s) + Σ_r gamma_r * interaction_r(b, s)`
 
-`K(b | s) = Σ_q beta_q * burden_b,q(s) + Σ_r gamma_r * interaction_r(b, s)`.
+`LJI2(b | s) = U(b | s) - K(b | s)`
 
-`LJI2(b | s) = U(b | s) - K(b | s)`.
+The selected backend is the least burdensome backend that passes the mandatory screens and has no unresolved mandatory shortfall. A ledger-like backend may be recommended only if it passes the independent-verification and metadata-minimisation screens and its material advantage over the best non-ledger option exceeds a defensible margin.
 
-The selected backend is the least burdensome backend that passes the mandatory screens and has no unresolved mandatory shortfall. `BE-A3` may be recommended only if it passes the independent-verification and metadata-minimisation screens and its material advantage over the best non-ledger backend exceeds a Delphi-validated margin Delphi calibration required. If that margin is not validated, the manuscript reports only a sensitivity surface, not a categorical recommendation.
+## Boundary of the decision claim
 
-## 5. Axioms
-
-The axiom register contains nine rows. The most important are: evidence-boundary limitation, assumption fidelity, dominance, minimal sufficiency, non-compensability of mandatory properties, scale invariance after normalisation, declared interaction discipline, legal interpretability boundary and validation humility. These axioms prevent the old failure mode in which a single unvalidated scalar made ledger-like replication appear justified.
-
-## 6. Registered interactions
-
-The additive form is permitted only after preferential independence is accepted by the Delphi panel. Before that, the following interactions are registered explicitly:
-
-- no mutually trusted audit log log operator × non-equivocation demand;
-- legal traceability demand × third-party verification demand;
-- metadata exposure × organisational multiplicity;
-- freshness/notification demand × verifier-state reliability.
-
-Unregistered interactions are not allowed to enter the manuscript under rhetorical language.
-
-## 7. Boundary of the decision layer claim
-
-decision layer proves no new cryptographic property, measures no backend cost and asserts no legal compliance. Its claim is narrower: the decision layer is now axiomatic, assumption-aware, Wüst–Gervais-compatible, sensitivity-ready and Delphi-ready. Scenario-specific recommendations remain blocked until external benchmark run measurements, legal traceability legal traceability and Delphi calibration are available.
+The decision layer proves no new cryptographic property, measures no backend cost and asserts no legal compliance. Its claim is narrower: backend choice should be assumption-aware, property-aware, sensitivity-ready and explicit about when simpler audit mechanisms are more proportionate than ledger-like replication.

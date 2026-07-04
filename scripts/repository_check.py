@@ -37,8 +37,11 @@ def main() -> int:
                 issues.append(f'overclaim:{path.relative_to(root)}:{phrase}')
     try:
         payload = json.loads((root / '.zenodo.json').read_text(encoding='utf-8'))
-        if '10.5281/zenodo.21134217' not in json.dumps(payload):
-            issues.append('zenodo relation missing')
+        dump = json.dumps(payload)
+        if '10.5281/zenodo.21134217' not in dump:
+            issues.append('zenodo relation to v1.5.1 missing')
+        if 'github.com/antonioclim/TEA-Sim-TrustEvidence' not in dump:
+            issues.append('current repository relation missing')
     except Exception as exc:
         issues.append(f'zenodo json unreadable:{exc}')
     if issues:
