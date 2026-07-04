@@ -1,0 +1,139 @@
+name: trustevidence-external
+
+services:
+  hapi-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: hapi
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d hapi"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  hapi-fhir:
+    image: ${HAPI_IMAGE:-hapiproject/hapi:latest}
+    depends_on:
+      hapi-postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://hapi-postgres:5432/hapi"
+      SPRING_DATASOURCE_USERNAME: "admin"
+      SPRING_DATASOURCE_PASSWORD: "admin"
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: "org.postgresql.Driver"
+      HIBERNATE_DIALECT: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect"
+      HAPI_FHIR_VERSION: "R4"
+    ports:
+      - "8080:8080"
+
+  tea-a1-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: trustevidence
+      POSTGRES_USER: te
+      POSTGRES_PASSWORD: te
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./sql/a1_postgres.sql:/docker-entrypoint-initdb.d/001-a1-postgres.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U te -d trustevidence"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  trillian-mysql:
+    profiles: ["baselines"]
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: zaphod
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: zaphod
+    ports:
+      - "3306:3306"
+
+  trillian-log-server:
+    profiles: ["baselines"]
+    build:
+      context: ./vendor/trillian
+      dockerfile: examples/deployment/docker/log_server/Dockerfile
+    command: [
+      "--storage_system=mysql",
+      "--mysql_uri=test:zaphod@tcp(trillian-mysql:3306)/test",
+      "--rpc_endpoint=0.0.0.0:8090",
+      "--http_endpoint=0.0.0.0:8091",
+      "--alsologtostderr"
+    ]
+    depends_on:
+      - trillian-mysql
+    ports:
+      - "8090:8090"
+      - "8091:8091"
+
+  trillian-log-signer:
+    profiles: ["baselines"]
+    build:
+      context: ./vendor/trillian
+      dockerfile: examples/deployment/docker/log_signer/Dockerfile
+    command: [
+      "--storage_system=mysql",
+      "--mysql_uri=test:zaphod@tcp(trillian-mysql:3306)/test",
+      "--rpc_endpoint=trillian-log-server:8090",
+      "--http_endpoint=0.0.0.0:8091",
+      "--force_master",
+      "--alsologtostderr"
+    ]
+    depends_on:
+      - trillian-log-server
+
+  rekor-redis:
+    profiles: ["baselines"]
+    image: redis:6.2
+    command: ["--bind", "0.0.0.0", "--appendonly", "yes", "--requirepass", "test"]
+    ports:
+      - "6379:6379"
+
+  rekor-server:
+    profiles: ["baselines"]
+    build:
+      context: ./vendor/rekor
+      dockerfile: Dockerfile
+    environment:
+      REKOR_REDIS_SERVER: rekor-redis:6379
+      REKOR_REDIS_PASSWORD: test
+    depends_on:
+      - rekor-redis
+      - trillian-log-server
+    ports:
+      - "3000:3000"
+
+  fabric-cli:
+    profiles: ["fabric"]
+    image: ${FABRIC_TOOLS_IMAGE:-hyperledger/fabric-tools:2.5.16}
+    container_name: fabric-cli
+    working_dir: /opt/fabric-samples/test-network
+    command: ["sleep", "infinity"]
+    volumes:
+      - ./vendor/fabric-samples:/opt/fabric-samples
+      - ./chaincode/trustevidence_fabric:/opt/chaincode/trustevidence_fabric:ro
+
+  te-harness:
+    profiles: ["harness"]
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.harness
+    environment:
+      HAPI_BASE_URL: http://hapi-fhir:8080/fhir
+      REKOR_BASE_URL: http://rekor-server:3000
+      TRILLIAN_ENDPOINT: trillian-log-server:8090
+    depends_on:
+      - hapi-fhir
+      - tea-a1-postgres
+    volumes:
+      - ./results:/work/results
+      - ./validation:/work/validation

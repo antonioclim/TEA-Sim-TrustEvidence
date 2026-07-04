@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "teasim-trustevidence"
+version = "2.0.0"
+description = "TrustEvidence interfaces for auditable health information exchange"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "Apache-2.0"}
+authors = [{name = "Antonio Clim", email = "antonio.clim@csie.ase.ro"}]
+keywords = ["FHIR", "audit evidence", "TrustEvidence", "transparency log", "health information exchange"]
+dependencies = [
+  "jsonschema>=4.0",
+  "cryptography>=41.0",
+  "httpx>=0.27",
+  "PyYAML>=6.0",
+  "pandas>=2.0",
+  "matplotlib>=3.8"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "hypothesis>=6"]
+postgres = ["psycopg[binary]>=3.1"]
+external = ["grpcio>=1.64", "grpcio-tools>=1.64", "protobuf>=5.0", "httpx>=0.27"]
+dev = ["pytest>=8", "hypothesis>=6", "build>=1.0", "grpcio-tools>=1.64"]
+
+[project.scripts]
+teasim = "teasim.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+  "postgres: requires live PostgreSQL and psycopg",
+  "external: requires Docker-composed HAPI/Fabric/Trillian/Rekor services",
+  "smoke: external-service integration smoke-harness tests"
+]
+
+[tool.setuptools.package-data]
+trustevidence = ["schemas/*.json"]
