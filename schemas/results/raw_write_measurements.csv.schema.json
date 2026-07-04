@@ -1,0 +1,19 @@
+{
+  "file": "raw_write_measurements.csv",
+  "required_columns": [
+    "run_id",
+    "event_index",
+    "workload_id",
+    "backend_id",
+    "repetition",
+    "seed",
+    "latency_ms",
+    "status",
+    "error_code",
+    "artefact_bytes",
+    "receipt_bytes",
+    "started_ns",
+    "ended_ns"
+  ],
+  "additional_columns_allowed": false
+}

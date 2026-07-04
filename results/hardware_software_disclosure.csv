@@ -1,0 +1,5 @@
+field,value,evidence_class
+python_version,3.13.5,measured-local
+platform,Linux-4.4.0-x86_64-with-glibc2.41,measured-local
+profile,local,measured-local
+repetitions,2,computed

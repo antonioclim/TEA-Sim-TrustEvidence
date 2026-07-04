@@ -1,0 +1,14 @@
+{
+  "file": "anomaly_log.csv",
+  "required_columns": [
+    "anomaly_id",
+    "run_id",
+    "backend_id",
+    "workload_id",
+    "severity",
+    "rule_triggered",
+    "decision",
+    "narrative"
+  ],
+  "additional_columns_allowed": false
+}
