@@ -1,0 +1,15 @@
+id,trustevidence_item,BALP_relation,ATNA_relation,status
+MAP-01,TEAuditEvent,Specialised AuditEvent use; BALP derivation unresolved,Audit event content,mapping only
+MAP-02,TEProvenance,Companion resource outside BALP core,Provenance/accountability context,draft
+MAP-03,EvidenceAnchor,Out-of-band proof pointer beyond BALP,Supports audit verification,needs review
+MAP-04,logIdentity,No direct BALP equivalent,Audit-source/log identity,extension
+MAP-05,backendType,No direct BALP equivalent,Repository/backend class,draft terminology
+MAP-06,rootHash/treeSize,Cryptographic commitment metadata,Tamper-evidence support,extension
+MAP-07,inclusionProofRef/consistencyProofRef,External proof references,Out-of-band verification,extension
+MAP-08,failureCode,Failure context adjacent to audit outcome,Failed emission/verification path,draft terminology
+MAP-09,Emitter actor,Produces BALP-like AuditEvents,Needs secure application/node grouping,requirements
+MAP-10,Verifier actor,Consumes audit/proof material,Needs authorised audit access,requirements
+MAP-11,Authenticated user/client context,Needed for meaningful audit event,User and node authentication,deployment precondition
+MAP-12,Protected transport,Transport precondition,Telecommunications encryption,deployment precondition
+MAP-13,Audit access restriction,Privacy-centred audit governance,Access-control/privilege restriction,deployment precondition
+MAP-14,Patient-facing disclosure view,"Derived report, not raw event access",Reporting layer above repository,future

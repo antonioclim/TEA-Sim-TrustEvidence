@@ -1,0 +1,13 @@
+id,factor,range_or_variant,sampling_or_analysis_plan,output_metric,evidence_class
+SENS-01,property-demand weights alpha,simplex over property weights,Latin-hypercube or Dirichlet draws; seed fixed at execution time external validation required,backend rank acceptability,
+SENS-02,burden weights beta,simplex over burden weights,Vary independently and jointly with property weights,A3 eligibility frequency,
+SENS-03,interaction weights gamma,zero-interaction to panel-weighted interaction,Compare additive-only against registered-interaction models,decision reversal rate,
+SENS-04,mandatory non-equivocation demand threshold,parameter tau_NE Delphi calibration required,Sweep from permissive to strict; do not fix before Delphi,cases blocked from A1/A2,Delphi calibration required
+SENS-05,material advantage margin theta_A3,parameter margin Delphi calibration required,Report surfaces rather than a single threshold if Delphi is not complete,A3 recommendation robustness,Delphi calibration required
+SENS-06,measurement normalisers for storage/proof/latency,derived from validated external benchmark run data external measurement required,Use bootstrap summaries after external benchmark run only,burden normalisation sensitivity,external measurement required
+SENS-07,A7 witness/gossip availability,absent / partial / full,Scenario case analysis tied to external-service integration/external benchmark run logs,A2 non-equivocation eligibility,external measurement required
+SENS-08,A8 finality/quorum satisfaction,unsatisfied / satisfied under declared Fabric configuration external measurement required,Case analysis; no fractional property credit when mandatory assumption fails,A3 eligibility,external measurement required
+SENS-09,metadata minimisation strictness,legal traceability legal/privacy interpretations legal mapping required,"Compare permissive, moderate and strict minimisation regimes",A3 block frequency,legal mapping required
+SENS-10,legal-traceability demand,legal traceability duty-to-mechanism rows legal mapping required,One-way legal criterion stress test,backend sufficiency classification,legal mapping required
+SENS-11,workload class W1-W5,five workload classes,Run after external benchmark run only; report realised workload mix,decision stability by workload,external measurement required
+SENS-12,v1 threshold comparison,retired thresholds -0.05/+0.10 as historical comparator only,Bridge note only; not admissible as LJI 2.0 calibration,none in current manuscript,

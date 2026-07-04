@@ -1,0 +1,13 @@
+check_id,check,execution_status,evidence_class,blocking
+-SM-001,Import TrustEvidence external-service integration package,passed,local-tests,no
+-SM-002,Run inherited local implementation and new external-service integration unit tests,passed,local-tests,no
+-SM-003,Parse docker-compose.full.yml,passed,local-tests,no
+-SM-004,Dry replay workload across A1 A2 and Trillian fake personality,passed,dry-smoke,no
+-SM-005,Run make up against Docker Compose,not-run,external execution required:-EXT-SMOKE,no
+-SM-006,HAPI FHIR metadata endpoint responds,not-run,external execution required:-HAPI,no
+-SM-007,A1 PostgreSQL initialisation executes,not-run,external execution required:-A1-PG,no
+-SM-008,Trillian log server queues TrustEvidence leaf,not-run,external execution required:-TRILLIAN,no
+-SM-009,Rekor server creates log entry,not-run,external execution required:-REKOR,no
+-SM-010,Fabric chaincode deploys and accepts evidence,not-run,external execution required:-FABRIC,no
+-SM-011,External smoke harness writes validation/_EXTERNAL_SMOKE_REPORT.txt,not-run,external execution required:-EXT-SMOKE,no
+-SM-012,No latency/throughput claims emitted,passed,derived,no

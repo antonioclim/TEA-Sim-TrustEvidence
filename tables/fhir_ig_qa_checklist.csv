@@ -1,0 +1,9 @@
+id,check,status,evidence
+QA-01,CapabilityStatements present,PASS,
+QA-02,Narrative pages present,PASS,
+QA-03,BALP/ATNA mapping present,PASS,
+QA-04,Conformance plan present,PASS,
+QA-05,SUSHI successful build,external execution required,
+QA-06,IG Publisher QA,external execution required,
+QA-07,BALP derivation decision,external execution required,verification required: V--003
+QA-08,No conformance overclaim,PASS,

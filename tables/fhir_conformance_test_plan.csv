@@ -1,0 +1,13 @@
+id,group,operation,assertions,evidence_slot
+TE--01,CapabilityStatement,Validate generated resources,kind=requirements; fhirVersion=4.0.1; client mode; AuditEvent/Provenance resources,external validation required
+TE--02,TEAuditEvent,Validate W1-W5 examples,conforms to TEAuditEvent and contains one EvidenceAnchor,external validation required
+TE--03,TEProvenance,Validate W1-W5 examples,conforms to TEProvenance; target/agent/entity present,external validation required
+TE--04,EvidenceAnchor,Inspect subextensions,"logIdentity, algorithm, backendType present; proof refs typed as URI",external validation required
+TE--05,Terminology,Validate evidence/backend codes,codes from draft systems or declared external systems,external validation required
+TE--06,Backend identity,Present wrong log identity,verifier rejects before proof acceptance,verifier integration required
+TE--07,Proof verification,Run inclusion/consistency proof check,valid proof accepted; tampered proof rejected,external measurement required
+TE--08,Verifier state,Present stale checkpoint/fork,rollback/fork flagged,external measurement required
+TE--09,Failure artefact,Validate missing-witness/unavailable-proof path,failure path explicit; no false acceptance,external validation required
+TE--10,Security,Inspect authenticated/protected emission,unauthenticated emission rejected by deployment policy,external validation required
+TE--11,Privacy minimisation,Inspect anchors/details,no raw clinical payload stored in anchor,external validation required
+TE--12,BALP/ATNA mapping,Check derivation/mapping with packages,no unsupported conformance claim remains,external validation required
