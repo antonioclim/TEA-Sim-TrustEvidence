@@ -1,0 +1,15 @@
+{
+  "file": "storage_snapshots.csv",
+  "required_columns": [
+    "run_id",
+    "backend_id",
+    "workload_id",
+    "event_count",
+    "total_storage_bytes",
+    "artefact_bytes",
+    "backend_bytes",
+    "proof_bytes",
+    "snapshot_ns"
+  ],
+  "additional_columns_allowed": false
+}

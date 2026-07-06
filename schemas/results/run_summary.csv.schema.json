@@ -1,0 +1,17 @@
+{
+  "file": "run_summary.csv",
+  "required_columns": [
+    "run_id",
+    "workload_id",
+    "backend_id",
+    "repetition",
+    "seed",
+    "accepted_events",
+    "invalid_events",
+    "analysed_duration_s",
+    "throughput_eps",
+    "status",
+    "exclusion_reason"
+  ],
+  "additional_columns_allowed": false
+}

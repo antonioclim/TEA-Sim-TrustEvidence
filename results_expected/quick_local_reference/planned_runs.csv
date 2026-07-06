@@ -1,0 +1,11 @@
+run_id,workload_id,backend_id,repetition,seed,warmup_seed,planned_status
+W1-A1-memory-R01,W1,A1-memory,1,20260001,20360001,executed-local
+W1-A2-merkle-R01,W1,A2-merkle,1,20260001,20360001,executed-local
+W2-A1-memory-R01,W2,A1-memory,1,20260001,20360001,executed-local
+W2-A2-merkle-R01,W2,A2-merkle,1,20260001,20360001,executed-local
+W3-A1-memory-R01,W3,A1-memory,1,20260001,20360001,executed-local
+W3-A2-merkle-R01,W3,A2-merkle,1,20260001,20360001,executed-local
+W4-A1-memory-R01,W4,A1-memory,1,20260001,20360001,executed-local
+W4-A2-merkle-R01,W4,A2-merkle,1,20260001,20360001,executed-local
+W5-A1-memory-R01,W5,A1-memory,1,20260001,20360001,executed-local
+W5-A2-merkle-R01,W5,A2-merkle,1,20260001,20360001,executed-local

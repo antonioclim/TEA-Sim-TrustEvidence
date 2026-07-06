@@ -1,0 +1,11 @@
+run_id,workload_id,backend_id,repetition,seed,accepted_events,invalid_events,analysed_duration_s,throughput_eps,status,exclusion_reason
+W1-A1-memory-R01,W1,A1-memory,1,20260001,15,0,0.003225320,4650.701326,ok,
+W1-A2-merkle-R01,W1,A2-merkle,1,20260001,15,0,0.004040025,3712.848312,ok,
+W2-A1-memory-R01,W2,A1-memory,1,20260001,28,0,0.004256890,6577.571889,ok,
+W2-A2-merkle-R01,W2,A2-merkle,1,20260001,28,0,0.007753984,3611.046915,ok,
+W3-A1-memory-R01,W3,A1-memory,1,20260001,29,0,0.004562078,6356.752340,ok,
+W3-A2-merkle-R01,W3,A2-merkle,1,20260001,29,0,0.008438217,3436.744990,ok,
+W4-A1-memory-R01,W4,A1-memory,1,20260001,51,0,0.007736232,6592.356589,ok,
+W4-A2-merkle-R01,W4,A2-merkle,1,20260001,51,0,0.018361819,2777.502599,ok,
+W5-A1-memory-R01,W5,A1-memory,1,20260001,28,0,0.004253473,6582.855939,ok,
+W5-A2-merkle-R01,W5,A2-merkle,1,20260001,28,0,0.007990471,3504.173909,ok,

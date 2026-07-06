@@ -1,0 +1,11 @@
+run_id,query_id,backend_id,workload_id,query_type,latency_ms,result_count,status,error_code,started_ns,ended_ns
+W1-A1-memory-R01,W1-A1-memory-R01-Q1,A1-memory,W1,count-by-run,0.000098,15,ok,,7662163119135,7662163119233
+W1-A2-merkle-R01,W1-A2-merkle-R01-Q1,A2-merkle,W1,count-by-run,0.000103,15,ok,,7662167225856,7662167225959
+W2-A1-memory-R01,W2-A1-memory-R01-Q1,A1-memory,W2,count-by-run,0.000065,28,ok,,7662171535899,7662171535964
+W2-A2-merkle-R01,W2-A2-merkle-R01-Q1,A2-merkle,W2,count-by-run,0.000091,28,ok,,7662179337420,7662179337511
+W3-A1-memory-R01,W3-A1-memory-R01-Q1,A1-memory,W3,count-by-run,0.000078,29,ok,,7662183950603,7662183950681
+W3-A2-merkle-R01,W3-A2-merkle-R01-Q1,A2-merkle,W3,count-by-run,0.000117,29,ok,,7662192434217,7662192434334
+W4-A1-memory-R01,W4-A1-memory-R01-Q1,A1-memory,W4,count-by-run,0.000065,51,ok,,7662200225491,7662200225556
+W4-A2-merkle-R01,W4-A2-merkle-R01-Q1,A2-merkle,W4,count-by-run,0.000075,51,ok,,7662218643861,7662218643936
+W5-A1-memory-R01,W5-A1-memory-R01-Q1,A1-memory,W5,count-by-run,0.000060,28,ok,,7662222958194,7662222958254
+W5-A2-merkle-R01,W5-A2-merkle-R01-Q1,A2-merkle,W5,count-by-run,0.000083,28,ok,,7662230993321,7662230993404
