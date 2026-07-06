@@ -1,0 +1,6 @@
+COMMAND: python scripts/analyse_expert_panel.py --round1 examples/toy_non_evidence_round1.csv --round2 examples/toy_non_evidence_round2.csv --out examples/toy_non_evidence_consensus.csv
+RETURN_CODE: 0
+STDOUT:
+wrote examples/toy_non_evidence_consensus.csv; rows=3
+
+STDERR:
