@@ -38,7 +38,7 @@ addopts = "-q"
 markers = [
   "postgres: requires live PostgreSQL and psycopg",
   "external: requires Docker-composed HAPI/Fabric/Trillian/Rekor services",
-  "smoke: external-service integration smoke-harness tests"
+  "smoke: v2.0.0 smoke-harness tests"
 ]
 
 [tool.setuptools.package-data]

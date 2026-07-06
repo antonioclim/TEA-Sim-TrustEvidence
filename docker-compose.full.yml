@@ -1,4 +1,4 @@
-name: trustevidence-external
+name: trustevidence
 
 services:
   hapi-postgres:

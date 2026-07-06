@@ -1,15 +1,15 @@
 # Reproducibility
 
-The local reproducibility path is:
+This archive is structured so that reviewers can inspect and rerun the local reference-implementation checks without external services.
 
-```bash
-python -m pip install -e .[test]
-make ci-local
-make experiments
-make validate-results
-make analyse-results
-```
+Recommended local sequence:
 
-The expected local checks are source compilation, unit tests, static FHIR Shorthand checks, static implementation-guide checks, legal traceability validation, local experiment generation, result-schema validation and result analysis.
+1. Install Python dependencies listed in the requirements files.
+2. Run `python -m compileall src tests experiments scripts`.
+3. Run `python -m pytest tests -q`.
+4. Regenerate figures with `python figures/scripts/generate_jcis_figures.py`.
+5. Run `make quick`.
+6. Run `make evaluation-smoke`.
+7. Verify `SHA256SUMS.txt` and `FILE_MANIFEST.tsv` after extraction.
 
-External-service measurements over HAPI FHIR, PostgreSQL, Trillian, Rekor and Hyperledger Fabric are not claimed by the archived local results. To run those services, use `docker-compose.full.yml`, `make up`, `make smoke` and the external-service notes in `docs/EXTERNAL_SERVICES.md`.
+External services, full FHIR validators, PostgreSQL execution and transparency-log execution are deliberately not asserted unless the relevant tools and credentials are supplied by the maintainer.

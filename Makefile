@@ -9,7 +9,7 @@ WORKLOAD ?= data/workloads/W_SMOKE_AUDITEVENT.jsonl
 REPETITIONS ?= 10
 TE_BENCH_PROFILE ?= local
 TE_REQUIRE_LIVE ?= 0
-.PHONY: compile test validate-protocol validate-lji2 validate-fsh-static validate-ig-static validate-legal repository-check checksums verify-checksums ci-local reviewer-check release-check smoke-dry dry-run up down smoke external-preflight experiments validate-results analyse-results reproduce-v1 sushi-build ig-publisher
+.PHONY: compile test figures-jcis validate-results-schema evaluation-smoke quick validate-lji2 validate-fsh-static validate-ig-static validate-legal repository-check clean-runtime checksums verify-checksums ci-local reviewer-check release-check smoke-dry dry-run up down smoke external-preflight experiments validate-results analyse-results reproduce-v1 sushi-build ig-publisher
 compile:
 	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m compileall -q src tests experiments scripts
 test:
@@ -33,13 +33,15 @@ repository-check:
 	mkdir -p validation
 	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/repository_check.py | tee validation/REPOSITORY_CHECK.txt
 clean-runtime:
-	checksums:
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/clean_release.py --root .
+checksums: clean-runtime
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/make_output_manifest.py --output OUTPUT_MANIFEST.md
 	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/make_sha256sums.py --output SHA256SUMS.txt
 verify-checksums:
 	mkdir -p validation
-	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_sha256sums.py --root . --manifest SHA256SUMS.txt | tee validation/SHA256_requires-confirmation_REPORT.txt
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_sha256sums.py --root . --manifest SHA256SUMS.txt | tee validation/SHA256_VERIFY_REPORT.txt
 ci-local: compile test validate-protocol validate-lji2 validate-fsh-static validate-ig-static validate-legal repository-check
-	@echo "Local CI checks completed."
+	@echo "Local checks completed."
 reviewer-check: ci-local
 release-check: ci-local experiments validate-results analyse-results checksums verify-checksums
 	@echo "Release check completed."
@@ -74,3 +76,23 @@ sushi-build:
 ig-publisher:
 	@if [ -z "$(PUBLISHER_JAR)" ]; then echo "Set PUBLISHER_JAR=/path/to/publisher.jar"; exit 2; fi
 	java -jar $(PUBLISHER_JAR) -ig ig/ig.ini
+
+
+validate-results-schema:
+	mkdir -p validation
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/validate_results_schema.py --results-dir results | tee validation/RESULTS_SCHEMA_VALIDATION_REPORT.txt
+
+evaluation-smoke:
+	mkdir -p validation
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/run_evaluation_smoke.py | tee validation/EVALUATION_SMOKE.txt
+
+quick: compile test
+	mkdir -p validation results/quick
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) experiments/run_experiments.py --quick
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) experiments/validate_results.py --results-dir results/quick | tee validation/RESULTS_SCHEMA_VALIDATION_REPORT.txt
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) experiments/analyse_results.py --results-dir results/quick --out results/quick/statistical_summary.csv | tee validation/ANALYSIS_REPORT.txt
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/run_evaluation_smoke.py | tee validation/EVALUATION_SMOKE.txt
+
+figures-jcis:
+	mkdir -p figures/outputs
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$(PYTHONPATH) $(PYTHON) figures/scripts/generate_jcis_figures.py

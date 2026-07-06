@@ -1,39 +1,31 @@
-# TEA-Sim v2.0.0
+# TEA-Sim v2.0.1: auditable trust-evidence reference artefacts
 
-TEA-Sim is a reproducibility package for a standards-compatible TrustEvidence interface simulation and reference artefacts for auditable health information exchange. The package separates clinical payload custody from compact audit-evidence artefacts and compares central-audit, append-only hash-log and ledger-like evidence-storage alternatives under transparent workload assumptions.
+This archive contains the TEA-Sim reference implementation and supporting artefacts for an auditable trust-evidence boundary in health information systems. The package is intended for reviewer inspection and reproducible local evaluation.
 
-This repository is intentionally scoped. It provides simulation, local reference code, schemas, reproducibility scripts, draft FHIR Shorthand artefacts and documentation. It does not claim a production FHIR server, FHIR/BALP conformance, blockchain deployment, clinical validation, legal compliance or cryptographic benchmarking.
+The archive includes local reference implementation code, tests, generated figures, FHIR R4/BALP-facing draft artefacts, backend-evaluation workstreams, externally informed workload descriptors, property-validation artefacts and an expert-validation protocol. It does not claim production deployment, certification, legal compliance, clinical validation or full formal proof.
 
 ## Quick start
 
 ```bash
-python -m pip install -e .[test]
-make ci-local
-make experiments
-make validate-results
-make analyse-results
+python -m compileall src tests experiments scripts
+python -m pytest tests -q
+python figures/scripts/generate_jcis_figures.py
+make quick
+make evaluation-smoke
 ```
 
-For a shorter smoke check, see `QUICKSTART.md`. For full reproduction details, see `REPRODUCIBILITY.md`.
+The public release should be uploaded as a new version after final maintainer approval. The previous public Zenodo record is DOI `10.5281/zenodo.21193829`; this modified archive requires its own new version DOI before DOI-bound citation as a replacement record.
 
-## Main contents
+## Main directories
 
-- `src/` — Python package for TrustEvidence artefacts, reference backends, adapters and TEA-Sim compatibility.
-- `tests/` — unit and property-oriented tests.
-- `experiments/` — workload generation, experiment execution, result validation and analysis.
-- `data/` and `results/` — workload inputs and reproducible local outputs.
-- `figures/` — scripts and generated figures.
-- `schemas/` — JSON schemas for result files and TrustEvidence envelopes.
-- `ig/` — draft FHIR Shorthand source for the TrustEvidence implementation-guide artefacts.
-- `proofs/`, `decision/` and `legal/` — model, decision and traceability notes supporting the repository documentation.
-- `legacy/` — preserved v1.5.1 artefacts for continuity.
+- `src/` - Python reference implementation modules.
+- `tests/` - public tests for core behaviour and local property checks.
+- `experiments/` - local experiment and result-validation scripts.
+- `evaluation_workstreams/` - standards-facing, backend, workload and property-validation artefacts.
+- `protocols/` - future expert-validation protocol materials.
+- `figures/` and `figure_sources/` - script-generated figures and source CSVs.
+- `docs/`, `tables/`, `references/` - supporting documentation, tables and bibliographic artefacts.
 
-## Archived release
+## Scope boundary
 
-The clean v2.0.0 reproducibility package is archived on Zenodo at DOI: `10.5281/zenodo.21193829`.
-
-GitHub release: `https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.0`.
-
-## Citation
-
-Use `CITATION.cff` for citation metadata and cite the version-specific Zenodo DOI for the exact archive used.
+This is a design-science/reference-implementation package. It supports local reproducibility and claim-boundary inspection. It does not provide official FHIR/BALP conformance, PostgreSQL/A3 execution, real-world clinical deployment, legal compliance, expert consensus or complete formal verification.

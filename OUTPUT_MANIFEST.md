@@ -1,268 +1,540 @@
 # Output manifest
 
-This manifest lists the files included in the clean public release.
+Total files listed: 536
 
-| Path | Bytes | SHA-256 |
-|---|---:|---|
-| `.dockerignore` | 172 | `802558587bc68f1355f5ec1539f41c65a189cb0bf3ce8c2b2ef2d2d9b4960e0b` |
-| `.env.example` | 598 | `e9c1e6c8d704e83fb27603538d8461d39b164e5eb21a4b8b127474c0db5ce912` |
-| `.gitattributes` | 209 | `63e72c4307fb69a83231f23cb427088727a5cfa60fb9b6a57861cae23dd8374c` |
-| `.github/workflows/ci.yml` | 802 | `5b454ab79e21266a9a33ec96bcc898ddbe83c0eb67e61b5d639ac12715c4f8ae` |
-| `.gitignore` | 402 | `9b51721cdd437de937557e261558ce0f1dd9112b725c7dcc8893b53bf5ba6861` |
-| `.zenodo.json` | 1372 | `360261ce266b0be8d02940cf7b2a594dcc944f23dd4c4e9cb9da16253fb5ab58` |
-| `ARTEFACT_EVALUATION.md` | 561 | `fce3b0158f890b719f0f542853763abf7859df0825dcc0a23a2087ae9aba408c` |
-| `CHANGELOG.md` | 662 | `fa740a3f26653d2edb6fd9c2adcc7e450ac67d505ff603da56d92f4f1056b16f` |
-| `CITATION.cff` | 1073 | `a87fef25136e5f003b42bdac2f4b8ac4a5ccc393858b98b06db048fe925f4347` |
-| `LICENSE` | 901 | `fb45d51f658c8b92558a6eac66118988071298d3cc9c94fc0f2f5303be4e6c75` |
-| `MEASUREMENT_PROTOCOL.md` | 1510 | `b33d02e84897da01f93298e0ff9fbba022063eac109dd7a7084ff7020599ffb5` |
-| `Makefile` | 4678 | `5ac1d08040292624cca85de50c60500f51ca5de1cb8082bbae94e9ab1f9aa3e5` |
-| `QUICKSTART.md` | 397 | `f18ee335b6e6837a84f2614bc78c9bc32859ea11766485428376bced68b439cd` |
-| `README.md` | 2067 | `4de080516b4fe50412501eae03618150a73732a3041e76677385780e1b34773b` |
-| `REPRODUCIBILITY.md` | 695 | `e17948614b647e1d4e5861aea25354fde150c6118a021c088596b45c44bc53c5` |
-| `SPEC.md` | 2149 | `79acb7bd5500c801099f63c93eb793982d9b4841949b56d0882f2c1cf2a0c6f7` |
-| `THREAT_MODEL.md` | 2727 | `dd6e4e7fe6ac07adb0fa22d4a753c16b4f4b48c433017d845c13decf4a174e6c` |
-| `adapters/fabric/README.md` | 85 | `e1a81b5fcb103fcab793d7aaa00a98734a25cda947ca517c2a2358c17951b8ff` |
-| `adapters/rekor/README.md` | 80 | `336706312f1a0bf2693bd8350ebc5b7ddac5c27d39d0c852feb01e53977a55da` |
-| `adapters/trillian/README.md` | 90 | `7befafccc763cc3cc76220c56e774755ac56394382322ff0b8eb0aecbb43040d` |
-| `backends/README.md` | 106 | `0f8e2623151bf18870f2c67641e8124af534af21607b4a2952293977fee2488c` |
-| `chaincode/trustevidence_fabric/chaincode.go` | 1911 | `8b07fb197907d31995ce80af8b4dff9bc677475a70bc81a65adb0121de7f4011` |
-| `chaincode/trustevidence_fabric/go.mod` | 102 | `982809aebcfeda1c6a1dbbc9fa7e8021afeffc0c4be8d50110b96547edbeda08` |
-| `data/workloads/W_SMOKE_AUDITEVENT.jsonl` | 1821 | `575e3cfac771b0d3d14c97cce3b4497bec387277b652f36a10d71350f1b46a55` |
-| `decision/LJI2_SENSITIVITY_PLAN.md` | 1321 | `d587d0d2f196f42605ab814452c0d6f6d1592e68f66bcdad9d9a5ab278082c8e` |
-| `decision/LJI_1_RETIREMENT_BRIDGE.md` | 1372 | `e41db80a98653692ac05f6f4927a509fdf2b5f2f80604de47ecf86144b667cd4` |
-| `decision/LJI_2_0.md` | 2849 | `42d637653532503bdcb5e58f3d733de5bfc3b0f74e3880f50087361449eb9c8f` |
-| `docker/Dockerfile.harness` | 305 | `de039c0b98fec9e0851d1b050cf20f7db0138739c21f458dc9f4ee1f533cbc45` |
-| `docker-compose.full.yml` | 3703 | `8ccfceba6fe6c7114bf36e368f19be0eb0ccef9f9c0ef79b4a2dfd88108a1027` |
-| `docs/EXTERNAL_SERVICES.md` | 358 | `cb7d77d26f2ccd3657d6ea7c56ce7d1f475888bb3b30f723b728ec6ecd335d5e` |
-| `docs/IG_VALIDATION.md` | 305 | `22a0bcb97502c0e56dc244b270ae51c7da26a95d910100f702dd62103b35482c` |
-| `docs/LICENSE_DOCS_CC_BY_4_0.md` | 211 | `2e8d0ec373cd57221fb7201da5d92a7ce1e519966ae3b908066ef0aa4010c5bf` |
-| `docs/RESULT_SCHEMAS.md` | 64 | `a1c1abb99cf8d1487a3a7b8f81e53997bd4ffa86ef8b24425f2615f2b3a41746` |
-| `docs/SHA256SUMS_PROTOCOL.md` | 151 | `4942a137e20276cfacf5382773183813894a6fff77fa414a8d0454b880343944` |
-| `docs/STANDARDS_PATHWAY.md` | 270 | `a1567b3a33808bab297f9126352d569e64dc2dec1bcc6046b34ca6df8c77b19c` |
-| `docs/V1_COMPATIBILITY.md` | 185 | `7b175a027ca27e4adfa631170f007dc65a144043a664b214f60ef6d9faf1229f` |
-| `experiments/analyse_results.py` | 2302 | `e0af44f3263fb786de3989916559a4610e52c6723a04f5ba3d242ddb298a9d1f` |
-| `experiments/check_results_bundle.py` | 128 | `f5a0100ae43cfc2715dfc8df479a8f10206d75f0db850fe9816ad05f6ea28143` |
-| `experiments/run_experiments.py` | 7277 | `ecc5d850787dd9514ac331efd976d74f554015c6890a725e203437402c9ffbbc` |
-| `experiments/validate_protocol.py` | 1098 | `85ffe65c9db1d1eeba8942ad598d23aa1b39bee1bddb1e3711e65b2b91885454` |
-| `experiments/validate_results.py` | 1114 | `677a5527dab20428b1cb174d912931c8dbf22967a6aaa64b6f44842a2e4c5583` |
-| `experiments/workloads/W1.json` | 455 | `22f282e9c99924d9c71a83adf0f757f8843ee5290466de6f1d65588a29ce2363` |
-| `experiments/workloads/W2.json` | 455 | `e6434118ed5d88920b9b5cdae6796e38c4418b13da384e9f6eecb85fa47235e1` |
-| `experiments/workloads/W3.json` | 446 | `e4364de91ddbc716c721a1e091d99704b63558e1d5756b763cff495ecf24c436` |
-| `experiments/workloads/W4.json` | 404 | `c2fcc4285864d3a911eb8a380fc986df28cef1e7a7884c738371b7cb213c338d` |
-| `experiments/workloads/W5.json` | 479 | `383268b761404544c9d51077a4e4521dec2dcdc32961bd19118544053837ce13` |
-| `figures/outputs/figure_01_boundary.pdf` | 13658 | `c2ef1031ddf5eb07f7ec6800df05986b02cbfb2e777f87df38fdede12ec906fe` |
-| `figures/outputs/figure_01_boundary.png` | 26409 | `fbb85c276ae3698707639e2579e0cd54a93c58dbf7c610a2d80f1dfb09b83f26` |
-| `figures/outputs/figure_01_boundary.svg` | 31682 | `f60fd1f87cfb381c979efcb9dbf942ed7036e5c3065e87ffa13958cbbdd7c6f6` |
-| `figures/outputs/figure_02_property_matrix.pdf` | 13896 | `04194943e67df21bbc2a9ffd4aa35c835c95a001a7149b72a241cb89ddb97c44` |
-| `figures/outputs/figure_02_property_matrix.png` | 30908 | `0612e0489d38f059d11869493d8629e8a050c67cf2c8e3a7379890696d0d4518` |
-| `figures/outputs/figure_02_property_matrix.svg` | 47130 | `daf6fa01ddddf4ecfed5f3142822b7b4fad3658f4cf609a6485df34bbe49d67a` |
-| `figures/outputs/figure_03_envelope.pdf` | 10939 | `40e7b586dd780ecc2f26c3eff12bfd7c26b8e35350225a58989bf0a3da42f19b` |
-| `figures/outputs/figure_03_envelope.png` | 23130 | `6b5965e53cb30f77765c9e9caf7f6d9a8e2484e4d1196217a80e86b3a0f62bb0` |
-| `figures/outputs/figure_03_envelope.svg` | 24699 | `963e7cd5826ec0fb3e4104bfd3e7d54677265ab5c1a4b2ab580fc42d8db47eda` |
-| `figures/outputs/figure_04_emission_state_machine.pdf` | 12022 | `17cf811d7514a280b55021e7b2bcf3f0f36b519e20aee8f647b5f005bff43013` |
-| `figures/outputs/figure_04_emission_state_machine.png` | 22012 | `6bec04c79d2e8762e15d3c842a3be791a473b4c414cf57b6d80dabd020ad1301` |
-| `figures/outputs/figure_04_emission_state_machine.svg` | 27063 | `64789d07c4e706917b6cb3b636ef75a4327675194d2ad25137ea1ec9e6c76689` |
-| `figures/outputs/figure_05_stack.pdf` | 12184 | `8fd3e7e2a69cea5dc71ba76b3bd45f839cddf5480ee9d8f957742d89ff50ae54` |
-| `figures/outputs/figure_05_stack.png` | 21406 | `2caaf7fb15c6e2e5de623d89a54315f57eccd41453fffff51366497a71d4d452` |
-| `figures/outputs/figure_05_stack.svg` | 27166 | `623e81147b09e098591d83b1a335e285eb0cabe3e12786c23ed019ec9062c9d9` |
-| `figures/outputs/figure_07_ig_mapping.pdf` | 14197 | `ab90337a291ee528a07a66bb07c5b79c30f4e3f3fb5e8e093923a368dda82162` |
-| `figures/outputs/figure_07_ig_mapping.png` | 30902 | `ac1f3ae146797ce0be0f742cbe31d84ed0efee435b83849fb1cd42245f47bc98` |
-| `figures/outputs/figure_07_ig_mapping.svg` | 40784 | `252ce0bc09d2434a3a477f1b660c7fe7bb0a9249bd0c1a141f1e426c2ae697be` |
-| `figures/outputs/figure_08_traceability_lji.pdf` | 12988 | `18e79e81dc267fe8b7833d63d30a1fc270c74c2fd0adeb315d02b5bde9c2389e` |
-| `figures/outputs/figure_08_traceability_lji.png` | 26535 | `45b0df694ab7805e3e2bba597c23035f7a0db19d810ebc6d1728bf90b17fa54c` |
-| `figures/outputs/figure_08_traceability_lji.svg` | 32629 | `63c1e7bf4dfce4e1e6cb0a7427edbbd43cb5433697e2a2a76b1a7c53ea798bdb` |
-| `figures/scripts/figure_01_boundary.py` | 991 | `608daa3dd2e5a4852c769db0d8bb86125e817b2c322f50d627887320e199102e` |
-| `figures/scripts/figure_02_property_matrix.py` | 1118 | `e058333cdcd43da2856240a2095c89369dd0e50654a566bb539613bc61bc71f0` |
-| `figures/scripts/figure_03_envelope.py` | 1038 | `e0528345624658820b57fe6aa5e7f7d7ed41affb73a4a25f1da4fc12a9dc2435` |
-| `figures/scripts/figure_04_emission_state_machine.py` | 1067 | `f81ba282f99563b46fb03ea91c3d23c6f547bd8dc65d4e615429f5c539c69043` |
-| `figures/scripts/figure_05_stack.py` | 949 | `0ccdd88438370fd2df9c9e1258a4f88261075b62394a403901dbaef9ab705a0c` |
-| `figures/scripts/figure_06_results.py` | 858 | `86616a02b45a45f06135799baaf26ab40b823cb50f010d1968f2e625f49fd7cc` |
-| `figures/scripts/figure_07_ig_mapping.py` | 971 | `552ac8715c57451c095f33d6a0711b7fc53f37ed5f0f4a8aa1395f27a78dc61e` |
-| `figures/scripts/figure_08_traceability_lji.py` | 1026 | `f889839a8fc90783c512fce7da20bcb5428f04ff4a69edc447201ac6c6f68f2c` |
-| `figures/specs/FIGURE_PLAN.md` | 473 | `e250f80cc624f047776e6e599c6947a179b5b462576d03591aafa9dd4fa5eb22` |
-| `ig/R4_R5_DECISION.md` | 332 | `9035d9909336049f50cfa30fa65bc71e5d149cb58a34f24c2066655d69503fca` |
-| `ig/README.md` | 427 | `da35b02b89ce81114a99d9e4466b5f6aa21214eeb63c716703ff3b990cb10a72` |
-| `ig/VALIDATION_INSTRUCTIONS.md` | 425 | `5d84e77cbeb1572fc4f8fc7d65cbc41b59d832e0a8a29808f9a803ac44662321` |
-| `ig/ig.ini` | 110 | `c4a6f81707f9092a2a18a928519687543950710ced43743a11d8780a6c804fa7` |
-| `ig/input/fsh/aliases.fsh` | 927 | `85f8ab1a6a0a596037201ad82db9b302d2ca7891ccf2b5dc89829f356af263ee` |
-| `ig/input/fsh/capabilitystatements.fsh` | 3969 | `4a105b72a260cfd980fd2845ce44c985bb56ad35e506ce4a2ee5f83f9d652512` |
-| `ig/input/fsh/examples.fsh` | 17807 | `3b341dba85711afb577119fb2f7aa02a01721fddd81ed7cafebc79cc52efd48c` |
-| `ig/input/fsh/extensions.fsh` | 2206 | `5178a104d928ee28f6985074bf4c5e924e1a9b9fa57d929ad7ce748b53ea2440` |
-| `ig/input/fsh/profiles.fsh` | 1869 | `58c258a3dc77197d0f0ff2f6d856c1d6aadf7c6ab2ce393e27dccd6991656077` |
-| `ig/input/fsh/terminology.fsh` | 2945 | `d10ac5de2270e6628c00d98db7df9a227f595a2f0a334f26e12cd80d2a9e2b55` |
-| `ig/input/pagecontent/actors.md` | 296 | `31a871dde3ef551b543dc326fa1b9db333482e287022b4b4a8c0e43911167415` |
-| `ig/input/pagecontent/background.md` | 245 | `7e95c4391d00ae98c703bc73089cac72437ed39c8d61c5c1429bcc8d3486a982` |
-| `ig/input/pagecontent/balp-atna-mapping.md` | 296 | `0bf6b154c54224a6a96596feb4ebb4ccab477e3c92134e29c493d8fb4d4ee8e5` |
-| `ig/input/pagecontent/capabilitystatements.md` | 178 | `6d300e41a8c94f4563be2ea089f1e3c6da8e3c68e921b3de98e68e6ec026bd05` |
-| `ig/input/pagecontent/conformance.md` | 326 | `02e9864e78a1a5711b64ae8d92358da4dad70a08e7fe86c91b35677e7c22a4b6` |
-| `ig/input/pagecontent/index.md` | 264 | `b6751e403cae69272fd7f29d8a36fba61e7904835fa4cfa843d9b8a742f3eb23` |
-| `ig/input/pagecontent/privacy.md` | 241 | `ad81c24d2ef18ce407c2469a3b027dc7948a20df53cb750da92b9ff95bf97196` |
-| `ig/input/pagecontent/security.md` | 334 | `6f01e2e9e10d57f0aa1b61634eee58e162fffdefcf7f8f81884d41b7f1c754ae` |
-| `ig/input/pagecontent/validation.md` | 233 | `9cac7165e67b1508bf88e96134676078c07ff09c68e4874c104206c0ef8142bf` |
-| `ig/sushi-config.yaml` | 910 | `001741a822d7a01b7be60c1819f3216e33537364764ae4c19478d9f0686c39c8` |
-| `legacy/TEA-Sim-v1.5.1/.gitignore` | 77 | `4228f2ad11a7d12b8ec3c046665d6874a871b4d61a188132c211f425b9fb737d` |
-| `legacy/TEA-Sim-v1.5.1/.zenodo.json` | 1208 | `46af844243265ae01dd897c7a02a28f216ff80e2b68f81b0d72c970b89f5b0cc` |
-| `legacy/TEA-Sim-v1.5.1/CITATION.cff` | 785 | `7817c045fc94c120ba7930e7b40d95529c7f0afd5d287bb55cda4e0a8b1cc160` |
-| `legacy/TEA-Sim-v1.5.1/CONTRIBUTING.md` | 396 | `6a2265a0403d9addca21fd090df8b05f82e2a0e984719ad9b724db2cd7c0ca09` |
-| `legacy/TEA-Sim-v1.5.1/LICENSE` | 359 | `2c7143b142045b75dfae040bc02d4cff933d36ab88443f0c5b0051da8e11d454` |
-| `legacy/TEA-Sim-v1.5.1/OUTPUT_MANIFEST.md` | 2079 | `96e3689c82a135e3fa62f02d829859014e914e08373517cedd35f27295466fec` |
-| `legacy/TEA-Sim-v1.5.1/README.md` | 2317 | `5920f351476bd3e40805d6374180f29676416797af9a372321b5074f11ddff48` |
-| `legacy/TEA-Sim-v1.5.1/RELEASE_NOTES.md` | 849 | `92787444f32cee7bac1b2caa01d0e4fa9e38c71e315435eeeadcb470be9c8543` |
-| `legacy/TEA-Sim-v1.5.1/SHA256SUMS.txt` | 6185 | `f0faa0811b8c56233d429056627c073552dffc74641b81ec719c11456f6d4cf9` |
-| `legacy/TEA-Sim-v1.5.1/data/figure_specs/figure_1_edges.csv` | 451 | `51847e4c0ac94f3af483e75ab1cb2316e94775c9a2c00c04bf10974cd71de257` |
-| `legacy/TEA-Sim-v1.5.1/data/figure_specs/figure_1_groups.csv` | 204 | `e19c1659d0e66ab3bb61d550eedaf6e5e1112f7d2dc6b471ef5a51b44c5ec256` |
-| `legacy/TEA-Sim-v1.5.1/data/figure_specs/figure_1_legend.csv` | 165 | `aed822d2ca2fa2c2521f1b26b7ac8b70010f550c7086522d659feb31422cf460` |
-| `legacy/TEA-Sim-v1.5.1/data/figure_specs/figure_1_nodes.csv` | 616 | `d50edc9c5fa6a7ec40fd9fcf0d063575c173364c43672212070688d958b278c4` |
-| `legacy/TEA-Sim-v1.5.1/data/parameter_rationale_extended.csv` | 5663 | `0e023340b1ab66239c619aff6d54f6fe92fc59dadf08bc39d8c92991c5fe71c2` |
-| `legacy/TEA-Sim-v1.5.1/data/parameter_register.csv` | 3298 | `6aa0b2fb9dd3bc761102d989fe289363ae9501bdc94b0212c1441ec537c48067` |
-| `legacy/TEA-Sim-v1.5.1/data/scenario_matrix.csv` | 759 | `26a46449ae018cef875cc5eb2e4a38cc18d49ddede95dbb51569ccf9c97de2a9` |
-| `legacy/TEA-Sim-v1.5.1/docs/FIGURE_PROVENANCE.md` | 692 | `66def65e13a7083088779c40bef3c659e4f883b91f2c62b634a5ab2fd7485bb0` |
-| `legacy/TEA-Sim-v1.5.1/docs/STRESS_reporting_checklist.md` | 719 | `cfe93c2a5490f7b4a918561604d8a4053660f42194dbd24b9dfd0a5daddc8814` |
-| `legacy/TEA-Sim-v1.5.1/docs/model_logic.md` | 673 | `243b3fcdd10dcdfda158eea915cdabbfee764d3e50519cf0621f9f713f84ce39` |
-| `legacy/TEA-Sim-v1.5.1/docs/parameter_rationale.md` | 850 | `11c3af9d10ddb5f01e8191223db5e1ba363b74d8e29d19a47c04e49e4cd9e7f6` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_lji.pdf` | 12107 | `e35def76fc0c039927814142d60e40814399e3b0fc121c43df22f1533b4ee5fd` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_lji.png` | 41590 | `d531adeb873e036c4353dfd55247cc35b35f289958970f71fdd6b3c0ac364ccc` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_lji.svg` | 24361 | `4ab8fe28a3f1bbbcf5fe33a563f6dba8b7e3eda1bbb44483296c5fcc32a56a24` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_lji.tiff` | 414840 | `9a4ff569d970e86544bcfe16fbb678133ae1b5e433e2113c1012d2ed3f0ec1e3` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_privacy_score.pdf` | 15360 | `6e8429778e66f938986f182cc77bcef09d575fa0b66b4dc72d8bd4410aef122d` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_privacy_score.png` | 58911 | `dd4c2f59de715d3b4820f336b8d13320adab96af0302a248526b4961c719864f` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_privacy_score.svg` | 35502 | `77154591cac2accad79a9063fb1a8f9e063e06c52883c09a5f192220c85fc716` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_privacy_score.tiff` | 481710 | `94d92e7bdbe9cc0b89bc1b55c4decdd78d5ad346c61e9ad763531a397a4e99b6` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_storage_mb.pdf` | 14648 | `682350bd0bd06bba825fe09db6176fa0b3eda52007991611b4a71e9d0f61e5aa` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_storage_mb.png` | 57522 | `59b49defcf4aa2df4902cd60dea81427d1705994cb48d4c69c00c964b951f42d` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_storage_mb.svg` | 33025 | `1e3d90dcc94867af86049315ac7e64380292dd28328b7f0c7011d1a996ccbfe1` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_storage_mb.tiff` | 418850 | `9eaa22d2fcb9e1f6d0d1ca1d367066634044685d1c0a8243a34ade3ad01f89fc` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_teasim_architecture.pdf` | 17669 | `e79eb24f19a0dd3f6a097c1edea3a6d926dfabdd60ee999dbbb023630b78c72c` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_teasim_architecture.png` | 170356 | `d06b7a3ff934e681946bb795da13c92620b131426db4c8370272d0719b7a58f0` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_teasim_architecture.svg` | 61436 | `b0dae0e1ef09bddbffd9adfeac63fbfdd81d4aae649006ea749c7efc54869b8c` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_teasim_architecture.tiff` | 378606 | `e584ddd539c77505bda82d6628c9fee6d3d8900c00fd9a973a5e4476e98f151f` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_verification_units.pdf` | 14077 | `c5c9bda9c5ec08545f3d82f301c008e6238e9bcfb0e17789527628ee2ba7cffb` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_verification_units.png` | 61305 | `37f38c4d6119a405a7bb4a07fedfc33d134cac5df724f90350f32168719ca741` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_verification_units.svg` | 37665 | `dfc741829127fc57af87eebec6992d8d069edc613a0e1a1186b7090f36dab073` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_verification_units.tiff` | 515116 | `ab0d2faa2b5411f966d977807a4a59b1f489b2a12245a1abe5fa4c99fa42ded7` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_write_cost_units.pdf` | 14730 | `2f1bb9bcdadfe1e912de461432c72e1c4353644283f5319feb2d600a16f7d139` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_write_cost_units.png` | 61797 | `d10ede76a5144f604eba3693168691caf293b50a317e65d5fb42cd24a51ee5e8` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_write_cost_units.svg` | 39211 | `28ea5376f546e0a8801f8cd67664d0dad5f610dbe7f914ea08e6339d73518340` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_write_cost_units.tiff` | 523556 | `fdf0d4e6ccdbede67e7e1ea09f6eb36f5fda62652aa2ff744688491d8282c162` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/graphical_abstract.pdf` | 12706 | `b48c7ff1d3f1eae03a3ffe342acc1a01012ee34d5b348b0c9de8ec55ee3119ff` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/graphical_abstract.png` | 97465 | `7fddec72c300a773aa15452cd21e6cc6cbe8586a1f9f68b5265320541c776308` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/graphical_abstract.svg` | 37481 | `6b3d7eefeeb687906047f2925fe169f6e8f149834cca6785e885f4e2087c55c7` |
-| `legacy/TEA-Sim-v1.5.1/outputs/figures/graphical_abstract.tiff` | 170732 | `053c570286e6dd6700e67cb998b56d6a0930bf281e96aa070405d719cc6f246b` |
-| `legacy/TEA-Sim-v1.5.1/outputs/tables/replication_level_event_counts.csv` | 375681 | `07b8a7437001f04ff8ea134181580684d10780c58f14f28d4cfa836724eae348` |
-| `legacy/TEA-Sim-v1.5.1/outputs/tables/table_lji.csv` | 741 | `fa9209973fb8ea4c343c63e02b8e1e84f9340d5183451530455538c9b9a607ea` |
-| `legacy/TEA-Sim-v1.5.1/outputs/tables/table_main_results.csv` | 1764 | `13e3647a1ca570cef959e7b0d1062a0a643b5d3a657e062ade17c77da13e286a` |
-| `legacy/TEA-Sim-v1.5.1/outputs/tables/table_parameter_register.csv` | 3297 | `d54b80d03be5481fc57f0d38251fd08244ffa749864f237676a4413aae42ca95` |
-| `legacy/TEA-Sim-v1.5.1/outputs/tables/table_scenario_matrix.csv` | 752 | `fd827bddd5cb84e039f0c93f944690db639e51a1901a08e6124d1294c1f92300` |
-| `legacy/TEA-Sim-v1.5.1/outputs/tables/table_sensitivity_summary.csv` | 818 | `13fd392840b6c7df7b04b4a732c109c9ba52c93935be8687aefdd8522a133e3d` |
-| `legacy/TEA-Sim-v1.5.1/outputs/tables/table_threat_scenarios.csv` | 1178 | `a128cdcf3973fa2f747e48ddeabca4fbef9ed80524a2289bf10cbb024ff71d69` |
-| `legacy/TEA-Sim-v1.5.1/protocol/TEA-Sim_reproducibility_protocol.md` | 1133 | `2c2e9b5e39f035f1f14854e93083e663f483f2be39b2d11de7a1974329fe1520` |
-| `legacy/TEA-Sim-v1.5.1/references/TEASIM_references.bib` | 3817 | `b55109559119113679543edf34b117c4fb7ba27bd2db54f5929387298e7f5214` |
-| `legacy/TEA-Sim-v1.5.1/run_all.sh` | 167 | `e8231f3cab3fe15ca4ac18bc47c17773000dba92ab2e2135edf68583ad7211c2` |
-| `legacy/TEA-Sim-v1.5.1/src/environment.yml` | 110 | `2a38dd0f38607aa52b8351bfee26535673b56d0fce5c32a937149784fbbc80b6` |
-| `legacy/TEA-Sim-v1.5.1/src/figure_style.py` | 13480 | `f2c7e49ddcbf89d517552956231168321e29e20cbf87cdbdd25275c9b3a6f2e4` |
-| `legacy/TEA-Sim-v1.5.1/src/make_checksums.py` | 680 | `52f7a76cc955de44c3983f04cf2f1e564ea22c1e7b4b5cc68b693f08063b4c0d` |
-| `legacy/TEA-Sim-v1.5.1/src/requirements.txt` | 46 | `7f5908cf18dbcebf6c18bb892e7e3a3d2db790511539d6e684b00120025f60a6` |
-| `legacy/TEA-Sim-v1.5.1/src/teasim_reproduce.py` | 16477 | `a93406ec29fad29edf19c391c07ec283496097197fa71f0bb1fb1be5c4768ab7` |
-| `legal/LEGAL_TRACEABILITY.md` | 2212 | `957b7000da96f25d62c2a827fb4cba75ac7b73c7a7b9377254540b7016ae9429` |
-| `proofs/LJI2_WUST_GERVAIS_REFINEMENT.md` | 2895 | `d595c135bb6c32171c6f6dc61e711485183bdb33a67bef2f504228e2c6c58d38` |
-| `proofs/formal_core.md` | 2583 | `e479a0bbeb4a568dbf2a7de9ed0256e8ff87988a3aa44dbdf668d801d53d5e26` |
-| `pyproject.toml` | 1319 | `f15936d4fd96a2f682b662120233cd24d2f7b9eca21d37d7c5308ea47fab21c8` |
-| `references/SOURCE_REGISTER.md` | 463 | `9629a2ad654dcbd4bc62d54074065ff916a870312359a8aba7f45c7626a1974e` |
-| `references/references.bib` | 112 | `d3ec1b7112a4cc9fdf1d1d5b1f435d48a01e18a88d8dbe5660e82d6d3ab1eb13` |
-| `requirements-core.txt` | 87 | `f49c625a83c8a13c72b90771b3c18b7e8a743b4b30a04e4c59a6ac25280644b7` |
-| `requirements-external.txt` | 73 | `23aa48d41d06ff62b484516aaf09e6df11114820730598fbafcfd893bd456eab` |
-| `requirements-test.txt` | 49 | `997b2d54e2bd5baa6833f5a8118a704e4b58cd87721a35e2a3b81390ed48dbdd` |
-| `results/.gitkeep` | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
-| `results/README.md` | 141 | `7f1dec6227c272335ec39c9445e7b92594d812969679773fd2dabb8e1ed4938b` |
-| `results/anomaly_log.csv` | 85 | `57dccab0afbaff901754ffafc326832c967bef47d6e1bdd775bc586e03e6fbc3` |
-| `results/audit_query_measurements.csv` | 2233 | `ef25460303a245c250180a59dada41bab5c7bf1ddec11d6ea902c8569e52102e` |
-| `results/hardware_software_disclosure.csv` | 179 | `030b1807689fac9d28c427924ef95503ac8a60ca722b3f2d2b32928c606e58fe` |
-| `results/measurement_manifest.csv` | 1157 | `3779797ea355283cccccf3f5d3964b00ab61adad37c492c3a86f25f326762607` |
-| `results/planned_runs.csv` | 1394 | `659886b450404fcc91941c67cb9cf555aa7740f8514e156e6fbd312cebdfc066` |
-| `results/proof_measurements.csv` | 32816 | `e41a6082f133ea3065ab39bbdf85aece4b60247710e25045a4a0549db24c1f48` |
-| `results/raw_write_measurements.csv` | 56109 | `29cb516a4588ee77fa301f8115cf2f3ed5c56d4dc6bc78e261e69e621924a752` |
-| `results/run_summary.csv` | 1637 | `c610140848990d069bab9be39b4a4156eb98aa925b88373692822e8727a56b46` |
-| `results/service_preflight.csv` | 187 | `a6861b70ddcf50aa57c6144eeaeba055472edbd028654866ca0704f49e3a4672` |
-| `results/statistical_summary.csv` | 8150 | `0caff3d57b5ba227cd5d08fa3e3e70a01fa0970c18fafbe8e9ed9846bafd07f1` |
-| `results/storage_snapshots.csv` | 1486 | `8f3ee685177ce842e284e6864ff191e321eb6edbd9f0b6845adf41bb7713dceb` |
-| `schemas/results/anomaly_log.csv.schema.json` | 239 | `83629f92f3ef12a3e3c46bbc0e873e4b89810841e0fe909eab51e9d9711534b9` |
-| `schemas/results/audit_query_measurements.csv.schema.json` | 301 | `4e7e1a996e5b7591b48b02b39a9b5f20075ce7a94a4008116cfa031c91ead0fb` |
-| `schemas/results/hardware_software_disclosure.csv.schema.json` | 164 | `9c665eb9f443546dae10d6c32c7c9bccb1847221068eefb5a49e2f352e3f5179` |
-| `schemas/results/measurement_manifest.csv.schema.json` | 191 | `6dd2276019bc8a8d2cb65dd68c752c86aec8148d2920ebb5384deb8ea6b4c126` |
-| `schemas/results/planned_runs.csv.schema.json` | 222 | `54520a7c10e9fc409c9a86dec4223f6f481e35c94fd40aca14df22458cf51b49` |
-| `schemas/results/proof_measurements.csv.schema.json` | 259 | `2d67f853775753a69e7aeaa987db982bbe778f3310faca2539203baf2d66b4d4` |
-| `schemas/results/raw_write_measurements.csv.schema.json` | 337 | `0ff4780ab5871f61486d87fb2b2799d8409019e6b7e19ef4903727dc4f97de6d` |
-| `schemas/results/run_summary.csv.schema.json` | 312 | `48d7e6c2eb64173fd994e6ee5e221a590ff74c671ae9f05cb4e618e737862b1d` |
-| `schemas/results/service_preflight.csv.schema.json` | 243 | `2871d385f01e983965fa8e4201824497f7ecf535593f3847f79e542c27580a0a` |
-| `schemas/results/statistical_summary.csv.schema.json` | 300 | `3688cb1e02ce854ff3332906c7b41b73d6682fee6faa7a89c9a30a190fad8ea6` |
-| `schemas/results/storage_snapshots.csv.schema.json` | 283 | `c5615479f75995968966cd86137c3c54ad7d2a034fb62899c7f091187f866265` |
-| `scripts/external_preflight.py` | 224 | `39d40717bc38b5f1926b814bf92ea0c9cf50b88932131a920919115a898d5a62` |
-| `scripts/fabric_network_up.sh` | 487 | `37a4d2bd885a43b8ae05d731a629e67c24fa348f9b3c0c311b3a3c694d9ffd99` |
-| `scripts/generate_trillian_stubs.sh` | 561 | `31de89e58babb7ddd1858f54cda2c24d361772887e04d5cc47e135eea6039a8e` |
-| `scripts/make_sha256sums.py` | 1019 | `3706ea52cc48e1afc9e5f784ee1bd41a1fbaa550997002410d76744dc7b93af2` |
-| `scripts/repository_check.py` | 2157 | `2244486d9ee356acb847d2bf79f5eb14cc5a1dad7adb4814be9274b83d9b0955` |
-| `scripts/reproduce_v1_5_1.sh` | 136 | `28b2ba622236af2e1cde76ad5c324c8a51fa42dbc11d87e11298c4dda3228c68` |
-| `scripts/validate_fsh_static.py` | 1379 | `cc55f95278644c16a45148e08f809b36bf140dcd11bd43186dd9f84f70d57ecd` |
-| `scripts/validate_ig_static.py` | 1696 | `f0483c98aedfa69cba7ea2af0e29dd1b90a2f4f9375ce5b6142e3a132adfda4a` |
-| `scripts/validate_legal_traceability.py` | 833 | `d90138b71d761ebdacdf78cff36f3557921282873e2b1304471d74ab126d45ef` |
-| `scripts/validate_lji2.py` | 641 | `5eb2d01f3f24643186be02851bde05f743b13100e8e887ac8bd644df64a80190` |
-| `scripts/vendor_baselines.sh` | 808 | `2f45b45ca66feac8e4190c48c9e41344bf809f47bc4b1fd25074285698be1d1e` |
-| `scripts/verify_sha256sums.py` | 1031 | `c17c7e4deea8e4c8c6d1bac45ec18dd1e47fab577347b05cf700d37527d20606` |
-| `sql/a1_postgres.sql` | 740 | `d3ea3f8631feb629b86b08412e4146f4311fdc96f3cecea64d0f3e44211e23ed` |
-| `src/teasim/__init__.py` | 204 | `e64761d482f0c27aa7be5e2f71639a75afb086e00b8798bc013a85f09c7a9bb1` |
-| `src/teasim/__main__.py` | 79 | `307299fda7b77d22c64cb51430ec75e5f59d78e9c948786afb3b2544fe45e4b7` |
-| `src/teasim/cli.py` | 643 | `8ca83a956f9b356a83cd0613a939068ca3366b7693f43ccf5275036b0c451eed` |
-| `src/teasim/compat/__init__.py` | 57 | `5d29c8b3e3133a7f67dffcacdeaa9361edf93cc3432c0c9f2a859401cf39d50a` |
-| `src/teasim/compat/v1_5_1.py` | 1168 | `d10e2cb679895f7630522d0c6be58e71cf8099a427d7125a0594610193465751` |
-| `src/trustevidence/__init__.py` | 204 | `82def62876b06da4309f1ea197351f9204d6d58423b7d7275b2e171733e4b254` |
-| `src/trustevidence/adapters/__init__.py` | 487 | `6533df391d456974d44bf8fea348908347c092b05f795731745a64c34806fb88` |
-| `src/trustevidence/adapters/common.py` | 1381 | `6826455866d929c3c849c2f25889e4ec68f9c9aefd964d1cbcbcb73e5652b981` |
-| `src/trustevidence/adapters/fabric.py` | 3527 | `04ceb1b0e28bc84aedb18c19695e729f125101e8d3debc8d523c9fc9e3510b1b` |
-| `src/trustevidence/adapters/hapi.py` | 1484 | `140c41ff50b113a327e73e289a968a2712daf1db6ecf48e92d381796bc93251b` |
-| `src/trustevidence/adapters/rekor.py` | 4309 | `c0f29af7ee788f513ba1bcb458a7e4c429a2b68a0fdc87d52ecccdb3568ddf9e` |
-| `src/trustevidence/adapters/trillian_personality.py` | 5344 | `f448d4103ba8549553de638e7d49c46f96b5943eb4d16e426fb76f6c755218c6` |
-| `src/trustevidence/backends/__init__.py` | 94 | `a9d7d62d47db5a7016db4130d5da600f91fbbf64619ede6e66f950e1ea2f2e30` |
-| `src/trustevidence/backends/a1.py` | 2603 | `39c6d009bb62fa06878f0bca89ba1c98fc5f5d1f6e6c5d2584a20bb7c713831b` |
-| `src/trustevidence/backends/a2_merkle.py` | 5769 | `d05d92bd8759ebdb7c98715f96a233be2c240553d94016de9b14d4d6a9202a38` |
-| `src/trustevidence/canonical.py` | 2476 | `07aca9ec9a0fb9cc17a88d76cbacc75b0065a78bb4821918a5995f777dc9c48d` |
-| `src/trustevidence/crypto.py` | 2725 | `240efe01e7655ec471a46b6f9e2bce40d030733e6052210800f6a31224618efb` |
-| `src/trustevidence/envelope.py` | 1506 | `27a01f67074cb57333079434f0d0ccec1849e4c401d3a484c885938b39c32d59` |
-| `src/trustevidence/errors.py` | 888 | `3475c243214ee03659e4f55641bc054e9acd7dddb7b588ad69818c88aecb59f6` |
-| `src/trustevidence/harness/__init__.py` | 44 | `d547ff0b47283bbf0f65effc806354c4a92529c6d4176c8b9079261597676c70` |
-| `src/trustevidence/harness/replay_workload.py` | 3043 | `2080961dc2990fd85ac07ce41c36eed2010e8496c4d174249d47e8a53fafa241` |
-| `src/trustevidence/harness/smoke.py` | 2396 | `09e4aa39a65138c85910eaa52ef2857ad14a770d157a513142279237696ecab2` |
-| `src/trustevidence/harness/workload.py` | 2664 | `e01aba9884e136fbe215ff1c1fb3edc45e23bd0afa2377d5ed3ba6a6964a7867` |
-| `src/trustevidence/middleware.py` | 301 | `8b0bded9f3dae87584ecf77a3f5ed72cbb802c2f358884cde732ac361a747380` |
-| `src/trustevidence/proof_store.py` | 519 | `2bfd8c9d2267e159c94d7f932fba6124800168914d654dfb7f07fe195722387c` |
-| `src/trustevidence/schema.py` | 693 | `5c8f96755f2eb7d6abce833ed7f7e8a794de3f20d01e834797d41d77ba99cd95` |
-| `src/trustevidence/schemas/__init__.py` | 48 | `74bb88e5d4dfadd7814f70b8fa141bf9ff65aeb010e532ed0792625836ca9da4` |
-| `src/trustevidence/schemas/trust_evidence_envelope.schema.json` | 11079 | `5d66caadad7d2ed4044c85850b379138270fbedab4a8ad3e059b9f11fe38e04a` |
-| `src/trustevidence/validators.py` | 3133 | `7c2f10662a630526faf4417bc9970cb1f2dfc6913745c4f1be7782be0655da32` |
-| `tables/backend_adapter_trace.csv` | 1209 | `849c6f189f0fe2d232bdc97ede8fbf7d18d5d3bb22c8a825356a3b558d7d9afa` |
-| `tables/backends.csv` | 550 | `9bd2d388c552bf76788ca59a9579632ad569c8574ed09ec95a46bfce9f0996ce` |
-| `tables/balp_atna_mapping.csv` | 1518 | `6a115abb4ff35468fff6342c41ed6828edba1fb18b2f24247212e911c4646ab5` |
-| `tables/code_theorem_correspondence.csv` | 2787 | `4bcde66d37aee6981cd7308ece29141abc0735accfc5c31f83fe335d8a0d8dab` |
-| `tables/code_theorem_trace.csv` | 1252 | `668fa65b71e1aac50ac513e708790bdccbb98aeec097caa8e6c04d067ee4cd29` |
-| `tables/delphi_panel_criteria.csv` | 1060 | `d63ca8d5673ff22264cfd53b977f2035c06b27b48216b376d2c56e1d58f984b0` |
-| `tables/delphi_round_plan.csv` | 1156 | `ac4de76198789d34c3e2f501b1c14197edb901ad0e0d0da56040ad2e405c2591` |
-| `tables/fhir_capability_statements.csv` | 289 | `7b9891eef8d603bb9f9a304287836c0b67dbe0590fa76112272c5c978f374bd8` |
-| `tables/fhir_conformance_test_plan.csv` | 1698 | `2274182a37bef03df9f5b2692ac020e8b089bb31a375b691b612a4eb0c340636` |
-| `tables/fhir_ig_qa_checklist.csv` | 412 | `54e8380ec9c6f2eae8dc64c5f6660d46b40fdfce65e89b42c9a7d87c89b1ae9f` |
-| `tables/legal_traceability_matrix.csv` | 11880 | `5544d54bf1791855857d6c69b634267b3baf4c5a3b013710d16aed223ecd7e3e` |
-| `tables/lji1_retirement_bridge.csv` | 1908 | `a0daa627be0d164f7d052283284e5758fbf6f7de980c3fad90078ccf1da2a315` |
-| `tables/lji2_axioms.csv` | 2264 | `6b46327f8e29b616c9d60fe6db8238916b5e465db0b1bbfa537b1e6b24563e72` |
-| `tables/lji2_criteria.csv` | 6516 | `4176545f0a671fb389a3771ca8bb1177104749490aef177e972cb9b639203dd9` |
-| `tables/lji2_screening_rules.csv` | 1965 | `686059a217488ad93d4b71546a65e69b5d144e1693996f490d2f3babecc6a0eb` |
-| `tables/lji2_sensitivity_plan.csv` | 2615 | `f72919da6f0622132961a5e3767f2e6148df0dafdc1f274069b1b611e45a86ba` |
-| `tables/lji2_wuest_gervais_refinement.csv` | 2554 | `272d26edda6216fabad274a7a49b45ad47910b9b714b97dd941245697b816047` |
-| `tables/metrics.csv` | 1131 | `97c5760f9c5dc8b2c2ad13428e07c2716a6a094b8624ec7de3790bd21c5d9265` |
-| `tables/result_schemas.csv` | 1788 | `02c1f7b33cbb06f2ed59cc004426f84dc56d8bb63270a9e115a0a8d2a6222e27` |
-| `tables/run_matrix.csv` | 4764 | `8b4e2c1e0936332fa47d3b0ce8db927976de96e052ca5d8212a7d021dbdce76e` |
-| `tables/smoke_matrix.csv` | 1161 | `df6dce15469f9b29f4ff98eae2f18be6f3c2cd9a44d691dcf9f06668c39af612` |
-| `tables/standards_pathway.csv` | 692 | `28a1becb075d6e8afa826d7c6d97b25661327ba853f975fe7388c16b5ec96c79` |
-| `tables/workloads.csv` | 1214 | `c603798602d82398f0cf77263c8e18984229e6bf63a0b2196e32886f59f30948` |
-| `tests/access_attestation_envelope.example.json` | 3013 | `78868953ae7ca9aea8f41e49d673b280f3e0d091ea347752939040de7a31105c` |
-| `tests/conftest.py` | 491 | `f7343dbde12123f18400c4b389903a1e89039751e7c35cdef23dfbc8e7b22b4b` |
-| `tests/test_core.py` | 4520 | `9473db793a6b6f83f689a94aaf6e77fc6a751d44ae89e51f0fbe0814336a41ee` |
-| `tests/test_external_adapters.py` | 4189 | `eaf46c0a80a0d1ffbd1b3232a347ff42623e0ac04ad8f07262426f0247efcd0f` |
-| `tests/test_properties_hypothesis.py` | 2206 | `9808a2f8dc7fecb6e4b32eecebdf4c31ba47301c19a74c5c04281e0e8f923918` |
+- `.dockerignore` (172 bytes)
+- `.env.example` (592 bytes)
+- `.gitattributes` (209 bytes)
+- `.github/workflows/ci.yml` (802 bytes)
+- `.gitignore` (404 bytes)
+- `.zenodo.json` (1069 bytes)
+- `ARTEFACT_EVALUATION.md` (499 bytes)
+- `CHANGELOG.md` (501 bytes)
+- `CITATION.cff` (707 bytes)
+- `DATA_ACCESS.md` (701 bytes)
+- `FIGURE_GENERATION.md` (765 bytes)
+- `FIGURE_LAYOUT_QA.csv` (647 bytes)
+- `FILE_MANIFEST.tsv` (93710 bytes)
+- `GENERATED_FIGURES_CONTACT_SHEET.png` (471804 bytes)
+- `LICENSE` (901 bytes)
+- `MEASUREMENT_PROTOCOL.md` (7176 bytes)
+- `Makefile` (6151 bytes)
+- `QUICKSTART.md` (575 bytes)
+- `README.md` (2006 bytes)
+- `REPRODUCIBILITY.md` (745 bytes)
+- `REVIEWER_REPRODUCTION.md` (1163 bytes)
+- `REVIEWER_SCOPE_NOTE.md` (468 bytes)
+- `SPEC.md` (21931 bytes)
+- `THREAT_MODEL.md` (19563 bytes)
+- `adapters/fabric/README.md` (85 bytes)
+- `adapters/rekor/README.md` (80 bytes)
+- `adapters/trillian/README.md` (90 bytes)
+- `backends/README.md` (106 bytes)
+- `chaincode/trustevidence_fabric/chaincode.go` (1911 bytes)
+- `chaincode/trustevidence_fabric/go.mod` (102 bytes)
+- `data/workloads/W_SMOKE_AUDITEVENT.jsonl` (1776 bytes)
+- `decision/LJI2_SENSITIVITY_PLAN.md` (1331 bytes)
+- `decision/LJI_1_RETIREMENT_BRIDGE.md` (1410 bytes)
+- `decision/LJI_2_0.md` (4542 bytes)
+- `docker/Dockerfile.harness` (305 bytes)
+- `docker-compose.full.yml` (3694 bytes)
+- `docs/DOI_AND_METADATA_RECONCILIATION.md` (824 bytes)
+- `docs/DOI_AND_VERSIONING.md` (509 bytes)
+- `docs/EXTERNAL_SERVICES.md` (368 bytes)
+- `docs/IG_VALIDATION.md` (305 bytes)
+- `docs/LICENSE_DOCS_CC_BY_4_0.md` (211 bytes)
+- `docs/RESULT_SCHEMAS.md` (64 bytes)
+- `docs/SHA256SUMS_PROTOCOL.md` (151 bytes)
+- `docs/STANDARDS_PATHWAY.md` (270 bytes)
+- `docs/V1_COMPATIBILITY.md` (185 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/FHIR_BALP_CLAIM_BOUNDARY.md` (1801 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/LIMITATIONS.md` (676 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/README.md` (1283 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/SUSHI_IG_VALIDATOR_LOG_SUMMARY.md` (3927 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/VALIDATION_MATRIX.csv` (6818 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/VALIDATION_MATRIX_TEMPLATE.csv` (535 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/docs/FHIR_BALP_CLAIM_BOUNDARY.md` (1801 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/docs/SUSHI_IG_VALIDATOR_LOG_SUMMARY.md` (3927 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/docs/TRUSTEVIDENCE_FIELD_TO_FHIR_PATHS.csv` (1389 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/auditevent-consent-decision.json` (1503 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/auditevent-create-server.json` (1500 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/auditevent-disclosure.json` (1495 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/auditevent-query-server.json` (1504 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/auditevent-read-server.json` (1496 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/consent-grant.json` (794 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/consent-revocation.json` (801 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/observation-cgm-aggregate.json` (480 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/patient-example.json` (198 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/provenance-transform.json` (822 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/trustevidence-receipt-a2.json` (859 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/examples/trustevidence-receipt-a3.json` (858 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/figures/fhir_balp_validation_pipeline.svg` (2351 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/exp-params.json` (149 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/data/fsh-index.json` (2292 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/fsh-index.txt` (1430 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/includes/fsh-link-references.md` (1458 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/AuditEvent-te-auditevent-read-example.json` (1430 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/CodeSystem-te-backend-type-cs.json` (755 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/ImplementationGuide-te.trustevidence.json` (7861 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/StructureDefinition-te-backend-type.json` (8978 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/StructureDefinition-te-evidence-hash.json` (8626 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/StructureDefinition-te-policy-version.json` (8640 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/StructureDefinition-te-receipt-root.json` (8534 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/StructureDefinition-trustevidence-auditevent.json` (137061 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/StructureDefinition-trustevidence-consent.json` (106357 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/StructureDefinition-trustevidence-provenance.json` (70169 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/StructureDefinition-trustevidence-receipt.json` (39493 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/fsh-generated/fsh-generated/resources/ValueSet-te-backend-type-vs.json` (688 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/ig.ini` (114 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/auditevent-consent-decision.json` (1503 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/auditevent-create-server.json` (1500 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/auditevent-disclosure.json` (1495 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/auditevent-query-server.json` (1504 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/auditevent-read-server.json` (1496 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/consent-grant.json` (794 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/consent-revocation.json` (801 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/observation-cgm-aggregate.json` (480 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/patient-example.json` (198 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/provenance-transform.json` (822 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/trustevidence-receipt-a2.json` (859 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/examples/trustevidence-receipt-a3.json` (858 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/fsh/examples.fsh` (828 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/fsh/extensions.fsh` (1462 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/fsh/profiles.fsh` (1164 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/fsh/receipt_profile.fsh` (474 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/includes/menu.xml` (199 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/pagecontent/index.md` (286 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/input/pagecontent/mapping.md` (1432 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/ig/sushi-config.yaml` (537 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/scripts/download_fhir_tools.sh` (1069 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/scripts/install_sushi.sh` (248 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/scripts/local_json_integrity_lint.py` (4366 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/scripts/run_validation.sh` (2144 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/scripts/summarise_validation_logs.py` (697 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/source_snapshots/BALP_SOURCE_NOTE.md` (316 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/source_snapshots/hl7.fhir.r4.core_4.0.1_package.json` (578 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/source_snapshots/hl7.fhir.uv.extensions.r4_5.3.0-ballot-tc1_package.json` (845 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/source_snapshots/hl7.terminology.r4_7.0.1_package.json` (784 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/source_snapshots/ig_publisher_README.md` (8917 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/source_snapshots/ihe.iti.balp_1.1.4_package.json` (1550 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/source_snapshots/sushi_README.md` (11966 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/tools/README_TOOL_DOWNLOADS.md` (602 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/fhir_validator.log` (83 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/fhir_validator_exit_status.log` (24 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/ig_publisher.log` (73 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/ig_publisher_exit_status.log` (22 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/local_json_integrity_lint.csv` (1224 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/local_json_integrity_lint.log` (55 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/official_validation_status.log` (72 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/sushi.log` (2603 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/sushi_exit_status.log` (13 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/sushi_version.log` (243 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/tool_download_attempt.log` (2051 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/tool_versions.log` (170 bytes)
+- `evaluation_workstreams/01_fhir_balp_validation/validation_logs/validation_summary.json` (1816 bytes)
+- `evaluation_workstreams/02_real_backends/BACKEND_EXECUTION_REPORT.md` (7067 bytes)
+- `evaluation_workstreams/02_real_backends/HARDWARE_PROFILE.txt` (2188 bytes)
+- `evaluation_workstreams/02_real_backends/LIMITATIONS.md` (778 bytes)
+- `evaluation_workstreams/02_real_backends/QUICKSTART.md` (848 bytes)
+- `evaluation_workstreams/02_real_backends/README.md` (1931 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/backend_benchmark_summary.csv` (2415 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/commands.log` (3285 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/hardware_profile.txt` (2188 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/probes/a3_probe.json` (1017 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/probes/postgres_probe.json` (683 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep1.json` (4271 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep10.json` (4246 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep2.json` (4266 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep3.json` (4270 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep4.json` (4275 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep5.json` (4262 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep6.json` (4274 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep7.json` (4276 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep8.json` (4252 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n10000_rep9.json` (4271 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep1.json` (4171 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep10.json` (4179 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep2.json` (4157 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep3.json` (4168 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep4.json` (4188 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep5.json` (4189 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep6.json` (4161 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep7.json` (4164 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep8.json` (4181 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/A2_MERKLE_n1000_rep9.json` (4189 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/raw_runs/raw_run_index.json` (13269 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/repository_check_final.log` (121 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/sha256_verify_final.log` (40 bytes)
+- `evaluation_workstreams/02_real_backends/benchmark_outputs/tamper_detection_results.csv` (651 bytes)
+- `evaluation_workstreams/02_real_backends/docs/A1_POSTGRES_UNAVAILABLE.md` (496 bytes)
+- `evaluation_workstreams/02_real_backends/docs/A3_ATTEMPT_LOG.md` (493 bytes)
+- `evaluation_workstreams/02_real_backends/docs/BACKEND_CLAIM_BOUNDARY.md` (835 bytes)
+- `evaluation_workstreams/02_real_backends/docs/BENCHMARK_METHOD.md` (1069 bytes)
+- `evaluation_workstreams/02_real_backends/experiments/run_backend_benchmark.py` (9989 bytes)
+- `evaluation_workstreams/02_real_backends/experiments/tamper_tests.py` (3020 bytes)
+- `evaluation_workstreams/02_real_backends/figures/backend_execution_pipeline.svg` (2348 bytes)
+- `evaluation_workstreams/02_real_backends/merkle/merkle_log.py` (6104 bytes)
+- `evaluation_workstreams/02_real_backends/postgres/postgres_schema.sql` (699 bytes)
+- `evaluation_workstreams/02_real_backends/pyproject.toml` (410 bytes)
+- `evaluation_workstreams/02_real_backends/rekor/rekor_adapter.py` (1179 bytes)
+- `evaluation_workstreams/02_real_backends/scripts/probe_a3.py` (2070 bytes)
+- `evaluation_workstreams/02_real_backends/scripts/probe_postgres.py` (2281 bytes)
+- `evaluation_workstreams/02_real_backends/scripts/verify_sha256sums.py` (1158 bytes)
+- `evaluation_workstreams/02_real_backends/src/te_backend_upgrade/__init__.py` (52 bytes)
+- `evaluation_workstreams/02_real_backends/src/te_backend_upgrade/backends/postgres_schema.sql` (699 bytes)
+- `evaluation_workstreams/02_real_backends/src/te_backend_upgrade/canonical.py` (1828 bytes)
+- `evaluation_workstreams/02_real_backends/src/te_backend_upgrade/merkle_log.py` (6104 bytes)
+- `evaluation_workstreams/02_real_backends/src/te_backend_upgrade/postgres_backend.py` (3452 bytes)
+- `evaluation_workstreams/02_real_backends/src/te_backend_upgrade/rekor_adapter.py` (1179 bytes)
+- `evaluation_workstreams/02_real_backends/tests/test_merkle_log.py` (1949 bytes)
+- `evaluation_workstreams/03_workload_calibration/CALIBRATION_CLAIM_BOUNDARY.md` (1667 bytes)
+- `evaluation_workstreams/03_workload_calibration/CALIBRATION_REPORT.md` (4456 bytes)
+- `evaluation_workstreams/03_workload_calibration/DATA_LICENCE_AND_ACCESS_REPORT.md` (2032 bytes)
+- `evaluation_workstreams/03_workload_calibration/README.md` (2609 bytes)
+- `evaluation_workstreams/03_workload_calibration/benchmark_outputs/calibrated_a2_summary.csv` (2511 bytes)
+- `evaluation_workstreams/03_workload_calibration/benchmark_outputs/raw_runs/calibrated_a2_raw_runs.csv` (2511 bytes)
+- `evaluation_workstreams/03_workload_calibration/benchmark_outputs/raw_runs/json/C1_ROUTINE_SYNTHETIC_AMBULATORY_a2_raw.json` (17253 bytes)
+- `evaluation_workstreams/03_workload_calibration/benchmark_outputs/raw_runs/json/C2_WEARABLE_CGM_MONITORING_a2_raw.json` (17237 bytes)
+- `evaluation_workstreams/03_workload_calibration/benchmark_outputs/raw_runs/json/C3_FHIR_HETEROGENEITY_DEMO_a2_raw.json` (17128 bytes)
+- `evaluation_workstreams/03_workload_calibration/benchmark_outputs/raw_runs/json/C4_CROSS_ORGANISATIONAL_DISPUTE_a2_raw.json` (17278 bytes)
+- `evaluation_workstreams/03_workload_calibration/calibrated_scenarios/PARAMETER_REGISTER_CALIBRATED.csv` (5558 bytes)
+- `evaluation_workstreams/03_workload_calibration/calibrated_scenarios/bigideas_stats.csv` (1291 bytes)
+- `evaluation_workstreams/03_workload_calibration/calibrated_scenarios/calibrated_scenarios.csv` (1660 bytes)
+- `evaluation_workstreams/03_workload_calibration/calibrated_scenarios/mimic_fhir_stats.csv` (1114 bytes)
+- `evaluation_workstreams/03_workload_calibration/calibrated_scenarios/synthea_stats.csv` (635 bytes)
+- `evaluation_workstreams/03_workload_calibration/docs/DATA_SOURCE_VERIFICATION.md` (1084 bytes)
+- `evaluation_workstreams/03_workload_calibration/logs/build_calibrated_scenarios.log` (113 bytes)
+- `evaluation_workstreams/03_workload_calibration/logs/extract_bigideas_sample.log` (46 bytes)
+- `evaluation_workstreams/03_workload_calibration/logs/extract_mimic_sample.log` (48 bytes)
+- `evaluation_workstreams/03_workload_calibration/logs/extract_synthea_sample.log` (45 bytes)
+- `evaluation_workstreams/03_workload_calibration/logs/repository_check.log` (23 bytes)
+- `evaluation_workstreams/03_workload_calibration/logs/repository_check_final.log` (23 bytes)
+- `evaluation_workstreams/03_workload_calibration/logs/run_calibrated_a2.log` (695 bytes)
+- `evaluation_workstreams/03_workload_calibration/metadata/VERIFIED_PUBLIC_SOURCE_PARAMETERS.csv` (4802 bytes)
+- `evaluation_workstreams/03_workload_calibration/pyproject.toml` (312 bytes)
+- `evaluation_workstreams/03_workload_calibration/sample_data/bigideas/001/Dexcom.csv` (112 bytes)
+- `evaluation_workstreams/03_workload_calibration/sample_data/mimic_fhir/MimicObservationVitalSignsED.ndjson.gz` (126 bytes)
+- `evaluation_workstreams/03_workload_calibration/sample_data/mimic_fhir/MimicPatient.ndjson.gz` (88 bytes)
+- `evaluation_workstreams/03_workload_calibration/sample_data/synthea_fhir/sample_bundle.json` (386 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/build_calibrated_scenarios.py` (6771 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/download_or_fetch_synthea.sh` (181 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/download_physionet_manifests.sh` (447 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/extract_bigideas_stats.py` (3299 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/extract_mimic_fhir_stats.py` (2417 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/extract_synthea_stats.py` (2259 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/generate_synthea.sh` (200 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/run_calibrated_a2.py` (7200 bytes)
+- `evaluation_workstreams/03_workload_calibration/scripts/verify_sha256sums.py` (900 bytes)
+- `evaluation_workstreams/03_workload_calibration/smoke_outputs/bigideas_stats_sample.csv` (380 bytes)
+- `evaluation_workstreams/03_workload_calibration/smoke_outputs/mimic_fhir_stats_sample.csv` (381 bytes)
+- `evaluation_workstreams/03_workload_calibration/smoke_outputs/synthea_stats_sample.csv` (398 bytes)
+- `evaluation_workstreams/03_workload_calibration/src/te_backend_upgrade/__init__.py` (22 bytes)
+- `evaluation_workstreams/03_workload_calibration/src/te_backend_upgrade/backends/postgres_schema.sql` (706 bytes)
+- `evaluation_workstreams/03_workload_calibration/src/te_backend_upgrade/canonical.py` (2013 bytes)
+- `evaluation_workstreams/03_workload_calibration/src/te_backend_upgrade/merkle_log.py` (6180 bytes)
+- `evaluation_workstreams/03_workload_calibration/src/te_backend_upgrade/postgres_backend.py` (2797 bytes)
+- `evaluation_workstreams/03_workload_calibration/src/te_backend_upgrade/rekor_adapter.py` (1047 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/FORMAL_PROPERTY_RESULTS.md` (3057 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/PROPERTY_TO_CLAIM_MATRIX.csv` (2761 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/TOOL_AVAILABILITY_FORMAL.csv` (249 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/alloy/TrustEvidenceLog.als` (277 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/alloy/alloy_results.md` (107 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/bounded_model/bounded_model_check.py` (4166 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/bounded_model/bounded_model_failures.csv` (9 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/bounded_model/bounded_model_summary.csv` (161 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/bounded_model/bounded_model_summary.json` (284 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/hypothesis_tests/test_merkle_properties.py` (7626 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/logs/bounded_model.log` (244 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/logs/compileall.log` (852 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/logs/hypothesis.log` (3432 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/logs/repository_check.log` (75 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/logs/sha256_verify.log` (85 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/tla/TrustEvidenceLog.cfg` (36 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/tla/TrustEvidenceLog.tla` (336 bytes)
+- `evaluation_workstreams/04_formal_property_validation/04_formalisation/tla/tlc.log` (104 bytes)
+- `evaluation_workstreams/04_formal_property_validation/FORMAL_PROPERTY_CLAIM_BOUNDARY.md` (1228 bytes)
+- `evaluation_workstreams/04_formal_property_validation/FORMAL_PROPERTY_RESULTS.md` (3057 bytes)
+- `evaluation_workstreams/04_formal_property_validation/LIMITATIONS.md` (455 bytes)
+- `evaluation_workstreams/04_formal_property_validation/PROPERTY_TO_CLAIM_MATRIX.csv` (2761 bytes)
+- `evaluation_workstreams/04_formal_property_validation/QUICKSTART.md` (374 bytes)
+- `evaluation_workstreams/04_formal_property_validation/README.md` (536 bytes)
+- `evaluation_workstreams/04_formal_property_validation/REPRODUCIBILITY.md` (230 bytes)
+- `evaluation_workstreams/04_formal_property_validation/docs/FORMAL_PROPERTY_CLAIM_BOUNDARY.md` (1228 bytes)
+- `evaluation_workstreams/04_formal_property_validation/pyproject.toml` (47 bytes)
+- `evaluation_workstreams/04_formal_property_validation/requirements-formal.txt` (18 bytes)
+- `evaluation_workstreams/04_formal_property_validation/scripts/run_property_checks.py` (747 bytes)
+- `evaluation_workstreams/04_formal_property_validation/scripts/verify_sha256sums.py` (543 bytes)
+- `evaluation_workstreams/04_formal_property_validation/src/te_backend_upgrade/__init__.py` (90 bytes)
+- `evaluation_workstreams/04_formal_property_validation/src/te_backend_upgrade/backends/__init__.py` (0 bytes)
+- `evaluation_workstreams/04_formal_property_validation/src/te_backend_upgrade/backends/postgres_schema.sql` (113 bytes)
+- `evaluation_workstreams/04_formal_property_validation/src/te_backend_upgrade/canonical.py` (1405 bytes)
+- `evaluation_workstreams/04_formal_property_validation/src/te_backend_upgrade/merkle_log.py` (8659 bytes)
+- `evaluation_workstreams/04_formal_property_validation/src/te_backend_upgrade/postgres_backend.py` (126 bytes)
+- `evaluation_workstreams/04_formal_property_validation/src/te_backend_upgrade/rekor_adapter.py` (123 bytes)
+- `experiments/analyse_results.py` (3189 bytes)
+- `experiments/check_results_bundle.py` (128 bytes)
+- `experiments/run_experiments.py` (7575 bytes)
+- `experiments/validate_protocol.py` (1098 bytes)
+- `experiments/validate_results.py` (1114 bytes)
+- `experiments/workloads/W1.json` (497 bytes)
+- `experiments/workloads/W2.json` (497 bytes)
+- `experiments/workloads/W3.json` (485 bytes)
+- `experiments/workloads/W4.json` (446 bytes)
+- `experiments/workloads/W5.json` (521 bytes)
+- `figure_sources/README.md` (357 bytes)
+- `figure_sources/backend_benchmark_summary.csv` (2410 bytes)
+- `figure_sources/calibrated_a2_summary.csv` (2506 bytes)
+- `figure_sources/calibrated_scenarios.csv` (1625 bytes)
+- `figure_sources/figure1_edges.csv` (141 bytes)
+- `figure_sources/figure1_nodes.csv` (848 bytes)
+- `figure_sources/figure2_edges.csv` (215 bytes)
+- `figure_sources/figure2_nodes.csv` (806 bytes)
+- `figure_sources/figure3_edges.csv` (137 bytes)
+- `figure_sources/figure3_nodes.csv` (733 bytes)
+- `figure_sources/figure5_backend_tiles.csv` (495 bytes)
+- `figure_sources/figure_metadata.csv` (948 bytes)
+- `figure_sources/property_to_claim_matrix.csv` (2751 bytes)
+- `figure_sources/tamper_detection_results.csv` (643 bytes)
+- `figure_sources/validation_matrix.csv` (6805 bytes)
+- `figures/outputs/FIGURE_LAYOUT_QA.csv` (1569 bytes)
+- `figures/outputs/figure1_boundary_architecture.pdf` (20250 bytes)
+- `figures/outputs/figure1_boundary_architecture.png` (231774 bytes)
+- `figures/outputs/figure1_boundary_architecture.svg` (66596 bytes)
+- `figures/outputs/figure2_evidence_demotion_pipeline.pdf` (21763 bytes)
+- `figures/outputs/figure2_evidence_demotion_pipeline.png` (208323 bytes)
+- `figures/outputs/figure2_evidence_demotion_pipeline.svg` (72590 bytes)
+- `figures/outputs/figure3_a2_merkle_flow.pdf` (24187 bytes)
+- `figures/outputs/figure3_a2_merkle_flow.png` (237817 bytes)
+- `figures/outputs/figure3_a2_merkle_flow.svg` (76040 bytes)
+- `figures/outputs/figure4_workload_descriptors.pdf` (23513 bytes)
+- `figures/outputs/figure4_workload_descriptors.png` (351261 bytes)
+- `figures/outputs/figure4_workload_descriptors.svg` (101351 bytes)
+- `figures/outputs/figure5_backend_decision_map.pdf` (14581 bytes)
+- `figures/outputs/figure5_backend_decision_map.png` (298785 bytes)
+- `figures/outputs/figure5_backend_decision_map.svg` (76521 bytes)
+- `figures/scripts/generate_jcis_figures.py` (18227 bytes)
+- `ig/DECISION_R4_VS_R5.md` (600 bytes)
+- `ig/VALIDATION_INSTRUCTIONS.md` (238 bytes)
+- `ig/ig.ini` (110 bytes)
+- `ig/input/fsh/aliases.fsh` (939 bytes)
+- `ig/input/fsh/capabilitystatements.fsh` (3949 bytes)
+- `ig/input/fsh/examples.fsh` (18575 bytes)
+- `ig/input/fsh/extensions.fsh` (2206 bytes)
+- `ig/input/fsh/profiles.fsh` (1841 bytes)
+- `ig/input/fsh/terminology.fsh` (2931 bytes)
+- `ig/input/pagecontent/actors.md` (296 bytes)
+- `ig/input/pagecontent/background.md` (245 bytes)
+- `ig/input/pagecontent/balp-atna-mapping.md` (289 bytes)
+- `ig/input/pagecontent/capabilitystatements.md` (171 bytes)
+- `ig/input/pagecontent/conformance.md` (326 bytes)
+- `ig/input/pagecontent/index.md` (264 bytes)
+- `ig/input/pagecontent/privacy.md` (241 bytes)
+- `ig/input/pagecontent/security.md` (334 bytes)
+- `ig/input/pagecontent/validation.md` (225 bytes)
+- `ig/sushi-config.yaml` (893 bytes)
+- `legacy/TEA-Sim-v1.5.1/.gitignore` (77 bytes)
+- `legacy/TEA-Sim-v1.5.1/.zenodo.json` (1208 bytes)
+- `legacy/TEA-Sim-v1.5.1/CITATION.cff` (785 bytes)
+- `legacy/TEA-Sim-v1.5.1/CONTRIBUTING.md` (396 bytes)
+- `legacy/TEA-Sim-v1.5.1/LICENSE` (359 bytes)
+- `legacy/TEA-Sim-v1.5.1/README.md` (2317 bytes)
+- `legacy/TEA-Sim-v1.5.1/RELEASE_NOTES.md` (807 bytes)
+- `legacy/TEA-Sim-v1.5.1/data/figure_specs/figure_1_edges.csv` (451 bytes)
+- `legacy/TEA-Sim-v1.5.1/data/figure_specs/figure_1_groups.csv` (204 bytes)
+- `legacy/TEA-Sim-v1.5.1/data/figure_specs/figure_1_legend.csv` (165 bytes)
+- `legacy/TEA-Sim-v1.5.1/data/figure_specs/figure_1_nodes.csv` (616 bytes)
+- `legacy/TEA-Sim-v1.5.1/data/parameter_rationale_extended.csv` (5663 bytes)
+- `legacy/TEA-Sim-v1.5.1/data/parameter_register.csv` (3298 bytes)
+- `legacy/TEA-Sim-v1.5.1/data/scenario_matrix.csv` (759 bytes)
+- `legacy/TEA-Sim-v1.5.1/docs/FIGURE_PROVENANCE.md` (692 bytes)
+- `legacy/TEA-Sim-v1.5.1/docs/STRESS_reporting_checklist.md` (719 bytes)
+- `legacy/TEA-Sim-v1.5.1/docs/model_logic.md` (673 bytes)
+- `legacy/TEA-Sim-v1.5.1/docs/parameter_rationale.md` (850 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_lji.pdf` (12107 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_lji.png` (41590 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_lji.svg` (24361 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_lji.tiff` (414840 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_privacy_score.pdf` (15360 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_privacy_score.png` (58911 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_privacy_score.svg` (35502 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_privacy_score.tiff` (481710 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_storage_mb.pdf` (14648 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_storage_mb.png` (57522 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_storage_mb.svg` (33025 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_storage_mb.tiff` (418850 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_teasim_architecture.pdf` (17669 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_teasim_architecture.png` (170356 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_teasim_architecture.svg` (61436 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_teasim_architecture.tiff` (378606 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_verification_units.pdf` (14077 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_verification_units.png` (61305 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_verification_units.svg` (37665 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_verification_units.tiff` (515116 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_write_cost_units.pdf` (14730 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_write_cost_units.png` (61797 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_write_cost_units.svg` (39211 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/figure_write_cost_units.tiff` (523556 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/graphical_abstract.pdf` (12706 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/graphical_abstract.png` (97465 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/graphical_abstract.svg` (37481 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/figures/graphical_abstract.tiff` (170732 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/tables/replication_level_event_counts.csv` (375681 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/tables/table_lji.csv` (741 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/tables/table_main_results.csv` (1764 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/tables/table_parameter_register.csv` (3297 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/tables/table_scenario_matrix.csv` (752 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/tables/table_sensitivity_summary.csv` (818 bytes)
+- `legacy/TEA-Sim-v1.5.1/outputs/tables/table_threat_scenarios.csv` (1172 bytes)
+- `legacy/TEA-Sim-v1.5.1/protocol/TEA-Sim_reproducibility_protocol.md` (1133 bytes)
+- `legacy/TEA-Sim-v1.5.1/references/TEASIM_references.bib` (3817 bytes)
+- `legacy/TEA-Sim-v1.5.1/run_all.sh` (167 bytes)
+- `legacy/TEA-Sim-v1.5.1/src/environment.yml` (110 bytes)
+- `legacy/TEA-Sim-v1.5.1/src/figure_style.py` (13480 bytes)
+- `legacy/TEA-Sim-v1.5.1/src/make_checksums.py` (680 bytes)
+- `legacy/TEA-Sim-v1.5.1/src/requirements.txt` (46 bytes)
+- `legacy/TEA-Sim-v1.5.1/src/teasim_reproduce.py` (16479 bytes)
+- `legal/LEGAL_TRACEABILITY.md` (13562 bytes)
+- `proofs/LJI2_WUST_GERVAIS_REFINEMENT.md` (3360 bytes)
+- `proofs/formal_core_v1.md` (24297 bytes)
+- `protocols/05_expert_validation_protocol/EXPERT_VALIDATION_PROTOCOL_ONLY.md` (3583 bytes)
+- `protocols/05_expert_validation_protocol/LJI_STATUS_DECISION.md` (1019 bytes)
+- `protocols/05_expert_validation_protocol/README.md` (1872 bytes)
+- `protocols/05_expert_validation_protocol/REPRODUCIBILITY_SMOKE_LOG.txt` (272 bytes)
+- `protocols/05_expert_validation_protocol/examples/TOY_DATA_NOTICE.md` (263 bytes)
+- `protocols/05_expert_validation_protocol/examples/toy_non_evidence_consensus.csv` (889 bytes)
+- `protocols/05_expert_validation_protocol/examples/toy_non_evidence_round1.csv` (2651 bytes)
+- `protocols/05_expert_validation_protocol/examples/toy_non_evidence_round2.csv` (2651 bytes)
+- `protocols/05_expert_validation_protocol/instruments/PARTICIPANT_INFORMATION_AND_CONSENT.md` (932 bytes)
+- `protocols/05_expert_validation_protocol/instruments/ROUND1_QUESTIONNAIRE.csv` (6733 bytes)
+- `protocols/05_expert_validation_protocol/instruments/ROUND2_QUESTIONNAIRE.csv` (8533 bytes)
+- `protocols/05_expert_validation_protocol/instruments/ROUND_ITEM_REGISTER.csv` (1565 bytes)
+- `protocols/05_expert_validation_protocol/protocol/ANALYSIS_PLAN.md` (1070 bytes)
+- `protocols/05_expert_validation_protocol/protocol/DATA_MANAGEMENT_PLAN.md` (717 bytes)
+- `protocols/05_expert_validation_protocol/protocol/ETHICS_DETERMINATION_REQUEST_TEMPLATE.md` (1234 bytes)
+- `protocols/05_expert_validation_protocol/protocol/EXPERT_PANEL_PROTOCOL.md` (3583 bytes)
+- `protocols/05_expert_validation_protocol/recruitment/ELIGIBILITY_AND_CONFLICT_CONTROLS.md` (680 bytes)
+- `protocols/05_expert_validation_protocol/recruitment/EMAIL_INVITATION_TEMPLATE.md` (703 bytes)
+- `protocols/05_expert_validation_protocol/recruitment/PANEL_SAMPLING_FRAME.csv` (1599 bytes)
+- `protocols/05_expert_validation_protocol/reporting/CONSENSUS_MATRIX_STATUS.csv` (420 bytes)
+- `protocols/05_expert_validation_protocol/reporting/CREDES_DELPHISTAR_RAND_MAPPING.csv` (830 bytes)
+- `protocols/05_expert_validation_protocol/reporting/EXPERT_VALIDATION_CLAIM_BOUNDARY.md` (547 bytes)
+- `protocols/05_expert_validation_protocol/scripts/analyse_expert_panel.py` (3122 bytes)
+- `pyproject.toml` (1297 bytes)
+- `references/references_capability_statement.bib` (187 bytes)
+- `references/references_decision_framework.bib` (2034 bytes)
+- `references/references_external_services.bib` (990 bytes)
+- `references/references_fhir_ihe.bib` (989 bytes)
+- `references/references_legal_traceability.bib` (794 bytes)
+- `references/references_prior_work.bib` (3972 bytes)
+- `references/references_simulation_reporting.bib` (688 bytes)
+- `requirements-core.txt` (87 bytes)
+- `requirements-external.txt` (73 bytes)
+- `requirements-test.txt` (49 bytes)
+- `results_expected/quick_local_reference/README.md` (276 bytes)
+- `results_expected/quick_local_reference/anomaly_log.csv` (85 bytes)
+- `results_expected/quick_local_reference/audit_query_measurements.csv` (1193 bytes)
+- `results_expected/quick_local_reference/hardware_software_disclosure.csv` (179 bytes)
+- `results_expected/quick_local_reference/measurement_manifest.csv` (1159 bytes)
+- `results_expected/quick_local_reference/planned_runs.csv` (734 bytes)
+- `results_expected/quick_local_reference/proof_measurements.csv` (16457 bytes)
+- `results_expected/quick_local_reference/raw_write_measurements.csv` (28727 bytes)
+- `results_expected/quick_local_reference/run_summary.csv` (887 bytes)
+- `results_expected/quick_local_reference/service_preflight.csv` (187 bytes)
+- `results_expected/quick_local_reference/statistical_summary.csv` (6290 bytes)
+- `results_expected/quick_local_reference/storage_snapshots.csv` (811 bytes)
+- `schemas/results/anomaly_log.csv.schema.json` (239 bytes)
+- `schemas/results/audit_query_measurements.csv.schema.json` (301 bytes)
+- `schemas/results/hardware_software_disclosure.csv.schema.json` (164 bytes)
+- `schemas/results/measurement_manifest.csv.schema.json` (191 bytes)
+- `schemas/results/planned_runs.csv.schema.json` (222 bytes)
+- `schemas/results/proof_measurements.csv.schema.json` (259 bytes)
+- `schemas/results/raw_write_measurements.csv.schema.json` (337 bytes)
+- `schemas/results/run_summary.csv.schema.json` (312 bytes)
+- `schemas/results/service_preflight.csv.schema.json` (243 bytes)
+- `schemas/results/statistical_summary.csv.schema.json` (300 bytes)
+- `schemas/results/storage_snapshots.csv.schema.json` (283 bytes)
+- `scripts/clean_release.py` (873 bytes)
+- `scripts/external_preflight.py` (234 bytes)
+- `scripts/fabric_network_up.sh` (487 bytes)
+- `scripts/generate_trillian_stubs.sh` (545 bytes)
+- `scripts/make_file_manifest.py` (2191 bytes)
+- `scripts/make_output_manifest.py` (1352 bytes)
+- `scripts/make_sha256sums.py` (1200 bytes)
+- `scripts/repository_check.py` (3917 bytes)
+- `scripts/reproduce_v1_5_1.sh` (136 bytes)
+- `scripts/run_evaluation_smoke.py` (2091 bytes)
+- `scripts/validate_fsh_static.py` (1379 bytes)
+- `scripts/validate_ig_static.py` (1696 bytes)
+- `scripts/validate_legal_traceability.py` (856 bytes)
+- `scripts/validate_lji2.py` (641 bytes)
+- `scripts/validate_results_schema.py` (339 bytes)
+- `scripts/vendor_baselines.sh` (808 bytes)
+- `scripts/verify_file_manifest.py` (1251 bytes)
+- `scripts/verify_sha256sums.py` (1568 bytes)
+- `sql/a1_postgres.sql` (740 bytes)
+- `src/te_backend_upgrade/__init__.py` (90 bytes)
+- `src/te_backend_upgrade/backends/__init__.py` (0 bytes)
+- `src/te_backend_upgrade/backends/postgres_schema.sql` (113 bytes)
+- `src/te_backend_upgrade/canonical.py` (1405 bytes)
+- `src/te_backend_upgrade/merkle_log.py` (8659 bytes)
+- `src/te_backend_upgrade/postgres_backend.py` (126 bytes)
+- `src/te_backend_upgrade/rekor_adapter.py` (123 bytes)
+- `src/teasim/__init__.py` (204 bytes)
+- `src/teasim/__main__.py` (79 bytes)
+- `src/teasim/cli.py` (643 bytes)
+- `src/teasim/compat/__init__.py` (57 bytes)
+- `src/teasim/compat/v1_5_1.py` (1168 bytes)
+- `src/trustevidence/__init__.py` (204 bytes)
+- `src/trustevidence/adapters/__init__.py` (498 bytes)
+- `src/trustevidence/adapters/common.py` (1381 bytes)
+- `src/trustevidence/adapters/fabric.py` (3527 bytes)
+- `src/trustevidence/adapters/hapi.py` (1486 bytes)
+- `src/trustevidence/adapters/rekor.py` (4302 bytes)
+- `src/trustevidence/adapters/trillian_personality.py` (5344 bytes)
+- `src/trustevidence/backends/__init__.py` (94 bytes)
+- `src/trustevidence/backends/a1.py` (2603 bytes)
+- `src/trustevidence/backends/a2_merkle.py` (5769 bytes)
+- `src/trustevidence/canonical.py` (2476 bytes)
+- `src/trustevidence/crypto.py` (2725 bytes)
+- `src/trustevidence/envelope.py` (1511 bytes)
+- `src/trustevidence/errors.py` (888 bytes)
+- `src/trustevidence/harness/__init__.py` (34 bytes)
+- `src/trustevidence/harness/replay_workload.py` (3021 bytes)
+- `src/trustevidence/harness/smoke.py` (2411 bytes)
+- `src/trustevidence/harness/workload.py` (2654 bytes)
+- `src/trustevidence/middleware.py` (301 bytes)
+- `src/trustevidence/proof_store.py` (519 bytes)
+- `src/trustevidence/schema.py` (693 bytes)
+- `src/trustevidence/schemas/__init__.py` (48 bytes)
+- `src/trustevidence/schemas/trust_evidence_envelope.schema.json` (11084 bytes)
+- `src/trustevidence/validators.py` (3133 bytes)
+- `tables/backend_adapter_trace.csv` (1295 bytes)
+- `tables/backends.csv` (685 bytes)
+- `tables/balp_atna_mapping.csv` (1518 bytes)
+- `tables/code_theorem_correspondence.csv` (2964 bytes)
+- `tables/code_theorem_trace.csv` (1501 bytes)
+- `tables/delphi_panel_criteria.csv` (1160 bytes)
+- `tables/delphi_round_plan.csv` (1257 bytes)
+- `tables/fhir_capability_statements.csv` (289 bytes)
+- `tables/fhir_conformance_test_plan.csv` (1693 bytes)
+- `tables/fhir_ig_qa_checklist.csv` (550 bytes)
+- `tables/legal_traceability_matrix.csv` (11935 bytes)
+- `tables/lji1_retirement_bridge.csv` (1827 bytes)
+- `tables/lji2_axioms.csv` (2476 bytes)
+- `tables/lji2_criteria.csv` (6144 bytes)
+- `tables/lji2_screening_rules.csv` (2017 bytes)
+- `tables/lji2_sensitivity_plan.csv` (2649 bytes)
+- `tables/lji2_wuest_gervais_refinement.csv` (2840 bytes)
+- `tables/metrics.csv` (1331 bytes)
+- `tables/property_backend_adversary_matrix.csv` (13738 bytes)
+- `tables/result_schemas.csv` (2085 bytes)
+- `tables/run_matrix.csv` (4764 bytes)
+- `tables/smoke_matrix.csv` (1212 bytes)
+- `tables/standards_pathway.csv` (602 bytes)
+- `tables/workloads.csv` (1421 bytes)
+- `tests/access_attestation_envelope.example.json` (3018 bytes)
+- `tests/conftest.py` (491 bytes)
+- `tests/test_adapters.py` (4177 bytes)
+- `tests/test_core.py` (4520 bytes)
+- `tests/test_merkle_property_evaluation.py` (7741 bytes)
+- `tests/test_properties_hypothesis.py` (2206 bytes)

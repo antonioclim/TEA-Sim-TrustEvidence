@@ -1,5 +1,17 @@
 # Artefact evaluation notes
 
-The repository is prepared for reproducibility review. It provides source code, tests, reproducibility commands, schemas, generated local outputs, checksums, draft FHIR Shorthand artefacts and documentation.
+This repository is designed for source-level inspection and reproducibility. It
+provides installable Python packages, tests, deterministic local experiments,
+result schemas, analysis code, a preserved v1.5.1 reproduction tree, draft FHIR
+Shorthand source and Docker entry points for live service integrations.
 
-The local claims are limited to the commands that can be run from the repository. External-service claims require an external Docker-capable environment and corresponding returned logs. The repository does not claim an artefact-review badge, production deployment, certification, legal compliance or FHIR/BALP conformance.
+Reviewers can run:
+
+```bash
+python -m pip install -e '.[test]'
+make ci-local
+make experiments
+make validate-results
+make analyse-results
+make reproduce-v1
+```

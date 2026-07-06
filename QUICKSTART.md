@@ -1,13 +1,13 @@
 # Quick start
 
-Install the package and run the local reproducibility checks:
+Run the local checks from the archive root. The commands below are intended for a local Python environment with the packages listed in `requirements-core.txt` and `requirements-test.txt`.
 
 ```bash
-python -m pip install -e .[test]
-make ci-local
-make experiments
-make validate-results
-make analyse-results
+python -m compileall src tests experiments scripts
+python -m pytest tests -q
+python figures/scripts/generate_jcis_figures.py
+make quick
+make evaluation-smoke
 ```
 
-The local profile uses the in-repository reference implementation and does not require Docker. External-service runs require Docker Compose and the services described in `docs/EXTERNAL_SERVICES.md`.
+The commands generate local validation outputs under `validation/` and `results/`. These runtime folders are intentionally excluded from the distributed checksums and may be deleted after inspection.
