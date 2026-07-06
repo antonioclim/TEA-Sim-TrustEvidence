@@ -1,6 +1,0 @@
-workload_id,source_scenario,label,organisations,access_per_subject_day,revocation_probability,dispute_risk,signature_profile,faithful_mapping,evidence_class
-W1,S1,Low-complexity direct care,1,0.08,0.005,0.10,classical,"Single-controller, low-access and low-dispute setting. Measures whether central audit remains operationally proportionate under weak adversarial pressure.",
-W2,S2,Interorganisational shared care,3,0.25,0.020,0.55,classical,Shared-care setting crossing organisational boundaries. Measures cost of independently verifiable evidence relative to central and hash-log evidence.,
-W3,S3,Secondary-use governance,4,0.06,0.030,0.60,classical,"Lower direct access but higher policy/purpose sensitivity. Emphasises provenance, policy-version binding and audit-query independent audit support.",
-W4,S4,High-dispute/high-revocation,5,0.50,0.080,0.85,classical,"Stress setting for non-equivocation pressure, verifier-state retention and consent-state transitions.",
-W5,S5,Cryptographic-agility transition,3,0.25,0.020,0.55,ML-DSA-44-sized artefact profile,"Same governance shape as W2 with enlarged evidence-signature artefacts. Measures artefact-size/storage effects, not post-quantum signing performance.",

@@ -1,9 +1,0 @@
-metric_id,unit,estimator,manuscript_slot,evidence_class
-write_latency_p50_ms,milliseconds,"median write latency within a repetition, summarised over repetitions",Table 3 latency cell; Results §7.3,
-write_latency_p95_ms,milliseconds,"95th percentile write latency within a repetition, summarised over repetitions",Table 3 latency cell; Results §7.3,
-write_latency_p99_ms,milliseconds,"99th percentile write latency within a repetition, summarised over repetitions",Table 3 latency cell; Results §7.3,
-sustained_throughput_eps,events/second,accepted writes divided by analysed steady-state interval,Table 3 throughput cell; Results §7.3,
-storage_growth_bytes_per_event,bytes/event,slope of durable storage bytes against accepted event count,Table 4 storage cell; Figure 4,
-proof_size_bytes_median,bytes,median serialised verifier-required proof/finality material,Table 4 proof-size cell; Figure 5,
-verification_time_p95_ms,milliseconds,95th percentile offline verification latency,Table 4 verification cell; Figure 5,
-audit_query_time_p95_ms,milliseconds,95th percentile auditor query latency,Table 4 audit-query cell; Figure 6,

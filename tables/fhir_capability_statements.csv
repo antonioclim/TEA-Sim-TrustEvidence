@@ -1,3 +1,0 @@
-actor,capability_statement,mode,resources,interactions,status
-TrustEvidence Emitter,TEEmitterCapabilityStatement,client,AuditEvent; Provenance,create,draft requirements
-TrustEvidence Verifier,TEVerifierCapabilityStatement,client,AuditEvent; Provenance,read; search-type,draft requirements

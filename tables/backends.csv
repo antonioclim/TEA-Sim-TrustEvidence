@@ -1,6 +1,0 @@
-backend_id,formal_class,label,role,evidence_class
-A1-postgres,BE-A1,PostgreSQL append-only central audit table,authored backend,
-A2-merkle,BE-A2,Python RFC-9162-style Merkle hash log,authored backend,
-A3-fabric,BE-A3,Hyperledger Fabric test-network adapter and chaincode,external service plus authored adapter,
-B1-trillian,baseline,Trillian log with TrustEvidence personality,external transparency-log baseline plus authored personality,
-B2-rekor,baseline,Rekor REST transparency-log adapter,external transparency-log baseline plus authored adapter,
