@@ -1,0 +1,66 @@
+{
+  "resourceType": "AuditEvent",
+  "id": "te-auditevent-read-example",
+  "meta": {
+    "profile": [
+      "https://example.org/fhir/te/StructureDefinition/trustevidence-auditevent"
+    ]
+  },
+  "type": {
+    "code": "rest",
+    "system": "http://terminology.hl7.org/CodeSystem/audit-event-type",
+    "display": "Restful Operation"
+  },
+  "subtype": [
+    {
+      "code": "read",
+      "system": "http://hl7.org/fhir/restful-interaction",
+      "display": "read"
+    }
+  ],
+  "action": "R",
+  "recorded": "2026-07-02T10:00:00Z",
+  "outcome": "0",
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "humanuser",
+            "system": "http://terminology.hl7.org/CodeSystem/extra-security-role-type",
+            "display": "human user"
+          }
+        ]
+      },
+      "who": {
+        "display": "Pseudonymous clinician actor"
+      },
+      "requestor": true
+    }
+  ],
+  "source": {
+    "observer": {
+      "display": "TrustEvidence reference implementation"
+    },
+    "type": [
+      {
+        "code": "4",
+        "system": "http://terminology.hl7.org/CodeSystem/security-source-type",
+        "display": "Application Server"
+      }
+    ]
+  },
+  "entity": [
+    {
+      "what": {
+        "reference": "Observation/observation-cgm-aggregate"
+      },
+      "detail": [
+        {
+          "type": "payload_hash",
+          "valueString": "sha256:example"
+        }
+      ]
+    }
+  ]
+}

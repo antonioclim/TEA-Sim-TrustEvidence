@@ -1,0 +1,12 @@
+trustevidence_fact,fhir_resource,fhir_path,boundary_decision,notes
+subject_reference,Patient,Patient.identifier,stored_pseudonymous_reference,no direct patient-identifying value is required for the synthetic examples
+access_event_type,AuditEvent,AuditEvent.type/subtype/action,stored_evidence_fact,maps RESTful audit activity at boundary level
+recorded_time,AuditEvent,AuditEvent.recorded,stored_evidence_fact,UTC timestamp for audit event
+actor_role,AuditEvent,AuditEvent.agent.type/who.display,stored_pseudonymous_role,display labels only in examples
+source_system,AuditEvent,AuditEvent.source,stored_system_reference,source display without live endpoint or credential
+payload_hash,AuditEvent/Provenance/Basic,extension:TEEvidenceHash,hash_commitment_only,clinical payload remains outside evidence store
+policy_version,AuditEvent/Provenance/Consent,extension:TEPolicyVersion,governance_reference,version label only
+consent_state,Consent,Consent.status/scope/category,stored_consent_state_evidence,not an enforcement engine
+transformation_evidence,Provenance,Provenance.target/recorded/agent,stored_transformation_evidence,records transformation evidence without payload replication
+backend_class,AuditEvent/Basic,extension:TEBackendType,backend_metadata,A1/A2/A3 class label only
+receipt_root,Basic,extension:TEReceiptRoot,receipt_commitment,synthetic root value for later backend tests

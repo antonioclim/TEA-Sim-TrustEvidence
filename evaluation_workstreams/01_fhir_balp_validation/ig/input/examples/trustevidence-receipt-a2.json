@@ -1,0 +1,31 @@
+{
+  "resourceType": "Basic",
+  "id": "trustevidence-receipt-a2",
+  "code": {
+    "coding": [
+      {
+        "system": "https://example.org/CodeSystem/trustevidence-basic",
+        "code": "receipt"
+      }
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://example.org/fhir/te/StructureDefinition/te-backend-type",
+      "valueCode": "A2_MERKLE"
+    },
+    {
+      "url": "https://example.org/fhir/te/StructureDefinition/te-evidence-hash",
+      "valueString": "sha256:45ebf9d073ac88772ab6ca36c551c151775b3cac448e9c9b6486c174a8951e27"
+    },
+    {
+      "url": "https://example.org/fhir/te/StructureDefinition/te-receipt-root",
+      "valueString": "sha256:fcde2b2edba56bf408601fb721fe9b5c338d10ee4298d2b434ac2b25c23a1a62"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://example.org/fhir/te/StructureDefinition/trustevidence-receipt"
+    ]
+  }
+}

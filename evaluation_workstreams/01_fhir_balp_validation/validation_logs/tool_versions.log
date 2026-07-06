@@ -1,0 +1,5 @@
+RUN UTC: 2026-07-05T16:28:16Z
+node: v22.16.0
+npm: 10.9.2
+java: openjdk version "21.0.10" 2026-01-20
+sushi: SUSHI v3.20.0 (implements FHIR Shorthand specification v3.0.0)

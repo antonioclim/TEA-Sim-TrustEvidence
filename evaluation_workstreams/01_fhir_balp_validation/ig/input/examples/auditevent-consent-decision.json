@@ -1,0 +1,63 @@
+{
+  "resourceType": "AuditEvent",
+  "id": "auditevent-consent-decision",
+  "extension": [
+    {
+      "url": "https://example.org/fhir/te/StructureDefinition/te-backend-type",
+      "valueCode": "A2_MERKLE"
+    },
+    {
+      "url": "https://example.org/fhir/te/StructureDefinition/te-evidence-hash",
+      "valueString": "sha256:45ebf9d073ac88772ab6ca36c551c151775b3cac448e9c9b6486c174a8951e27"
+    },
+    {
+      "url": "https://example.org/fhir/te/StructureDefinition/te-policy-version",
+      "valueString": "policy-v1"
+    }
+  ],
+  "type": {
+    "system": "http://terminology.hl7.org/CodeSystem/audit-event-type",
+    "code": "rest",
+    "display": "Restful Operation"
+  },
+  "subtype": [
+    {
+      "system": "http://hl7.org/fhir/restful-interaction",
+      "code": "update"
+    }
+  ],
+  "action": "E",
+  "recorded": "2026-07-02T10:00:00Z",
+  "outcome": "0",
+  "agent": [
+    {
+      "who": {
+        "display": "Pseudonymous actor"
+      },
+      "requestor": true
+    }
+  ],
+  "source": {
+    "observer": {
+      "display": "TrustEvidence reference implementation"
+    }
+  },
+  "entity": [
+    {
+      "what": {
+        "reference": "Observation/observation-cgm-aggregate"
+      },
+      "detail": [
+        {
+          "type": "payload_hash",
+          "valueString": "sha256:45ebf9d073ac88772ab6ca36c551c151775b3cac448e9c9b6486c174a8951e27"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://example.org/fhir/te/StructureDefinition/trustevidence-auditevent"
+    ]
+  }
+}

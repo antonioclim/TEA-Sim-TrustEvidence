@@ -1,0 +1,48 @@
+{
+  "tool_versions.log": {
+    "exists": true,
+    "bytes": 170,
+    "warning_or_error_lines": []
+  },
+  "tool_download_attempt.log": {
+    "exists": true,
+    "bytes": 2051,
+    "warning_or_error_lines": [
+      "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: github.com",
+      "Warning: Problem : timeout. Will retry in 1 seconds. 1 retries left.",
+      "  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0curl: (6) Could not resolve host: github.com",
+      "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: github.com",
+      "Warning: Problem : timeout. Will retry in 1 seconds. 1 retries left.",
+      "  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0curl: (6) Could not resolve host: github.com"
+    ]
+  },
+  "sushi.log": {
+    "exists": true,
+    "bytes": 2576,
+    "warning_or_error_lines": [
+      "warn  Failed to load automatically-provided hl7.fhir.uv.tools.r4#latest",
+      "warn  Failed to load automatically-provided hl7.terminology.r4#latest",
+      "warn  Failed to load automatically-provided hl7.fhir.uv.extensions.r4#latest",
+      "| Keep swimming, Dory.                   0 Errors      3 Warnings |"
+    ]
+  },
+  "ig_publisher.log": {
+    "exists": true,
+    "bytes": 73,
+    "warning_or_error_lines": [
+      "SKIPPED: tools/publisher.jar not present; IG Publisher was not executed."
+    ]
+  },
+  "fhir_validator.log": {
+    "exists": true,
+    "bytes": 83,
+    "warning_or_error_lines": [
+      "SKIPPED: tools/validator_cli.jar not present; HL7 FHIR Validator was not executed."
+    ]
+  },
+  "local_json_integrity_lint.log": {
+    "exists": true,
+    "bytes": 55,
+    "warning_or_error_lines": []
+  }
+}

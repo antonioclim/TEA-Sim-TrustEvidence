@@ -1,0 +1,251 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "te.trustevidence",
+  "url": "https://example.org/fhir/te/ImplementationGuide/te.trustevidence",
+  "version": "0.1.0",
+  "name": "TrustEvidenceAuditBoundary",
+  "title": "TrustEvidence Audit Boundary Draft IG",
+  "status": "draft",
+  "publisher": "TrustEvidence research artefact",
+  "contact": [
+    {
+      "name": "TrustEvidence research artefact",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://github.com/antonioclim/TEA-Sim"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "001",
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm"
+        }
+      ]
+    }
+  ],
+  "packageId": "te.trustevidence",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "ihe.iti.balp",
+      "version": "1.1.4",
+      "uri": "https://profiles.ihe.net/ITI/BALP/ImplementationGuide/ihe.iti.balp",
+      "id": "ihe_iti_balp"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "AuditEvent/auditevent-consent-decision"
+        },
+        "name": "auditevent-consent-decision",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-auditevent"
+      },
+      {
+        "reference": {
+          "reference": "AuditEvent/auditevent-create-server"
+        },
+        "name": "auditevent-create-server",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-auditevent"
+      },
+      {
+        "reference": {
+          "reference": "AuditEvent/auditevent-disclosure"
+        },
+        "name": "auditevent-disclosure",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-auditevent"
+      },
+      {
+        "reference": {
+          "reference": "AuditEvent/auditevent-query-server"
+        },
+        "name": "auditevent-query-server",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-auditevent"
+      },
+      {
+        "reference": {
+          "reference": "AuditEvent/auditevent-read-server"
+        },
+        "name": "auditevent-read-server",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-auditevent"
+      },
+      {
+        "reference": {
+          "reference": "Consent/consent-grant"
+        },
+        "name": "consent-grant",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-consent"
+      },
+      {
+        "reference": {
+          "reference": "Consent/consent-revocation"
+        },
+        "name": "consent-revocation",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-consent"
+      },
+      {
+        "reference": {
+          "reference": "Observation/observation-cgm-aggregate"
+        },
+        "name": "observation-cgm-aggregate",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Patient/patient-example"
+        },
+        "name": "patient-example",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Provenance/provenance-transform"
+        },
+        "name": "provenance-transform",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-provenance"
+      },
+      {
+        "reference": {
+          "reference": "AuditEvent/te-auditevent-read-example"
+        },
+        "name": "te-auditevent-read-example",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-auditevent"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/trustevidence-auditevent"
+        },
+        "name": "TrustEvidence AuditEvent",
+        "description": "Draft profile for AuditEvent instances carrying compact TrustEvidence commitments.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/te-backend-type"
+        },
+        "name": "TrustEvidence backend type",
+        "description": "Evidence backend class: A1 central audit, A2 append-only Merkle/hash log or A3 transparency/ledger-like backend.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/te-backend-type-cs"
+        },
+        "name": "TrustEvidence backend type code system",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/te-backend-type-vs"
+        },
+        "name": "TrustEvidence backend type value set",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/te-evidence-hash"
+        },
+        "name": "TrustEvidence canonical evidence hash",
+        "description": "SHA-256 commitment to the canonical TrustEvidence object or payload reference.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/trustevidence-consent"
+        },
+        "name": "TrustEvidence Consent",
+        "description": "Draft Consent profile for consent-state evidence. It does not implement enforcement logic.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/te-policy-version"
+        },
+        "name": "TrustEvidence policy version",
+        "description": "Policy or consent-policy version applicable at the time the evidence artefact was emitted.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/trustevidence-provenance"
+        },
+        "name": "TrustEvidence Provenance",
+        "description": "Draft Provenance profile for transformation/integrity evidence without clinical payload replication.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/trustevidence-receipt"
+        },
+        "name": "TrustEvidence receipt",
+        "description": "Draft Basic profile representing a compact receipt emitted by a TrustEvidence backend. It is used only for local validation of synthetic evidence commitments.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/te-receipt-root"
+        },
+        "name": "TrustEvidence receipt root",
+        "description": "Merkle/transparency root or equivalent backend receipt root.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Basic/trustevidence-receipt-a2"
+        },
+        "name": "trustevidence-receipt-a2",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-receipt"
+      },
+      {
+        "reference": {
+          "reference": "Basic/trustevidence-receipt-a3"
+        },
+        "name": "trustevidence-receipt-a3",
+        "exampleCanonical": "https://example.org/fhir/te/StructureDefinition/trustevidence-receipt"
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Home",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "mapping.html",
+          "title": "Mapping",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2026"
+      },
+      {
+        "code": "releaselabel",
+        "value": "local-validation-draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "path-expansion-params",
+        "value": "../../exp-params.json"
+      }
+    ]
+  }
+}

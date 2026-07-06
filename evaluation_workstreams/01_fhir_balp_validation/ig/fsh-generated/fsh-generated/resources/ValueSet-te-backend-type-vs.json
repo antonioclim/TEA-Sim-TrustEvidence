@@ -1,0 +1,32 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "TEBackendTypeVS",
+  "id": "te-backend-type-vs",
+  "title": "TrustEvidence backend type value set",
+  "url": "https://example.org/fhir/te/ValueSet/te-backend-type-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://example.org/fhir/te/CodeSystem/te-backend-type-cs",
+        "concept": [
+          {
+            "code": "A1_POSTGRES"
+          },
+          {
+            "code": "A2_MERKLE"
+          },
+          {
+            "code": "A3_REKOR"
+          },
+          {
+            "code": "A3_TRILLIAN"
+          },
+          {
+            "code": "A3_FABRIC"
+          }
+        ]
+      }
+    ]
+  }
+}

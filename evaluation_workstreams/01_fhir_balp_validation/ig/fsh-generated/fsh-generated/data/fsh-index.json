@@ -1,0 +1,90 @@
+[
+  {
+    "outputFile": "AuditEvent-te-auditevent-read-example.json",
+    "fshName": "te-auditevent-read-example",
+    "fshType": "Instance",
+    "fshFile": "examples.fsh",
+    "startLine": 1,
+    "endLine": 16
+  },
+  {
+    "outputFile": "CodeSystem-te-backend-type-cs.json",
+    "fshName": "TEBackendTypeCS",
+    "fshType": "CodeSystem",
+    "fshFile": "extensions.fsh",
+    "startLine": 35,
+    "endLine": 42
+  },
+  {
+    "outputFile": "StructureDefinition-te-backend-type.json",
+    "fshName": "TEBackendType",
+    "fshType": "Extension",
+    "fshFile": "extensions.fsh",
+    "startLine": 1,
+    "endLine": 6
+  },
+  {
+    "outputFile": "StructureDefinition-te-evidence-hash.json",
+    "fshName": "TEEvidenceHash",
+    "fshType": "Extension",
+    "fshFile": "extensions.fsh",
+    "startLine": 8,
+    "endLine": 12
+  },
+  {
+    "outputFile": "StructureDefinition-te-policy-version.json",
+    "fshName": "TEPolicyVersion",
+    "fshType": "Extension",
+    "fshFile": "extensions.fsh",
+    "startLine": 14,
+    "endLine": 18
+  },
+  {
+    "outputFile": "StructureDefinition-te-receipt-root.json",
+    "fshName": "TEReceiptRoot",
+    "fshType": "Extension",
+    "fshFile": "extensions.fsh",
+    "startLine": 20,
+    "endLine": 24
+  },
+  {
+    "outputFile": "StructureDefinition-trustevidence-auditevent.json",
+    "fshName": "TrustEvidenceAuditEvent",
+    "fshType": "Profile",
+    "fshFile": "profiles.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-trustevidence-consent.json",
+    "fshName": "TrustEvidenceConsent",
+    "fshType": "Profile",
+    "fshFile": "profiles.fsh",
+    "startLine": 23,
+    "endLine": 31
+  },
+  {
+    "outputFile": "StructureDefinition-trustevidence-provenance.json",
+    "fshName": "TrustEvidenceProvenance",
+    "fshType": "Profile",
+    "fshFile": "profiles.fsh",
+    "startLine": 13,
+    "endLine": 21
+  },
+  {
+    "outputFile": "StructureDefinition-trustevidence-receipt.json",
+    "fshName": "TrustEvidenceReceipt",
+    "fshType": "Profile",
+    "fshFile": "receipt_profile.fsh",
+    "startLine": 1,
+    "endLine": 7
+  },
+  {
+    "outputFile": "ValueSet-te-backend-type-vs.json",
+    "fshName": "TEBackendTypeVS",
+    "fshType": "ValueSet",
+    "fshFile": "extensions.fsh",
+    "startLine": 26,
+    "endLine": 33
+  }
+]

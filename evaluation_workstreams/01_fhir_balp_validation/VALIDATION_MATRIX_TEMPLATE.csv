@@ -1,0 +1,5 @@
+artefact,file,tool,expected_gate,actual_result
+TrustEvidenceAuditEvent profile,ig/input/fsh/profiles.fsh,SUSHI + IG Publisher + Validator,0 structural errors,PENDING
+BALP Read example alignment,examples/auditevent-read-server.json,Validator with ihe.iti.balp#1.1.4,0 structural errors or documented warnings,PENDING
+Consent grant/revocation examples,examples/consent-*.json,FHIR Validator R4,0 structural errors,PENDING
+Provenance transform example,examples/provenance-transform.json,FHIR Validator R4,0 structural errors,PENDING
