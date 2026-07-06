@@ -1,7 +1,7 @@
 {
   "title": "TEA-Sim v2.0.1: Auditable trust-evidence reference artefacts",
   "upload_type": "software",
-  "description": "Reference implementation and reproducibility artefacts for auditable trust-evidence boundaries in health information systems. This updated archive is intended to be deposited as a new Zenodo version. It does not claim production deployment, certification, legal compliance, clinical validation or complete formal verification.",
+  "description": "Reference implementation and reproducibility artefacts for auditable trust-evidence boundaries in health information systems. This archive is the published v2.0.1 software record associated with DOI 10.5281/zenodo.21226180. It does not claim production deployment, certification, legal compliance, clinical validation or complete formal verification.",
   "creators": [
     {
       "name": "Clim, Antonio",
@@ -24,7 +24,13 @@
       "relation": "isNewVersionOf",
       "scheme": "doi",
       "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1",
+      "relation": "isSupplementedBy",
+      "scheme": "url",
+      "resource_type": "software"
     }
   ],
-  "notes": "Previous version DOI: 10.5281/zenodo.21193829. This updated archive should be deposited as a new Zenodo version and should receive a new version DOI on publication."
+  "notes": "Current version DOI: 10.5281/zenodo.21226180. Previous version DOI: 10.5281/zenodo.21193829. GitHub repository: https://github.com/antonioclim/TEA-Sim-TrustEvidence. GitHub release: https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1."
 }
