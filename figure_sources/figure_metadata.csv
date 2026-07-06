@@ -1,0 +1,6 @@
+figure_id,manuscript_caption,primary_data_files,output_stem,generation_status
+Figure 1,TrustEvidence evidence-boundary architecture,figure1_nodes.csv; figure1_edges.csv; backend_benchmark_summary.csv,figure1_boundary_architecture,script-generated
+Figure 2,Evidence construction and demotion pipeline,figure2_nodes.csv; figure2_edges.csv; claim_evidence_ledger.csv,figure2_evidence_demotion_pipeline,script-generated
+Figure 3,A2 Merkle local reference execution and verification flow,figure3_nodes.csv; figure3_edges.csv; tamper_detection_results.csv; property_to_claim_matrix.csv,figure3_a2_merkle_flow,script-generated
+Figure 4,Descriptor-informed workload construction,calibrated_scenarios.csv; calibrated_a2_summary.csv,figure4_workload_descriptors,script-generated
+Figure 5,Backend proportionality decision map,figure5_backend_tiles.csv; backend_benchmark_summary.csv; property_to_claim_matrix.csv,figure5_backend_decision_map,script-generated

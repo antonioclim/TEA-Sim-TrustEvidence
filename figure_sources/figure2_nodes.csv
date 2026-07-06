@@ -1,0 +1,19 @@
+id,label,x,y,w,h,type,note
+requirements,"Requirements
+traceability",8,54,13,10,stage,"FHIR/BALP, auditability and governance requirements"
+boundary,"Boundary
+artefact",25,54,13,10,stage,TrustEvidence fields and exclusions
+execution,"Executable
+checks",42,54,13,10,stage,"SUSHI, A2, property tests, smoke QA"
+register,"Evidence
+classes",59,54,13,10,stage,"Measured, reproduced, computed, assumed, cited"
+claims,"Claim
+ceiling",76,54,13,10,stage,Permitted public wording
+manuscript,"Manuscript
+claims",93,54,13,10,stage,Design-science/reference implementation
+demotion1,"Demotion rule:
+missing official validator
+=> no conformance claim",42,26,30,9,demotion,standards-validator blocker
+demotion2,"Demotion rule:
+A1/A3 not executed
+=> no multi-backend benchmark",76,26,34,9,demotion,backend-execution blocker

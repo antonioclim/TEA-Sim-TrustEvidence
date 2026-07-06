@@ -1,0 +1,16 @@
+id,label,x,y,w,h,type,note
+object,"TrustEvidence
+object",10,61,15.5,9.5,stage,Input object
+canonical,"Deterministic
+canonicalisation",31,61,19.5,9.5,stage,Canonical JSON
+leaf,"SHA-256
+leaf hash",53,61,16.5,9.5,stage,Leaf commitment
+append,"Merkle append
+and checkpoint root",78,61,22.0,9.5,stage,Append-only reference log
+receipt,"Receipt +
+inclusion proof",78,37,22.0,9.5,stage,Receipt artefact
+verify,"Verifier checks
+root, path and receipt",53,37,22.0,9.5,stage,Verification checks
+properties,"Tamper rejection
+and property tests",28,37,22.0,9.5,scope,property-evidence boundary
+boundary,Local Python reference implementation only; not production performance or external witnessing.,54,8.0,74,7.0,demotion,claim boundary

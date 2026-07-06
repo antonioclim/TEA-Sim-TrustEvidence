@@ -1,0 +1,7 @@
+source,target,label,route
+object,canonical,,
+canonical,leaf,,
+leaf,append,,
+append,receipt,,
+receipt,verify,,
+verify,properties,,
