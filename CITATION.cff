@@ -2,8 +2,7 @@ cff-version: 1.2.0
 title: "TEA-Sim v2.0.1: Auditable trust-evidence reference artefacts"
 message: "If you use this software, cite the archived Zenodo version DOI after the new version has been published."
 type: software
-version: "2.0.1
-"
+version: "2.0.1"
 date-released: "2026-07-06"
 abstract: "Reference implementation and reproducibility artefacts for auditable trust-evidence boundaries in health information systems."
 license: Apache-2.0
