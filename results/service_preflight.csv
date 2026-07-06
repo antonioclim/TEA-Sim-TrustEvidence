@@ -1,2 +1,0 @@
-run_id,service_id,operation,status,started_at_utc,ended_at_utc,error_code,message
-local,python-local,local-in-memory-backends,ok,n/a,n/a,,Docker services not required for local profile
