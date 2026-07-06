@@ -1,0 +1,6 @@
+metric,value,unit,method,notes
+files_with_timestamps,1,files,extracted_from_local_bigideas_files,
+records_with_timestamps,4,records,extracted_from_local_bigideas_files,
+median_interval_minutes,5,minutes,computed_from_local_bigideas_files,
+p95_interval_minutes,5,minutes,computed_from_local_bigideas_files,
+mean_interval_minutes,5,minutes,computed_from_local_bigideas_files,

@@ -1,0 +1,4 @@
+$ python scripts/verify_sha256sums.py SHA256SUMS.txt
+PASS: SHA256SUMS
+
+[exit_code=0]

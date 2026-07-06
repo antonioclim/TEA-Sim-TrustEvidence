@@ -1,0 +1,7 @@
+metric,value
+sequences_checked,121
+inclusion_receipts_checked,426
+tamper_rejections_checked,852
+prefix_roots_checked,547
+fork_pairs_checked,10
+failures,0

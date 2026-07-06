@@ -1,0 +1,6 @@
+metric,value,unit,method,notes
+files_read,2,files,extracted_from_local_mimic_fhir_files,
+resource_count_Observation,3,resources,extracted_from_local_mimic_fhir_files,
+resource_count_Patient,2,resources,extracted_from_local_mimic_fhir_files,
+total_resources,5,resources,extracted_from_local_mimic_fhir_files,
+mean_line_bytes,49.600,bytes,computed_from_local_mimic_fhir_files,

@@ -1,0 +1,8 @@
+metric,value,unit,method,calibration_status,source_url,notes
+bigideas_version,1.1.3,version,verified_public_metadata,verified_public_metadata,https://physionet.org/content/big-ideas-glycemic-wearable/1.1.3/,PhysioNet version.
+participants,16,count,verified_public_metadata,verified_public_metadata,https://physionet.org/content/big-ideas-glycemic-wearable/1.1.3/,Study participants n=16.
+monitoring_days_max,10,days,verified_public_metadata,verified_public_metadata,https://physionet.org/content/big-ideas-glycemic-wearable/1.1.3/,Upper bound of documented 8-10 days.
+cgm_interval_minutes,5,minutes,verified_public_metadata,verified_public_metadata,https://physionet.org/content/big-ideas-glycemic-wearable/1.1.3/,Dexcom G6 measurement interval.
+cgm_observations_per_patient_day,288,count_per_patient_day,computed_from_verified_metadata,computed_from_verified_metadata,https://physionet.org/content/big-ideas-glycemic-wearable/1.1.3/,24*60/5.
+full_dataset_uncompressed_gb,34.1,GB,verified_public_metadata,verified_public_metadata,https://physionet.org/content/big-ideas-glycemic-wearable/1.1.3/,Dataset not redistributed.
+zip_size_gb,4.7,GB,verified_public_metadata,verified_public_metadata,https://physionet.org/content/big-ideas-glycemic-wearable/1.1.3/,Dataset not downloaded in runtime.

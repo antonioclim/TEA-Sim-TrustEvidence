@@ -1,0 +1,6 @@
+metric,value,unit,method,notes
+resource_count_Encounter,1,resources,extracted_from_local_synthea_output,
+resource_count_Observation,1,resources,extracted_from_local_synthea_output,
+resource_count_Patient,1,resources,extracted_from_local_synthea_output,
+total_resources,3,resources,extracted_from_local_synthea_output,
+mean_resource_size_bytes,96.000,bytes,computed_from_local_synthea_output,

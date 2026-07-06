@@ -1,0 +1,10 @@
+[project]
+name = "trustevidence-workload-calibration-kit"
+version = "0.4.0"
+description = "workload-calibration workstream external workload calibration kit for TrustEvidence local reference runs"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"

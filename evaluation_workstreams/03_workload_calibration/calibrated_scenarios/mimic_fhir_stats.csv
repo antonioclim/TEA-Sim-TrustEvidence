@@ -1,0 +1,7 @@
+metric,value,unit,method,calibration_status,source_url,notes
+mimic_demo_version,2.1.0,version,verified_public_metadata,verified_public_metadata,https://physionet.org/content/mimic-iv-fhir-demo/2.1.0/,PhysioNet version.
+patients,100,count,verified_public_metadata,verified_public_metadata,https://physionet.org/content/mimic-iv-fhir-demo/2.1.0/,100-patient demo subset.
+resource_profile_files,30,count,verified_public_metadata,verified_public_metadata,https://physionet.org/content/mimic-iv-fhir-demo/2.1.0/SHA256SUMS.txt,Compressed NDJSON profile-file count.
+observation_profile_files,9,count,verified_public_metadata,verified_public_metadata,https://physionet.org/content/mimic-iv-fhir-demo/2.1.0/fhir/,Observation-family file count.
+uncompressed_size_mb,49.5,MB,verified_public_metadata,verified_public_metadata,https://physionet.org/content/mimic-iv-fhir-demo/2.1.0/,Open-access demo size.
+full_mimic_on_fhir_access,credentialed_DUA_required,text,verified_public_metadata,verified_public_metadata,https://physionet.org/content/mimic-iv-fhir/2.1/,Full project not redistributed or treated as available evidence.

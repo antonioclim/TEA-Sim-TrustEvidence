@@ -1,0 +1,6 @@
+{"elapsed_seconds": 0.553516, "executed_events": 10000, "planned_events": 240000, "scenario_id": "C1_ROUTINE_SYNTHETIC_AMBULATORY", "status": "PASS"}
+{"elapsed_seconds": 0.506632, "executed_events": 10000, "planned_events": 46080, "scenario_id": "C2_WEARABLE_CGM_MONITORING", "status": "PASS"}
+{"elapsed_seconds": 0.159379, "executed_events": 3000, "planned_events": 3000, "scenario_id": "C3_FHIR_HETEROGENEITY_DEMO", "status": "PASS"}
+{"elapsed_seconds": 0.516871, "executed_events": 10000, "planned_events": 50688, "scenario_id": "C4_CROSS_ORGANISATIONAL_DISPUTE", "status": "PASS"}
+wrote benchmark_outputs/raw_runs/calibrated_a2_raw_runs.csv
+wrote benchmark_outputs/calibrated_a2_summary.csv
