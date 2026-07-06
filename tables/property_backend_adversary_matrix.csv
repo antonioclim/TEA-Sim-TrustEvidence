@@ -1,0 +1,106 @@
+property_id,property,backend,adversary,status,rationale
+TEA.P1,tamper_evidence,BE-A1,ADV-1,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A1,ADV-2,fails,No independent tamper-evidence against administrative/maintainer control.
+TEA.P1,tamper_evidence,BE-A1,ADV-3,fails,No independent tamper-evidence against administrative/maintainer control.
+TEA.P1,tamper_evidence,BE-A1,ADV-4,fails,No independent tamper-evidence against administrative/maintainer control.
+TEA.P1,tamper_evidence,BE-A1,ADV-5,fails,No independent tamper-evidence against administrative/maintainer control.
+TEA.P1,tamper_evidence,BE-A2,ADV-1,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A2,ADV-2,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A2,ADV-3,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A2,ADV-4,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A2,ADV-5,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A3,ADV-1,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A3,ADV-2,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A3,ADV-3,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A3,ADV-4,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P1,tamper_evidence,BE-A3,ADV-5,holds-under-assumption,"Commitment, canonicalisation and backend-preservation assumptions apply."
+TEA.P2,append_only_consistency,BE-A1,ADV-1,fails,Central audit has no append-only consistency proof in the abstraction.
+TEA.P2,append_only_consistency,BE-A1,ADV-2,fails,Central audit has no append-only consistency proof in the abstraction.
+TEA.P2,append_only_consistency,BE-A1,ADV-3,fails,Central audit has no append-only consistency proof in the abstraction.
+TEA.P2,append_only_consistency,BE-A1,ADV-4,fails,Central audit has no append-only consistency proof in the abstraction.
+TEA.P2,append_only_consistency,BE-A1,ADV-5,fails,Central audit has no append-only consistency proof in the abstraction.
+TEA.P2,append_only_consistency,BE-A2,ADV-1,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A2,ADV-2,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A2,ADV-3,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A2,ADV-4,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A2,ADV-5,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A3,ADV-1,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A3,ADV-2,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A3,ADV-3,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A3,ADV-4,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P2,append_only_consistency,BE-A3,ADV-5,holds-under-assumption,Checkpoint/finality and verifier-state assumptions apply.
+TEA.P3,inclusion_verifiability,BE-A1,ADV-1,fails,Central audit retrieval is not cryptographic inclusion proof.
+TEA.P3,inclusion_verifiability,BE-A1,ADV-2,fails,Central audit retrieval is not cryptographic inclusion proof.
+TEA.P3,inclusion_verifiability,BE-A1,ADV-3,fails,Central audit retrieval is not cryptographic inclusion proof.
+TEA.P3,inclusion_verifiability,BE-A1,ADV-4,fails,Central audit retrieval is not cryptographic inclusion proof.
+TEA.P3,inclusion_verifiability,BE-A1,ADV-5,fails,Central audit retrieval is not cryptographic inclusion proof.
+TEA.P3,inclusion_verifiability,BE-A2,ADV-1,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A2,ADV-2,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A2,ADV-3,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A2,ADV-4,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A2,ADV-5,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A3,ADV-1,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A3,ADV-2,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A3,ADV-3,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A3,ADV-4,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P3,inclusion_verifiability,BE-A3,ADV-5,holds-under-assumption,Inclusion proof or finality receipt is available under the backend assumptions.
+TEA.P4,non_equivocation,BE-A1,ADV-1,fails,No independent non-equivocation mechanism.
+TEA.P4,non_equivocation,BE-A1,ADV-2,fails,No independent non-equivocation mechanism.
+TEA.P4,non_equivocation,BE-A1,ADV-3,fails,No independent non-equivocation mechanism.
+TEA.P4,non_equivocation,BE-A1,ADV-4,fails,No independent non-equivocation mechanism.
+TEA.P4,non_equivocation,BE-A1,ADV-5,fails,No independent non-equivocation mechanism.
+TEA.P4,non_equivocation,BE-A2,ADV-1,holds-under-assumption,Witness or quorum-finality assumptions apply.
+TEA.P4,non_equivocation,BE-A2,ADV-2,holds-under-assumption,Witness or quorum-finality assumptions apply.
+TEA.P4,non_equivocation,BE-A2,ADV-3,holds-under-assumption,Witness or quorum-finality assumptions apply.
+TEA.P4,non_equivocation,BE-A2,ADV-4,fails,Single-log split-view and collusion remain out of scope without stronger witnessed operation.
+TEA.P4,non_equivocation,BE-A2,ADV-5,fails,Single-log split-view and collusion remain out of scope without stronger witnessed operation.
+TEA.P4,non_equivocation,BE-A3,ADV-1,holds-under-assumption,Witness or quorum-finality assumptions apply.
+TEA.P4,non_equivocation,BE-A3,ADV-2,holds-under-assumption,Witness or quorum-finality assumptions apply.
+TEA.P4,non_equivocation,BE-A3,ADV-3,holds-under-assumption,Witness or quorum-finality assumptions apply.
+TEA.P4,non_equivocation,BE-A3,ADV-4,holds-under-assumption,Witness or quorum-finality assumptions apply.
+TEA.P4,non_equivocation,BE-A3,ADV-5,holds-under-assumption,Witness or quorum-finality assumptions apply.
+TEA.P5,evidence_completeness_boundary,BE-A1,ADV-1,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A1,ADV-2,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A1,ADV-3,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A1,ADV-4,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A1,ADV-5,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A2,ADV-1,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A2,ADV-2,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A2,ADV-3,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A2,ADV-4,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A2,ADV-5,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A3,ADV-1,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A3,ADV-2,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A3,ADV-3,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A3,ADV-4,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P5,evidence_completeness_boundary,BE-A3,ADV-5,holds-under-assumption,Bounded only to events crossing the evidence-emission boundary or explicit failure artefacts.
+TEA.P6,evidence_soundness,BE-A1,ADV-1,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A1,ADV-2,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A1,ADV-3,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A1,ADV-4,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A1,ADV-5,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A2,ADV-1,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A2,ADV-2,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A2,ADV-3,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A2,ADV-4,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A2,ADV-5,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A3,ADV-1,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A3,ADV-2,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A3,ADV-3,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A3,ADV-4,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P6,evidence_soundness,BE-A3,ADV-5,holds-under-assumption,"Canonical serialisation, authenticated emitter and declared binding assumptions apply."
+TEA.P7,freshness,BE-A1,ADV-1,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A1,ADV-2,fails,Central maintainer compromise can replay or rewrite freshness context.
+TEA.P7,freshness,BE-A1,ADV-3,fails,Central maintainer compromise can replay or rewrite freshness context.
+TEA.P7,freshness,BE-A1,ADV-4,fails,Central maintainer compromise can replay or rewrite freshness context.
+TEA.P7,freshness,BE-A1,ADV-5,fails,Central maintainer compromise can replay or rewrite freshness context.
+TEA.P7,freshness,BE-A2,ADV-1,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A2,ADV-2,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A2,ADV-3,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A2,ADV-4,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A2,ADV-5,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A3,ADV-1,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A3,ADV-2,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A3,ADV-3,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A3,ADV-4,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.
+TEA.P7,freshness,BE-A3,ADV-5,holds-under-assumption,Verifier-state and bounded timestamp assumptions apply.

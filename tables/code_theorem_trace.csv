@@ -1,0 +1,14 @@
+requirement,status,evidence_class,artefact
+v2.0.0 schema validation,delivered,[MEASURED:v2.0.0-local],src/trustevidence/schema.py and tests/test_core.py
+Canonical serialisation,delivered,[MEASURED:v2.0.0-local],src/trustevidence/canonical.py and validation/golden_canonical_core.hex
+Length-delimited tuple encoding,delivered,[MEASURED:v2.0.0-local],src/trustevidence/canonical.py
+Domain-separated hashing,delivered,[MEASURED:v2.0.0-local],src/trustevidence/canonical.py
+A1 central audit append receipt,delivered locally,[MEASURED:v2.0.0-local],src/trustevidence/backends/a1.py
+A1 PostgreSQL append table,DDL delivered; live service not executed,[external validation required:v2.0.0-external-services],sql/a1_postgres.sql and docs/POSTGRES_RUN_PROTOCOL.md
+A2 Merkle inclusion proofs,delivered,[MEASURED:v2.0.0-local],src/trustevidence/backends/a2_merkle.py
+A2 Merkle consistency proofs,delivered,[MEASURED:v2.0.0-local],src/trustevidence/backends/a2_merkle.py
+Wrong log identity rejection,delivered,[MEASURED:v2.0.0-local],src/trustevidence/validators.py
+Verifier-state loss rejection,delivered,[MEASURED:v2.0.0-local],src/trustevidence/validators.py
+Pre-boundary non-emission failure code,delivered,[MEASURED:v2.0.0-local],src/trustevidence/envelope.py and validators.py
+HAPI/Fabric/Trillian/Rekor execution,not in v2.0.0,[external validation required:v2.0.0-external-services],v2.0.0 scope
+Measured benchmark results,not in v2.0.0,[external validation required:v2.0.0-external-services],v2.0.0 scope

@@ -1,0 +1,7 @@
+backend,local_adapter,wire_protocol_or_tool,external_service,receipt_fields,formal_property_link,status
+A1,PostgresA1Backend,psycopg/PostgreSQL,tea-a1-postgres,backend_type/backend_id/core_hash/signature,T5 local auditability,external validation required:v2.0.0-external-services
+A2,A2MerkleLog,local Python Merkle core,none,tree_size/root_hash/inclusion_proof_ref/consistency_proof_ref,T3 inclusion and append-only consistency,MEASURED:v2.0.0
+A3,FabricCliAdapter,Fabric peer CLI in container,Fabric test-network,finality_ref/inclusion_proof_ref,T5 finalised emitted evidence under A8,external validation required:v2.0.0-external-services
+Baseline-Trillian,EvidenceTrillianPersonality,gRPC stubs generated from upstream protos,Trillian log server/signer,tree_size/root_hash/inclusion_proof_ref/consistency_proof_ref,T3/T4 transparency-log baseline,external validation required:v2.0.0-external-services
+Baseline-Rekor,RekorClientAdapter,REST API,Rekor server,tree_size/root_hash/leaf_index/inclusion_proof_ref/witness_ref,T3/T4 transparency-log baseline,external validation required:v2.0.0-external-services
+FHIR boundary,HapiFhirAuditEventClient,FHIR REST,HAPI FHIR JPA server,resource id/version when returned,v2.0.0 forward reference only,external validation required:v2.0.0-external-services

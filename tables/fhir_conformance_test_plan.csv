@@ -1,0 +1,13 @@
+id,group,operation,assertions,evidence_slot
+TE-v2.0.0,CapabilityStatement,Validate generated resources,kind=requirements; fhirVersion=4.0.1; client mode; AuditEvent/Provenance resources,[external IG QA required]
+TE-v2.0.0,TEAuditEvent,Validate W1-W5 examples,conforms to TEAuditEvent and contains one EvidenceAnchor,[external IG QA required]
+TE-v2.0.0,TEProvenance,Validate W1-W5 examples,conforms to TEProvenance; target/agent/entity present,[external IG QA required]
+TE-v2.0.0,EvidenceAnchor,Inspect subextensions,"logIdentity, algorithm, backendType present; proof refs typed as URI",[external IG QA required]
+TE-v2.0.0,Terminology,Validate evidence/backend codes,codes from draft systems or declared external systems,[external IG QA required]
+TE-v2.0.0,Backend identity,Present wrong log identity,verifier rejects before proof acceptance,verifier integration required
+TE-v2.0.0,Proof verification,Run inclusion/consistency proof check,valid proof accepted; tampered proof rejected,external measurement required
+TE-v2.0.0,Verifier state,Present stale checkpoint/fork,rollback/fork flagged,external measurement required
+TE-v2.0.0,Failure artefact,Validate missing-witness/unavailable-proof path,failure path explicit; no false acceptance,[external IG QA required]
+TE-v2.0.0,Security,Inspect authenticated/protected emission,unauthenticated emission rejected by deployment policy,[external validation required:v2.0.0-external-services]
+TE-v2.0.0,Privacy minimisation,Inspect anchors/details,no raw clinical payload stored in anchor,[external IG QA required]
+TE-v2.0.0,BALP/ATNA mapping,Check derivation/mapping with packages,no unsupported conformance claim remains,[external IG QA required]

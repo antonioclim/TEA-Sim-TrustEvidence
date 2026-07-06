@@ -1,0 +1,9 @@
+id,v1_component,lji2_disposition,reason,replacement_in_lji2,allowed_future_use
+BR-1,Scalar LJI = benefit - cost,retired as an adoption rule,"v1 did not axiomatise criteria, interactions or threshold semantics",lexicographic screens plus parametric value function,historical v1 description only
+BR-2,Fixed negative threshold -0.05,retired,no derivation or validation was supplied in v1,theta and tau parameters awaiting Delphi calibration,may be mentioned only as retired v1 threshold
+BR-3,Fixed positive threshold +0.10,retired,no derivation or validation was supplied in v1,material-advantage margin theta_A3 awaiting validation,may be mentioned only as retired v1 threshold
+BR-4,"Benefit terms: dispute risk, organisation count, revocation pressure",partly retained as candidate demand signals,conceptually relevant but not sufficient and not independent by default,"N-NE, N-NT, N-FR, N-LT and registered interactions",may inform demand vector after v2.0.0
+BR-5,Cost terms: operational burden and signature penalty,partly retained as candidate burden signals,conceptually relevant but must be measured or normatively justified,"B-SC, B-LT, B-GC, B-AG",v2.0.0 burden only
+BR-6,Scenario conclusion that S4 clearly supports A3,retired as current conclusion,derived from unvalidated thresholds and simulation-only model,no scenario recommendation until v2.0.0/Delphi validation,archived v1 result only
+BR-7,Borderline labels for S2/S3,retired as current conclusion,threshold interpretation was not grounded,sensitivity surface and Delphi-calibrated decision categories,archived v1 result only
+BR-8,A1/A2 preferred labels for S1/S5,retired as current conclusion,"v1 labels came from simulation and unvalidated LJI, not measured or axiomatic decision analysis",minimum-sufficient backend rule after screens,archived v1 result only

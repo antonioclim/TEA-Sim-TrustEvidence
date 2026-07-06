@@ -1,0 +1,6 @@
+step,route,action,body,status
+PATH-01,IHE IT Infrastructure,Prepare profile/work-item proposal,IHE ITI Planning Committee,draft pathway
+PATH-02,IHE IT Infrastructure,Technical scoping and detailed supplement/profile text,IHE ITI Technical Committee,draft pathway
+PATH-03,IHE IT Infrastructure,Resolve BALP derivation or mapping,IHE ITI/BALP editors [VERIFY],VERIFY
+PATH-04,HL7 parallel route,Consider FHIR IG project proposal,HL7 Security Work Group / FHIR Infrastructure [VERIFY],VERIFY
+PATH-05,EU alignment,Coordinate EHDS-facing interpretation,HL7 Europe or national FHIR governance [VERIFY],future

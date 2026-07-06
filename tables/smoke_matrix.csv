@@ -1,0 +1,13 @@
+check_id,check,execution_status,evidence_class,blocking
+v2.0.0,Import TrustEvidence v2.0.0 package,passed,MEASURED:v2.0.0,no
+v2.0.0,Run inherited v2.0.0 and new v2.0.0 unit tests,passed,MEASURED:v2.0.0,no
+v2.0.0,Parse docker-compose.full.yml,passed,MEASURED:v2.0.0,no
+v2.0.0,Dry replay workload across A1 A2 and Trillian fake personality,passed,MEASURED:v2.0.0,no
+v2.0.0,Run make up against Docker Compose,not-run,external validation required:v2.0.0-external-services,no
+v2.0.0,HAPI FHIR metadata endpoint responds,not-run,external validation required:v2.0.0-external-services,no
+v2.0.0,A1 PostgreSQL initialisation executes,not-run,external validation required:v2.0.0-external-services,no
+v2.0.0,Trillian log server queues TrustEvidence leaf,not-run,external validation required:v2.0.0-external-services,no
+v2.0.0,Rekor server creates log entry,not-run,external validation required:v2.0.0-external-services,no
+v2.0.0,Fabric chaincode deploys and accepts evidence,not-run,external validation required:v2.0.0-external-services,no
+v2.0.0,External smoke harness writes validation/v2.0.0,not-run,external validation required:v2.0.0-external-services,no
+v2.0.0,No latency/throughput claims emitted,passed,COMPUTED,no

@@ -1,0 +1,5 @@
+stratum,expertise_required,minimum_rationale,exclusion_or_conflict_control,evidence_class
+FHIR/IHE audit and implementation-guide specialists,"FHIR AuditEvent/Provenance, BALP/ATNA or IG authoring experience",tests whether criteria and fields are standards-credible,record direct authorship or vendor conflict,[ASSUMED:v2.0.0-protocol]
+Security/transparency-log specialists,"Merkle logs, non-equivocation, verifiable logging or permissioned-ledger systems",tests formal property and assumption semantics,record backend vendor or project maintainer role,[ASSUMED:v2.0.0-protocol]
+"Health-law, GDPR/EHDS and audit-governance specialists","health-data traceability, accountability, European health-data regulation or ISO audit frameworks",tests legal-to-technical criteria without making legal claims,separate legal interpretation from technical preference,[ASSUMED:v2.0.0-protocol]
+Health-informatics operators and clinical-governance leads,"operational audit, consent management, interorganisational HIE or clinical data-governance practice",tests practical burden and workflow plausibility,record institutional deployment constraints,[ASSUMED:v2.0.0-protocol]
