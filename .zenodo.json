@@ -1,37 +1,30 @@
 {
-  "title": "TEA-Sim: reproducibility package for standards-compatible TrustEvidence interface simulation",
-  "version": "v2.0.0",
+  "title": "TEA-Sim v2.0.1: Auditable trust-evidence reference artefacts",
   "upload_type": "software",
-  "description": "Clean v2.0.0 reproducibility package for TrustEvidence interface simulation and reference artefacts. The package contains source code, tests, experiment scripts, schemas, draft FHIR Shorthand artefacts, documentation, generated local outputs and checksum manifests. It does not claim production FHIR deployment, FHIR/BALP conformance, blockchain deployment, clinical validation, legal compliance or cryptographic benchmarking.",
+  "description": "Reference implementation and reproducibility artefacts for auditable trust-evidence boundaries in health information systems. This updated archive is intended to be deposited as a new Zenodo version. It does not claim production deployment, certification, legal compliance, clinical validation or complete formal verification.",
   "creators": [
     {
       "name": "Clim, Antonio",
-      "affiliation": "Bucharest University of Economic Studies",
       "orcid": "0000-0003-4745-0431"
     }
   ],
+  "version": "2.0.1",
   "license": "Apache-2.0",
   "keywords": [
-    "health information exchange",
+    "health information systems",
+    "auditability",
     "FHIR",
-    "audit evidence",
-    "trust evidence",
-    "tamper-evident logging",
-    "simulation",
+    "BALP",
+    "design science",
     "reproducibility"
   ],
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.21134217",
+      "identifier": "10.5281/zenodo.21193829",
       "relation": "isNewVersionOf",
       "scheme": "doi",
       "resource_type": "software"
-    },
-    {
-      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.0",
-      "relation": "isSupplementedBy",
-      "scheme": "url",
-      "resource_type": "software"
     }
-  ]
+  ],
+  "notes": "Previous version DOI: 10.5281/zenodo.21193829. This updated archive should be deposited as a new Zenodo version and should receive a new version DOI on publication."
 }
