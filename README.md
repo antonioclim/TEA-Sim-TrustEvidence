@@ -4,6 +4,19 @@ This archive contains the TEA-Sim reference implementation and supporting artefa
 
 The archive includes local reference implementation code, tests, generated figures, FHIR R4/BALP-facing draft artefacts, backend-evaluation workstreams, externally informed workload descriptors, property-validation artefacts and an expert-validation protocol. It does not claim production deployment, certification, legal compliance, clinical validation or full formal proof.
 
+## Public records and citation
+
+Zenodo software record: `10.5281/zenodo.21226180`  
+DOI link: <https://doi.org/10.5281/zenodo.21226180>  
+GitHub repository: <https://github.com/antonioclim/TEA-Sim-TrustEvidence>  
+GitHub release: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1>
+
+Recommended citation:
+
+> Clim, A. (2026). TEA-Sim v2.0.1: Auditable trust-evidence reference artefacts (2.0.1). Zenodo. https://doi.org/10.5281/zenodo.21226180
+
+The previous Zenodo version is `10.5281/zenodo.21193829`. The current archive is version `2.0.1` and should be cited using the v2.0.1 DOI above.
+
 ## Quick start
 
 ```bash
@@ -14,8 +27,6 @@ make quick
 make evaluation-smoke
 ```
 
-The public release should be uploaded as a new version after final maintainer approval. The previous public Zenodo record is DOI `10.5281/zenodo.21193829`; this modified archive requires its own new version DOI before DOI-bound citation as a replacement record.
-
 ## Main directories
 
 - `src/` - Python reference implementation modules.
@@ -24,7 +35,7 @@ The public release should be uploaded as a new version after final maintainer ap
 - `evaluation_workstreams/` - standards-facing, backend, workload and property-validation artefacts.
 - `protocols/` - future expert-validation protocol materials.
 - `figures/` and `figure_sources/` - script-generated figures and source CSVs.
-- `docs/`, `tables/`, `references/` - supporting documentation, tables and bibliographic artefacts.
+- `docs/`, `tables/` and `references/` - supporting documentation, tables and bibliographic artefacts.
 
 ## Scope boundary
 

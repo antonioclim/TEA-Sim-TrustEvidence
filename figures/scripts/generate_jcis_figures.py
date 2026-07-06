@@ -14,6 +14,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle
 from matplotlib.lines import Line2D
@@ -22,6 +24,9 @@ ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "figure_sources"
 OUT = ROOT / "figures" / "outputs"
 OUT.mkdir(parents=True, exist_ok=True)
+
+PDF_METADATA = {"CreationDate": None, "ModDate": None, "Creator": "TEA-Sim figure generator"}
+SVG_METADATA = {"Date": None}
 
 # A restrained greyscale + single accent palette. This remains readable when
 # printed in greyscale and avoids decorative saturation.
@@ -50,6 +55,7 @@ plt.rcParams.update({
     "savefig.dpi": 300,
     "pdf.fonttype": 42,
     "ps.fonttype": 42,
+    "svg.hashsalt": "tea-sim-v2.0.1",
 })
 
 @dataclass
@@ -282,8 +288,10 @@ def draw_figure3():
     for ext in ("svg", "pdf", "png"):
         if ext == "png":
             fig.savefig(OUT / f"{stem}.{ext}", dpi=300)
-        else:
-            fig.savefig(OUT / f"{stem}.{ext}")
+        elif ext == "pdf":
+            fig.savefig(OUT / f"{stem}.{ext}", metadata=PDF_METADATA)
+        elif ext == "svg":
+            fig.savefig(OUT / f"{stem}.{ext}", metadata=SVG_METADATA)
     plt.close(fig)
 
 
@@ -367,7 +375,12 @@ def save_all(fig, stem: str):
     fig.subplots_adjust(left=0.035, right=0.985, top=0.91, bottom=0.08)
     for ext in ("svg", "pdf", "png"):
         kwargs = {"bbox_inches":"tight"}
-        if ext == "png": kwargs["dpi"] = 300
+        if ext == "png":
+            kwargs["dpi"] = 300
+        elif ext == "pdf":
+            kwargs["metadata"] = PDF_METADATA
+        elif ext == "svg":
+            kwargs["metadata"] = SVG_METADATA
         fig.savefig(OUT / f"{stem}.{ext}", **kwargs)
     plt.close(fig)
 

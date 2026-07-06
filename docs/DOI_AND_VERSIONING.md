@@ -1,3 +1,8 @@
 # DOI and versioning note
 
-The public Zenodo v2.0.0 baseline DOI `10.5281/zenodo.21193829` has been verified as an existing record for the prior clean package. This evidence-supported candidate is not asserted to be byte-identical to that public Zenodo record because it integrates additional staged evidence, claim-boundary material and release-candidate documentation. A new Zenodo version/DOI or explicit maintainer reconciliation is required before this candidate ZIP is cited as an exact public deposit.
+TEA-Sim v2.0.1 is the current public software version for this archive. Its Zenodo DOI is `10.5281/zenodo.21226180` and the DOI link is <https://doi.org/10.5281/zenodo.21226180>.
+
+The previous public Zenodo v2.0.0 baseline DOI is `10.5281/zenodo.21193829`. The current v2.0.1 archive is not described as byte-identical to the v2.0.0 record; it is the newer published version.
+
+GitHub repository: <https://github.com/antonioclim/TEA-Sim-TrustEvidence>  
+GitHub release: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1>

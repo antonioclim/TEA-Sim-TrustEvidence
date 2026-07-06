@@ -1,10 +1,9 @@
 # DOI and metadata reconciliation
 
-The maintainer supplied DOI `10.5281/zenodo.21193829` as the intended or prior Zenodo v2.0.0 identifier. release-candidate does not assert that this rebuilt evidence-supported candidate is byte-identical to any public Zenodo file set.
+The v2.0.1 archive has been published as a new Zenodo software version with DOI `10.5281/zenodo.21226180`. The public DOI link is <https://doi.org/10.5281/zenodo.21226180>.
 
-Before public release, the maintainer should perform one of the following actions:
+The previous Zenodo v2.0.0 record is `10.5281/zenodo.21193829`. The relationship between the records is recorded in `.zenodo.json` as `isNewVersionOf` for the previous DOI, and the GitHub release is recorded as the associated public source-release location.
 
-1. verify the public Zenodo/DataCite record and file checksums, then record the exact relationship to this candidate; or
-2. upload this candidate as a new Zenodo version and insert the new DOI/version metadata into `README.md`, `CITATION.cff`, `.zenodo.json` and the manuscript software-availability statement.
+Recommended software citation:
 
-Until that reconciliation is complete, the candidate should be described as a local evidence-supported release archive, not as the DOI-bound public archive.
+Clim, A. (2026). TEA-Sim v2.0.1: Auditable trust-evidence reference artefacts (2.0.1). Zenodo. https://doi.org/10.5281/zenodo.21226180
