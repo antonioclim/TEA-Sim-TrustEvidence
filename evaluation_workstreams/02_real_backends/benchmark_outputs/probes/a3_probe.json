@@ -1,0 +1,30 @@
+{
+  "allowable_public_wording": "A3 remained an adapter/protocol artefact, not executed backend evidence.",
+  "backend": "A3_TRANSPARENCY_LEDGER_LIKE",
+  "execution_status": "adapter_only_not_executed",
+  "forbidden_wording": "local transparency-log execution; Fabric benchmark; blockchain benchmark; real-world deployment",
+  "public_service_submission": "not attempted; synthetic hash commitments only",
+  "reason": "No local Rekor/Trillian/Fabric service pathway was available; Docker is required for the supplied container paths and was not found.",
+  "tool_status": {
+    "docker": {
+      "path": null,
+      "version_probe": "not found"
+    },
+    "go": {
+      "path": "/usr/local/go/bin/go",
+      "version_probe": "go version go1.23.2 linux/amd64"
+    },
+    "peer": {
+      "path": null,
+      "version_probe": "not found"
+    },
+    "rekor-cli": {
+      "path": null,
+      "version_probe": "not found"
+    },
+    "trillian_log_server": {
+      "path": null,
+      "version_probe": "not found"
+    }
+  }
+}

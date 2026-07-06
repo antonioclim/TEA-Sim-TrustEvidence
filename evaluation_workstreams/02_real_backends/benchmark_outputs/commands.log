@@ -1,0 +1,76 @@
+# Backend-evaluation commands log — final executed pathway after Merkle proof/root repair
+2026-07-05T17:43:45Z
+$ python -m compileall src tests experiments scripts
+Listing 'src'...
+Listing 'src/te_backend_upgrade'...
+Listing 'src/te_backend_upgrade/backends'...
+Compiling 'src/te_backend_upgrade/postgres_backend.py'...
+Compiling 'src/te_backend_upgrade/rekor_adapter.py'...
+Listing 'tests'...
+Compiling 'tests/test_merkle_log.py'...
+Listing 'experiments'...
+Compiling 'experiments/run_backend_benchmark.py'...
+Compiling 'experiments/tamper_tests.py'...
+Listing 'scripts'...
+Compiling 'scripts/probe_a3.py'...
+Compiling 'scripts/probe_postgres.py'...
+Compiling 'scripts/repository_check.py'...
+Compiling 'scripts/verify_sha256sums.py'...
+$ python -m pytest
+......                                                                   [100%]
+6 passed in 0.09s
+$ python scripts/probe_postgres.py --out benchmark_outputs/probes/postgres_probe.json
+{
+  "allowable_public_wording": "PostgreSQL schema and adapter were prepared, but PostgreSQL execution was unavailable in the recorded runtime.",
+  "backend": "A1_POSTGRES",
+  "docker_path": null,
+  "docker_version": "not found",
+  "dsn_env_name": "TEA_POSTGRES_DSN",
+  "dsn_present": false,
+  "dsn_value_recorded": false,
+  "execution_status": "not_executed",
+  "forbidden_wording": "PostgreSQL measured benchmark; production database performance; PostgreSQL validation passed",
+  "psql_path": null,
+  "psql_version": "not found",
+  "python_driver_psycopg2_available": false,
+  "python_driver_psycopg_available": false,
+  "reason": "Docker, psql or explicit local DSN unavailable"
+}
+$ python scripts/probe_a3.py --out benchmark_outputs/probes/a3_probe.json
+{
+  "allowable_public_wording": "A3 remained an adapter/protocol artefact, not executed backend evidence.",
+  "backend": "A3_TRANSPARENCY_LEDGER_LIKE",
+  "execution_status": "adapter_only_not_executed",
+  "forbidden_wording": "local transparency-log execution; Fabric benchmark; blockchain benchmark; real-world deployment",
+  "public_service_submission": "not attempted; synthetic hash commitments only",
+  "reason": "No local Rekor/Trillian/Fabric service pathway was available; Docker is required for the supplied container paths and was not found.",
+  "tool_status": {
+    "docker": {
+      "path": null,
+      "version_probe": "not found"
+    },
+    "go": {
+      "path": "/usr/local/go/bin/go",
+      "version_probe": "go version go1.23.2 linux/amd64"
+    },
+    "peer": {
+      "path": null,
+      "version_probe": "not found"
+    },
+    "rekor-cli": {
+      "path": null,
+      "version_probe": "not found"
+    },
+    "trillian_log_server": {
+      "path": null,
+      "version_probe": "not found"
+    }
+  }
+}
+$ python experiments/run_backend_benchmark.py --objects 1000 10000 --repetitions 10 --out benchmark_outputs/backend_benchmark_summary.csv --raw-dir benchmark_outputs/raw_runs
+wrote benchmark_outputs/backend_benchmark_summary.csv
+$ python experiments/tamper_tests.py --out benchmark_outputs/tamper_detection_results.csv
+wrote benchmark_outputs/tamper_detection_results.csv; failed=0
+$ find . -name __pycache__ -type d -prune -exec rm -rf {} + && find . -name .pytest_cache -type d -prune -exec rm -rf {} +
+$ python scripts/repository_check.py
+repository_check passed

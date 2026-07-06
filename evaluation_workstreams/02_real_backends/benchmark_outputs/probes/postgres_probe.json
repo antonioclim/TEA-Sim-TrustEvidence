@@ -1,0 +1,16 @@
+{
+  "allowable_public_wording": "PostgreSQL schema and adapter were prepared, but PostgreSQL execution was unavailable in the recorded runtime.",
+  "backend": "A1_POSTGRES",
+  "docker_path": null,
+  "docker_version": "not found",
+  "dsn_env_name": "TEA_POSTGRES_DSN",
+  "dsn_present": false,
+  "dsn_value_recorded": false,
+  "execution_status": "not_executed",
+  "forbidden_wording": "PostgreSQL measured benchmark; production database performance; PostgreSQL validation passed",
+  "psql_path": null,
+  "psql_version": "not found",
+  "python_driver_psycopg2_available": false,
+  "python_driver_psycopg_available": false,
+  "reason": "Docker, psql or explicit local DSN unavailable"
+}
