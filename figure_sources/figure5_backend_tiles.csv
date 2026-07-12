@@ -1,4 +1,0 @@
-backend,x,y,w,h,title,execution_status,appropriate_when,claim_boundary
-A1,20,28,31,20,A1 central audit,"specified, not executed",low external dispute; ordinary organisational audit,no measured PostgreSQL result
-A2,52,54,32,20,A2 Merkle log,executed locally,moderate dispute; portable verification needed,local reference result only
-A3,82,78,31,20,A3 transparency / ledger-like,adapter-level only,high cross-organisational scrutiny; external witness needed,no executed transparency/ledger result

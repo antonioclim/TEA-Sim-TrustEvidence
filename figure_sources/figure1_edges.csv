@@ -1,5 +1,0 @@
-source,target,label,route
-payload,boundary,selected facts,
-boundary,a1,,"71,60;71,72"
-boundary,a2,backend choice,
-boundary,a3,,"71,44;71,32"

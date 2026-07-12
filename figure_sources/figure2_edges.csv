@@ -1,8 +1,0 @@
-source,target,label,route
-requirements,boundary,,
-boundary,execution,,
-execution,register,,
-register,claims,,
-claims,manuscript,,
-execution,demotion1,if absent,"42,43;42,35"
-claims,demotion2,if absent,"76,43;76,35"
