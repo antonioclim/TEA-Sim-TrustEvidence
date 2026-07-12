@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "software_version": "2.1.0",
+  "release_date": "2026-07-12",
+  "git_tag": "v2.1.0",
+  "doi": "10.5281/zenodo.21318387",
+  "doi_url": "https://doi.org/10.5281/zenodo.21318387",
+  "repository": "https://github.com/antonioclim/TEA-Sim-TrustEvidence",
+  "github_release_url": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0",
+  "canonical_asset_name": "TEA-Sim-TrustEvidence-v2.1.0.zip",
+  "previous_version_doi": "10.5281/zenodo.21226180",
+  "license": "Apache-2.0",
+  "canonical_archive_root": "TEA-Sim-TrustEvidence-v2.1.0",
+  "canonical_checksum_name": "TEA-Sim-TrustEvidence-v2.1.0.sha256",
+  "doi_state": "exact-version-identifier"
+}

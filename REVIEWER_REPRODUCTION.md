@@ -1,37 +1,42 @@
-# Reviewer reproduction guide
+# Reviewer reproduction
 
-## 1. Static source and test checks
+## One-command route
 
-```bash
-python -m pip install -e '.[test]'
-python -m compileall src tests experiments scripts
-python -m pytest tests -q
-python scripts/repository_check.py
-```
-
-## 2. Local experiment smoke run
+After installation, run:
 
 ```bash
-python experiments/run_experiments.py --quick
-python scripts/validate_results_schema.py --results-dir results/quick
-python experiments/analyse_results.py --results-dir results/quick --out results/quick/statistical_summary.csv
+make release-check
 ```
 
-The generated `results/quick/` directory is runtime output and is not part of the static checksum manifest.
+Expected high-level outcomes are:
 
-## 3. evidence-supported evidence smoke checks
+- all unit/regression tests pass;
+- all mandatory Hypothesis tests pass with no skips;
+- the finite bounded state space completes without a counterexample;
+- schema, canonicalisation and mutation reference outputs regenerate byte-for-byte;
+- the quick workload produces the expected event/receipt/mutation decisions;
+- five figures regenerate byte-for-byte;
+- retained result CSVs satisfy their Draft 2020-12 contracts;
+- the result-level reproducibility manifest is current;
+- manifests, checksums, metadata and repository identity pass.
+
+## Full workload route
+
+The retained workload reference run can be regenerated with:
 
 ```bash
-python scripts/run_evaluation_workstreams_smoke.py
+python experiments/run_workload_passage.py \
+  --output-dir results_local/full_workload \
+  --tree-sizes 128 512 2048 \
+  --repetitions 12 \
+  --verification-samples 32
+python experiments/analyse_cmpb_results.py \
+  --input-dir results_local/full_workload \
+  --output-dir results_local/full_workload
 ```
 
-This command re-runs local JSON integrity lint for the FHIR/BALP examples, the executable bounded model and the property-test subset. It does not run IG Publisher, the HL7 FHIR Validator, PostgreSQL, Rekor, Trillian, Fabric or expert-panel analysis.
+This route may take materially longer than `--quick`. Timing values will differ by host. Decisions, event counts, sample counts and mutation outcomes should agree.
 
-## 4. Manifest verification
+## Expected claim boundary
 
-```bash
-python scripts/verify_sha256sums.py SHA256SUMS.txt
-sha256sum -c SHA256SUMS.txt
-```
-
-Both commands verify the same standard two-column checksum manifest.
+Successful execution supports local reproducibility of the reference implementation. It does not establish clinical utility, production readiness, standards conformance, legal compliance, global non-equivocation or resistance after compromise of an authorised key.

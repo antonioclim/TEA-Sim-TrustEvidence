@@ -1,3 +1,2 @@
--r requirements-core.txt
-pytest>=8
-hypothesis>=6
+pytest==9.1.1
+hypothesis==6.156.6

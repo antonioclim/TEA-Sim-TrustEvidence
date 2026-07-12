@@ -1,9 +1,11 @@
-# Data and software availability
+# Data access
 
-The distributed package contains synthetic or descriptor-derived local artefacts only. It does not redistribute restricted clinical data.
+All event objects distributed in this archive are synthetic. No identifiable patient data, raw physiological samples, restricted clinical records or source participant identifiers are included.
 
-Synthea, BIG IDEAs and MIMIC-on-FHIR demo pathways are documented as externally informed workload sources. Full dataset extraction depends on the source licences, access requirements, file sizes and local maintainer execution. The package therefore provides descriptor tables and scripts rather than restricted or multi-gigabyte data files.
+External sources are used only as documented in `data_sources/`:
 
-The published TEA-Sim v2.0.1 software record is archived on Zenodo with DOI `10.5281/zenodo.21226180`: <https://doi.org/10.5281/zenodo.21226180>. The associated GitHub repository is <https://github.com/antonioclim/TEA-Sim-TrustEvidence> and the release page is <https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1>.
+- one previously reported aggregate-only CGM descriptor extraction, with no raw values retained in this archive;
+- public source documentation used to bound synthetic scenario parameters;
+- synthetic generated events used for every executed passage in this release.
 
-The previous Zenodo version is `10.5281/zenodo.21193829`. Users should cite the v2.0.1 DOI for this archive.
+The integrated workload does not download or ingest an external clinical dataset. Dataset licences, versions and live access conditions must be reverified before manuscript submission.

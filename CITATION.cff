@@ -1,21 +1,28 @@
 cff-version: 1.2.0
-title: "TEA-Sim v2.0.1: Auditable trust-evidence reference artefacts"
-message: "If you use this software, please cite the Zenodo software record."
+title: "TEA-Sim v2.1.0: Schema-first curation of personal health monitoring evidence"
+message: "If you use this software, please cite the exact Zenodo software record."
 type: software
-version: "2.0.1"
-date-released: "2026-07-06"
-abstract: "Reference implementation and reproducibility artefacts for auditable trust-evidence boundaries in health information systems."
+version: "2.1.0"
+date-released: "2026-07-12"
+abstract: "Reproducible reference implementation for schema-first curation, minimisation and local verification of audit evidence from synthetic personal health monitoring workflows."
 license: Apache-2.0
 repository-code: "https://github.com/antonioclim/TEA-Sim-TrustEvidence"
-url: "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1"
+url: "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.21226180"
-    description: "Published Zenodo version DOI for TEA-Sim v2.0.1."
+    value: "10.5281/zenodo.21318387"
+    description: "Exact-version Zenodo DOI for TEA-Sim v2.1.0."
   - type: url
-    value: "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1"
-    description: "GitHub release v2.0.1."
+    value: "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0"
+    description: "GitHub release v2.1.0."
+keywords:
+  - "personal health monitoring"
+  - "biomedical informatics"
+  - "data curation"
+  - "audit evidence"
+  - "reproducibility"
 authors:
   - family-names: "Clim"
     given-names: "Antonio"
     orcid: "https://orcid.org/0000-0003-4745-0431"
+    affiliation: "Faculty of Cybernetics, Statistics and Economic Informatics, Bucharest University of Economic Studies"

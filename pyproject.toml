@@ -1,45 +1,54 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools==82.0.1", "wheel==0.46.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "teasim-trustevidence"
-version = "2.0.0"
-description = "TrustEvidence interfaces for auditable health information exchange"
+version = "2.1.0"
+description = "Schema-first curation of personal health monitoring evidence"
 readme = "README.md"
-requires-python = ">=3.12"
-license = {text = "Apache-2.0"}
+requires-python = ">=3.13,<3.14"
+license = "Apache-2.0"
 authors = [{name = "Antonio Clim", email = "antonio.clim@csie.ase.ro"}]
-keywords = ["FHIR", "audit evidence", "TrustEvidence", "transparency log", "health information exchange"]
+keywords = [
+  "personal health monitoring",
+  "biomedical informatics",
+  "data curation",
+  "audit evidence",
+  "reproducibility",
+]
 dependencies = [
-  "jsonschema>=4.0",
-  "cryptography>=41.0",
-  "httpx>=0.27",
-  "PyYAML>=6.0",
-  "pandas>=2.0",
-  "matplotlib>=3.8"
+  "jsonschema==4.26.0",
+  "cryptography==49.0.0",
+  "rfc8785==0.1.4",
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=8", "hypothesis>=6"]
-postgres = ["psycopg[binary]>=3.1"]
-external = ["grpcio>=1.64", "grpcio-tools>=1.64", "protobuf>=5.0", "httpx>=0.27"]
-dev = ["pytest>=8", "hypothesis>=6", "build>=1.0", "grpcio-tools>=1.64"]
+test = [
+  "pytest==9.1.1",
+  "hypothesis==6.156.6",
+]
+figures = [
+  "matplotlib==3.10.8",
+  "Pillow==12.2.0",
+  "pypdf==5.9.0",
+]
 
 [project.scripts]
-teasim = "teasim.cli:main"
+teasim = "trustevidence.cli:main"
+
+[project.urls]
+Repository = "https://github.com/antonioclim/TEA-Sim-TrustEvidence"
+Release = "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0"
+"Archived release" = "https://doi.org/10.5281/zenodo.21318387"
+"Previous version" = "https://doi.org/10.5281/zenodo.21226180"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-addopts = "-q"
-markers = [
-  "postgres: requires live PostgreSQL and psycopg",
-  "external: requires Docker-composed HAPI/Fabric/Trillian/Rekor services",
-  "smoke: v2.0.0 smoke-harness tests"
-]
-
 [tool.setuptools.package-data]
 trustevidence = ["schemas/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "property_tests"]
+addopts = "-q -p no:cacheprovider"
