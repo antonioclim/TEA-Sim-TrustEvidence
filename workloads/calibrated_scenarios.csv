@@ -1,0 +1,4 @@
+scenario_id,descriptor_id,tree_size,repetitions,event_templates,verification_samples_per_repetition,deep_mutations_per_repetition,input_class,representativeness_claim
+SC-W128,W128,128,12,9,32,1,synthetic_generated_event,none
+SC-W512,W512,512,12,9,32,1,synthetic_generated_event,none
+SC-W2048,W2048,2048,12,9,32,1,synthetic_generated_event,none

@@ -1,0 +1,4 @@
+descriptor_id,tree_size,input_class,external_basis,intended_use,representativeness_claim
+W128,128,synthetic_generated_event,aggregate-only CGM extraction and public metadata,small bounded passage and proof-depth observation,none
+W512,512,synthetic_generated_event,aggregate-only CGM extraction and public metadata,medium bounded passage and proof-depth observation,none
+W2048,2048,synthetic_generated_event,aggregate-only CGM extraction and public metadata,large bounded local passage and proof-depth observation,none

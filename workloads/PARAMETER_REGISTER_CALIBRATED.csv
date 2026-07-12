@@ -1,0 +1,8 @@
+parameter_id,parameter,value,unit,evidence_class,rationale,claim_boundary
+WP-01,tree_sizes,"128;512;2048",leaves,metadata_informed_parameter,bounded increasing proof depth,no extrapolation beyond 2048
+WP-02,repetitions,12,per tree size,protocol_reconstruction,reproduces documented event total design,not historical kit identity
+WP-03,verification_samples,32,per repetition,protocol_reconstruction,reproduces documented 1152 sample design,sampled verification only
+WP-04,deep_mutations,1,per repetition,protocol_reconstruction,reproduces documented 36-control design,tested mutation only
+WP-05,event_templates,9,synthetic templates,synthetic_generated_event,covers seven declared event classes,not a patient cohort
+WP-06,timing_clock,time.perf_counter_ns,monotonic nanoseconds,local_reference_measurement,high-resolution local elapsed time,no cross-host equality expected
+WP-07,percentile,nearest-rank 95th,descriptive statistic,computed,transparent small-sample rule,no inferential interval
