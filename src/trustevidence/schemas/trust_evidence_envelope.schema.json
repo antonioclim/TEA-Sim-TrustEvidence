@@ -1,0 +1,1097 @@
+{
+  "$defs": {
+    "accessFacts": {
+      "additionalProperties": false,
+      "properties": {
+        "access_channel_code": {
+          "enum": [
+            "api",
+            "portal",
+            "batch",
+            "clinical-application"
+          ],
+          "type": "string"
+        },
+        "action_code": {
+          "enum": [
+            "read",
+            "query",
+            "export",
+            "annotate"
+          ],
+          "type": "string"
+        },
+        "decision_source_code": {
+          "enum": [
+            "policy-engine",
+            "consent-policy-engine",
+            "manual-authorisation"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "action_code",
+        "decision_source_code"
+      ],
+      "type": "object"
+    },
+    "actor": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "actor_type": {
+          "enum": [
+            "human-role",
+            "service",
+            "device",
+            "organisation-role"
+          ],
+          "type": "string"
+        },
+        "organisation_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "role_code": {
+          "enum": [
+            "authorised-reader",
+            "consent-controller",
+            "transform-service",
+            "disclosure-service",
+            "aggregation-service",
+            "monitoring-device",
+            "curation-service"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "actor_ref_token",
+        "actor_type",
+        "role_code"
+      ],
+      "type": "object"
+    },
+    "aggregationFacts": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregation_method": {
+          "enum": [
+            "arithmetic-mean",
+            "time-weighted-mean",
+            "daily-summary",
+            "statistical-feature-extraction"
+          ],
+          "type": "string"
+        },
+        "aggregation_version": {
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$",
+          "type": "string"
+        },
+        "missingness_count": {
+          "maximum": 10000000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "sample_count": {
+          "maximum": 10000000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "window_end": {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        },
+        "window_start": {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "window_start",
+        "window_end",
+        "sample_count",
+        "aggregation_method",
+        "aggregation_version"
+      ],
+      "type": "object"
+    },
+    "consentBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "consent_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "consent_state": {
+          "enum": [
+            "draft",
+            "active",
+            "inactive",
+            "revoked",
+            "superseded",
+            "entered-in-error"
+          ],
+          "type": "string"
+        },
+        "consent_version": {
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "consent_ref_token",
+        "consent_version",
+        "consent_state"
+      ],
+      "type": "object"
+    },
+    "consentFacts": {
+      "additionalProperties": false,
+      "properties": {
+        "effective_at": {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        },
+        "new_state": {
+          "enum": [
+            "draft",
+            "active",
+            "inactive",
+            "revoked",
+            "superseded",
+            "entered-in-error"
+          ],
+          "type": "string"
+        },
+        "previous_state": {
+          "enum": [
+            "draft",
+            "active",
+            "inactive",
+            "revoked",
+            "superseded",
+            "entered-in-error"
+          ],
+          "type": "string"
+        },
+        "transition_reason_code": {
+          "enum": [
+            "subject-request",
+            "policy-update",
+            "administrative-correction",
+            "expiry",
+            "error-correction"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "previous_state",
+        "new_state",
+        "effective_at"
+      ],
+      "type": "object"
+    },
+    "disclosureFacts": {
+      "additionalProperties": false,
+      "properties": {
+        "disclosure_channel_code": {
+          "enum": [
+            "api",
+            "secure-transfer",
+            "portal",
+            "batch"
+          ],
+          "type": "string"
+        },
+        "recipient_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "recipient_role_code": {
+          "enum": [
+            "care-team",
+            "research-service",
+            "authorised-third-party",
+            "data-controller"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "recipient_ref_token",
+        "recipient_role_code"
+      ],
+      "type": "object"
+    },
+    "emitter": {
+      "additionalProperties": false,
+      "properties": {
+        "emitter_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "key_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "organisation_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "role_code": {
+          "enum": [
+            "monitoring-boundary",
+            "curation-service",
+            "integration-adapter",
+            "evidence-service"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "emitter_id",
+        "role_code",
+        "key_id"
+      ],
+      "type": "object"
+    },
+    "failureFacts": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_event_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "affected_object_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "failed_stage": {
+          "enum": [
+            "detect",
+            "select",
+            "normalise",
+            "minimise",
+            "validate",
+            "canonicalise",
+            "sign",
+            "append",
+            "verify",
+            "preserve"
+          ],
+          "type": "string"
+        },
+        "failure_code": {
+          "maxLength": 64,
+          "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "output_status": {
+          "enum": [
+            "not-created",
+            "core-created",
+            "receipt-created",
+            "rejected"
+          ],
+          "type": "string"
+        },
+        "retryable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "failure_code",
+        "failed_stage",
+        "retryable",
+        "affected_event_ref_token",
+        "output_status"
+      ],
+      "type": "object"
+    },
+    "inclusionProof": {
+      "additionalProperties": false,
+      "properties": {
+        "leaf_index": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "profile": {
+          "const": "TE-A2-Inclusion-1"
+        },
+        "siblings": {
+          "items": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "maxItems": 64,
+          "type": "array"
+        },
+        "tree_size": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "profile",
+        "leaf_index",
+        "tree_size",
+        "siblings"
+      ],
+      "type": "object"
+    },
+    "objectBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "data_category_code": {
+          "enum": [
+            "continuous-glucose-monitoring",
+            "wearable-heart-rate-summary",
+            "wearable-activity-summary",
+            "wearable-sleep-summary",
+            "personal-monitoring-summary"
+          ],
+          "type": "string"
+        },
+        "object_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "object_role": {
+          "enum": [
+            "target",
+            "source",
+            "input",
+            "output",
+            "policy",
+            "consent",
+            "checkpoint"
+          ],
+          "type": "string"
+        },
+        "payload_binding": {
+          "additionalProperties": false,
+          "properties": {
+            "commitment": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "commitment_context": {
+              "maxLength": 64,
+              "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "commitment_profile": {
+              "const": "sha256-nonce-v1"
+            },
+            "representation_profile": {
+              "enum": [
+                "application/fhir+json-rfc8785-v1",
+                "application/json-rfc8785-v1",
+                "text/csv-row-v1"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "commitment_profile",
+            "representation_profile",
+            "commitment_context",
+            "commitment"
+          ],
+          "type": "object"
+        },
+        "resource_class": {
+          "enum": [
+            "monitoring-observation",
+            "monitoring-series",
+            "monitoring-summary",
+            "derived-summary",
+            "consent-record",
+            "policy-record",
+            "evidence-operation",
+            "checkpoint"
+          ],
+          "type": "string"
+        },
+        "resource_version_token": {
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$",
+          "type": "string"
+        },
+        "subject_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_ref_token",
+        "object_role",
+        "resource_class"
+      ],
+      "type": "object"
+    },
+    "outcome": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "success",
+            "denied",
+            "failed",
+            "partial",
+            "not-applicable"
+          ],
+          "type": "string"
+        },
+        "reason_code": {
+          "maxLength": 64,
+          "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "type": "object"
+    },
+    "policyBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "policy_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "policy_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "policy_source_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "policy_version": {
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_ref_token",
+        "policy_version"
+      ],
+      "type": "object"
+    },
+    "privacyProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "minimisation_profile": {
+          "const": "TE-PHM-Min-1"
+        },
+        "retention_class": {
+          "enum": [
+            "research-reference",
+            "bounded-evaluation",
+            "operational-policy"
+          ],
+          "type": "string"
+        },
+        "tokenisation_profile": {
+          "const": "TE-Token-Pseudonymous-1"
+        }
+      },
+      "required": [
+        "minimisation_profile",
+        "tokenisation_profile",
+        "retention_class"
+      ],
+      "type": "object"
+    },
+    "provenanceFacts": {
+      "additionalProperties": false,
+      "properties": {
+        "activity_ended_at": {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        },
+        "activity_started_at": {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        },
+        "on_behalf_of_ref_token": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "transform_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "transform_version": {
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "transform_id",
+        "transform_version"
+      ],
+      "type": "object"
+    },
+    "registrationFacts": {
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "not": {
+            "required": [
+              "summary_period"
+            ]
+          },
+          "required": [
+            "capture_period"
+          ]
+        },
+        {
+          "not": {
+            "required": [
+              "capture_period"
+            ]
+          },
+          "required": [
+            "summary_period"
+          ]
+        }
+      ],
+      "properties": {
+        "capture_period": {
+          "additionalProperties": false,
+          "properties": {
+            "end": {
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+              "type": "string"
+            },
+            "start": {
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "type": "object"
+        },
+        "object_state_code": {
+          "enum": [
+            "registered",
+            "updated",
+            "retired"
+          ],
+          "type": "string"
+        },
+        "payload_binding_mode": {
+          "enum": [
+            "none",
+            "commitment"
+          ],
+          "type": "string"
+        },
+        "source_device_class_code": {
+          "enum": [
+            "cgm-sensor",
+            "wearable-device",
+            "home-monitoring-device",
+            "software-derived"
+          ],
+          "type": "string"
+        },
+        "summary_period": {
+          "additionalProperties": false,
+          "properties": {
+            "end": {
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+              "type": "string"
+            },
+            "start": {
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "object_state_code",
+        "payload_binding_mode"
+      ],
+      "type": "object"
+    },
+    "signature": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "Ed25519"
+        },
+        "key_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "signature": {
+          "pattern": "^[A-Za-z0-9_-]{86}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "algorithm",
+        "key_id",
+        "signature"
+      ],
+      "type": "object"
+    },
+    "subjectContext": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "rotation_scope": {
+              "enum": [
+                "fixture-study",
+                "episode",
+                "organisation",
+                "project"
+              ],
+              "type": "string"
+            },
+            "status": {
+              "const": "pseudonymous"
+            },
+            "subject_ref_token": {
+              "maxLength": 220,
+              "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+              "type": "string"
+            },
+            "token_system": {
+              "maxLength": 220,
+              "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "subject_ref_token",
+            "token_system"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "reason_code": {
+              "enum": [
+                "system-event",
+                "not-person-specific",
+                "fixture-control"
+              ],
+              "type": "string"
+            },
+            "status": {
+              "const": "not-applicable"
+            }
+          },
+          "required": [
+            "status",
+            "reason_code"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "timeSource": {
+      "additionalProperties": false,
+      "properties": {
+        "max_skew_ms": {
+          "maximum": 300000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "precision_ms": {
+          "maximum": 60000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "source_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "precision_ms",
+        "max_skew_ms"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:te:schema:trust-evidence-envelope:2.1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "backend_receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "backend_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "backend_type": {
+          "const": "local-a2-merkle"
+        },
+        "core_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "hash_profile": {
+          "const": "TE-HASH-1"
+        },
+        "inclusion_proof": {
+          "$ref": "#/$defs/inclusionProof"
+        },
+        "inclusion_proof_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        },
+        "leaf_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "leaf_index": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "log_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "profile": {
+          "const": "TE-A2-Receipt-1"
+        },
+        "receipt_signature": {
+          "$ref": "#/$defs/signature"
+        },
+        "root_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "signer_key_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "tree_profile": {
+          "const": "TE-A2-Binary-Merkle-1"
+        },
+        "tree_size": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "profile",
+        "backend_type",
+        "backend_id",
+        "log_id",
+        "hash_profile",
+        "tree_profile",
+        "core_digest",
+        "leaf_hash",
+        "leaf_index",
+        "tree_size",
+        "root_digest",
+        "inclusion_proof",
+        "inclusion_proof_digest",
+        "issued_at",
+        "signer_key_id",
+        "receipt_signature"
+      ],
+      "type": "object"
+    },
+    "envelope_version": {
+      "const": "2.1.0"
+    },
+    "evidence_core": {
+      "allOf": [
+        {
+          "oneOf": [
+            {
+              "properties": {
+                "event_facts": {
+                  "$ref": "#/$defs/registrationFacts"
+                },
+                "event_type": {
+                  "const": "monitoring-object-registration"
+                }
+              },
+              "required": [
+                "event_type",
+                "event_facts"
+              ]
+            },
+            {
+              "properties": {
+                "event_facts": {
+                  "$ref": "#/$defs/accessFacts"
+                },
+                "event_type": {
+                  "const": "access-event"
+                }
+              },
+              "required": [
+                "event_type",
+                "event_facts",
+                "actor",
+                "policy_binding"
+              ]
+            },
+            {
+              "properties": {
+                "event_facts": {
+                  "$ref": "#/$defs/consentFacts"
+                },
+                "event_type": {
+                  "const": "consent-state-transition"
+                }
+              },
+              "required": [
+                "event_type",
+                "event_facts",
+                "actor",
+                "policy_binding",
+                "consent_binding"
+              ]
+            },
+            {
+              "properties": {
+                "event_facts": {
+                  "$ref": "#/$defs/provenanceFacts"
+                },
+                "event_type": {
+                  "const": "provenance-transform"
+                }
+              },
+              "required": [
+                "event_type",
+                "event_facts",
+                "actor"
+              ]
+            },
+            {
+              "properties": {
+                "event_facts": {
+                  "$ref": "#/$defs/disclosureFacts"
+                },
+                "event_type": {
+                  "const": "disclosure-event"
+                }
+              },
+              "required": [
+                "event_type",
+                "event_facts",
+                "actor",
+                "policy_binding",
+                "consent_binding"
+              ]
+            },
+            {
+              "properties": {
+                "event_facts": {
+                  "$ref": "#/$defs/aggregationFacts"
+                },
+                "event_type": {
+                  "const": "aggregation-event"
+                }
+              },
+              "required": [
+                "event_type",
+                "event_facts",
+                "actor"
+              ]
+            },
+            {
+              "properties": {
+                "event_facts": {
+                  "$ref": "#/$defs/failureFacts"
+                },
+                "event_type": {
+                  "const": "failure-event"
+                }
+              },
+              "required": [
+                "event_type",
+                "event_facts"
+              ]
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "actor": {
+          "$ref": "#/$defs/actor"
+        },
+        "consent_binding": {
+          "$ref": "#/$defs/consentBinding"
+        },
+        "emitted_at": {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        },
+        "emitter": {
+          "$ref": "#/$defs/emitter"
+        },
+        "emitter_signature": {
+          "$ref": "#/$defs/signature"
+        },
+        "event_facts": {
+          "type": "object"
+        },
+        "event_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "event_type": {
+          "enum": [
+            "monitoring-object-registration",
+            "access-event",
+            "consent-state-transition",
+            "provenance-transform",
+            "disclosure-event",
+            "aggregation-event",
+            "failure-event"
+          ],
+          "type": "string"
+        },
+        "evidence_id": {
+          "maxLength": 220,
+          "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+          "type": "string"
+        },
+        "objects": {
+          "items": {
+            "$ref": "#/$defs/objectBinding"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "type": "array"
+        },
+        "occurred_at": {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        },
+        "outcome": {
+          "$ref": "#/$defs/outcome"
+        },
+        "policy_binding": {
+          "$ref": "#/$defs/policyBinding"
+        },
+        "privacy_profile": {
+          "$ref": "#/$defs/privacyProfile"
+        },
+        "purpose_code": {
+          "enum": [
+            "monitoring-registration",
+            "care-coordination",
+            "treatment",
+            "research-processing",
+            "consent-management",
+            "provenance-recording",
+            "disclosure-accounting",
+            "aggregation",
+            "system-integrity",
+            "not-applicable"
+          ],
+          "type": "string"
+        },
+        "subject_context": {
+          "$ref": "#/$defs/subjectContext"
+        },
+        "time_source": {
+          "$ref": "#/$defs/timeSource"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "event_id",
+        "event_type",
+        "occurred_at",
+        "emitted_at",
+        "time_source",
+        "emitter",
+        "subject_context",
+        "objects",
+        "purpose_code",
+        "outcome",
+        "privacy_profile",
+        "event_facts",
+        "emitter_signature"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "profile": {
+      "const": "TE-CMPB-Envelope-1"
+    }
+  },
+  "required": [
+    "envelope_version",
+    "profile",
+    "evidence_core"
+  ],
+  "title": "TE-CMPB TrustEvidenceEnvelope",
+  "type": "object"
+}

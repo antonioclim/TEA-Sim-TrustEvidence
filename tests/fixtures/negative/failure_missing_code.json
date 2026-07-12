@@ -1,0 +1,48 @@
+{
+  "event_facts": {
+    "affected_event_ref_token": "urn:te:event:source-failed-001",
+    "affected_object_ref_token": "urn:te:object-token:cgm-day-001",
+    "failed_stage": "validate",
+    "output_status": "not-created",
+    "retryable": false
+  },
+  "event_type": "failure-event",
+  "input_version": "1.0.0",
+  "object_contexts": [
+    {
+      "object_ref_token": "urn:te:object-token:failed-curation-001",
+      "object_role": "target",
+      "resource_class": "evidence-operation",
+      "resource_version_token": "1",
+      "subject_ref_token": "urn:te:subject-token:fixture-001"
+    }
+  ],
+  "occurred_at": "2026-07-01T11:00:00Z",
+  "outcome": {
+    "code": "failed"
+  },
+  "privacy_profile": {
+    "minimisation_profile": "TE-PHM-Min-1",
+    "retention_class": "research-reference",
+    "tokenisation_profile": "TE-Token-Pseudonymous-1"
+  },
+  "purpose_code": "system-integrity",
+  "source_boundary": {
+    "key_id": "urn:te:key:fixture-emitter-v1",
+    "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+    "source_id": "urn:te:emitter:monitoring-boundary-a",
+    "source_role_code": "monitoring-boundary",
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "source_event_id": "urn:te:event:failure-001",
+  "subject_context": {
+    "rotation_scope": "fixture-study",
+    "status": "pseudonymous",
+    "subject_ref_token": "urn:te:subject-token:fixture-001",
+    "token_system": "urn:te:token-system:cmpb-fixture-v1"
+  }
+}

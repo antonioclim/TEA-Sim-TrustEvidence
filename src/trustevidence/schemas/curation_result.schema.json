@@ -1,0 +1,269 @@
+{
+  "$id": "urn:te:schema:curation-result:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "enum": [
+              "rejected",
+              "error"
+            ]
+          }
+        },
+        "required": [
+          "outcome"
+        ]
+      },
+      "then": {
+        "required": [
+          "failed_stage",
+          "error_code"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "accepted"
+          }
+        },
+        "required": [
+          "outcome"
+        ]
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "failed_stage"
+              ]
+            },
+            {
+              "required": [
+                "error_code"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "properties": {
+    "deterministic_fields": {
+      "items": {
+        "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "error_code": {
+      "pattern": "^TE-E-[A-Z0-9-]+$",
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "monitoring-object-registration",
+        "access-event",
+        "consent-state-transition",
+        "provenance-transform",
+        "disclosure-event",
+        "aggregation-event",
+        "failure-event"
+      ],
+      "type": "string"
+    },
+    "evidence_core_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "failed_stage": {
+      "enum": [
+        "detect",
+        "select",
+        "normalise",
+        "minimise",
+        "validate",
+        "canonicalise",
+        "sign",
+        "append",
+        "verify",
+        "preserve"
+      ],
+      "type": "string"
+    },
+    "input_event_id": {
+      "maxLength": 220,
+      "pattern": "^urn:(?:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|te:[A-Za-z0-9][A-Za-z0-9:._~-]{2,190})$",
+      "type": "string"
+    },
+    "method_version": {
+      "const": "v2.1.0"
+    },
+    "non_deterministic_fields": {
+      "items": {
+        "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "outcome": {
+      "enum": [
+        "accepted",
+        "rejected",
+        "error"
+      ],
+      "type": "string"
+    },
+    "output_paths": {
+      "items": {
+        "maxLength": 240,
+        "pattern": "^(?!/)(?![A-Za-z]:\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$",
+        "type": "string"
+      },
+      "maxItems": 32,
+      "type": "array"
+    },
+    "profile": {
+      "const": "TE-Curation-Result-1"
+    },
+    "profile_versions": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalisation": {
+          "const": "TE-JCS-1"
+        },
+        "curation_result": {
+          "const": "TE-Curation-Result-1"
+        },
+        "envelope": {
+          "const": "TE-CMPB-Envelope-1"
+        },
+        "hash": {
+          "const": "TE-HASH-1"
+        },
+        "minimisation": {
+          "const": "TE-PHM-Min-1"
+        },
+        "receipt": {
+          "const": "TE-A2-Receipt-1"
+        }
+      },
+      "required": [
+        "envelope",
+        "minimisation",
+        "canonicalisation",
+        "hash",
+        "receipt",
+        "curation_result"
+      ],
+      "type": "object"
+    },
+    "receipt_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "result_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,95}$",
+      "type": "string"
+    },
+    "schema_versions": {
+      "additionalProperties": false,
+      "properties": {
+        "curation_result": {
+          "const": "1.0.0"
+        },
+        "monitoring_event": {
+          "const": "1.0.0"
+        },
+        "trust_evidence_envelope": {
+          "const": "2.1.0"
+        }
+      },
+      "required": [
+        "monitoring_event",
+        "trust_evidence_envelope",
+        "curation_result"
+      ],
+      "type": "object"
+    },
+    "software_version": {
+      "pattern": "^2\\.1\\.0(?:\\+[A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "stages": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "detail_code": {
+            "pattern": "^TE-[A-Z0-9-]+$",
+            "type": "string"
+          },
+          "error_code": {
+            "pattern": "^TE-E-[A-Z0-9-]+$",
+            "type": "string"
+          },
+          "stage": {
+            "enum": [
+              "detect",
+              "select",
+              "normalise",
+              "minimise",
+              "validate",
+              "canonicalise",
+              "sign",
+              "append",
+              "verify",
+              "preserve"
+            ],
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "pass",
+              "fail",
+              "deferred",
+              "not-entered"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "stage",
+          "status"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "result_version",
+    "profile",
+    "run_id",
+    "method_version",
+    "profile_versions",
+    "input_event_id",
+    "event_type",
+    "stages",
+    "outcome",
+    "software_version",
+    "schema_versions",
+    "output_paths",
+    "deterministic_fields",
+    "non_deterministic_fields"
+  ],
+  "title": "TE-Curation-Result-1 execution record",
+  "type": "object"
+}

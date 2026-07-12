@@ -1,0 +1,12 @@
+trustevidence_path,conceptual_resource,conceptual_fhir_path,boundary_decision,notes
+$.evidence_core.subject_context.subject_ref_token,Patient,Patient.identifier,pseudonymous_reference,no direct patient identifier is required
+$.evidence_core.event_type,AuditEvent,AuditEvent.type or subtype,curated_event_class,project event taxonomy is not a FHIR code-system claim
+$.evidence_core.occurred_at,AuditEvent,AuditEvent.recorded or occurredDateTime,curated_timestamp,normalised UTC event time
+$.evidence_core.actor,AuditEvent,AuditEvent.agent,operational_actor,software emitter is represented separately
+$.evidence_core.emitter,AuditEvent,AuditEvent.source,software_emitter,no live endpoint or credential is retained
+$.evidence_core.objects,AuditEvent or Provenance,AuditEvent.entity or Provenance.target/entity,object_binding,pseudonymous object and version tokens only
+$.evidence_core.policy_binding,AuditEvent or Consent,AuditEvent.authorization or Consent.policy,policy_reference,versioned policy token only
+$.evidence_core.consent_binding,Consent,Consent.status/provision/identifier,consent_state_evidence,not a consent enforcement engine
+$.evidence_core.event_facts,Provenance or AuditEvent,resource-specific elements,project_event_facts,branch-specific schema controls semantics
+$.evidence_core.objects[*].payload_binding,Provenance or project extension,project-defined commitment,payload_commitment,raw monitoring payload and nonce remain outside the envelope
+$.backend_receipt,project-defined evidence object,no direct FHIR R4 equivalent,local_receipt,not a BALP or FHIR conformance claim

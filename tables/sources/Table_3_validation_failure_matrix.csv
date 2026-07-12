@@ -1,0 +1,9 @@
+evidence_layer,executed_units,expected_decision,observed_result,interpretation_boundary
+Positive schema/input/envelope cases,19,accepted,19/19 accepted,Synthetic fixtures only
+Controlled schema/semantic/minimisation negatives,34,rejected,34/34 rejected,"Specified case catalogue, not exhaustive"
+Required/conditional field deletion,185,rejected,185/185 rejected,"Supports declared-core wording, not universal minimality"
+Canonicalisation and strict-admission cases,35,specified equality/difference/rejection,35/35 matched,Selected RFC vectors; Python pathway
+"Receipt, mutation and consistency cases",57,specified acceptance/rejection/absence,57/57 matched,Local fixture keys and local A2 profile
+Hypothesis property examples,680,property holds for generated examples,680 passing; 0 reported failures,"Finite deterministic generation, not proof"
+Finite bounded checks,29105,property holds in bounded domain,"29,105 checks; 0 failures","Domain {0,1,2}; histories through length five"
+Duplicate-leaf occurrence uniqueness,1,counterexample retained,Limitation observed,Membership does not by itself prove unique occurrence

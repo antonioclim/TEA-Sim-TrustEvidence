@@ -1,0 +1,9 @@
+component,cardinality,principal fields,validation_or_binding
+Envelope wrapper,required,envelope_version; profile; evidence_core,Closed root; optional backend_receipt
+Evidence identity and time,required,evidence_id; event_id; event_type; occurred_at; emitted_at; time_source,URN patterns; exact UTC timestamp profile; emitter signature
+Operational origin,emitter required; actor event-dependent,emitter; actor,Actor/emitter separation and event-specific requirements
+Biomedical context,required,subject_context; objects; purpose_code; outcome; event_facts,Pseudonymous subject; controlled object roles; one event branch
+Governance context,conditional,policy_binding; consent_binding,"Required for access, consent and disclosure branches as specified"
+Minimisation and payload binding,privacy profile required; commitment optional,privacy_profile; optional payload commitment inside event facts,Recursive leakage rejection; nonce withheld from public envelope
+Emitter authenticity,required,emitter_signature,Domain-separated Ed25519 verification against fixture key registry
+Local A2 receipt,optional at envelope creation; required for receipt verification,backend/log identity; core and leaf digests; leaf index; tree size; root; proof; receipt signature,Signed receipt; proof digest; inclusion reconstruction; retained-checkpoint comparison

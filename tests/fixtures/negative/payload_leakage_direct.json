@@ -1,0 +1,65 @@
+{
+  "actor_context": {
+    "actor_ref_token": "urn:te:actor-token:reader-service-001",
+    "actor_type": "service",
+    "organisation_ref_token": "urn:te:org-token:care-provider-b",
+    "role_code": "authorised-reader"
+  },
+  "event_facts": {
+    "access_channel_code": "api",
+    "action_code": "read",
+    "decision_source_code": "consent-policy-engine",
+    "glucose_value": 123
+  },
+  "event_type": "access-event",
+  "input_version": "1.0.0",
+  "object_contexts": [
+    {
+      "data_category_code": "continuous-glucose-monitoring",
+      "object_ref_token": "urn:te:object-token:cgm-day-001",
+      "object_role": "target",
+      "resource_class": "monitoring-series",
+      "resource_version_token": "1",
+      "subject_ref_token": "urn:te:subject-token:fixture-001"
+    }
+  ],
+  "occurred_at": "2026-07-01T08:10:00+02:00",
+  "outcome": {
+    "code": "success"
+  },
+  "policy_context": {
+    "consent_binding": {
+      "consent_ref_token": "urn:te:consent-token:fixture-001",
+      "consent_state": "active",
+      "consent_version": "3"
+    },
+    "policy_binding": {
+      "policy_ref_token": "urn:te:policy-token:monitoring-access",
+      "policy_version": "2026-07"
+    }
+  },
+  "privacy_profile": {
+    "minimisation_profile": "TE-PHM-Min-1",
+    "retention_class": "research-reference",
+    "tokenisation_profile": "TE-Token-Pseudonymous-1"
+  },
+  "purpose_code": "care-coordination",
+  "source_boundary": {
+    "key_id": "urn:te:key:fixture-emitter-v1",
+    "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+    "source_id": "urn:te:emitter:monitoring-boundary-a",
+    "source_role_code": "monitoring-boundary",
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "source_event_id": "urn:te:event:access-001",
+  "subject_context": {
+    "rotation_scope": "fixture-study",
+    "status": "pseudonymous",
+    "subject_ref_token": "urn:te:subject-token:fixture-001",
+    "token_system": "urn:te:token-system:cmpb-fixture-v1"
+  }
+}

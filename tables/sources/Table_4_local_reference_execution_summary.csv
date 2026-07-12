@@ -1,0 +1,4 @@
+descriptor,leaves,events,append_p50_ms,append_p95_ms,verify_p50_ms,verify_p95_ms,receipt_median_bytes,proof_median_bytes,receipt_checks,mutation_rejections,validation_failures,evidence_status
+W128,128,1536,0.010489000,0.015765000,4.266067000,5.150278000,1415,545,384,12/12,0,executed; single-host descriptive local reference
+W512,512,6144,0.010413500,0.014450000,4.309459500,5.142139000,1551,680,384,12/12,0,executed; single-host descriptive local reference
+W2048,2048,24576,0.010269000,0.014714000,4.444148500,6.006398000,1688,815,384,12/12,0,executed; single-host descriptive local reference

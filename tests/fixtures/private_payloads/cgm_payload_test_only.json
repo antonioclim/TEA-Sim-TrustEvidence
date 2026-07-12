@@ -1,0 +1,15 @@
+{
+  "fixture_notice": "TEST-ONLY synthetic payload; never public evidence",
+  "representation_profile": "application/json;te-synthetic-cgm-v1",
+  "samples": [
+    {
+      "glucose_mg_dl": 101,
+      "offset_minutes": 0
+    },
+    {
+      "glucose_mg_dl": 104,
+      "offset_minutes": 5
+    }
+  ],
+  "subject": "synthetic-subject-001"
+}

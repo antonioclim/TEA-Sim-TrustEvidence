@@ -1,0 +1,8 @@
+curation_stage,biomedical_accountability_question,retained_evidence,excluded_content,failure_control
+Detect,Which monitoring-related action occurred?,"Event identifier, event type and occurrence time",Physiological values and raw signal samples,Input/schema admission
+Select,Which facts are necessary for later accountability?,"Actor/emitter, pseudonymous subject, object roles, purpose and outcome",Unrestricted source payload,Declared-core competency questions
+Normalise and minimise,Can equivalent metadata be represented consistently without direct identifiers?,"UTC timestamps, controlled codes and tokenised references","Emails, names, local paths and public commitment nonce",Timestamp and recursive minimisation checks
+Validate,Does one event-specific semantic branch hold?,Closed event facts plus conditional policy/consent bindings,Unknown extension fields,Draft 2020-12 schema and semantic rules
+Canonicalise and sign,Are the curated facts bound to deterministic bytes and an emitter identity?,TE-JCS-1 digest and Ed25519 signature,Circular signature content,Canonicalisation vectors and signature mutation tests
+Append and receive,Can a verifier reconstruct local inclusion and bind the receipt to the evidence?,"Core/leaf digests, index, size, root, proof and receipt signature",Backend-internal payload data,"Inclusion, mutation and consistency checks"
+Preserve and compare,Can a retained verifier detect rollback or conflicting same-size roots?,"Evidence envelope, curation result and retained checkpoint",Claims of global witness agreement,Checkpoint rollback/fork and prefix-consistency controls
