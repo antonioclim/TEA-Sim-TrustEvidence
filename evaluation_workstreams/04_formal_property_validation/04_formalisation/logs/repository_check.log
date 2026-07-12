@@ -1,4 +1,0 @@
-$ python scripts/repository_check.py
-PASS: repository_check
-
-[exit_code=0]

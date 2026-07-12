@@ -1,8 +1,0 @@
-case_id,property,expected,observed,status,interpretation
-T1,valid_inclusion_receipt,True,True,pass,local reference property/tamper check
-T2,payload_tamper_rejection,False,False,pass,local reference property/tamper check
-T3,root_tamper_rejection,False,False,pass,local reference property/tamper check
-T4,proof_tamper_rejection,False,False,pass,local reference property/tamper check
-T5,receipt_binding_rejection,False,False,pass,local reference property/tamper check
-T6,prefix_consistency_valid,True,True,pass,local reference property/tamper check
-T7,prefix_consistency_wrong_root_rejected,False,False,pass,local reference property/tamper check

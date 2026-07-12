@@ -1,9 +1,0 @@
-{
-  "resourceType": "Parameters",
-  "parameter": [
-    {
-      "name": "profile-url",
-      "valueString": "https://example.org/fhir/te"
-    }
-  ]
-}

@@ -1,4 +1,0 @@
-$ python 04_formalisation/bounded_model/bounded_model_check.py
-{"failures": 0, "fork_pairs_checked": 10, "inclusion_receipts_checked": 426, "prefix_roots_checked": 547, "sequences_checked": 121, "tamper_rejections_checked": 852}
-
-[exit_code=0]

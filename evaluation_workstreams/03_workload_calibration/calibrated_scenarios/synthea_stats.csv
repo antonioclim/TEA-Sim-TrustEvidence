@@ -1,4 +1,0 @@
-metric,value,unit,method,calibration_status,source_url,notes
-synthea_supports_fhir_r4,1,boolean,verified_public_metadata,verified_public_metadata,https://github.com/synthetichealth/synthea,Synthea supports FHIR R4 output; local generation not executed.
-synthea_local_generation_executed,0,boolean,container_execution_audit,not_executed,https://github.com/synthetichealth/synthea,No direct shell network in workload-calibration workstream runtime.
-routine_events_per_patient_day,24,count_per_patient_day,modelling_assumption,assumed_internal,metadata/VERIFIED_PUBLIC_SOURCE_PARAMETERS.csv,Hourly TrustEvidence object assumption for C1.

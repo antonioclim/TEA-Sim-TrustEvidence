@@ -1,8 +1,0 @@
-RUN_START_UTC=2026-07-05T16:20:25Z
-COMMAND=sushi --version
-CWD=<runtime-workdir>/fhir_balp_workdir/FHIR_BALP_VALIDATION_KIT
-EXIT=0
-RUN_END_UTC=2026-07-05T16:20:25Z
---- OUTPUT ---
-SUSHI v3.20.0 (implements FHIR Shorthand specification v3.0.0)
-

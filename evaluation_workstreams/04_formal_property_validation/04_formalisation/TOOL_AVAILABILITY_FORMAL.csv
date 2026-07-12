@@ -1,7 +1,0 @@
-tool,available,version_or_path,role
-Python,yes,3.13.5,runtime
-pytest,yes,9.0.2,test runner
-Hypothesis,yes,6.156.1,property-based testing
-Java,yes,/usr/bin/java,would run jars
-TLC,no,not found,TLA+ execution
-Alloy,no,not found,Alloy execution
