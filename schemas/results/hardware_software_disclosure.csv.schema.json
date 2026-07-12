@@ -1,9 +1,0 @@
-{
-  "file": "hardware_software_disclosure.csv",
-  "required_columns": [
-    "field",
-    "value",
-    "evidence_class"
-  ],
-  "additional_columns_allowed": false
-}
