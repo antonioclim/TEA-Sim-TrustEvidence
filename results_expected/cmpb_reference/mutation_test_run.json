@@ -1,0 +1,17 @@
+{
+  "case_count": 57,
+  "checkpoint_controls": 3,
+  "claim_boundary": "local deterministic test keys, signed-core and receipt binding, inclusion reconstruction, controlled mutation rejection, retained-state rollback/same-size comparison, and RFC-9162-shaped local consistency verification; no gossip, witnessing, cross-verifier split-view detection, or global non-equivocation",
+  "commitment_controls": 6,
+  "consistency_controls": 5,
+  "failed_count": 0,
+  "fixture_commitment_matches": true,
+  "limitation_observations": 0,
+  "mutation_controls": 34,
+  "passed_count": 57,
+  "positive_receipts": 9,
+  "root_digest": "6ffe65befcb420b65a409ff48e43ba8f5cbb0148fa74ebbde67eddf8899f9b47",
+  "run_id": "cmpb-mutation-consistency-001",
+  "software_version": "2.1.0",
+  "tree_size": 9
+}

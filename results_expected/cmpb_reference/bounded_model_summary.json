@@ -1,0 +1,20 @@
+{
+  "append_transitions_checked": 1641,
+  "canonical_objects_checked": 729,
+  "checks_executed": 29105,
+  "claim_boundary": "finite executable exploration only; no unbounded theorem, mechanised proof, operational key-compromise model, gossip, witnessing, or global non-equivocation result",
+  "consistency_proofs_checked": 1278,
+  "domain": [
+    0,
+    1,
+    2
+  ],
+  "duplicate_leaf_index_ambiguity_observed": true,
+  "failures": 0,
+  "inclusion_proofs_checked": 1641,
+  "max_sequence_length": 5,
+  "run_id": "cmpb-bounded-checks-001",
+  "same_size_fork_pairs_checked": 4059,
+  "sequences_checked": 364,
+  "verifier_checkpoint_advances_checked": 16
+}

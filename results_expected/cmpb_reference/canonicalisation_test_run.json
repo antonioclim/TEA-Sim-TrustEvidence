@@ -1,0 +1,11 @@
+{
+  "canonicalisation_profile": "TE-JCS-1",
+  "case_count": 35,
+  "claim_boundary": "deterministic canonical octets for the admitted TE-JCS-1 domain; no cross-language result beyond the executed vectors",
+  "delegated_rfc8785_package_version": "0.1.4",
+  "failed_count": 0,
+  "passed_count": 35,
+  "rfc_number_vectors": 15,
+  "run_id": "cmpb-canonicalisation-001",
+  "software_version": "2.1.0"
+}

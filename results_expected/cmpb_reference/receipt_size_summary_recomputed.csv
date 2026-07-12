@@ -1,0 +1,4 @@
+run_id,descriptor_id,tree_size,expected_authentication_path_depth,receipt_bytes_min,receipt_bytes_median,receipt_bytes_max,proof_bytes_min,proof_bytes_median,proof_bytes_max
+cmpb-workload-reference-001,W128,128,7,1413,1415,1417,544,545,546
+cmpb-workload-reference-001,W512,512,9,1547,1551,1551,678,680,680
+cmpb-workload-reference-001,W2048,2048,11,1683,1688,1689,813,815,816

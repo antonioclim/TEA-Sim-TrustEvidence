@@ -1,0 +1,72 @@
+{
+  "envelope_version": "2.1.0",
+  "evidence_core": {
+    "actor": {
+      "actor_ref_token": "urn:te:actor-token:transform-service-001",
+      "actor_type": "service",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "transform-service"
+    },
+    "emitted_at": "2026-07-01T09:00:00.500Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:monitoring-boundary-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "monitoring-boundary"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "nsVjcju_-I4fSFz3U86jqW9EvVsCUDeIHzzP8l-XwJNrkqKdvxUZJcDnPyi-iR28PIb72cFf2y5R-qWia5BRBA"
+    },
+    "event_facts": {
+      "activity_ended_at": "2026-07-01T09:00:00.000Z",
+      "activity_started_at": "2026-07-01T08:59:58.000Z",
+      "transform_id": "urn:te:transform:cgm-daily-summary",
+      "transform_version": "1.2.0"
+    },
+    "event_id": "urn:te:event:provenance-001",
+    "event_type": "provenance-transform",
+    "evidence_id": "urn:uuid:defcb526-939f-5c1c-a995-7c90cdb92929",
+    "objects": [
+      {
+        "data_category_code": "continuous-glucose-monitoring",
+        "object_ref_token": "urn:te:object-token:cgm-day-001",
+        "object_role": "input",
+        "resource_class": "monitoring-series",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      },
+      {
+        "data_category_code": "personal-monitoring-summary",
+        "object_ref_token": "urn:te:object-token:cgm-summary-001",
+        "object_role": "output",
+        "resource_class": "derived-summary",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      }
+    ],
+    "occurred_at": "2026-07-01T09:00:00.000Z",
+    "outcome": {
+      "code": "success"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-PHM-Min-1",
+      "retention_class": "research-reference",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "provenance-recording",
+    "subject_context": {
+      "rotation_scope": "fixture-study",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:fixture-001",
+      "token_system": "urn:te:token-system:cmpb-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "profile": "TE-CMPB-Envelope-1"
+}

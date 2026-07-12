@@ -1,0 +1,93 @@
+{
+  "$id": "urn:te:schema:result-row:workload_passage_summary:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "append_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "append_p95_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "descriptor_id": {
+      "type": "string"
+    },
+    "event_count": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "measurement_class": {
+      "type": "string"
+    },
+    "mutation_cases": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "mutation_rejections": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "ordinary_verification_failures": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "proof_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "receipt_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "repetitions": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "successful_receipt_checks": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "tree_size": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "validation_failures": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "verify_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "verify_p95_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "descriptor_id",
+    "tree_size",
+    "repetitions",
+    "event_count",
+    "append_p50_ms",
+    "append_p95_ms",
+    "verify_p50_ms",
+    "verify_p95_ms",
+    "receipt_bytes_median",
+    "proof_bytes_median",
+    "successful_receipt_checks",
+    "ordinary_verification_failures",
+    "validation_failures",
+    "mutation_cases",
+    "mutation_rejections",
+    "measurement_class"
+  ],
+  "title": "workload_passage_summary parsed CSV row",
+  "type": "object"
+}

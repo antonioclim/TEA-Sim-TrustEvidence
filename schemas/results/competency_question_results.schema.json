@@ -1,0 +1,59 @@
+{
+  "$id": "urn:te:schema:result-row:competency_question_results:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "answer_location": {
+      "type": "string"
+    },
+    "cq_id": {
+      "type": "string"
+    },
+    "error_code": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "expected_result": {
+      "type": "string"
+    },
+    "negative_fixture": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "observed_result": {
+      "type": "string"
+    },
+    "positive_fixture": {
+      "type": "string"
+    },
+    "required_fields": {
+      "type": "string"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "verification_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cq_id",
+    "scenario_id",
+    "event_type",
+    "answer_location",
+    "required_fields",
+    "positive_fixture",
+    "negative_fixture",
+    "expected_result",
+    "observed_result",
+    "error_code",
+    "verification_status",
+    "notes"
+  ],
+  "title": "competency_question_results parsed CSV row",
+  "type": "object"
+}

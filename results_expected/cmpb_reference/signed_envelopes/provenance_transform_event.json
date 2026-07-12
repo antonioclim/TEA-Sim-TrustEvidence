@@ -1,0 +1,104 @@
+{
+  "backend_receipt": {
+    "backend_id": "urn:te:backend:a2-cmpb-reference",
+    "backend_type": "local-a2-merkle",
+    "core_digest": "a888a8d38d46be36e58a20fd4e24b52fbd9ac28bbc346cea0b958a330d0d7968",
+    "hash_profile": "TE-HASH-1",
+    "inclusion_proof": {
+      "leaf_index": 7,
+      "profile": "TE-A2-Inclusion-1",
+      "siblings": [
+        "c544e07a91cd6643fa34f023aee4e4d6f949aa95d21564b01c5e9af393f6ea6b",
+        "2b9d7b5e24fd2acd36a99bf5b00a248aa50340b4ce0e666a426062a360f54e36",
+        "77c47417032d71de8eb672a686c9029a84aea83d9b857f63da51ac7a0024afdc",
+        "76c028c19e400d9a3cf4e6f07b30c9c75128f9f06da734c3993f6125439e9750"
+      ],
+      "tree_size": 9
+    },
+    "inclusion_proof_digest": "9eb9e772eda2c52cf52aca12dd7b0f2651dd22b230c5bcfd1d40f183a1ec6dfb",
+    "issued_at": "2026-07-03T00:00:07.000Z",
+    "leaf_hash": "a42e89ada706b705466e48e7d8b0cae906e0b97bbe67ddcbb212f89db2ca799d",
+    "leaf_index": 7,
+    "log_id": "urn:te:log:cmpb-reference",
+    "profile": "TE-A2-Receipt-1",
+    "receipt_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-backend-v1",
+      "signature": "_Hqs86bNN-OWy8Rf2E9CIZ0nvUkKzZR5_ht9CPqywQuFgdymxt2opJC38zkwyVvPL44KE8KZaA_hoBN1AB2gDQ"
+    },
+    "root_digest": "6ffe65befcb420b65a409ff48e43ba8f5cbb0148fa74ebbde67eddf8899f9b47",
+    "signer_key_id": "urn:te:key:fixture-backend-v1",
+    "tree_profile": "TE-A2-Binary-Merkle-1",
+    "tree_size": 9
+  },
+  "envelope_version": "2.1.0",
+  "evidence_core": {
+    "actor": {
+      "actor_ref_token": "urn:te:actor-token:transform-service-001",
+      "actor_type": "service",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "transform-service"
+    },
+    "emitted_at": "2026-07-01T09:00:00.500Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:monitoring-boundary-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "monitoring-boundary"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "nsVjcju_-I4fSFz3U86jqW9EvVsCUDeIHzzP8l-XwJNrkqKdvxUZJcDnPyi-iR28PIb72cFf2y5R-qWia5BRBA"
+    },
+    "event_facts": {
+      "activity_ended_at": "2026-07-01T09:00:00.000Z",
+      "activity_started_at": "2026-07-01T08:59:58.000Z",
+      "transform_id": "urn:te:transform:cgm-daily-summary",
+      "transform_version": "1.2.0"
+    },
+    "event_id": "urn:te:event:provenance-001",
+    "event_type": "provenance-transform",
+    "evidence_id": "urn:uuid:defcb526-939f-5c1c-a995-7c90cdb92929",
+    "objects": [
+      {
+        "data_category_code": "continuous-glucose-monitoring",
+        "object_ref_token": "urn:te:object-token:cgm-day-001",
+        "object_role": "input",
+        "resource_class": "monitoring-series",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      },
+      {
+        "data_category_code": "personal-monitoring-summary",
+        "object_ref_token": "urn:te:object-token:cgm-summary-001",
+        "object_role": "output",
+        "resource_class": "derived-summary",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      }
+    ],
+    "occurred_at": "2026-07-01T09:00:00.000Z",
+    "outcome": {
+      "code": "success"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-PHM-Min-1",
+      "retention_class": "research-reference",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "provenance-recording",
+    "subject_context": {
+      "rotation_scope": "fixture-study",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:fixture-001",
+      "token_system": "urn:te:token-system:cmpb-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "profile": "TE-CMPB-Envelope-1"
+}

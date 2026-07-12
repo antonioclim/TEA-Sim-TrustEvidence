@@ -1,0 +1,65 @@
+{
+  "$id": "urn:te:schema:result-row:canonicalisation_determinism:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_utf8_a": {
+      "type": "string"
+    },
+    "canonical_utf8_b": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "error_code": {
+      "type": "string"
+    },
+    "expected_relation_or_outcome": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "observed_relation_or_outcome": {
+      "type": "string"
+    },
+    "passed": {
+      "enum": [
+        "true",
+        "false"
+      ],
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "sha256_a": {
+      "pattern": "^(?:[0-9a-f]{64})?$",
+      "type": "string"
+    },
+    "sha256_b": {
+      "pattern": "^(?:[0-9a-f]{64})?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "case_id",
+    "category",
+    "expected_relation_or_outcome",
+    "observed_relation_or_outcome",
+    "passed",
+    "sha256_a",
+    "sha256_b",
+    "canonical_utf8_a",
+    "canonical_utf8_b",
+    "error_code",
+    "notes"
+  ],
+  "title": "canonicalisation_determinism parsed CSV row",
+  "type": "object"
+}

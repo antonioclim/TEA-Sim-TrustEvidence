@@ -1,0 +1,72 @@
+{
+  "envelope_version": "2.1.0",
+  "evidence_core": {
+    "actor": {
+      "actor_ref_token": "urn:te:actor-token:consent-service-001",
+      "actor_type": "service",
+      "organisation_ref_token": "urn:te:org-token:care-provider-b",
+      "role_code": "consent-controller"
+    },
+    "consent_binding": {
+      "consent_ref_token": "urn:te:consent-token:fixture-001",
+      "consent_state": "active",
+      "consent_version": "3"
+    },
+    "emitted_at": "2026-07-01T07:00:00.500Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:monitoring-boundary-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "monitoring-boundary"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "lZXJ9nrKVmO9kjnLcyBoHNG7kWUh-bbG2F_8I60XGLXB6gLhj09-i_PjlOsGgPZXJ7IjXReNxXE6vOLEaOXlBg"
+    },
+    "event_facts": {
+      "effective_at": "2026-07-01T07:00:00.000Z",
+      "new_state": "active",
+      "previous_state": "draft",
+      "transition_reason_code": "subject-request"
+    },
+    "event_id": "urn:te:event:consent-grant-001",
+    "event_type": "consent-state-transition",
+    "evidence_id": "urn:uuid:bbafb011-c171-5e64-afa8-91f2b79f68a0",
+    "objects": [
+      {
+        "object_ref_token": "urn:te:consent-token:fixture-001",
+        "object_role": "consent",
+        "resource_class": "consent-record",
+        "resource_version_token": "3",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      }
+    ],
+    "occurred_at": "2026-07-01T07:00:00.000Z",
+    "outcome": {
+      "code": "success"
+    },
+    "policy_binding": {
+      "policy_ref_token": "urn:te:policy-token:monitoring-access",
+      "policy_version": "2026-07"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-PHM-Min-1",
+      "retention_class": "research-reference",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "consent-management",
+    "subject_context": {
+      "rotation_scope": "fixture-study",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:fixture-001",
+      "token_system": "urn:te:token-system:cmpb-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "profile": "TE-CMPB-Envelope-1"
+}

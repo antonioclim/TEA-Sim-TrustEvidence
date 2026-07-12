@@ -1,0 +1,75 @@
+{
+  "$id": "urn:te:schema:result-row:schema_validation_summary:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_class": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "expected_error_code": {
+      "type": "string"
+    },
+    "expected_outcome": {
+      "enum": [
+        "accepted",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "fixture": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "observed_error_codes": {
+      "type": "string"
+    },
+    "observed_outcome": {
+      "enum": [
+        "accepted",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "passed": {
+      "enum": [
+        "true",
+        "false"
+      ],
+      "type": "string"
+    },
+    "primary_error_code": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "validation_layer": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "case_id",
+    "fixture",
+    "event_type",
+    "case_class",
+    "validation_layer",
+    "expected_outcome",
+    "observed_outcome",
+    "expected_error_code",
+    "primary_error_code",
+    "observed_error_codes",
+    "passed",
+    "notes"
+  ],
+  "title": "schema_validation_summary parsed CSV row",
+  "type": "object"
+}

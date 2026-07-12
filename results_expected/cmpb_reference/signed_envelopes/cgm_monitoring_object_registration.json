@@ -1,0 +1,99 @@
+{
+  "backend_receipt": {
+    "backend_id": "urn:te:backend:a2-cmpb-reference",
+    "backend_type": "local-a2-merkle",
+    "core_digest": "43709a6648dd6ba2fa97fab8df26fed25551d6e0b84a69a5061f6f3ea8c98d3a",
+    "hash_profile": "TE-HASH-1",
+    "inclusion_proof": {
+      "leaf_index": 2,
+      "profile": "TE-A2-Inclusion-1",
+      "siblings": [
+        "b0e9281a2b4717d5c8bf512fabb9ce90fc110b351fdf2b3e414bf500496bd1d3",
+        "d0397e0d78e54b543146ec71e1e5aa86df76ea5e78d3e619ea78f142c09a26e2",
+        "01214adc2da35e4e39c46afcda31d5bf2bb719cc9a6d06945b98b06b613433a2",
+        "76c028c19e400d9a3cf4e6f07b30c9c75128f9f06da734c3993f6125439e9750"
+      ],
+      "tree_size": 9
+    },
+    "inclusion_proof_digest": "ed2fffbe267aafbf33bcb198c1c5b5fa97276c98dc12003bc525413613e09f78",
+    "issued_at": "2026-07-03T00:00:02.000Z",
+    "leaf_hash": "67108841c5151f95b31f37e217b73f04892c2c131b0158c0faac8ae796dd561c",
+    "leaf_index": 2,
+    "log_id": "urn:te:log:cmpb-reference",
+    "profile": "TE-A2-Receipt-1",
+    "receipt_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-backend-v1",
+      "signature": "0dcIy8wstDMwssN1y4EO0L_kpUEfE48e6AGkPH24qH5vi8ero2uOv9ZMEBcDJQqdobHQDevCBamYa5olRSf0Bg"
+    },
+    "root_digest": "6ffe65befcb420b65a409ff48e43ba8f5cbb0148fa74ebbde67eddf8899f9b47",
+    "signer_key_id": "urn:te:key:fixture-backend-v1",
+    "tree_profile": "TE-A2-Binary-Merkle-1",
+    "tree_size": 9
+  },
+  "envelope_version": "2.1.0",
+  "evidence_core": {
+    "emitted_at": "2026-07-01T06:00:00.500Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:monitoring-boundary-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "monitoring-boundary"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "DGRLJuVzji_vDOS-RO3JnHOQMlGXjXfevnGan8iQCNw-AvHI495deJxerHPCvOt2WZHOlqx1XTvKxnWXlwQVAQ"
+    },
+    "event_facts": {
+      "capture_period": {
+        "end": "2026-07-01T00:00:00.000Z",
+        "start": "2026-06-30T00:00:00.000Z"
+      },
+      "object_state_code": "registered",
+      "payload_binding_mode": "commitment",
+      "source_device_class_code": "cgm-sensor"
+    },
+    "event_id": "urn:te:event:cgm-registration-001",
+    "event_type": "monitoring-object-registration",
+    "evidence_id": "urn:uuid:65a3adf3-db4b-5d91-a192-56223aa6c858",
+    "objects": [
+      {
+        "data_category_code": "continuous-glucose-monitoring",
+        "object_ref_token": "urn:te:object-token:cgm-day-001",
+        "object_role": "target",
+        "payload_binding": {
+          "commitment": "83a7d3bc295705841e82f5f0fec16d9801b8961527a30064dbe044a50b842d56",
+          "commitment_context": "cgm-day-object",
+          "commitment_profile": "sha256-nonce-v1",
+          "representation_profile": "application/fhir+json-rfc8785-v1"
+        },
+        "resource_class": "monitoring-series",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      }
+    ],
+    "occurred_at": "2026-07-01T06:00:00.000Z",
+    "outcome": {
+      "code": "success"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-PHM-Min-1",
+      "retention_class": "research-reference",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "monitoring-registration",
+    "subject_context": {
+      "rotation_scope": "fixture-study",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:fixture-001",
+      "token_system": "urn:te:token-system:cmpb-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "profile": "TE-CMPB-Envelope-1"
+}

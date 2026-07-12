@@ -1,0 +1,80 @@
+{
+  "deterministic_fields": [
+    "event-type",
+    "input-event-id",
+    "outcome",
+    "stages",
+    "evidence-core-digest"
+  ],
+  "event_type": "disclosure-event",
+  "evidence_core_digest": "cbc6c5e260696726d1a215cc360a1ac9ed0906aad59f9eb9bfd15eede3ee9a7d",
+  "input_event_id": "urn:te:event:disclosure-001",
+  "method_version": "v2.1.0",
+  "non_deterministic_fields": [],
+  "outcome": "accepted",
+  "output_paths": [
+    "results_expected/cmpb_reference/generated_envelopes/disclosure_event.json"
+  ],
+  "profile": "TE-Curation-Result-1",
+  "profile_versions": {
+    "canonicalisation": "TE-JCS-1",
+    "curation_result": "TE-Curation-Result-1",
+    "envelope": "TE-CMPB-Envelope-1",
+    "hash": "TE-HASH-1",
+    "minimisation": "TE-PHM-Min-1",
+    "receipt": "TE-A2-Receipt-1"
+  },
+  "result_version": "1.0.0",
+  "run_id": "cmpb-schema-disclosure",
+  "schema_versions": {
+    "curation_result": "1.0.0",
+    "monitoring_event": "1.0.0",
+    "trust_evidence_envelope": "2.1.0"
+  },
+  "software_version": "2.1.0",
+  "stages": [
+    {
+      "stage": "detect",
+      "status": "pass"
+    },
+    {
+      "stage": "select",
+      "status": "pass"
+    },
+    {
+      "stage": "normalise",
+      "status": "pass"
+    },
+    {
+      "stage": "minimise",
+      "status": "pass"
+    },
+    {
+      "stage": "validate",
+      "status": "pass"
+    },
+    {
+      "stage": "canonicalise",
+      "status": "pass"
+    },
+    {
+      "stage": "sign",
+      "status": "pass"
+    },
+    {
+      "detail_code": "TE-DEFERRED-RECEIPT-LAYER",
+      "stage": "append",
+      "status": "deferred"
+    },
+    {
+      "detail_code": "TE-DEFERRED-RECEIPT-LAYER",
+      "stage": "verify",
+      "status": "deferred"
+    },
+    {
+      "detail_code": "TE-DEFERRED-ARCHIVE-LAYER",
+      "stage": "preserve",
+      "status": "deferred"
+    }
+  ]
+}

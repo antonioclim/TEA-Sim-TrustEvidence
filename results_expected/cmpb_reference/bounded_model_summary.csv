@@ -1,0 +1,9 @@
+run_id,property_id,property_name,checks_executed,failures,status,bounded_scope
+cmpb-bounded-checks-001,P1,append monotonicity,7292,0,PASS,Finite append transitions preserve earlier prefix roots and increment size by one.
+cmpb-bounded-checks-001,P2,inclusion soundness,4920,0,PASS,"Generated inclusion paths reconstruct the bounded root; changed paths, roots, or indices reject for position-distinguished leaves."
+cmpb-bounded-checks-001,P3,tamper rejection,1638,0,PASS,Changed Merkle components and re-signed receipt metadata reject under the bounded controls.
+cmpb-bounded-checks-001,P4,canonicalisation determinism,1458,0,PASS,Finite admissible JSON objects canonicalise identically under key reordering and differently after an added semantic field.
+cmpb-bounded-checks-001,P5,receipt binding,17,0,PASS,"Signed receipt fields remain bound to the evidence core, expected backend identity, and inclusion path."
+cmpb-bounded-checks-001,P6,payload non-disclosure,1,0,PASS,"The public fixture contains a commitment but no nonce, raw payload, sample array, or physiological value field."
+cmpb-bounded-checks-001,P7,same-size fork comparison,4059,0,PASS,Verifier-visible same-size checkpoints with different roots are distinguished.
+cmpb-bounded-checks-001,P8,prefix consistency,9720,0,PASS,"RFC-9162-shaped consistency paths verify valid bounded extensions and reject missing, altered, short, long, or mismatched proofs."

@@ -1,0 +1,59 @@
+{
+  "$id": "urn:te:schema:result-row:receipt_size_summary:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "descriptor_id": {
+      "type": "string"
+    },
+    "expected_authentication_path_depth": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "proof_bytes_max": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "proof_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "proof_bytes_min": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "receipt_bytes_max": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "receipt_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "receipt_bytes_min": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "tree_size": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "descriptor_id",
+    "tree_size",
+    "expected_authentication_path_depth",
+    "receipt_bytes_min",
+    "receipt_bytes_median",
+    "receipt_bytes_max",
+    "proof_bytes_min",
+    "proof_bytes_median",
+    "proof_bytes_max"
+  ],
+  "title": "receipt_size_summary parsed CSV row",
+  "type": "object"
+}

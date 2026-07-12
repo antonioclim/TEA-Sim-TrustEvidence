@@ -1,0 +1,32 @@
+{
+  "$id": "urn:te:schema:result-row:reproducibility_manifest:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "command_or_source": {
+      "type": "string"
+    },
+    "evidence_class": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "verification_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "path",
+    "sha256",
+    "evidence_class",
+    "verification_status",
+    "command_or_source"
+  ],
+  "title": "reproducibility_manifest parsed CSV row",
+  "type": "object"
+}

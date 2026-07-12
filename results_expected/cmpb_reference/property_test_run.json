@@ -1,0 +1,26 @@
+{
+  "bounded_checks_executed": 29105,
+  "bounded_failures": 0,
+  "bounded_model_exit_code": 0,
+  "claim_boundary": "property-based and finite bounded executable checks; no unbounded theorem, mechanised proof, operational security guarantee, or global non-equivocation result",
+  "declared_property_examples": 680,
+  "duplicate_leaf_index_ambiguity_observed": true,
+  "hypothesis_version": "6.156.6",
+  "property_test_exit_code": 0,
+  "property_tests_passed": 8,
+  "pytest_version": "9.1.1",
+  "python_version": "3.13.5",
+  "reported_property_failing_examples": 0,
+  "reported_property_passing_examples": 680,
+  "rfc8785_version": "0.1.4",
+  "run_id": "cmpb-property-checks-001",
+  "settings": {
+    "cache_provider": "disabled",
+    "database": null,
+    "deadline": null,
+    "derandomize": true
+  },
+  "software_version": "2.1.0",
+  "unit_test_exit_code": 0,
+  "unit_tests_passed": 34
+}

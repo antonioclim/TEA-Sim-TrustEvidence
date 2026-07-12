@@ -1,0 +1,104 @@
+{
+  "backend_receipt": {
+    "backend_id": "urn:te:backend:a2-cmpb-reference",
+    "backend_type": "local-a2-merkle",
+    "core_digest": "cbc6c5e260696726d1a215cc360a1ac9ed0906aad59f9eb9bfd15eede3ee9a7d",
+    "hash_profile": "TE-HASH-1",
+    "inclusion_proof": {
+      "leaf_index": 5,
+      "profile": "TE-A2-Inclusion-1",
+      "siblings": [
+        "b6331560c212484ce29c8b8f0d0007c7fa6528b1fd1c099db070f2b0f1b843d8",
+        "6ec9467bf574ddc1dd7f3cf7d05f388cb99802321645027dbf3535d7ae9ce313",
+        "77c47417032d71de8eb672a686c9029a84aea83d9b857f63da51ac7a0024afdc",
+        "76c028c19e400d9a3cf4e6f07b30c9c75128f9f06da734c3993f6125439e9750"
+      ],
+      "tree_size": 9
+    },
+    "inclusion_proof_digest": "22301859ca410dbfc5aef0b9cc6865456f72bcecff82fa93f23fd59effd84934",
+    "issued_at": "2026-07-03T00:00:05.000Z",
+    "leaf_hash": "b27c4c2cdab2074130e8a793ba3dedc085ed0de04a555e565a248603df0221cd",
+    "leaf_index": 5,
+    "log_id": "urn:te:log:cmpb-reference",
+    "profile": "TE-A2-Receipt-1",
+    "receipt_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-backend-v1",
+      "signature": "1oQm737NM-49f9USPN0FIu9FzF4DXF571npF-FeVQX4H9dxBy3hBBYop9_OfjWAtX4eMSiUE2b5lsyQU1-BnCQ"
+    },
+    "root_digest": "6ffe65befcb420b65a409ff48e43ba8f5cbb0148fa74ebbde67eddf8899f9b47",
+    "signer_key_id": "urn:te:key:fixture-backend-v1",
+    "tree_profile": "TE-A2-Binary-Merkle-1",
+    "tree_size": 9
+  },
+  "envelope_version": "2.1.0",
+  "evidence_core": {
+    "actor": {
+      "actor_ref_token": "urn:te:actor-token:disclosure-service-001",
+      "actor_type": "service",
+      "organisation_ref_token": "urn:te:org-token:care-provider-b",
+      "role_code": "disclosure-service"
+    },
+    "consent_binding": {
+      "consent_ref_token": "urn:te:consent-token:fixture-001",
+      "consent_state": "active",
+      "consent_version": "3"
+    },
+    "emitted_at": "2026-07-01T10:00:00.500Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:monitoring-boundary-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "monitoring-boundary"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "fHZ9a0maQQfMs7xjxOaSOTL4RjBFXf5RPScoSnBO8n4DhUKcXwEzcnkrldkQWeMldagk2qAZNbIaRFpC6WaeCQ"
+    },
+    "event_facts": {
+      "disclosure_channel_code": "secure-transfer",
+      "recipient_ref_token": "urn:te:recipient-token:care-team-001",
+      "recipient_role_code": "care-team"
+    },
+    "event_id": "urn:te:event:disclosure-001",
+    "event_type": "disclosure-event",
+    "evidence_id": "urn:uuid:67b0a5ef-ef89-5b25-8fc7-462c20d0b0cc",
+    "objects": [
+      {
+        "data_category_code": "personal-monitoring-summary",
+        "object_ref_token": "urn:te:object-token:cgm-summary-001",
+        "object_role": "target",
+        "resource_class": "derived-summary",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      }
+    ],
+    "occurred_at": "2026-07-01T10:00:00.000Z",
+    "outcome": {
+      "code": "success"
+    },
+    "policy_binding": {
+      "policy_ref_token": "urn:te:policy-token:monitoring-access",
+      "policy_version": "2026-07"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-PHM-Min-1",
+      "retention_class": "research-reference",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "disclosure-accounting",
+    "subject_context": {
+      "rotation_scope": "fixture-study",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:fixture-001",
+      "token_system": "urn:te:token-system:cmpb-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "profile": "TE-CMPB-Envelope-1"
+}

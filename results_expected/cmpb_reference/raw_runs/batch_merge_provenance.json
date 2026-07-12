@@ -1,0 +1,24 @@
+{
+  "append_rows": 32256,
+  "batch_labels": [
+    "batch_01",
+    "batch_02",
+    "batch_03",
+    "batch_04",
+    "batch_05",
+    "batch_06",
+    "batch_07",
+    "batch_08",
+    "batch_09",
+    "batch_10",
+    "batch_11",
+    "batch_12"
+  ],
+  "complete_repetition_coverage": true,
+  "event_rows": 32256,
+  "merge_status": "PASS",
+  "mutation_rows": 36,
+  "no_duplicate_append_keys": true,
+  "no_duplicate_event_keys": true,
+  "verify_rows": 1152
+}

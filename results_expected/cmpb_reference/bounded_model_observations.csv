@@ -1,0 +1,2 @@
+observation_id,observed,interpretation,public_claim_boundary
+LIM-DUPLICATE-LEAF-001,true,"With identical leaf material in a symmetric two-leaf tree, inclusion alone does not establish occurrence uniqueness; the application relies on signed index metadata and unique evidence identifiers.",Do not claim that a Merkle proof demonstrates that identical evidence material occurs only once.

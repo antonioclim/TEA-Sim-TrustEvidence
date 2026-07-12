@@ -1,0 +1,72 @@
+{
+  "envelope_version": "2.1.0",
+  "evidence_core": {
+    "actor": {
+      "actor_ref_token": "urn:te:actor-token:disclosure-service-001",
+      "actor_type": "service",
+      "organisation_ref_token": "urn:te:org-token:care-provider-b",
+      "role_code": "disclosure-service"
+    },
+    "consent_binding": {
+      "consent_ref_token": "urn:te:consent-token:fixture-001",
+      "consent_state": "active",
+      "consent_version": "3"
+    },
+    "emitted_at": "2026-07-01T10:00:00.500Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:monitoring-boundary-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "monitoring-boundary"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "fHZ9a0maQQfMs7xjxOaSOTL4RjBFXf5RPScoSnBO8n4DhUKcXwEzcnkrldkQWeMldagk2qAZNbIaRFpC6WaeCQ"
+    },
+    "event_facts": {
+      "disclosure_channel_code": "secure-transfer",
+      "recipient_ref_token": "urn:te:recipient-token:care-team-001",
+      "recipient_role_code": "care-team"
+    },
+    "event_id": "urn:te:event:disclosure-001",
+    "event_type": "disclosure-event",
+    "evidence_id": "urn:uuid:67b0a5ef-ef89-5b25-8fc7-462c20d0b0cc",
+    "objects": [
+      {
+        "data_category_code": "personal-monitoring-summary",
+        "object_ref_token": "urn:te:object-token:cgm-summary-001",
+        "object_role": "target",
+        "resource_class": "derived-summary",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      }
+    ],
+    "occurred_at": "2026-07-01T10:00:00.000Z",
+    "outcome": {
+      "code": "success"
+    },
+    "policy_binding": {
+      "policy_ref_token": "urn:te:policy-token:monitoring-access",
+      "policy_version": "2026-07"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-PHM-Min-1",
+      "retention_class": "research-reference",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "disclosure-accounting",
+    "subject_context": {
+      "rotation_scope": "fixture-study",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:fixture-001",
+      "token_system": "urn:te:token-system:cmpb-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "profile": "TE-CMPB-Envelope-1"
+}

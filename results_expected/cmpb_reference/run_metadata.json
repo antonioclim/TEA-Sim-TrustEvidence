@@ -1,0 +1,146 @@
+{
+  "batch_count": 12,
+  "batch_execution": [
+    {
+      "elapsed_seconds": 12.090345,
+      "repetition_start": 1,
+      "repetition_stop": 1,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.443407,
+      "repetition_start": 2,
+      "repetition_stop": 2,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.065906,
+      "repetition_start": 3,
+      "repetition_stop": 3,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.406656,
+      "repetition_start": 4,
+      "repetition_stop": 4,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.314424,
+      "repetition_start": 5,
+      "repetition_stop": 5,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.241868,
+      "repetition_start": 6,
+      "repetition_stop": 6,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.140413,
+      "repetition_start": 7,
+      "repetition_stop": 7,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.437494,
+      "repetition_start": 8,
+      "repetition_stop": 8,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.674266,
+      "repetition_start": 9,
+      "repetition_stop": 9,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.206668,
+      "repetition_start": 10,
+      "repetition_stop": 10,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 12.211623,
+      "repetition_start": 11,
+      "repetition_stop": 11,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    },
+    {
+      "elapsed_seconds": 11.986326,
+      "repetition_start": 12,
+      "repetition_stop": 12,
+      "tree_sizes": [
+        128,
+        512,
+        2048
+      ]
+    }
+  ],
+  "deep_mutations_per_repetition": 1,
+  "event_templates": 9,
+  "generated_utc": "2026-07-11T00:00:00+00:00",
+  "input_boundary": "deterministic synthetic monitoring-accountability events",
+  "measurement_boundary": "single-host descriptive local reference",
+  "mutation_cases": 36,
+  "mutation_rejections": 36,
+  "ordinary_verification_failures": 0,
+  "repetition_start": 1,
+  "repetition_stop": 12,
+  "repetitions": 12,
+  "run_id": "cmpb-workload-reference-001",
+  "successful_receipt_checks": 1152,
+  "total_events": 32256,
+  "tree_sizes": [
+    128,
+    512,
+    2048
+  ],
+  "validation_failures": 0,
+  "verification_samples_per_repetition": 32
+}

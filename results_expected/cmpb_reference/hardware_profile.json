@@ -1,0 +1,18 @@
+{
+  "batch_count": 12,
+  "implementation": "CPython",
+  "logical_cpu_count": 56,
+  "machine": "x86_64",
+  "measurement_boundary": "single-host descriptive local reference",
+  "memory_total_kib": 4194304,
+  "platform_release": "4.4.0",
+  "platform_system": "Linux",
+  "processor": "not-reported",
+  "python_version": "3.13.5",
+  "software": {
+    "cryptography": "49.0.0",
+    "jsonschema": "4.26.0",
+    "rfc8785": "0.1.4",
+    "teasim-trustevidence": "2.1.0"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$id": "urn:te:schema:result-row:field_deletion_results:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classification": {
+      "type": "string"
+    },
+    "deleted_path": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "expected_outcome": {
+      "enum": [
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "field_class": {
+      "type": "string"
+    },
+    "fixture": {
+      "type": "string"
+    },
+    "observed_outcome": {
+      "enum": [
+        "accepted",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "passed": {
+      "enum": [
+        "true",
+        "false"
+      ],
+      "type": "string"
+    },
+    "primary_error_code": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "fixture",
+    "event_type",
+    "deleted_path",
+    "field_class",
+    "expected_outcome",
+    "observed_outcome",
+    "primary_error_code",
+    "classification",
+    "passed"
+  ],
+  "title": "field_deletion_results parsed CSV row",
+  "type": "object"
+}

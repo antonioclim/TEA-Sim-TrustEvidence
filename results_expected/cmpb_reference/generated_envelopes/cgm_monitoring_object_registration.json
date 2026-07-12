@@ -1,0 +1,67 @@
+{
+  "envelope_version": "2.1.0",
+  "evidence_core": {
+    "emitted_at": "2026-07-01T06:00:00.500Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:monitoring-boundary-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "monitoring-boundary"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "DGRLJuVzji_vDOS-RO3JnHOQMlGXjXfevnGan8iQCNw-AvHI495deJxerHPCvOt2WZHOlqx1XTvKxnWXlwQVAQ"
+    },
+    "event_facts": {
+      "capture_period": {
+        "end": "2026-07-01T00:00:00.000Z",
+        "start": "2026-06-30T00:00:00.000Z"
+      },
+      "object_state_code": "registered",
+      "payload_binding_mode": "commitment",
+      "source_device_class_code": "cgm-sensor"
+    },
+    "event_id": "urn:te:event:cgm-registration-001",
+    "event_type": "monitoring-object-registration",
+    "evidence_id": "urn:uuid:65a3adf3-db4b-5d91-a192-56223aa6c858",
+    "objects": [
+      {
+        "data_category_code": "continuous-glucose-monitoring",
+        "object_ref_token": "urn:te:object-token:cgm-day-001",
+        "object_role": "target",
+        "payload_binding": {
+          "commitment": "83a7d3bc295705841e82f5f0fec16d9801b8961527a30064dbe044a50b842d56",
+          "commitment_context": "cgm-day-object",
+          "commitment_profile": "sha256-nonce-v1",
+          "representation_profile": "application/fhir+json-rfc8785-v1"
+        },
+        "resource_class": "monitoring-series",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      }
+    ],
+    "occurred_at": "2026-07-01T06:00:00.000Z",
+    "outcome": {
+      "code": "success"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-PHM-Min-1",
+      "retention_class": "research-reference",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "monitoring-registration",
+    "subject_context": {
+      "rotation_scope": "fixture-study",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:fixture-001",
+      "token_system": "urn:te:token-system:cmpb-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "profile": "TE-CMPB-Envelope-1"
+}

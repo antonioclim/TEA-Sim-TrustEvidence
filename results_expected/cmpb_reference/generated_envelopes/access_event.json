@@ -1,0 +1,72 @@
+{
+  "envelope_version": "2.1.0",
+  "evidence_core": {
+    "actor": {
+      "actor_ref_token": "urn:te:actor-token:reader-service-001",
+      "actor_type": "service",
+      "organisation_ref_token": "urn:te:org-token:care-provider-b",
+      "role_code": "authorised-reader"
+    },
+    "consent_binding": {
+      "consent_ref_token": "urn:te:consent-token:fixture-001",
+      "consent_state": "active",
+      "consent_version": "3"
+    },
+    "emitted_at": "2026-07-01T06:10:00.500Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:monitoring-boundary-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:monitoring-provider-a",
+      "role_code": "monitoring-boundary"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "vrU2siBYqok8QXtrE0IP6vjLY-VLx542KNHbz1Q0afNONcRZjr270s6Dmmmd6VcGM81IiYO4ZDFA7gyHEiLEBA"
+    },
+    "event_facts": {
+      "access_channel_code": "api",
+      "action_code": "read",
+      "decision_source_code": "consent-policy-engine"
+    },
+    "event_id": "urn:te:event:access-001",
+    "event_type": "access-event",
+    "evidence_id": "urn:uuid:8e727851-cd54-52dd-8d2e-454964f66846",
+    "objects": [
+      {
+        "data_category_code": "continuous-glucose-monitoring",
+        "object_ref_token": "urn:te:object-token:cgm-day-001",
+        "object_role": "target",
+        "resource_class": "monitoring-series",
+        "resource_version_token": "1",
+        "subject_ref_token": "urn:te:subject-token:fixture-001"
+      }
+    ],
+    "occurred_at": "2026-07-01T06:10:00.000Z",
+    "outcome": {
+      "code": "success"
+    },
+    "policy_binding": {
+      "policy_ref_token": "urn:te:policy-token:monitoring-access",
+      "policy_version": "2026-07"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-PHM-Min-1",
+      "retention_class": "research-reference",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "care-coordination",
+    "subject_context": {
+      "rotation_scope": "fixture-study",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:fixture-001",
+      "token_system": "urn:te:token-system:cmpb-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:fixture-clock"
+    }
+  },
+  "profile": "TE-CMPB-Envelope-1"
+}

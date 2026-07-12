@@ -1,0 +1,14 @@
+{
+  "all_deletion_tests_rejected": true,
+  "all_summary_cases_passed": true,
+  "claim_boundary": "schema, semantic state and minimisation validation only",
+  "competency_deferred_named_layer": 16,
+  "competency_partially_verified": 3,
+  "competency_questions": 68,
+  "competency_verified_schema_layer": 49,
+  "deletion_tests": 185,
+  "negative_controls": 34,
+  "positive_envelope_cases": 10,
+  "positive_input_cases": 9,
+  "run_id": "cmpb-schema-validation-001"
+}

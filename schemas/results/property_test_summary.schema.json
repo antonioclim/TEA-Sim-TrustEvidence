@@ -1,0 +1,59 @@
+{
+  "$id": "urn:te:schema:result-row:property_test_summary:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "declared_max_examples": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "failing_examples_reported": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "invalid_draws_reported": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "passing_examples_reported": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "property_id": {
+      "type": "string"
+    },
+    "property_name": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ],
+      "type": "string"
+    },
+    "test_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "test_id",
+    "property_id",
+    "property_name",
+    "declared_max_examples",
+    "passing_examples_reported",
+    "failing_examples_reported",
+    "invalid_draws_reported",
+    "status",
+    "scope"
+  ],
+  "title": "property_test_summary parsed CSV row",
+  "type": "object"
+}
