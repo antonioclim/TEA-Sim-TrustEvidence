@@ -1,36 +1,39 @@
 {
-  "title": "TEA-Sim v2.0.1: Auditable trust-evidence reference artefacts",
+  "title": "TEA-Sim v2.1.0: Schema-first curation of personal health monitoring evidence",
   "upload_type": "software",
-  "description": "Reference implementation and reproducibility artefacts for auditable trust-evidence boundaries in health information systems. This archive is the published v2.0.1 software record associated with DOI 10.5281/zenodo.21226180. It does not claim production deployment, certification, legal compliance, clinical validation or complete formal verification.",
+  "publication_date": "2026-07-12",
+  "version": "2.1.0",
+  "description": "Reproducible reference implementation and evidence package for schema-first curation, payload minimisation, deterministic canonicalisation, signing and local receipt verification in synthetic personal health monitoring workflows. The package includes controlled mutation tests, property-based and finite bounded checks, an externally informed synthetic workload passage, figures and machine-readable results. It does not claim clinical validation, production deployment, legal compliance, FHIR/BALP conformance, global non-equivocation or complete formal verification.",
   "creators": [
     {
       "name": "Clim, Antonio",
-      "orcid": "0000-0003-4745-0431"
+      "orcid": "0000-0003-4745-0431",
+      "affiliation": "Faculty of Cybernetics, Statistics and Economic Informatics, Bucharest University of Economic Studies"
     }
   ],
-  "version": "2.0.1",
   "license": "Apache-2.0",
   "keywords": [
-    "health information systems",
-    "auditability",
-    "FHIR",
-    "BALP",
-    "design science",
+    "personal health monitoring",
+    "biomedical informatics",
+    "data curation",
+    "audit evidence",
     "reproducibility"
   ],
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.21193829",
+      "identifier": "10.5281/zenodo.21226180",
       "relation": "isNewVersionOf",
       "scheme": "doi",
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1",
+      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0",
       "relation": "isSupplementedBy",
       "scheme": "url",
       "resource_type": "software"
     }
   ],
-  "notes": "Current version DOI: 10.5281/zenodo.21226180. Previous version DOI: 10.5281/zenodo.21193829. GitHub repository: https://github.com/antonioclim/TEA-Sim-TrustEvidence. GitHub release: https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.0.1."
+  "notes": "Current version DOI: 10.5281/zenodo.21318387. Previous version DOI: 10.5281/zenodo.21226180. GitHub repository: https://github.com/antonioclim/TEA-Sim-TrustEvidence. GitHub release: https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0. The workload is externally informed and synthetic; timing values are single-host descriptive observations.",
+  "access_right": "open",
+  "language": "eng"
 }
