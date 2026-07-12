@@ -1,0 +1,13 @@
+failure_mode,status_code,status_label,evidence
+Missing/additional schema fields,2,executed control,53 schema cases; 185 deletions
+Payload or direct-identifier leakage,2,executed control,minimisation controls
+Invalid time or consent semantics,2,executed control,time and consent controls
+Core-field or emitter-signature mutation,2,executed control,core mutation matrix
+Receipt index/size/root/proof mutation,2,executed control,receipt mutation matrix
+Rollback or same-size root divergence,2,executed control,checkpoint controls
+Larger-checkpoint prefix inconsistency,2,executed control,consistency checks
+Occurrence uniqueness for duplicate leaves,1,bounded limitation,duplicate-leaf limitation
+Cross-language canonicalisation equivalence,1,partially bounded,RFC vectors; Python only
+Split view between isolated verifiers,0,outside scope,requires gossip/witnessing
+Authorised-key compromise and lifecycle,0,outside scope,fixture keys only
+Clinical validity or source truth,0,outside scope,not evaluated

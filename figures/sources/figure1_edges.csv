@@ -1,0 +1,9 @@
+source,target,label,style
+payload,clinical_store,governed payload path,solid
+payload,detect,event metadata only,dashed
+detect,select,,solid
+select,normalise,,solid
+normalise,validate,,solid
+validate,canonicalise,,solid
+canonicalise,append,,solid
+append,preserve,,solid

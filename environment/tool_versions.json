@@ -1,0 +1,14 @@
+{
+  "Pillow": "12.2.0",
+  "cryptography": "49.0.0",
+  "evidence_boundary": "locally executed Python 3.13.5/Linux release-candidate environment; no hosted CI claim",
+  "hypothesis": "6.156.6",
+  "jsonschema": "4.26.0",
+  "matplotlib": "3.10.8",
+  "platform": "Linux",
+  "pypdf": "5.9.0",
+  "pytest": "9.1.1",
+  "python": "3.13.5",
+  "rfc8785": "0.1.4",
+  "teasim-trustevidence": "2.1.0"
+}

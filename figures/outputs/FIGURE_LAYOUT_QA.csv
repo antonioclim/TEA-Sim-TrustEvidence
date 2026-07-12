@@ -1,0 +1,6 @@
+figure,pdf_pages,pdf_width_pt,pdf_height_pt,png_width_px,png_height_px,png_dpi_x,png_dpi_y,svg_xml_parse,minimum_raster_dimension,single_page_pdf,no_overlap,no_clipping,text_legible,arrows_clear,visual_review_notes,status
+Figure_1,1,518.40,309.60,4320,2580,600.0,600.0,PASS,PASS,PASS,PASS,PASS,PASS,PASS,Two-lane boundary is legible; metadata arrow terminates outside boxes; no title or subtitle collision.,PASS
+Figure_2,1,518.40,360.00,4320,3000,600.0,600.0,PASS,PASS,PASS,PASS,PASS,PASS,PASS,"Nested envelope and retained, excluded and withheld regions are legible; no content is clipped.",PASS
+Figure_3,1,518.40,360.00,4320,3000,600.0,600.0,PASS,PASS,PASS,PASS,PASS,PASS,PASS,Two-row pipeline is legible; connectors remain between boxes; stage subtitles fit within boxes.,PASS
+Figure_4,1,518.40,338.40,4320,2820,600.0,600.0,PASS,PASS,PASS,PASS,PASS,PASS,PASS,Executed workload counts and size series are legible; the single-host measurement boundary is visible.,PASS
+Figure_5,1,518.40,417.60,4320,3480,600.0,600.0,PASS,PASS,PASS,PASS,PASS,PASS,PASS,"Status markers, evidence labels and the scope footnote are fully visible.",PASS

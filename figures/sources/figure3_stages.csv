@@ -1,0 +1,13 @@
+id,stage,operation,x,y,width,height,row,failure
+input,Input event,synthetic event metadata,0.35,3.90,1.4,1.15,1,input/schema structure
+minimise,Minimise,payload and identifier rejection,1.95,3.90,1.4,1.15,1,TE-E-MIN-*
+validate,Validate,closed schema and semantic rules,3.55,3.90,1.4,1.15,1,TE-E-SCHEMA-* / semantic
+normalise,Normalise,UTC time and admissible domain,5.15,3.90,1.4,1.15,1,TE-E-TIMESTAMP-*
+canonicalise,Canonicalise,TE-JCS-1 unsigned bytes,6.75,3.90,1.4,1.15,1,TE-E-CANONICALISATION
+sign_core,Sign core,domain-separated Ed25519,8.35,3.90,1.3,1.15,1,TE-E-CORE-SIGNATURE
+append,Append,local A2 Merkle append,8.35,1.55,1.3,1.15,2,tree construction
+receipt,Issue receipt,"signed index, size, root and proof",6.75,1.55,1.4,1.15,2,TE-E-RECEIPT-*
+verify,Verify,"signatures, bindings and proofs",5.15,1.55,1.4,1.15,2,TE-E-PROOF-* / consistency
+checkpoint,Retain checkpoint,"rollback, fork and extension checks",3.55,1.55,1.4,1.15,2,TE-E-CHECKPOINT-*
+preserve,Preserve,"envelope, result and checkpoint",1.95,1.55,1.4,1.15,2,manifest / archive QA
+output,Auditable output,machine-verifiable evidence,0.35,1.55,1.4,1.15,2,bounded claim only

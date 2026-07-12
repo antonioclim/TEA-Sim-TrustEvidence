@@ -1,0 +1,12 @@
+source,target,style
+input,minimise,solid
+minimise,validate,solid
+validate,normalise,solid
+normalise,canonicalise,solid
+canonicalise,sign_core,solid
+sign_core,append,solid
+append,receipt,solid
+receipt,verify,solid
+verify,checkpoint,solid
+checkpoint,preserve,solid
+preserve,output,solid

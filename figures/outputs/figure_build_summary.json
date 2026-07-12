@@ -1,0 +1,83 @@
+{
+  "figures": [
+    {
+      "figure": "Figure_1",
+      "pdf": {
+        "bytes": 27031,
+        "sha256": "d20acb9c5b848a731620899410794b0d876557c501c384eb81bc69ba2db44482"
+      },
+      "png": {
+        "bytes": 429607,
+        "sha256": "950397dabcc80adafa60e1b5619212fdd4968d07e0a8826aa8d2441548e3f9e3"
+      },
+      "svg": {
+        "bytes": 80927,
+        "sha256": "644bfa00e0b95804729f2619d4d52bddc35f19b44ea1dc09c7da5497fad72459"
+      }
+    },
+    {
+      "figure": "Figure_2",
+      "pdf": {
+        "bytes": 26185,
+        "sha256": "e77c7b12cb303fbaf09f1332bf559cda64f26fcaeab41b28ca784252c481479b"
+      },
+      "png": {
+        "bytes": 712901,
+        "sha256": "d6b2dcc998d793e18c793c7be341277f12067cb1d6fe7f39a2c35496322d5e74"
+      },
+      "svg": {
+        "bytes": 122883,
+        "sha256": "ab72a7903b8a8097c1f686101419797c05de626a2b74c661da06e420b5f57b88"
+      }
+    },
+    {
+      "figure": "Figure_3",
+      "pdf": {
+        "bytes": 27976,
+        "sha256": "85093b28e34cbefee2b95fc90f8722b70f2f11a73eb11c2d8120d25bc97e8b1c"
+      },
+      "png": {
+        "bytes": 449342,
+        "sha256": "d18be6e63f44f3d1f7eb9e6ae4538a39f33c5d59ed22863e00ae36b7ad8f7e31"
+      },
+      "svg": {
+        "bytes": 98751,
+        "sha256": "0c20fd5627c517423d16318f5c2cfcf56f736ce3135228639e72eba1d2ecba7c"
+      }
+    },
+    {
+      "figure": "Figure_4",
+      "pdf": {
+        "bytes": 25548,
+        "sha256": "896673071d49ff4bb10c034f143338af8223a71a4b936766e14fa3f7e09081b6"
+      },
+      "png": {
+        "bytes": 479720,
+        "sha256": "4b1da88e4c63f64bd5b15fdce0a641f55327303e7299039bd49d666dfb5c76d3"
+      },
+      "svg": {
+        "bytes": 75324,
+        "sha256": "4b094c0b8184c848192597699f26d1ac192c6084aa37dccb73d67d7ad47c367c"
+      }
+    },
+    {
+      "figure": "Figure_5",
+      "pdf": {
+        "bytes": 24720,
+        "sha256": "5a744d97bbf4af31ac951efa908cfc0935dee21fe25a4909473310ae8a8b37e1"
+      },
+      "png": {
+        "bytes": 695814,
+        "sha256": "a5464d58cdd468254814d258f4100c5c025df72d6f3fdf9b7fd6353db07ab1bb"
+      },
+      "svg": {
+        "bytes": 112136,
+        "sha256": "5c03526ef1e3961fe396db5dc6497eeac4fb635511223686053fcbb4fd154048"
+      }
+    }
+  ],
+  "generator": "figures/scripts/generate_cmpb_figures.py",
+  "software": {
+    "matplotlib": "3.10.8"
+  }
+}

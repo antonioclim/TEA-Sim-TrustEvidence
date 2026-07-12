@@ -1,0 +1,16 @@
+id,label,subtitle,x,y,width,height,lane
+payload,"Personal monitoring
+payload","observations, summaries, signals",0.4,4.55,2.15,0.85,payload
+clinical_store,"Clinical / analytics
+data store",payload remains in governed system,7.45,4.55,2.15,0.85,payload
+detect,Detect,accountability event,0.35,2.25,1.25,0.95,evidence
+select,Select,declared evidence facts,1.85,2.25,1.25,0.95,evidence
+normalise,"Normalise
+and minimise",metadata only,3.35,2.25,1.45,0.95,evidence
+validate,Validate,closed schema + semantics,5.05,2.25,1.45,0.95,evidence
+canonicalise,"Canonicalise
+and sign",TE-JCS-1 + Ed25519,6.75,2.25,1.4,0.95,evidence
+append,"Append
+and receipt",local A2 Merkle,8.4,2.25,1.35,0.95,evidence
+preserve,"Preserve evidence
+and checkpoint",payload excluded,8.2,0.45,1.75,0.95,evidence
