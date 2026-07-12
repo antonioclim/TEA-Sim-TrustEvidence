@@ -1,0 +1,5 @@
+source_id,source_family,role,access_class,draft_execution_status,retained_content,public_claim_boundary,final_verification_required
+DS-SYNTHEA,Synthea,synthetic FHIR-style heterogeneity context,public documentation,metadata-only,none,scenario design only,yes
+DS-BIGIDEAS,BIG IDEAs or equivalent PhysioNet CGM source,sampling density and missingness context,public or credential-dependent by exact version,no new extraction,aggregate-only documentary descriptor; no raw values,not cohort calibration or clinical validation,yes
+DS-MIMICFHIR,MIMIC-IV-on-FHIR Demo,FHIR resource heterogeneity context,access-controlled or demo-dependent by exact source,metadata-only,none,no claim that records were processed,yes
+DS-INTEGRATED,Synthetic TEA-Sim generator,executed workload input,local package,executed,synthetic event metadata only,bounded local passage,not applicable

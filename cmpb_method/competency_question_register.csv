@@ -1,0 +1,69 @@
+cq_id,competency_question,answer_location,required_fields_or_invariant,planned_test
+CQ-A01,Which accountability event is this assertion about?,E,"event_id, event_type",Event ID/type preserved in every positive fixture
+CQ-A02,Which evidence assertion represents that event?,E,"evidence_id, profile, envelope_version",Unique evidence ID and version validation
+CQ-A03,When is the event declared to have occurred?,E,occurred_at,Offset-to-UTC and malformed timestamp cases
+CQ-A04,When was the evidence emitted?,E,emitted_at,Temporal-order and skew-bound checks
+CQ-A05,"What clock source, precision and declared skew apply?",E,"time_source.source_id, precision_ms, max_skew_ms",Missing/negative/excessive value rejection
+CQ-A06,Which software boundary emitted and signed the evidence?,E/X,"emitter.emitter_id, emitter.role_code, emitter.key_id; key registry",Registered/unknown key tests
+CQ-A07,Which operational actor or service performed the event?,E,"actor.actor_ref_token, actor.actor_type, actor.role_code, optional organisation token",Actor absent from access/disclosure fixture rejects
+CQ-A08,Can the verifier distinguish the operational actor from the software emitter?,E,Distinct actor and emitter objects,Conflated/omitted actor negative case
+CQ-A09,"Which pseudonymous person context, if any, is implicated?",E,"subject_context.status, token and token system when applicable",Missing token for subject-scoped event rejects
+CQ-A10,Is the assertion explicitly not subject-scoped?,E,subject_context.status = not-applicable plus reason code,Ambiguous missing subject context rejects
+CQ-M01,What class of monitoring object is placed under evidence management?,E,"objects[].resource_class, data_category_code, object_role=target",CGM-object and wearable-summary fixtures
+CQ-M02,Which token identifies the object without redistributing it?,E,object_ref_token,Raw FHIR resource/full object negative control
+CQ-M03,What capture or summary interval does the object represent?,E,registration event_facts.capture_period or summary_period,Start/end order validation
+CQ-M04,"Is the object bound by a commitment, and under which representation profile?",E,"optional payload_binding.commitment, commitment_profile, representation_profile",Unsupported profile rejection
+CQ-M05,Can an authorised party later test a disclosed object against the commitment?,E/X,commitment metadata plus externally governed payload and nonce,Positive and wrong-payload/wrong-nonce checks
+CQ-M06,Does the public object avoid exposing the nonce used for a low-entropy payload commitment?,E,TE-PHM-Min-1 prohibition,Public-nonce leakage fixture rejects
+CQ-X01,What access action was attempted or completed?,E,event_facts.action_code,Unsupported action rejection
+CQ-X02,Which object was targeted?,E,at least one objects[] item with object_role=target,Missing target rejection
+CQ-X03,For what controlled purpose was access declared?,E,purpose_code,Free-text/unknown purpose rejection
+CQ-X04,What was the declared outcome and reason?,E,"outcome.code, optional controlled reason_code",Missing outcome rejection
+CQ-X05,Which policy version governed the decision?,E/X,"policy_binding.policy_ref_token, policy_version and optional digest/source token",Missing policy binding rejection
+CQ-X06,Which consent state/version was associated with the access when the scenario requires consent mediation?,E/X,consent_binding plus scenario policy,Active/revoked scenario tests
+CQ-X07,"Does a changed actor, role, purpose, target, policy or consent state invalidate the original core digest/receipt?",E/R,canonical core digest and receipt binding,Single-field mutation catalogue
+CQ-C01,Which consent record and version changed?,E,"consent_binding.consent_ref_token, consent_version",Missing token/version rejection
+CQ-C02,What were the previous and new consent states?,E,"event_facts.previous_state, new_state",Same-state/unsupported state rejection
+CQ-C03,When did the new state become effective?,E,event_facts.effective_at,Time-format and ordering checks
+CQ-C04,Which actor caused or recorded the transition?,E,actor,Missing actor rejection
+CQ-C05,Which policy context applies to the transition?,E/X,policy_binding,Missing policy rejection
+CQ-C06,Is the transition permitted by the declared project state graph?,E,semantic transition table,revoked → active same-version rejection
+CQ-C07,Can reactivation be represented only as a new consent version/token where required?,E,version/token inequality invariant,Same-version reactivation negative case
+CQ-P01,Which input objects were used?,E,one or more objects[] with object_role=input,No-input rejection
+CQ-P02,Which output objects were produced?,E,one or more objects[] with object_role=output,No-output rejection
+CQ-P03,Which transformation method and version were declared?,E,"event_facts.transform_id, transform_version",Missing method/version rejection
+CQ-P04,Which agent was responsible for the transform?,E,actor and optional on_behalf_of_ref_token,Missing agent rejection
+CQ-P05,Can the transform interval or event time be determined?,E,occurred_at and optional start/end interval,Invalid interval rejection
+CQ-P06,Are input/output object bindings distinct or explicitly version-changing?,E,object-role and version invariant,Identical unversioned input/output rejection
+CQ-P07,"Does a mutation of an input, output or transform version invalidate the original binding?",E/R,core digest and receipt,Provenance mutation cases
+CQ-D01,Which organisation/service role disclosed the object?,E,discloser actor and emitter separation,Missing actor rejection
+CQ-D02,Which tokenised recipient or recipient role was declared?,E,"event_facts.recipient_ref_token, recipient_role_code",Name/email recipient leakage rejects
+CQ-D03,Which object or category was disclosed?,E,target object binding and data-category code,Missing target rejection
+CQ-D04,For what purpose and under which policy/consent version?,E/X,"purpose_code, policy_binding, consent_binding",Missing binding rejection
+CQ-D05,"Was the disclosure permitted, denied or failed according to the source assertion?",E,outcome,Outcome mutation test
+CQ-D06,Does the envelope avoid carrying the disclosed monitoring values?,E,TE-PHM-Min-1,Nested sample/value leakage controls
+CQ-G01,Which input category or tokenised source set was aggregated?,E,input object bindings,Missing input rejection
+CQ-G02,What time window was aggregated?,E,"event_facts.window_start, window_end",Reversed/zero invalid interval cases
+CQ-G03,"How many samples contributed, without exposing their values?",E,bounded non-negative sample_count,Negative/non-integer/value-array controls
+CQ-G04,Which aggregation method and version were used?,E,"aggregation_method, aggregation_version",Missing/unsupported method rejection
+CQ-G05,Which output summary object was produced?,E,output object binding,Missing output rejection
+CQ-G06,Can an output commitment be checked later under authorised disclosure?,E/X,optional payload binding,Correct/wrong output+nonce tests
+CQ-G07,"Does changing the window, sample count, method or output alter the bound digest?",E/R,canonical core digest and receipt,Aggregation mutation cases
+CQ-I01,Which minimisation and tokenisation profile governed the object?,E,privacy_profile,Missing/unknown profile rejection
+CQ-I02,"Are raw physiological values, sample arrays and direct identifiers absent under the executable profile?",E,closed schema plus recursive policy,Leakage negative-control suite
+CQ-I03,Can the unsigned core be canonicalised to the same bytes after object-key reordering?,E,TE-JCS-1,RFC vector and reordered-key tests
+CQ-I04,Are timestamps normalised consistently before canonicalisation?,E,timestamp profile,Equivalent-offset tests
+CQ-I05,"Are duplicate keys, non-finite numbers and unsupported number forms rejected at admission?",E,I-JSON/TE-JCS-1 admission,Parser and number controls
+CQ-I06,Which registered emitter key signed the core digest?,E/X,emitter_signature.key_id; key registry,Signature/unknown-key tests
+CQ-I07,Does the receipt bind the computed core digest and log identity?,R,"core_digest, backend_id, log_id, signed receipt",Core/backend/log mutation tests
+CQ-I08,At what leaf index and tree size was the evidence included?,R,"signed leaf_index, tree_size; matching proof fields",Index/size mutation tests
+CQ-I09,Does the inclusion path reconstruct the signed root for exactly that index and size?,R,"inline proof, root and verifier algorithm",Missing/extra/reordered sibling tests
+CQ-I10,Is the proof material itself covered by the receipt signature directly or through a digest?,R,inline proof and inclusion_proof_digest in signed projection,Proof-content substitution test
+CQ-I11,Can a verifier with retained state detect a smaller checkpoint or a different same-size root?,R,previous verifier state and checkpoint comparison,Rollback/same-size-root tests
+CQ-I12,Can a supplied consistency proof show that one retained checkpoint is a prefix of another under the local model?,R,old/new size/root and consistency path,Valid/non-prefix proof tests
+CQ-F01,At which curation stage did an object fail?,E or result,failure_event.event_facts.failed_stage or CurationResult.failed_stage,Stage-specific negative controls
+CQ-F02,Which stable machine-readable code explains the rejection?,E or result,failure_code / error_code,Exact-code assertions
+CQ-F03,Was an evidence core or receipt created before failure?,E or result,"output_status, digest presence rules",Contradictory output-state rejection
+CQ-F04,"Which method, schema, canonicalisation and receipt versions produced the result?",E/result,version/profile fields,Missing version rejection
+CQ-F05,Can a clean extraction regenerate the deterministic reference objects and tables?,result/repository,"run manifest, hashes and exact commands",fresh-extraction audit
+CQ-F06,Can reported figures be regenerated solely from retained CSV/JSON sources?,repository,figure provenance and scripts,figure-regeneration audit
