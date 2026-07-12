@@ -1,8 +1,0 @@
-source,requirement_or_principle,protocol_location,status
-CREDES,Justify Delphi method and panel purpose,EXPERT_PANEL_PROTOCOL.md - objective/design,planned
-CREDES,Define consensus criteria a priori,EXPERT_PANEL_PROTOCOL.md - consensus criteria,planned
-CREDES,Report expert panel selection,PANEL_SAMPLING_FRAME.csv,planned
-DELPHISTAR,"Report Delphi variant, rounds and feedback",EXPERT_PANEL_PROTOCOL.md - design,planned
-DELPHISTAR,Report response rates and attrition,ANALYSIS_PLAN.md - planned outputs,pending actual data
-RAND/UCLA Appropriateness Method,Use 1-9 appropriateness-style scale with defined interpretation,EXPERT_PANEL_PROTOCOL.md and questionnaire CSVs,planned
-RAND/UCLA Appropriateness Method,Separate agreement/disagreement from central tendency,ANALYSIS_PLAN.md - statistics and decision criteria,planned

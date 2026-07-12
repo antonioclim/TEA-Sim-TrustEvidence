@@ -1,4 +1,0 @@
-item_id_round1,item_id_round2,round1_n,round1_median,round1_iqr,round1_agreement_7_9_percent,round1_decision,round2_n,round2_median,round2_iqr,round2_agreement_7_9_percent,round2_decision,median_shift_round2_minus_round1,stable_shift_abs_le_1,interpretation_boundary
-R1_01,R2_01,12,8.0,2.0,100.0,endorsement_consensus,12,8.0,2.0,100.0,endorsement_consensus,0.0,True,Only real ethics-cleared data with >=12 two-round completers may support preliminary expert-panel wording.
-R1_02,R2_02,12,8.0,2.0,100.0,endorsement_consensus,12,8.0,2.0,100.0,endorsement_consensus,0.0,True,Only real ethics-cleared data with >=12 two-round completers may support preliminary expert-panel wording.
-R1_03,R2_03,12,8.0,2.0,100.0,endorsement_consensus,12,8.0,2.0,100.0,endorsement_consensus,0.0,True,Only real ethics-cleared data with >=12 two-round completers may support preliminary expert-panel wording.

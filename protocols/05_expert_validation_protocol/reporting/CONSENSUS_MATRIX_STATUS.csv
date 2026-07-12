@@ -1,4 +1,0 @@
-matrix,status,reason,public_claim
-consensus_matrix,NOT_EXECUTED,No ethics approval/waiver and no genuine anonymised expert responses were present in the corpus.,No expert-validation claim permitted.
-round1_raw_anonymised,ABSENT,Only protocol scaffolding and toy/sample data were found.,Do not report Round 1 results.
-round2_raw_anonymised,ABSENT,No Round 2 genuine data.,Do not report Delphi consensus or stability.
