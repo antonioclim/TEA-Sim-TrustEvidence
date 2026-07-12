@@ -1,9 +1,0 @@
-id,check,status,evidence
-QA-01,CapabilityStatements present,PASS,[MEASURED:v2.0.0-local]
-QA-02,Narrative pages present,PASS,[MEASURED:v2.0.0-local]
-QA-03,BALP/ATNA mapping present,PASS,[COMPUTED:v2.0.0-artefacts]
-QA-04,Conformance plan present,PASS,[COMPUTED:v2.0.0-artefacts]
-QA-05,SUSHI successful build,external-required,[MEASURED:v2.0.0-local]
-QA-06,IG Publisher QA,external-required,[MEASURED:v2.0.0-local]
-QA-07,BALP derivation decision,external-required,[verification: V-v2.0.0]
-QA-08,No conformance overclaim,PASS,[COMPUTED:v2.0.0-artefacts]
