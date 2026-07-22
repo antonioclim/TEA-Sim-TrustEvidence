@@ -120,14 +120,14 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          make release-check 2>&1 | tee route-c-release-check.log
+          make release-check 2>&1 | tee "${RUNNER_TEMP}/route-c-release-check.log"
 
       - name: Upload the release-check transcript
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: route-c-release-check-log
-          path: route-c-release-check.log
+          path: ${{ runner.temp }}/route-c-release-check.log
           if-no-files-found: error
           retention-days: 30
 
