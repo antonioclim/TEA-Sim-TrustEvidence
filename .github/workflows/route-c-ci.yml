@@ -18,6 +18,43 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  integrity-sync:
+    name: One-time integrity bootstrap
+    if: >-
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/revision/jcis-route-c' &&
+      github.event.head_commit.message == 'ci(route-c): bootstrap integrity sync'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the Route C branch
+        uses: actions/checkout@v4
+        with:
+          ref: revision/jcis-route-c
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Rebuild integrity files
+        run: python scripts/rebuild_integrity_files.py
+
+      - name: Commit the regenerated integrity files
+        shell: bash
+        run: |
+          if git diff --quiet -- FILE_MANIFEST.tsv SHA256SUMS.txt; then
+            echo 'Integrity files already match the distributed tree.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add FILE_MANIFEST.tsv SHA256SUMS.txt
+          git commit -m 'chore(route-c): refresh integrity manifests'
+          git push origin HEAD:revision/jcis-route-c
+
   integrity-preview:
     name: Rebuild integrity files
     runs-on: ubuntu-24.04
