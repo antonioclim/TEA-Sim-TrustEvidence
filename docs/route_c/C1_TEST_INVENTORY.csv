@@ -1,0 +1,16 @@
+test_id,make_target,evidence_family,mandatory_for_c1,expected_skip_policy
+C1-T01,compile,Python compilation,yes,no skip
+C1-T02,test,unit and regression tests,yes,zero mandatory skips
+C1-T03,property,property-based tests,yes,zero mandatory skips
+C1-T04,bounded,finite bounded executable checks,yes,no skip
+C1-T05,results-manifest,retained result provenance,yes,no skip
+C1-T06,result-contracts,machine-readable result contracts,yes,no skip
+C1-T07,metadata,public metadata and repository identity,yes,no skip
+C1-T08,integrity,SHA-256 and file-manifest integrity,yes,no skip
+C1-T09,quick,integrated quick curation pipeline,yes,no skip
+C1-T10,analyse,result analysis regeneration,yes,no skip
+C1-T11,figures,figure regeneration,yes,no skip
+C1-T12,tables,table regeneration,yes,no skip
+C1-T13,compare,retained-output comparison,yes,no skip
+C1-T14,final-check,final release-tree validation,yes,no skip
+C1-T15,release-check,complete release contract,yes,no skip
