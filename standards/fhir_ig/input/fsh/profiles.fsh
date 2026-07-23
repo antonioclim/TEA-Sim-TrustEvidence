@@ -4,6 +4,7 @@ CodeSystem: TEEvidenceType
 Id: te-evidence-type
 Title: "TrustEvidence Evidence Type"
 Description: "Project-defined evidence-document types for the bounded Route C reference profile."
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * #portable-audit-evidence "Portable audit evidence"
@@ -12,14 +13,15 @@ ValueSet: TEEvidenceTypeVS
 Id: te-evidence-type-vs
 Title: "TrustEvidence Evidence Type Value Set"
 Description: "Evidence-document types admitted by the bounded Route C profile."
+* ^experimental = false
 * include codes from system $teEvidenceType
 
 Profile: TEPortableEvidenceBinary
 Parent: Binary
 Id: te-portable-evidence-binary
 Title: "TrustEvidence Portable Evidence Binary"
-Description: "Exact canonical bytes of a signed TrustEvidence envelope with its project-specific local A2 receipt."
-* contentType = #application/vnd.trustevidence+json (exactly)
+Description: "Exact canonical JSON bytes of a signed TrustEvidence envelope with its project-specific local A2 receipt."
+* contentType = #application/json (exactly)
 * data 1..1
 * securityContext 1..1
 
@@ -36,7 +38,7 @@ Description: "DocumentReference that points to the exact signed TrustEvidence Bi
 * author 1..*
 * custodian 1..1
 * content 1..1
-* content.attachment.contentType = #application/vnd.trustevidence+json (exactly)
+* content.attachment.contentType = #application/json (exactly)
 * content.attachment.url 1..1
 * content.attachment.hash 1..1
 * context.related 3..*
@@ -45,7 +47,7 @@ Profile: TEEvidenceProvenance
 Parent: Provenance
 Id: te-evidence-provenance
 Title: "TrustEvidence Evidence Provenance"
-Description: "Provenance linking the disclosure AuditEvents and exact signed-envelope Binary to the source DiagnosticReport version."
+Description: "Provenance linking the disclosure AuditEvents and exact signed-envelope Binary to the version-identified source DiagnosticReport retained by the source custodian."
 * target 3..*
 * occurred[x] 1..1
 * recorded 1..1
