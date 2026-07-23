@@ -1,5 +1,5 @@
-# C5 integrity synchronisation trigger
+# C5 final integrity synchronisation record
 
-This controlled marker requests regeneration of `FILE_MANIFEST.tsv` and `SHA256SUMS.txt` after the final C5 completion report, hostile validity review, reviewer registries, claim controls and temporary-workflow removals have been integrated.
+This controlled marker requests the final regeneration of `FILE_MANIFEST.tsv` and `SHA256SUMS.txt` after Gate C5 was closed in the completion report and hostile validity review using hosted workflow `30019941895`.
 
-The marker is governance metadata, not scientific evidence. After this synchronisation, one final all-green hosted run is required; no additional C5 measurement is authorised.
+The marker is governance metadata, not scientific evidence. No additional C5 measurement is authorised. One final post-status hosted run must pass without generated drift; its identifiers are recorded in the pull-request description rather than by modifying the closed scientific corpus.
