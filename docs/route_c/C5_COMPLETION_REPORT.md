@@ -10,8 +10,8 @@ Result contracts: PASS
 Retained evidence: PASS
 Reviewer traceability: PASS
 Temporary materialisation machinery removed: PASS
-First post-synchronisation all-green workflow: PASS
-Final post-report CI: PENDING
+Post-report hosted validation: PASS
+Final repository/release gate: PASS
 Scope: one frozen synthetic HIE disclosure, one hosted Linux runner, local Python reference pipeline
 Release status: working branch; v2.2.0 has not yet been released
 Main branch modified: no
@@ -19,7 +19,7 @@ Main branch modified: no
 
 C5 supplies bounded empirical evidence for the incremental processing, canonical application-byte and local-storage-proxy effects of adding the complete local TrustEvidence reference path to the same frozen synthetic health-information-exchange case. It does not measure production electronic-health-record overhead, hospital response time, network or database cost, distributed scalability or organisational cost reduction.
 
-The scientific and evidential parts of C5 are closed. The only remaining mechanical condition at the time of this report revision is one hosted CI run over the report-and-manifest-finalised tree. That run must reproduce the dedicated C5 check, the complete release contract and a zero-byte integrity patch before the phase is declared finally release-gate closed in the pull-request record.
+The scientific, evidential and repository-mechanics parts of C5 are closed. Hosted workflow `30019941895` ran after the completion report, hostile review and reviewer-evidence registries had been incorporated into the integrity manifests. It reproduced the dedicated C5 check, the complete release contract, the C3 FHIR regression, the C4 security regression and a zero-byte integrity patch on tree `2e511289dc1863077123d4a955cc1f3240386646`.
 
 ## Research question
 
@@ -44,7 +44,12 @@ The answer is expressed through paired `B1–B0`, `B2–B1` and `B2–B0` increm
 | Evidence materialisation commit | `8fa54f83ac9dd72524db35d1f57bb019931c69ec` |
 | Materialisation artifact digest | `sha256:a94b8c2a7a24583d33f88053832bcf2f8941b162ad07849b0568a8483bee3b7b` |
 | First post-synchronisation all-green workflow | `30018761233` |
-| All-green validation tree | `6cc349f82a1bfa656fcdb1794c0bd8dc68546231` |
+| First all-green validation tree | `6cc349f82a1bfa656fcdb1794c0bd8dc68546231` |
+| Post-report gate-validation workflow | `30019941895` |
+| Post-report gate-validation tree | `2e511289dc1863077123d4a955cc1f3240386646` |
+| Post-report C5 artifact digest | `sha256:e1125e3eb333b67d15f1d0a5120e0449d18e5c9c818419af496cc6b67fe18b31` |
+| Post-report release-check artifact digest | `sha256:fb0fc3006833b44c51fa9e2876d7874859a79e169aa931b76ac58b32c143987b` |
+| Post-report integrity artifact digest | `sha256:9a148d22d112428f799e32b824ef725cc86ba138560aa2b6159702d2bfa2685d` |
 | Run identifier | `route-c-hie-overhead-001` |
 | Software status during measurement | `working-branch-pre-v2.2.0` |
 
@@ -237,7 +242,7 @@ C5-OVERHEAD-CHECK: PASS
 383 file-manifest rows and 384 checksums rebuilt at materialisation
 ```
 
-The first fully synchronised hosted release workflow, `30018761233`, subsequently reported:
+The post-report gate-validation workflow `30019941895` reported:
 
 ```text
 50 unit/regression pytest items passed
@@ -289,8 +294,13 @@ C5 supplies bounded evidence for local processing and representation cost. It do
 - organisational cost reduction;
 - generalisation beyond the synthetic W1 case and reported host.
 
-## Gate closure status
+## Final gate closure
 
-The C5 scientific corpus, result contracts, claim ledger and reviewer-evidence registries are integrated. The temporary visible-materialisation workflow has been removed. The synchronised pre-report tree passed the dedicated C5 check, the complete `make release-check`, the C3 FHIR regression, the C4 security regression and a zero-byte integrity-diff check in workflow `30018761233`.
+```text
+Gate C5 = PASS
+open C5 scientific blockers = 0
+open C5 release-mechanics blockers = 0
+additional C5 measurement authorised = no
+```
 
-The phase will be recorded as finally closed after this revised report, the hostile review and their integrity entries pass the same hosted controls without generated drift. No further scientific measurement is planned or permitted for C5.
+C5 closes only the host- and implementation-bounded W1 local-overhead question. Manuscript integration, component/deployability analysis, release-candidate construction and final reviewer responses remain C6–C8 obligations.
