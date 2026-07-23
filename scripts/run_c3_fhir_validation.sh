@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+MODE="${1:-ephemeral}"
+if [[ "$MODE" == "retain" ]]; then
+  VALIDATION_DIR="$ROOT/standards/fhir_ig/validation"
+else
+  VALIDATION_DIR="${RUNNER_TEMP:-/tmp}/route-c-c3-validation"
+fi
+TOOLS_DIR="${RUNNER_TEMP:-/tmp}/route-c-fhir-tools"
+mkdir -p "$VALIDATION_DIR/positive" "$VALIDATION_DIR/negative" "$TOOLS_DIR"
+rm -f "$VALIDATION_DIR"/positive/*.json "$VALIDATION_DIR"/negative/*.json
+
+python experiments/run_hie_hero_case.py --write
+python scripts/check_hie_fhir_projection.py --output "$VALIDATION_DIR/semantic_validation.json"
+
+sushi standards/fhir_ig 2>&1 | tee "$VALIDATION_DIR/sushi.log"
+
+PUBLISHER_JAR="$TOOLS_DIR/publisher.jar"
+VALIDATOR_JAR="$TOOLS_DIR/validator_cli.jar"
+if [[ ! -s "$PUBLISHER_JAR" ]]; then
+  curl --fail --location --retry 4 --output "$PUBLISHER_JAR" \
+    https://github.com/FHIR/latest-ig-publisher/raw/master/org.hl7.fhir.publisher.jar
+fi
+if [[ ! -s "$VALIDATOR_JAR" ]]; then
+  curl --fail --location --retry 4 --output "$VALIDATOR_JAR" \
+    https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar
+fi
+sha256sum "$PUBLISHER_JAR" "$VALIDATOR_JAR" > "$VALIDATION_DIR/tool_sha256.txt"
+{
+  echo "python=$(python --version 2>&1)"
+  echo "java=$(java -version 2>&1 | head -n 1)"
+  echo "node=$(node --version)"
+  echo "sushi=$(sushi --version 2>&1 | tail -n 1)"
+  echo "publisher=$(java -jar "$PUBLISHER_JAR" -version 2>&1 | tail -n 1)"
+  echo "validator=$(java -jar "$VALIDATOR_JAR" -version 2>&1 | tail -n 1)"
+} > "$VALIDATION_DIR/tool_versions.txt"
+
+java -jar "$PUBLISHER_JAR" -ig standards/fhir_ig/ig.ini -tx n/a \
+  2>&1 | tee "$VALIDATION_DIR/ig-publisher.log"
+
+PACKAGE="$ROOT/standards/fhir_ig/output/package.tgz"
+test -f "$PACKAGE"
+: > "$VALIDATION_DIR/validator_status.tsv"
+
+validate_one() {
+  local kind="$1"
+  local source="$2"
+  local stem
+  stem="$(basename "$source" .json)"
+  local output="$VALIDATION_DIR/${kind}/${stem}.operationoutcome.json"
+  set +e
+  java -jar "$VALIDATOR_JAR" "$source" \
+    -version 4.0.1 -ig "$PACKAGE" -ig ihe.iti.balp#1.1.4 \
+    -tx n/a -output "$output"
+  local status=$?
+  set -e
+  printf '%s\t%s\t%s\n' "$kind" "$status" "$source" >> "$VALIDATION_DIR/validator_status.tsv"
+}
+
+for source in standards/fhir_ig/input/resources/*.json; do
+  validate_one positive "$source"
+done
+validate_one positive data_examples/hie_disclosure/source/source_clinical_bundle.json
+for source in standards/fhir_ig/negative/*.json; do
+  validate_one negative "$source"
+done
+
+python scripts/summarise_fhir_validation.py \
+  --positive-dir "$VALIDATION_DIR/positive" \
+  --negative-dir "$VALIDATION_DIR/negative" \
+  --output "$VALIDATION_DIR/validator_summary.json"
+
+echo "C3-FHIR: PASS"
