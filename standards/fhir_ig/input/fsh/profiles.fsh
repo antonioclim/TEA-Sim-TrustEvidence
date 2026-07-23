@@ -58,8 +58,9 @@ Profile: TEPortableEvidenceBundle
 Parent: Bundle
 Id: te-portable-evidence-bundle
 Title: "TrustEvidence Portable Evidence Bundle"
-Description: "Collection bundle containing pseudonymous context, BALP AuditEvents, Consent, Provenance and the exact signed-envelope Binary."
+Description: "Collection bundle containing pseudonymous context, BALP AuditEvents, Consent, Provenance and the exact signed-envelope Binary; clinical Observation and DiagnosticReport resources are not admitted."
 * identifier 1..1
 * type = #collection (exactly)
 * timestamp 1..1
 * entry 10..*
+* entry.resource only Patient or Organization or Device or Practitioner or PractitionerRole or Consent or AuditEvent or Provenance or Binary or DocumentReference
