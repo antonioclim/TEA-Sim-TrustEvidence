@@ -1,0 +1,49 @@
+{
+  "aggregate_estimate_rows": 18,
+  "baseline_count": 3,
+  "bootstrap_resamples": 10000,
+  "claim_boundary": {
+    "not_supported": [
+      "production EHR overhead",
+      "hospital latency or service-level acceptability",
+      "network or distributed-service scalability",
+      "organisational cost reduction",
+      "deployment readiness",
+      "negligible or equivalent overhead"
+    ],
+    "supported": "local reference-pipeline processing, application-byte and storage-proxy increments on the reported host"
+  },
+  "completed_utc": "2026-07-23T14:08:40.420Z",
+  "expected_invalid_cases": 25,
+  "expected_invalid_rejections": 25,
+  "failed_process_runs": 0,
+  "false_accepts": 0,
+  "false_rejects": 0,
+  "independent_replicate": "fresh Python process per baseline/workload/paired block",
+  "operations_per_run": 128,
+  "order_randomisation": "deterministic shuffled B0/B1/B2 order; the same order is applied to every selected workload in each block",
+  "p99_definition": "nearest-rank p99 over 128 operation samples per process-level run",
+  "paired_increment_rows": 60,
+  "pairing": "same workload, seed, source fixture, operation count and timestamps within each block",
+  "passed": true,
+  "payload_exclusion_findings": 0,
+  "pilot_blocks": 5,
+  "pilot_excluded_from_confirmatory_estimates": true,
+  "pilot_process_runs": 15,
+  "primary_estimator": "median paired-block increment with deterministic percentile-bootstrap 95% interval",
+  "retained_blocks": 20,
+  "retained_operation_samples": 7680,
+  "retained_process_runs": 60,
+  "run_id": "route-c-hie-overhead-001",
+  "secondary_workload_omission": "W2 was omitted from confirmatory materialisation under the frozen critical-path clause; no W2 overhead estimate is claimed",
+  "software_status": "working-branch-pre-v2.2.0",
+  "source_digest_failures": 0,
+  "started_utc": "2026-07-23T14:07:31.993Z",
+  "validation_failures": 0,
+  "verification_failures": 0,
+  "warmup_operations": 8,
+  "workload_count": 1,
+  "workload_ids": [
+    "W1-HIE-DISCLOSURE"
+  ]
+}
