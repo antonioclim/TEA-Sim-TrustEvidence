@@ -1,4 +1,4 @@
-"""Shared release-tree helpers."""
+"""Shared release-tree helpers for the v2.2.0 release candidate."""
 
 from __future__ import annotations
 
@@ -7,21 +7,54 @@ import mimetypes
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_ROOT = "TEA-Sim-TrustEvidence-v2.1.0"
+TARGET_VERSION = "2.2.0"
+PACKAGE_VERSION = "2.2.0rc1"
+CANDIDATE_VERSION = "2.2.0-rc.1"
+CANDIDATE_TAG = "v2.2.0-rc.1"
+EXPECTED_ROOT = "TEA-Sim-TrustEvidence-v2.2.0-rc.1"
+ASSET_NAME = "TEA-Sim-TrustEvidence-v2.2.0-rc.1.zip"
+ASSET_CHECKSUM_NAME = "TEA-Sim-TrustEvidence-v2.2.0-rc.1.sha256"
 MANIFEST_PATH = "FILE_MANIFEST.tsv"
 CHECKSUM_PATH = "SHA256SUMS.txt"
+
 RUNTIME_DIRS = {
-    ".git", ".venv", "venv", "results_local", "local_outputs", "__pycache__",
-    ".pytest_cache", ".hypothesis", ".mypy_cache", ".ruff_cache", ".tox",
-    ".nox", "build", "dist", "htmlcov", "node_modules",
+    ".git",
+    ".venv",
+    "venv",
+    "results_local",
+    "local_outputs",
+    "__pycache__",
+    ".pytest_cache",
+    ".hypothesis",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".tox",
+    ".nox",
+    "build",
+    "dist",
+    "htmlcov",
+    "node_modules",
 }
 RUNTIME_FILES = {".DS_Store", "Thumbs.db", ".coverage"}
 RUNTIME_SUFFIXES = {".pyc", ".pyo"}
 
+# Route-C governance records and the temporary source-snapshot workflow are
+# retained in the development branch but are not part of the identified public
+# software distribution supplied to GitHub/Zenodo.
+PUBLIC_EXCLUDED_PREFIXES = (PurePosixPath("docs/route_c"),)
+PUBLIC_EXCLUDED_PATHS: set[str] = set()
+
 
 def is_safe_relative(value: str) -> bool:
+    """Return True only for safe POSIX-style paths inside an archive root."""
+
     path = PurePosixPath(value)
-    return bool(value) and not path.is_absolute() and ".." not in path.parts and "\\" not in value
+    return (
+        bool(value)
+        and not path.is_absolute()
+        and ".." not in path.parts
+        and "\\" not in value
+    )
 
 
 def is_runtime_path(path: Path) -> bool:
@@ -34,11 +67,34 @@ def is_runtime_path(path: Path) -> bool:
 
 
 def release_files(*, exclude: set[str] | None = None) -> list[Path]:
+    """Return all distributed branch files, excluding runtime residue."""
+
     excluded = exclude or set()
     return [
-        path for path in sorted(ROOT.rglob("*"))
-        if path.is_file() and not is_runtime_path(path)
+        path
+        for path in sorted(ROOT.rglob("*"))
+        if path.is_file()
+        and not is_runtime_path(path)
         and path.relative_to(ROOT).as_posix() not in excluded
+    ]
+
+
+def public_excluded(relative_path: str) -> bool:
+    """Return whether a branch file is excluded from the public release ZIP."""
+
+    if relative_path in PUBLIC_EXCLUDED_PATHS:
+        return True
+    posix = PurePosixPath(relative_path)
+    return any(posix == prefix or prefix in posix.parents for prefix in PUBLIC_EXCLUDED_PREFIXES)
+
+
+def public_release_files(*, exclude: set[str] | None = None) -> list[Path]:
+    """Return the curated identified public software-distribution files."""
+
+    return [
+        path
+        for path in release_files(exclude=exclude)
+        if not public_excluded(path.relative_to(ROOT).as_posix())
     ]
 
 
@@ -52,6 +108,10 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
 
 
 def media_type(path: Path) -> str:
@@ -68,8 +128,9 @@ def role_for(rel: str) -> str:
         "experiments": "experiment driver",
         "results_expected": "retained reference evidence",
         "figures": "figure source, generator or output",
+        "tables": "table source, generator or output",
         "cmpb_method": "public method specification",
-        "data_examples": "synthetic monitoring example",
+        "data_examples": "synthetic example",
         "data_sources": "data-source provenance",
         "workloads": "workload descriptor",
         "standards": "standards-facing mapping",
@@ -92,17 +153,38 @@ def generator_for(rel: str) -> str:
         return "source-controlled result contract"
     if rel.startswith("figures/outputs/"):
         return "figures/scripts/generate_cmpb_figures.py"
-    if rel.endswith("schema_validation_summary.csv") or rel.endswith("field_deletion_results.csv") or rel.endswith("competency_question_results.csv"):
+    if rel.endswith(
+        (
+            "schema_validation_summary.csv",
+            "field_deletion_results.csv",
+            "competency_question_results.csv",
+        )
+    ):
         return "experiments/run_schema_validation.py"
-    if rel.endswith("canonicalisation_determinism.csv") or rel.endswith("canonicalisation_test_run.json"):
+    if rel.endswith(("canonicalisation_determinism.csv", "canonicalisation_test_run.json")):
         return "experiments/run_canonicalisation_tests.py"
-    if rel.endswith("mutation_test_results.csv") or rel.endswith("mutation_test_run.json"):
+    if rel.endswith(("mutation_test_results.csv", "mutation_test_run.json")):
         return "experiments/run_mutation_tests.py"
-    if rel.endswith("workload_passage_summary.csv") or rel.endswith("receipt_size_summary.csv") or rel.endswith("timing_samples.csv") or rel.endswith("workload_events.jsonl") or rel.endswith("hardware_profile.json") or rel.endswith("run_metadata.json"):
+    if rel.endswith(
+        (
+            "workload_passage_summary.csv",
+            "receipt_size_summary.csv",
+            "timing_samples.csv",
+            "workload_events.jsonl",
+            "hardware_profile.json",
+            "run_metadata.json",
+        )
+    ):
         return "experiments/run_workload_passage.py"
-    if rel.endswith("property_test_summary.csv") or rel.endswith("property_test_run.json"):
+    if rel.endswith(("property_test_summary.csv", "property_test_run.json")):
         return "experiments/run_property_checks.py"
-    if rel.endswith("bounded_model_summary.csv") or rel.endswith("bounded_model_summary.json") or rel.endswith("bounded_model_observations.csv"):
+    if rel.endswith(
+        (
+            "bounded_model_summary.csv",
+            "bounded_model_summary.json",
+            "bounded_model_observations.csv",
+        )
+    ):
         return "bounded_model/bounded_model_check.py"
     return "source-controlled"
 
@@ -132,10 +214,12 @@ def reproducibility_class_for(rel: str) -> str:
         return "source-controlled"
     if rel.startswith("results_expected/cmpb_reference/c5_hie_overhead/"):
         return "measurement-variable"
-    if rel.startswith("results_expected/cmpb_reference/raw_runs/timing_samples.csv") or rel.endswith("workload_passage_summary.csv") or rel.endswith("hardware_profile.json") or rel.endswith("run_metadata.json"):
+    if rel.startswith("results_expected/cmpb_reference/raw_runs/timing_samples.csv") or rel.endswith(
+        ("workload_passage_summary.csv", "hardware_profile.json", "run_metadata.json")
+    ):
         return "measurement-variable"
     if rel.startswith("figures/outputs/"):
         return "frozen-reference-derived"
-    if rel.startswith("results_expected/") or rel.startswith("data_examples/") or rel.startswith("figures/sources/"):
+    if rel.startswith(("results_expected/", "data_examples/", "figures/sources/")):
         return "byte-deterministic"
     return "source-controlled"

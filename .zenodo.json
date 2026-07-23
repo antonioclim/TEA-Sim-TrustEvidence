@@ -1,9 +1,8 @@
 {
-  "title": "TEA-Sim v2.1.0: Schema-first curation of personal health monitoring evidence",
+  "title": "TEA-Sim v2.2.0-rc.1: Portable audit evidence for health information exchange",
   "upload_type": "software",
-  "publication_date": "2026-07-12",
-  "version": "2.1.0",
-  "description": "Reproducible reference implementation and evidence package for schema-first curation, payload minimisation, deterministic canonicalisation, signing and local receipt verification in synthetic personal health monitoring workflows. The package includes controlled mutation tests, property-based and finite bounded checks, an externally informed synthetic workload passage, figures and machine-readable results. It does not claim clinical validation, production deployment, legal compliance, FHIR/BALP conformance, global non-equivocation or complete formal verification.",
+  "version": "2.2.0-rc.1",
+  "description": "Unreleased release-candidate metadata for a reproducible healthcare audit-evidence boundary and executable reference profile. The package contains a complete synthetic cross-organisational DiagnosticReport disclosure case, a bounded FHIR R4/BALP-facing implementation guide and retained official-validator evidence, registered semantic/signature/receipt/checkpoint mutations, a local A2 Merkle receipt model, and a paired B0-B2 local processing/application-byte/storage-proxy experiment. The package does not claim production EHR performance, hospital deployment readiness, clinical or legal validation, universal FHIR/BALP conformance, large-network scalability, event completeness, backend honesty, public transparency, organisational trust improvement or cost reduction.",
   "creators": [
     {
       "name": "Clim, Antonio",
@@ -13,27 +12,27 @@
   ],
   "license": "Apache-2.0",
   "keywords": [
-    "personal health monitoring",
-    "biomedical informatics",
-    "data curation",
+    "health information exchange",
     "audit evidence",
+    "FHIR",
+    "Merkle receipts",
     "reproducibility"
   ],
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.21226180",
+      "identifier": "10.5281/zenodo.21318387",
       "relation": "isNewVersionOf",
       "scheme": "doi",
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0",
+      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence",
       "relation": "isSupplementedBy",
       "scheme": "url",
       "resource_type": "software"
     }
   ],
-  "notes": "Current version DOI: 10.5281/zenodo.21318387. Previous version DOI: 10.5281/zenodo.21226180. GitHub repository: https://github.com/antonioclim/TEA-Sim-TrustEvidence. GitHub release: https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0. The workload is externally informed and synthetic; timing values are single-host descriptive observations.",
+  "notes": "DRAFT ONLY: no v2.2.0 DOI, public GitHub tag or public GitHub release exists at the C6 release-candidate gate. C9 must replace the candidate version, add the publication date and exact-version DOI, point to the final v2.2.0 release, and verify that GitHub and Zenodo use the identical canonical ZIP byte stream. Previous exact-version DOI: 10.5281/zenodo.21318387.",
   "access_right": "open",
   "language": "eng"
 }

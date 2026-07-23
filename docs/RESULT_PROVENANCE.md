@@ -1,13 +1,15 @@
 # Result provenance
 
-| Output | Provenance | Status |
+| Output family | Provenance | Status |
 |---|---|---|
-| `schema_validation_summary.csv` | executable schema, semantic and minimisation experiment | regenerated in the integrated package |
-| `canonicalisation_determinism.csv` | TE-JCS-1 experiment and selected RFC 8785-derived vectors | regenerated in the integrated package |
-| `mutation_test_results.csv` | receipt, mutation and consistency regression | regenerated in the integrated package |
-| `property_test_summary.csv` | deterministic Hypothesis execution summary | regenerated in the integrated package |
-| `bounded_model_summary.csv` | finite bounded executable checker | regenerated in the integrated package |
-| workload outputs | integrated 12 × {128, 512, 2,048}-leaf synthetic passage | executed and retained with raw rows and a run identifier |
-| figure and table outputs | deterministic generators reading retained CSV/JSON sources | regenerated and hash-compared |
+| Legacy schema, field-deletion and competency outputs | executable v2.1.0 personal-monitoring experiments | preserved and deterministic |
+| Legacy canonicalisation and mutation outputs | TE-JCS-1 and local A2 regression drivers | preserved and deterministic |
+| Legacy property and bounded outputs | deterministic Hypothesis summary and finite checker | preserved and checked |
+| Legacy workload outputs | integrated synthetic personal-monitoring passage | retained measurement-variable corpus with deterministic decisions |
+| C3 HIE case and FHIR evidence | synthetic source resources, HIE builder/checkers, SUSHI, IG Publisher and HL7 FHIR Validator | retained Route C evidence for the exact declared corpus |
+| C4 security corpus | frozen threat model and registered mutation driver | 67 retained decisions including explicit limitation acceptances |
+| C5 paired overhead corpus | frozen W1 B0-B2 protocol and hosted confirmatory materialisation | retained raw timings, paired increments, aggregate estimates and source digests |
+| Figures and tables | deterministic generators reading retained CSV/JSON sources | regenerated and compared |
+| Candidate archive | curated public file set plus archive-specific manifests | built deterministically and checked after fresh extraction |
 
-Only the outputs distributed in this archive and reproducible through its documented commands are treated as release-candidate evidence. Documentary values without executable or raw support are excluded from the retained reference set.
+Only distributed outputs supported by source-controlled commands, retained raw evidence or exact validator reports are treated as release-candidate evidence. Documentary values without executable or raw support do not raise the claim ceiling. Legacy v2.1.0 results retain their historical identity rather than being rewritten solely to display the new software-distribution version.

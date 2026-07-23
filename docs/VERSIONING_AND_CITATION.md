@@ -1,18 +1,29 @@
 # Versioning and citation
 
-This archive is TEA-Sim TrustEvidence version `2.1.0`:
+## Current repository state
 
-- software release: `2.1.0`;
-- Git tag: `v2.1.0`;
-- archive root: `TEA-Sim-TrustEvidence-v2.1.0`;
-- canonical public asset: `TEA-Sim-TrustEvidence-v2.1.0.zip`;
-- GitHub release: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0>;
-- exact-version Zenodo DOI: `10.5281/zenodo.21318387`;
-- DOI link: <https://doi.org/10.5281/zenodo.21318387>;
-- previous published exact-version DOI: `10.5281/zenodo.21226180`.
+This tree is the unreleased TEA-Sim TrustEvidence candidate `2.2.0-rc.1`:
 
-Recommended citation:
+- target software release: `2.2.0`;
+- PEP 440 package version: `2.2.0rc1`;
+- candidate label: `v2.2.0-rc.1`;
+- candidate archive root: `TEA-Sim-TrustEvidence-v2.2.0-rc.1`;
+- candidate asset: `TEA-Sim-TrustEvidence-v2.2.0-rc.1.zip`;
+- candidate checksum file: `TEA-Sim-TrustEvidence-v2.2.0-rc.1.sha256`;
+- controlled review location: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/pull/1>;
+- v2.2.0 exact-version DOI: **not assigned**;
+- public v2.2.0 GitHub release: **not created**.
 
-> Clim, A. (2026). *TEA-Sim v2.1.0: Schema-first curation of personal health monitoring evidence* (Version 2.1.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21318387
+The previous published exact version is `v2.1.0`, DOI <https://doi.org/10.5281/zenodo.21318387>.
 
-The previous DOI is retained only as an `isNewVersionOf` relation. It must not be used as the DOI for v2.1.0. The canonical GitHub and Zenodo asset is the same byte stream and should be verified against `TEA-Sim-TrustEvidence-v2.1.0.sha256`.
+## Candidate citation
+
+Before the final release, cite the candidate by exact version and commit, for example:
+
+> Clim, A. (2026). *TEA-Sim v2.2.0-rc.1: Portable audit evidence for health information exchange* (Version 2.2.0-rc.1) [Computer software; unreleased release candidate]. GitHub repository, exact commit.
+
+Do not cite the v2.1.0 DOI as if it identified v2.2.0. Do not invent a v2.2.0 DOI. C9 will replace this section with the final Zenodo DOI and final GitHub release URL after both records use the identical canonical archive byte stream.
+
+## Schema versus software versions
+
+The Python distribution version is not the wire/schema version. The personal-monitoring envelope remains `2.1.0`; the new HIE envelope is `1.0.0`. This preserves explicit compatibility boundaries and prevents historical objects from being relabelled merely because the software distribution has advanced.

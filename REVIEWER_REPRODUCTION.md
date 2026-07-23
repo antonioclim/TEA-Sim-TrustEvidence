@@ -1,42 +1,51 @@
 # Reviewer reproduction
 
-## One-command route
+## One-command local route
 
-After installation, run:
+After installing the locked Python 3.13 environment, run:
 
 ```bash
 make release-check
 ```
 
-Expected high-level outcomes are:
+Expected high-level outcomes include:
 
-- all unit/regression tests pass;
-- all mandatory Hypothesis tests pass with no skips;
-- the finite bounded state space completes without a counterexample;
-- schema, canonicalisation and mutation reference outputs regenerate byte-for-byte;
-- the quick workload produces the expected event/receipt/mutation decisions;
-- five figures regenerate byte-for-byte;
-- retained result CSVs satisfy their Draft 2020-12 contracts;
-- the result-level reproducibility manifest is current;
-- manifests, checksums, metadata and repository identity pass.
+- all unit/regression and deterministic Hypothesis tests pass;
+- the finite bounded state space completes without a recorded failure;
+- retained result contracts and the result-level provenance manifest are current;
+- the C3 synthetic HIE case, semantic/privacy checks and retained official-tool evidence pass their checkers;
+- all 67 C4 registered decisions and limitation acceptances agree with the retained corpus;
+- C5 retains five excluded pilot blocks, twenty confirmatory paired blocks, sixty process runs, 7,680 operation timings and the registered paired derivations;
+- metadata, Action pins, distribution scope, manifests and checksums pass;
+- deterministic legacy outputs, figures and tables regenerate without unexplained drift.
 
-## Full workload route
+## Official FHIR route
 
-The retained workload reference run can be regenerated with:
+The hosted workflow executes:
 
 ```bash
-python experiments/run_workload_passage.py \
-  --output-dir results_local/full_workload \
-  --tree-sizes 128 512 2048 \
-  --repetitions 12 \
-  --verification-samples 32
-python experiments/analyse_cmpb_results.py \
-  --input-dir results_local/full_workload \
-  --output-dir results_local/full_workload
+bash scripts/run_c3_fhir_validation.sh ephemeral
 ```
 
-This route may take materially longer than `--quick`. Timing values will differ by host. Decisions, event counts, sample counts and mutation outcomes should agree.
+This route uses the recorded FHIR R4, local IG and applicable BALP packages. Its result applies only to the declared positive and intended-negative corpus; it is not HL7/IHE certification or universal FHIR/BALP conformance.
 
-## Expected claim boundary
+## C5 result boundary
 
-Successful execution supports local reproducibility of the reference implementation. It does not establish clinical utility, production readiness, standards conformance, legal compliance, global non-equivocation or resistance after compromise of an authorised key.
+The retained W1 experiment reports paired local reference-pipeline increments. The independent inferential unit is the paired process block, not each operation. The values are not production-EHR latency, network bytes, database storage, scalability or service-level results.
+
+## Candidate archive route
+
+Build and validate the deterministic candidate:
+
+```bash
+mkdir -p dist
+python scripts/audit_public_distribution.py --report dist/public-distribution-audit.json
+python scripts/build_release_archives.py --output-dir dist
+python scripts/check_release_archive.py \
+  --archive dist/TEA-Sim-TrustEvidence-v2.2.0-rc.1.zip \
+  --checksum dist/TEA-Sim-TrustEvidence-v2.2.0-rc.1.sha256 \
+  --extract-dir dist/fresh-extraction \
+  --report dist/release-archive-audit.json
+```
+
+Run `make release-check` from the extracted canonical root after installing the same lock file. Successful execution supports version- and environment-bounded reproducibility of the reference implementation. It does not establish clinical utility, production readiness, hospital deployability, legal compliance, organisational effectiveness, event completeness, backend honesty or global non-equivocation.
