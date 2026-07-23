@@ -1,0 +1,130 @@
+name: Route C FHIR C3
+
+on:
+  push:
+    branches:
+      - revision/jcis-route-c
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: HIE case and official FHIR validation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install the locked Python environment and SUSHI
+        run: |
+          python -m pip install --disable-pip-version-check --no-input setuptools==82.0.1 wheel==0.46.3
+          python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
+          python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
+          npm install --global fsh-sushi@3.20.0
+
+      - name: Build the deterministic hero case
+        run: |
+          python experiments/run_hie_hero_case.py --write
+          python scripts/check_hie_fhir_projection.py --output "${RUNNER_TEMP}/semantic_validation.json"
+
+      - name: Compile the minimal implementation guide with SUSHI
+        run: sushi standards/fhir_ig 2>&1 | tee "${RUNNER_TEMP}/sushi.log"
+
+      - name: Download official FHIR tools
+        run: |
+          mkdir -p "${RUNNER_TEMP}/fhir-tools"
+          curl --fail --location --retry 4 --output "${RUNNER_TEMP}/fhir-tools/publisher.jar" \
+            https://github.com/FHIR/latest-ig-publisher/raw/master/org.hl7.fhir.publisher.jar
+          curl --fail --location --retry 4 --output "${RUNNER_TEMP}/fhir-tools/validator_cli.jar" \
+            https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar
+          sha256sum "${RUNNER_TEMP}/fhir-tools/publisher.jar" "${RUNNER_TEMP}/fhir-tools/validator_cli.jar" > "${RUNNER_TEMP}/tool_sha256.txt"
+          {
+            echo "python=$(python --version 2>&1)"
+            echo "java=$(java -version 2>&1 | head -n 1)"
+            echo "node=$(node --version)"
+            echo "sushi=$(sushi --version 2>&1 | tail -n 1)"
+            echo "publisher=$(java -jar ${RUNNER_TEMP}/fhir-tools/publisher.jar -version 2>&1 | tail -n 1)"
+            echo "validator=$(java -jar ${RUNNER_TEMP}/fhir-tools/validator_cli.jar -version 2>&1 | tail -n 1)"
+          } > "${RUNNER_TEMP}/tool_versions.txt"
+
+      - name: Run IG Publisher
+        run: |
+          java -jar "${RUNNER_TEMP}/fhir-tools/publisher.jar" -ig standards/fhir_ig/ig.ini -tx n/a 2>&1 | tee "${RUNNER_TEMP}/ig-publisher.log"
+
+      - name: Validate positive and negative FHIR examples
+        shell: bash
+        run: |
+          set -u
+          validation="${RUNNER_TEMP}/validation"
+          mkdir -p "$validation/positive" "$validation/negative"
+          package=standards/fhir_ig/output/package.tgz
+          test -f "$package"
+          : > "$validation/validator_status.tsv"
+          validate_one() {
+            local kind="$1"
+            local source="$2"
+            local stem
+            stem="$(basename "$source" .json)"
+            local output="$validation/${kind}/${stem}.operationoutcome.json"
+            set +e
+            java -jar "${RUNNER_TEMP}/fhir-tools/validator_cli.jar" "$source" \
+              -version 4.0.1 -ig "$package" -ig ihe.iti.balp#1.1.4 \
+              -tx n/a -output "$output" -output-style json
+            local status=$?
+            set -e
+            printf '%s\t%s\t%s\n' "$kind" "$status" "$source" >> "$validation/validator_status.tsv"
+          }
+          set -e
+          for source in standards/fhir_ig/input/resources/*.json; do
+            validate_one positive "$source"
+          done
+          validate_one positive data_examples/hie_disclosure/source/source_clinical_bundle.json
+          for source in standards/fhir_ig/negative/*.json; do
+            validate_one negative "$source"
+          done
+          python scripts/summarise_fhir_validation.py \
+            --positive-dir "$validation/positive" \
+            --negative-dir "$validation/negative" \
+            --output "$validation/validator_summary.json"
+
+      - name: Upload FHIR evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: route-c-fhir-validation
+          path: |
+            ${{ runner.temp }}/semantic_validation.json
+            ${{ runner.temp }}/sushi.log
+            ${{ runner.temp }}/tool_sha256.txt
+            ${{ runner.temp }}/tool_versions.txt
+            ${{ runner.temp }}/ig-publisher.log
+            ${{ runner.temp }}/validation
+            standards/fhir_ig/fsh-generated
+            standards/fhir_ig/output
+            standards/fhir_ig/input/resources
+            standards/fhir_ig/negative
+            data_examples/hie_disclosure
+          if-no-files-found: warn
+          retention-days: 30
