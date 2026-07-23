@@ -29,9 +29,7 @@ HIE_REPRESENTATION_PROFILE = implementation.HIE_REPRESENTATION_PROFILE
 NONCE = implementation.NONCE
 
 _SOURCE_REFERENCE = "DiagnosticReport/diagnostic-report-hie-001/_history/2"
-_SOURCE_IDENTIFIER_SYSTEM = (
-    "https://example.org/fhir/trustevidence-hie/identifier/source-resource"
-)
+_SOURCE_IDENTIFIER_SYSTEM = "urn:trustevidence:identifier:source-resource"
 
 _original_source_resources = implementation.source_resources
 _original_fhir_projection = implementation.fhir_projection
