@@ -60,7 +60,8 @@ def test_c4_deterministic_result_contract_has_no_false_accepts() -> None:
     assert summary["false_accept_count"] == 0
     assert summary["false_reject_count"] == 0
     assert summary["state_nonadvancement_failure_count"] == 0
-    assert summary["limitation_acceptance_count"] >= 5
+    assert summary["limitation_acceptance_count"] >= 6
+    assert "LIM-BACKEND-002" in summary["limitation_acceptance_case_ids"]
     assert summary["portable_nonce_exposed"] is False
     assert summary["declared_clinical_source_marker_exposed"] is False
 
