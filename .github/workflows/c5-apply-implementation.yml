@@ -1,0 +1,69 @@
+name: Route C C5 Apply Implementation
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: route-c-c5-apply-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  apply:
+    name: Apply frozen C5 implementation bundle
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the Route C branch
+        uses: actions/checkout@v4
+        with:
+          ref: revision/jcis-route-c
+          fetch-depth: 1
+
+      - name: Reconstruct and verify the implementation archive
+        shell: bash
+        run: |
+          cat scripts/c5_implementation_bundle.part00 \
+              scripts/c5_implementation_bundle.part01 \
+              scripts/c5_implementation_bundle.part02 \
+              scripts/c5_implementation_bundle.part03 \
+              scripts/c5_implementation_bundle.part04 \
+            | base64 -d > /tmp/c5-implementation.tar.gz
+          echo '3ca4ee853d82aad7d656f1791a1cc958f6bc2b9653cb6c236ed61b73e6ddb37b  /tmp/c5-implementation.tar.gz' | sha256sum --check
+          tar -xzf /tmp/c5-implementation.tar.gz
+
+      - name: Remove temporary transfer machinery
+        shell: bash
+        run: |
+          rm -f scripts/c5_implementation_bundle.part0*
+          rm -f .github/workflows/c5-apply-implementation.yml
+          rm -f .github/workflows/c5-workspace-export.yml
+
+      - name: Verify implementation and rebuild integrity files
+        shell: bash
+        run: |
+          python -m py_compile \
+            experiments/run_hie_incremental_overhead.py \
+            tests/test_hie_overhead_route_c.py
+          python scripts/rebuild_integrity_files.py
+          python scripts/verify_file_manifest.py FILE_MANIFEST.tsv
+          python scripts/verify_sha256sums.py SHA256SUMS.txt
+
+      - name: Commit implementation
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No C5 implementation changes were generated.'
+            exit 1
+          fi
+          git commit -m 'feat(route-c): implement frozen C5 overhead experiment'
+          git push origin HEAD:revision/jcis-route-c
