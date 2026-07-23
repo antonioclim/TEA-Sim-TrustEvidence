@@ -235,6 +235,83 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+  c5-materialise:
+    name: Materialise C5 paired overhead evidence
+    if: >-
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/revision/jcis-route-c' &&
+      github.event.head_commit.message == 'ci(route-c): materialise C5 overhead evidence'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the Route C branch
+        uses: actions/checkout@v4
+        with:
+          ref: revision/jcis-route-c
+
+      - name: Determine whether C5 materialisation is required
+        id: materialise
+        shell: bash
+        run: |
+          if test -f docs/route_c/C5_MATERIALISATION_TRIGGER.md && \
+             ! test -f results_expected/cmpb_reference/c5_hie_overhead/run_summary.json; then
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+            echo 'C5 evidence is not yet retained; materialisation is required.'
+          else
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+            echo 'C5 evidence is already retained or the trigger marker is absent.'
+          fi
+
+      - name: Set up Python 3.13
+        if: steps.materialise.outputs.run == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install the locked environment
+        if: steps.materialise.outputs.run == 'true'
+        run: |
+          python -m pip install --disable-pip-version-check --no-input setuptools==82.0.1 wheel==0.46.3
+          python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
+          python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
+
+      - name: Execute and retain the frozen C5 experiment
+        if: steps.materialise.outputs.run == 'true'
+        run: |
+          python experiments/run_hie_incremental_overhead.py \
+            --output-dir results_expected/cmpb_reference/c5_hie_overhead
+          python experiments/run_hie_incremental_overhead.py --check
+          python scripts/make_reproducibility_manifest.py
+          python scripts/validate_result_contracts.py
+
+      - name: Commit C5 evidence and integrity manifests
+        if: steps.materialise.outputs.run == 'true'
+        shell: bash
+        run: |
+          python scripts/rebuild_integrity_files.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results_expected/cmpb_reference/c5_hie_overhead
+          git add results_expected/cmpb_reference/reproducibility_manifest.csv
+          git add FILE_MANIFEST.tsv SHA256SUMS.txt
+          if git diff --cached --quiet; then
+            echo 'The materialisation run produced no retained C5 evidence changes.'
+            exit 1
+          fi
+          git commit -m 'chore(route-c): materialise C5 paired overhead evidence'
+          git push origin HEAD:revision/jcis-route-c
+
+      - name: Upload retained C5 evidence
+        if: always() && steps.materialise.outputs.run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: route-c-c5-overhead-materialisation
+          path: results_expected/cmpb_reference/c5_hie_overhead
+          if-no-files-found: error
+          retention-days: 30
+
   fhir-validation:
     name: HIE case and official FHIR validation
     runs-on: ubuntu-24.04
@@ -318,6 +395,43 @@ jobs:
         with:
           name: route-c-c4-security-validation
           path: results_expected/cmpb_reference/c4_hie_security
+          if-no-files-found: warn
+          retention-days: 30
+
+  c5-validation:
+    name: C5 paired overhead validation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install the locked environment
+        run: |
+          python -m pip install --disable-pip-version-check --no-input setuptools==82.0.1 wheel==0.46.3
+          python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
+          python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
+
+      - name: Check the retained C5 evidence when present
+        shell: bash
+        run: |
+          if test -f results_expected/cmpb_reference/c5_hie_overhead/run_summary.json; then
+            python experiments/run_hie_incremental_overhead.py --check
+          else
+            echo 'C5 retained evidence is pending the controlled materialisation trigger.'
+          fi
+
+      - name: Upload C5 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: route-c-c5-overhead-validation
+          path: results_expected/cmpb_reference/c5_hie_overhead
           if-no-files-found: warn
           retention-days: 30
 
