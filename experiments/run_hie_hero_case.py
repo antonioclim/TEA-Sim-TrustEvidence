@@ -10,7 +10,14 @@ explicit without changing the v2.1 personal-monitoring canonicalisation rules.
 
 from __future__ import annotations
 
-from experiments import build_hie_hero_case as implementation
+from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from experiments import build_hie_hero_case as implementation  # noqa: E402
 
 DEFAULT_OUTPUT = implementation.DEFAULT_OUTPUT
 FHIR_RESOURCES = implementation.FHIR_RESOURCES
