@@ -48,3 +48,5 @@ jobs:
           fi
           git commit -m 'chore(route-c): synchronise v2.2.0-rc.1 integrity catalogues'
           git push origin HEAD:revision/jcis-route-c
+
+# Synchronisation cycle 2: remove the temporary C6 patch workflow before the hosted gate.
