@@ -13,7 +13,9 @@ Main branch modified: no
 
 C4 establishes a deterministic, retained and hosted mutation programme for the exact Route C healthcare case. It supports property-specific unauthorised-mutation, commitment, receipt-binding and retained-state claims. It also establishes explicit negative results: authorised signatures do not prove statement truth; an authorised backend receipt does not prove truthful tree size or event completeness; a stateless verifier does not detect a coherent split view; and exact same-state replay is accepted.
 
-## Authoritative repository and workflow state
+The exact closure workflow and artifact digests are recorded in draft PR #1 after this report and its integrity manifests are present on the tested branch head. This avoids a self-referential report update that would itself invalidate the cited branch-head workflow.
+
+## Authoritative repository state
 
 | Item | Value |
 |---|---|
@@ -24,10 +26,6 @@ C4 establishes a deterministic, retained and hosted mutation programme for the e
 | Original failed case | `RSIG-005` |
 | Original failed artifact digest | `sha256:7e4835bac2606f52dc9e62131aab682c91fe2b65eab1fe4eed4d07d4e53d4799` |
 | Final evidence materialisation commit | `f12804bcb52d23d16c0706b329e38bea7052b5a6` |
-| Integrity-manifest commit | `09dab5f25f0249886559999044dd4fbd2d5df54c` |
-| Final synchronised verification commit | `b084b5ae0ba8f3975bf11982b0c4013a19ad6cca` |
-| Final all-green workflow | `30007114752` |
-| Workflow conclusion | `success` |
 | Baseline public metadata during C4 | v2.1.0 |
 | Target release | provisionally v2.2.0, pending C5–C6 |
 
@@ -205,13 +203,13 @@ The stateful sequence produced the following registered decisions:
 | Old receipt after advancement | Rejected as rollback | no change |
 | Exact same-state replay | Accepted limitation | no change |
 
-The final retained checkpoint is:
+The final retained checkpoint recorded by the authoritative result summary is:
 
 ```text
-backend_id: urn:te:backend:a2-local-reference
-log_id: urn:te:log:hie-reference
+backend_id: urn:te:backend:a2-cmpb-reference
+log_id: urn:te:log:cmpb-reference
 size: 5
-root: 20390da11b1974ef4fcf7386ac94db21ea3d036f3063fe0c8ede659ba70ebd89
+root: 21658af628005c9f7f8bda4554745eeed9b5c208d1462701a9afa11762fd2d57
 ```
 
 ## Falsified expectation and protocol amendment
@@ -251,9 +249,9 @@ The executed pipeline does not encrypt the clinical payload or portable evidence
 - TLS is not an evaluated hospital-exchange result because the pipeline opens no application exchange connection.
 - encryption at rest, HSM use, access-control enforcement, key rotation and compromise response remain deployment controls.
 
-## Final hosted release contract
+## Complete hosted release contract
 
-The complete hosted `make release-check` at workflow `30007114752` passed with no generated repository drift. The retained transcript reports:
+The branch-head closure workflow must execute the complete `make release-check`, separate C4 security validation, official FHIR regression and integrity preview on the same synchronised tree. The retained release-check transcript for the report-inclusive tree records:
 
 | Check | Result |
 |---|---:|
@@ -271,9 +269,9 @@ The complete hosted `make release-check` at workflow `30007114752` passed with n
 | Reproducibility-manifest rows | 56 current |
 | Result contracts | 11 |
 | Parsed retained CSV rows | 543 |
-| Distributed files | 364 |
-| SHA-256 entries | 363 |
-| File-manifest rows | 362 |
+| Distributed files | 365 |
+| SHA-256 entries | 364 |
+| File-manifest rows | 363 |
 | HIE retained files | 41 current |
 | C3 positive FHIR units | 4 |
 | C3 intended negative rejections | 2 of 2 |
@@ -290,24 +288,6 @@ The complete hosted `make release-check` at workflow `30007114752` passed with n
 | Workload semantic invariants | PASS |
 | Integrity patch | 0 bytes |
 | Final contract | `RELEASE-CHECK: PASS` |
-
-The separate hosted HIE security job, official FHIR regression job and integrity-preview job also completed successfully on the same commit.
-
-## Hosted artifact digests
-
-```text
-C4 security validation
-sha256:116dd46c39c5626eaad58409e7a188f8d832745e6c1c30177d209a6cb3349b77
-
-release-check transcript
-sha256:80b337f18f8fee60eb8128de7cfee82025e69bcaf80e9ec4e747827eb14b28b8
-
-integrity files
-sha256:165df1b533d5f25da12edecc0b56cdc4a5dfab66d6081555066250d48faf31f4
-
-FHIR regression evidence
-sha256:3f07ce1c94ba1e9d39aefc090736162f561e56bc2ace66e9f2a62ac03563d817
-```
 
 ## Claims now permitted
 
