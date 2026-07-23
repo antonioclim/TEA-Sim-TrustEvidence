@@ -1,0 +1,50 @@
+name: Route C C5 Workspace Export
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: route-c-c5-workspace-export-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  export:
+    name: Export exact Route C branch workspace
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the Route C branch
+        uses: actions/checkout@v4
+        with:
+          ref: revision/jcis-route-c
+          fetch-depth: 1
+
+      - name: Create deterministic workspace archive
+        shell: bash
+        run: |
+          tar \
+            --exclude='.git' \
+            --exclude='.pytest_cache' \
+            --exclude='__pycache__' \
+            --exclude='*.pyc' \
+            --sort=name \
+            --mtime='UTC 2026-07-23' \
+            --owner=0 \
+            --group=0 \
+            --numeric-owner \
+            -czf /tmp/route-c-c5-workspace.tar.gz .
+
+      - name: Upload workspace snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: route-c-c5-workspace
+          path: /tmp/route-c-c5-workspace.tar.gz
+          if-no-files-found: error
+          retention-days: 3
