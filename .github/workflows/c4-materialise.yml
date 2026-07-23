@@ -49,6 +49,10 @@ jobs:
           python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
           python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
 
+      - name: Apply the documented protocol amendment
+        if: steps.decision.outputs.run == 'true'
+        run: python scripts/apply_c4_protocol_amendment.py
+
       - name: Execute and retain C4 evidence
         if: steps.decision.outputs.run == 'true'
         run: |
@@ -57,20 +61,21 @@ jobs:
           python scripts/make_reproducibility_manifest.py
           python scripts/rebuild_integrity_files.py
 
-      - name: Commit retained evidence
+      - name: Commit retained evidence and the amended registry
         if: steps.decision.outputs.run == 'true'
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add experiments/run_hie_security_mutations.py
           git add results_expected/cmpb_reference/c4_hie_security
           git add results_expected/cmpb_reference/reproducibility_manifest.csv
           git add FILE_MANIFEST.tsv SHA256SUMS.txt
           if git diff --cached --quiet; then
-            echo 'No C4 evidence changes were generated.'
+            echo 'No C4 evidence or protocol-registry changes were generated.'
             exit 1
           fi
-          git commit -m 'chore(route-c): materialise C4 security evidence'
+          git commit -m 'chore(route-c): materialise amended C4 security evidence'
           git push origin HEAD:revision/jcis-route-c
 
       - name: Upload C4 evidence
