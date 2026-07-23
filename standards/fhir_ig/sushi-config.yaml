@@ -18,59 +18,59 @@ parameters:
   apply-jurisdiction: false
   apply-publisher: false
 resources:
-  Organization-hospital-a:
+  Organization/hospital-a:
     name: Synthetic Hospital A
     description: Synthetic source organisation that retains the clinical DiagnosticReport and issues the portable evidence.
     exampleBoolean: true
-  Organization-hospital-b:
+  Organization/hospital-b:
     name: Synthetic Hospital B
     description: Synthetic recipient organisation whose authorised care-team role receives the disclosure.
     exampleBoolean: true
-  Patient-patient-hie-001:
+  Patient/patient-hie-001:
     name: Pseudonymous synthetic patient context
     description: Pairwise pseudonymous patient context used only to link the portable evidence resources.
     exampleBoolean: true
-  Practitioner-recipient-role-b:
+  Practitioner/recipient-role-b:
     name: Pseudonymous authorised reader
     description: Synthetic practitioner-role subject represented without a direct personal identifier.
     exampleBoolean: true
-  PractitionerRole-authorised-reader-b:
+  PractitionerRole/authorised-reader-b:
     name: Authorised reader role
     description: Treatment-related role linking the pseudonymous practitioner to Synthetic Hospital B.
     exampleBoolean: true
-  Device-evidence-service-a:
+  Device/evidence-service-a:
     name: Evidence construction service
     description: Synthetic service that constructs and signs the TrustEvidence envelope at the source boundary.
     exampleBoolean: true
-  Device-authorisation-service-a:
+  Device/authorisation-service-a:
     name: Authorisation decision service
     description: Synthetic service that records decision D-204 under Consent version 3 and policy version 6.
     exampleBoolean: true
-  Consent-consent-hie-001:
+  Consent/consent-hie-001:
     name: Consent derivative for the hero case
     description: Portable Consent derivative that records the active state and version without copying the clinical payload.
     exampleBoolean: true
-  AuditEvent-authorisation-decision-hie-001:
+  AuditEvent/authorisation-decision-hie-001:
     name: BALP-facing authorisation decision event
     description: AuditEvent representing the consent-policy decision that authorised the synthetic treatment disclosure.
     exampleBoolean: true
-  AuditEvent-privacy-disclosure-source-hie-001:
+  AuditEvent/privacy-disclosure-source-hie-001:
     name: BALP-facing privacy disclosure event
     description: AuditEvent representing disclosure from Synthetic Hospital A to Synthetic Hospital B.
     exampleBoolean: true
-  Provenance-evidence-provenance-hie-001:
+  Provenance/evidence-provenance-hie-001:
     name: TrustEvidence projection provenance
     description: Provenance linking the two AuditEvents and exact signed-envelope Binary to the version-identified source report.
     exampleBoolean: true
-  Binary-trustevidence-envelope-hie-001:
+  Binary/trustevidence-envelope-hie-001:
     name: Exact signed TrustEvidence bytes
     description: Binary carrying the exact canonical JSON bytes of the signed envelope and local A2 receipt.
     exampleBoolean: true
-  DocumentReference-trustevidence-document-hie-001:
+  DocumentReference/trustevidence-document-hie-001:
     name: TrustEvidence document reference
     description: DocumentReference identifying the exact Binary and the related AuditEvent and Provenance resources.
     exampleBoolean: true
-  Bundle-portable-evidence-bundle-hie-001:
+  Bundle/portable-evidence-bundle-hie-001:
     name: Portable TrustEvidence bundle
     description: Collection Bundle containing the portable evidence projection while excluding DiagnosticReport and Observation resources.
     exampleBoolean: true
