@@ -67,7 +67,10 @@ from trustevidence.testing import (
 )
 from trustevidence.validators import validate_envelope, validate_monitoring_event
 
-from experiments import run_hie_hero_case as hie_case
+try:
+    from experiments import run_hie_hero_case as hie_case
+except ModuleNotFoundError:  # direct script execution places experiments/ on sys.path
+    import run_hie_hero_case as hie_case
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "results_expected" / "cmpb_reference" / "c5_hie_overhead"
