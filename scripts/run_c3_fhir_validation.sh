@@ -13,6 +13,7 @@ fi
 TOOLS_DIR="${RUNNER_TEMP:-/tmp}/route-c-fhir-tools"
 mkdir -p "$VALIDATION_DIR/positive" "$VALIDATION_DIR/negative" "$TOOLS_DIR"
 rm -f "$VALIDATION_DIR"/positive/*.json "$VALIDATION_DIR"/negative/*.json
+rm -rf standards/fhir_ig/output standards/fhir_ig/temp standards/fhir_ig/fsh-generated
 
 python experiments/run_hie_hero_case.py --write
 python scripts/check_hie_fhir_projection.py --output "$VALIDATION_DIR/semantic_validation.json"
@@ -39,10 +40,18 @@ sha256sum "$PUBLISHER_JAR" "$VALIDATOR_JAR" > "$VALIDATION_DIR/tool_sha256.txt"
   echo "ruby=$(ruby --version)"
   echo "jekyll=$(jekyll --version)"
   echo "sushi=$(sushi --version 2>&1 | tail -n 1)"
+  echo "publisher=$(java -jar "$PUBLISHER_JAR" -version 2>&1 | tail -n 1 || true)"
+  echo "validator=$(java -jar "$VALIDATOR_JAR" -version 2>&1 | head -n 1 || true)"
 } > "$VALIDATION_DIR/tool_versions.txt"
 
 java -jar "$PUBLISHER_JAR" -ig standards/fhir_ig/ig.ini -tx n/a \
   2>&1 | tee "$VALIDATION_DIR/ig-publisher.log"
+
+test -f standards/fhir_ig/output/qa.json
+python scripts/check_ig_publisher_qa.py \
+  --qa standards/fhir_ig/output/qa.json \
+  --log "$VALIDATION_DIR/ig-publisher.log" \
+  --output "$VALIDATION_DIR/ig_publisher_summary.json"
 
 PACKAGE="$ROOT/standards/fhir_ig/output/package.tgz"
 test -f "$PACKAGE"
