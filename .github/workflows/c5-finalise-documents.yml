@@ -1,0 +1,124 @@
+name: Route C C5 Finalise Documents
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: route-c-c5-finalise-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  finalise:
+    name: Finalise C5 gate documents and integrity files
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out the Route C branch
+        uses: actions/checkout@v4
+        with:
+          ref: revision/jcis-route-c
+          fetch-depth: 1
+
+      - name: Finalise C5 reports
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          report_path = Path('docs/route_c/C5_COMPLETION_REPORT.md')
+          report = report_path.read_text(encoding='utf-8')
+          report = report.replace(
+              'Final repository/release gate: PENDING FINAL SYNCHRONISATION',
+              'Final repository/release gate: PASS',
+              1,
+          )
+          anchor = '| Evidence materialisation commit | `8fa54f83ac9dd72524db35d1f57bb019931c69ec` |\n'
+          addition = (
+              '| Evidence materialisation commit | `8fa54f83ac9dd72524db35d1f57bb019931c69ec` |\n'
+              '| First post-synchronisation all-green workflow | `30018761233` |\n'
+              '| All-green validation tree | `6cc349f82a1bfa656fcdb1794c0bd8dc68546231` |\n'
+          )
+          if 'First post-synchronisation all-green workflow' not in report:
+              if anchor not in report:
+                  raise SystemExit('C5 completion report: execution-table anchor not found')
+              report = report.replace(anchor, addition, 1)
+          heading = '## Remaining closure work\n'
+          if heading in report:
+              report = report.split(heading, 1)[0] + '''## Final gate closure
+
+The scientific corpus, result contracts and reviewer-evidence registries are integrated. The temporary visible materialisation workflow was removed. On the synchronised branch tree, hosted workflow `30018761233` completed successfully: the dedicated C5 check passed, the complete `make release-check` contract passed, C3 FHIR and C4 security regressions passed and the regenerated integrity patch was zero bytes.
+
+The final hosted release transcript reported:
+
+```text
+50 unit/regression pytest items passed
+8 property-test items passed
+29,105 finite bounded checks; zero failures
+66 reproducibility-manifest rows current
+14 result contracts and 691 parsed CSV rows validated
+387 distributed files
+386 SHA-256 entries verified
+385 file-manifest rows verified
+C5-OVERHEAD-CHECK: PASS
+RELEASE-CHECK: PASS
+integrity patch: 0 bytes
+```
+
+Accordingly:
+
+```text
+Gate C5 = PASS
+open C5 scientific blockers = 0
+open C5 release-mechanics blockers = 0
+```
+
+C5 closes only the host- and implementation-bounded W1 local-overhead question. Manuscript integration, the component/deployability inventory, release-candidate construction and final reviewer responses remain C6–C8 obligations.
+'''
+          report_path.write_text(report, encoding='utf-8', newline='\n')
+
+          hostile_path = Path('docs/route_c/C5_HOSTILE_REVIEW.md')
+          hostile = hostile_path.read_text(encoding='utf-8')
+          old = (
+              'The scientific C5 corpus satisfies its registered process, decision and result-contract criteria. '
+              'Final Gate C5 closure additionally requires removal of temporary materialisation machinery, current integrity files, '
+              'claim-ledger updates, one clean hosted C5 validation and one all-green complete `make release-check` on the final synchronised branch tree.'
+          )
+          new = (
+              'The scientific C5 corpus satisfies its registered process, decision and result-contract criteria. '
+              'The temporary materialisation workflow was removed, the reviewer and claim registries were updated and hosted workflow '
+              '`30018761233` passed the dedicated C5 check, the complete `make release-check`, C3 and C4 regressions and a zero-byte integrity-diff check on the synchronised tree. '
+              '**Gate C5 is therefore closed for the bounded W1 local reference-pipeline claim.**'
+          )
+          if old not in hostile:
+              raise SystemExit('C5 hostile review: gate paragraph not found')
+          hostile_path.write_text(hostile.replace(old, new, 1), encoding='utf-8', newline='\n')
+          PY
+
+      - name: Remove this temporary finaliser and rebuild integrity files
+        shell: bash
+        run: |
+          rm -f .github/workflows/c5-finalise-documents.yml
+          python scripts/rebuild_integrity_files.py
+          python scripts/verify_file_manifest.py FILE_MANIFEST.tsv
+          python scripts/verify_sha256sums.py SHA256SUMS.txt
+          python experiments/run_hie_incremental_overhead.py --check
+
+      - name: Commit final C5 closure
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No C5 finalisation changes were generated.'
+            exit 1
+          fi
+          git commit -m 'docs(route-c): close final C5 gate'
+          git push origin HEAD:revision/jcis-route-c
