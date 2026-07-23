@@ -55,6 +55,118 @@ jobs:
           git commit -m 'chore(route-c): refresh integrity manifests'
           git push origin HEAD:revision/jcis-route-c
 
+  c3-materialise:
+    name: Materialise validated C3 evidence
+    if: >-
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/revision/jcis-route-c' &&
+      github.event.head_commit.message == 'ci(route-c): materialise C3 evidence'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the Route C branch
+        uses: actions/checkout@v4
+        with:
+          ref: revision/jcis-route-c
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install the locked environment
+        run: |
+          python -m pip install --disable-pip-version-check --no-input setuptools==82.0.1 wheel==0.46.3
+          python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
+          python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
+          npm install --global fsh-sushi@3.20.0
+
+      - name: Execute and retain the official C3 toolchain
+        run: bash scripts/run_c3_fhir_validation.sh retain
+
+      - name: Commit validated evidence and integrity manifests
+        shell: bash
+        run: |
+          python scripts/rebuild_integrity_files.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data_examples/hie_disclosure standards/fhir_ig FILE_MANIFEST.tsv SHA256SUMS.txt
+          git commit -m 'chore(route-c): materialise validated C3 evidence'
+          git push origin HEAD:revision/jcis-route-c
+
+      - name: Upload retained C3 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: route-c-c3-materialisation
+          path: |
+            data_examples/hie_disclosure
+            standards/fhir_ig
+          if-no-files-found: warn
+          retention-days: 30
+
+  fhir-validation:
+    name: HIE case and official FHIR validation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install the locked environment
+        run: |
+          python -m pip install --disable-pip-version-check --no-input setuptools==82.0.1 wheel==0.46.3
+          python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
+          python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
+          npm install --global fsh-sushi@3.20.0
+
+      - name: Execute the official C3 toolchain
+        run: bash scripts/run_c3_fhir_validation.sh ephemeral
+
+      - name: Upload FHIR evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: route-c-fhir-validation
+          path: |
+            ${{ runner.temp }}/route-c-c3-validation
+            standards/fhir_ig/fsh-generated
+            standards/fhir_ig/output
+            standards/fhir_ig/input/resources
+            standards/fhir_ig/negative
+            data_examples/hie_disclosure
+          if-no-files-found: warn
+          retention-days: 30
+
   integrity-preview:
     name: Rebuild integrity files
     runs-on: ubuntu-24.04
