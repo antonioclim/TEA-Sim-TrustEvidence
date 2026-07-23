@@ -1,0 +1,35 @@
+name: Route C C6 Source Snapshot
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    name: Materialise C6 source snapshot
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the Route C branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: revision/jcis-route-c
+
+      - name: Upload source snapshot
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: route-c-c6-source-snapshot
+          path: |
+            .
+            !.git/**
+            !.venv/**
+            !dist/**
+            !build/**
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 3
