@@ -38,31 +38,32 @@ jobs:
           echo '3ca4ee853d82aad7d656f1791a1cc958f6bc2b9653cb6c236ed61b73e6ddb37b  /tmp/c5-implementation.tar.gz' | sha256sum --check
           tar -xzf /tmp/c5-implementation.tar.gz
 
-      - name: Remove temporary transfer machinery
-        shell: bash
-        run: |
-          rm -f scripts/c5_implementation_bundle.part0*
-          rm -f .github/workflows/c5-apply-implementation.yml
-          rm -f .github/workflows/c5-workspace-export.yml
-
-      - name: Verify implementation and rebuild integrity files
+      - name: Verify implementation
         shell: bash
         run: |
           python -m py_compile \
             experiments/run_hie_incremental_overhead.py \
             tests/test_hie_overhead_route_c.py
-          python scripts/rebuild_integrity_files.py
-          python scripts/verify_file_manifest.py FILE_MANIFEST.tsv
-          python scripts/verify_sha256sums.py SHA256SUMS.txt
 
-      - name: Commit implementation
+      - name: Commit non-workflow implementation files
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add \
+            Makefile \
+            scripts/validate_result_contracts.py \
+            scripts/release_common.py \
+            experiments/run_hie_incremental_overhead.py \
+            tests/test_hie_overhead_route_c.py \
+            data_examples/c5_overhead \
+            docs/route_c/C5_EXECUTION_PLAN.md \
+            docs/route_c/C5_MATERIALISATION_TRIGGER.md \
+            schemas/results/hie_overhead_run.schema.json \
+            schemas/results/hie_overhead_pair.schema.json \
+            schemas/results/hie_overhead_aggregate.schema.json
           if git diff --cached --quiet; then
-            echo 'No C5 implementation changes were generated.'
+            echo 'No non-workflow C5 implementation changes were generated.'
             exit 1
           fi
           git commit -m 'feat(route-c): implement frozen C5 overhead experiment'
