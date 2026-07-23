@@ -6,7 +6,7 @@ import base64
 import json
 from pathlib import Path
 
-from experiments.build_hie_hero_case import (
+from experiments.run_hie_hero_case import (
     DEFAULT_OUTPUT,
     FHIR_RESOURCES,
     HIE_COMMITMENT_CONTEXT,
@@ -51,6 +51,8 @@ def test_hie_payload_commitment_binds_withheld_source_bundle() -> None:
     )
     assert b'"valueQuantity"' in source
     assert b'"value":140' in source
+    assert b'"value":4' in source
+    assert b'"value":1' in source
 
 
 def test_portable_bundle_preserves_exact_envelope_bytes_without_clinical_payload() -> None:
