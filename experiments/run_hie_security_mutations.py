@@ -936,8 +936,8 @@ def build_results() -> dict[str, bytes]:
             "Coherently relabelled leaf index fails path verification",
         ),
         (
-            "RSIG-005",
-            "tree-size",
+            "LIM-BACKEND-002",
+            "validly-signed-alternative-tree-size",
             "$.backend_receipt.tree_size and inclusion_proof.tree_size",
             lambda x: (
                 x["backend_receipt"].__setitem__(
@@ -948,8 +948,8 @@ def build_results() -> dict[str, bytes]:
                 ),
             ),
             True,
-            "TE-E-PROOF-PATH",
-            "Coherently relabelled tree size fails path verification",
+            "PASS",
+            "An authorised backend can sign an alternative internally admissible tree-size statement; the receipt does not prove actual log population or completeness",
         ),
         (
             "RSIG-006",
@@ -997,17 +997,24 @@ def build_results() -> dict[str, bytes]:
     ) in resigned_receipt_cases:
         candidate = mutate_copy(multi, mutation)
         resign_receipt(candidate, recompute_proof_digest=recompute)
+        authorised_backend_limitation = case_id == "LIM-BACKEND-002"
         record_verification(
             rows,
             evidence,
             case_id=case_id,
-            case_class="re-signed-malformed-receipt",
+            case_class=(
+                "limitation-observation"
+                if authorised_backend_limitation
+                else "re-signed-malformed-receipt"
+            ),
             mutation_class=mutation_class,
             target_path=target,
             signing_state="receipt-re-signed-with-authorised-test-key",
             candidate=candidate,
-            expected_outcome="rejected",
-            expected_code=expected_code,
+            expected_outcome=(
+                "accepted" if authorised_backend_limitation else "rejected"
+            ),
+            expected_code=("PASS" if authorised_backend_limitation else expected_code),
             notes=notes,
         )
 

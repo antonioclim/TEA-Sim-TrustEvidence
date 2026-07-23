@@ -1,0 +1,46 @@
+{
+  "case_count": 67,
+  "claim_boundary": {
+    "at_rest_encryption": "not implemented or evaluated by this local reference pipeline",
+    "inclusion": "establishes membership in the declared local tree state for the supplied path",
+    "issuer_signature": "detects unauthorised changes under the declared key registry; it does not prove identity, consent truth, policy truth or clinical truth",
+    "non_equivocation": "not established without retained state, gossip, witnessing or another cross-verifier comparison mechanism",
+    "payload_commitment": "binds exact candidate bytes, framing and nonce; it is not encryption or confidentiality",
+    "receipt_signature": "authenticates the project receipt under the declared backend key registry; it does not prove completeness",
+    "replay": "exact same-state replay is accepted; freshness and duplicate suppression are outside the bounded verifier",
+    "retained_checkpoint": "detects rollback and verifier-visible same-size forks and requires a valid prefix-extension proof before local state advances",
+    "transport_encryption": "not implemented or evaluated by this local reference pipeline"
+  },
+  "declared_clinical_source_marker_exposed": false,
+  "expected_acceptance_count": 11,
+  "expected_rejection_count": 54,
+  "failed_case_ids": [],
+  "failed_count": 0,
+  "false_accept_case_ids": [],
+  "false_accept_count": 0,
+  "false_reject_case_ids": [],
+  "false_reject_count": 0,
+  "final_retained_checkpoint": {
+    "backend_id": "urn:te:backend:a2-cmpb-reference",
+    "log_id": "urn:te:log:cmpb-reference",
+    "root_digest": "21658af628005c9f7f8bda4554745eeed9b5c208d1462701a9afa11762fd2d57",
+    "tree_size": 5
+  },
+  "limitation_acceptance_case_ids": [
+    "LIM-BACKEND-001",
+    "LIM-BACKEND-002",
+    "LIM-ISSUER-001",
+    "LIM-ISSUER-002",
+    "LIM-ISSUER-003",
+    "LIM-REPLAY-001"
+  ],
+  "limitation_acceptance_count": 6,
+  "observed_rejection_count": 54,
+  "passed_count": 67,
+  "portable_nonce_exposed": false,
+  "run_id": "route-c-hie-security-001",
+  "software_status": "working-branch-pre-v2.2.0",
+  "state_nonadvancement_failure_case_ids": [],
+  "state_nonadvancement_failure_count": 0,
+  "state_rejection_count": 8
+}
