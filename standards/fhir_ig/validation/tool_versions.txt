@@ -1,0 +1,9 @@
+python=Python 3.13.14
+java=openjdk version "17.0.19" 2026-04-21
+node=v22.23.1
+ruby=ruby 3.3.12 (2026-07-16 revision 0581089df9) [x86_64-linux]
+jekyll=jekyll 4.4.1
+sushi=SUSHI v3.20.0 (implements FHIR Shorthand specification v3.0.0)
+terminology_server=https://tx.fhir.org/r4
+publisher_sha256=a981af86bca3f3a22ee15b9d4ee3c97d63219b7a14e49d0a525e10bbfc71a911
+validator=FHIR Validation tool Version 6.9.12 (Git# 73c432b5f43d). Built 2026-07-15T16:03:53.162Z (7 days old)

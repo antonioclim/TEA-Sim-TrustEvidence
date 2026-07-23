@@ -1,0 +1,19 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "TEEvidenceType",
+  "id": "te-evidence-type",
+  "title": "TrustEvidence Evidence Type",
+  "description": "Project-defined evidence-document types for the bounded Route C reference profile.",
+  "url": "https://example.org/fhir/trustevidence-hie/CodeSystem/te-evidence-type",
+  "concept": [
+    {
+      "code": "portable-audit-evidence",
+      "display": "Portable audit evidence"
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 1
+}

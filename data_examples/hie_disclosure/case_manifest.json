@@ -1,0 +1,15 @@
+{
+  "authorisation_decision": "D-204",
+  "canonical_envelope_sha256": "a210b264ac5e0e10a629aae86181912aae69c990f0d89cbbe118e247b45049dd",
+  "case_id": "HIE-DISCLOSURE-001",
+  "claim_boundary": "technical reference case; not an operational patient exchange",
+  "clinical_payload_in_portable_bundle": false,
+  "consent_version": "3",
+  "data_status": "synthetic",
+  "envelope_profile": "TE-HIE-Envelope-1",
+  "payload_commitment": "c298d4231801d976d9d50c4093cd507d770d5962715e4fe840eb54d133f3f1bd",
+  "policy_digest": "664f077f67c3aa214b1ddfb7e1bc7ef9d0d877d08d9f8222d63e25e0a4cef84f",
+  "policy_version": "6",
+  "purpose": "treatment",
+  "source_resource": "DiagnosticReport/diagnostic-report-hie-001/_history/2"
+}

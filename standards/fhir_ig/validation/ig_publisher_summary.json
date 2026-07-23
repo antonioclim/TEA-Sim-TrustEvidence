@@ -1,0 +1,17 @@
+{
+  "broken_links": 0,
+  "claim_boundary": "IG Publisher findings apply only to the exact C3 guide source, dependency set and tool digest recorded by the workflow",
+  "fhir_version": "4.0.1",
+  "ig_version": "0.1.0",
+  "log_errors": 0,
+  "log_information": 16,
+  "log_warnings": 33,
+  "package_id": "org.trustevidence.hie",
+  "publisher_tool": "5.0.0 (3)",
+  "qa_errors": 0,
+  "qa_hints": 16,
+  "qa_warnings": 33,
+  "status": "PASS",
+  "suppressed_hints": 0,
+  "suppressed_warnings": 0
+}

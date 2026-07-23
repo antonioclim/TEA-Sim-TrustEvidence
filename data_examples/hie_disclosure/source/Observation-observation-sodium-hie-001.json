@@ -1,0 +1,52 @@
+{
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "laboratory",
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "2951-2",
+        "display": "Sodium [Moles/volume] in Serum or Plasma",
+        "system": "http://loinc.org"
+      }
+    ]
+  },
+  "effectiveDateTime": "2026-07-14T08:45:00Z",
+  "id": "observation-sodium-hie-001",
+  "meta": {
+    "security": [
+      {
+        "code": "HTEST",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+      }
+    ],
+    "versionId": "1"
+  },
+  "performer": [
+    {
+      "reference": "Organization/hospital-a"
+    }
+  ],
+  "resourceType": "Observation",
+  "status": "final",
+  "subject": {
+    "reference": "Patient/patient-hie-001"
+  },
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Observation reference artefact.</div>",
+    "status": "generated"
+  },
+  "valueQuantity": {
+    "code": "mmol/L",
+    "system": "http://unitsofmeasure.org",
+    "unit": "mmol/L",
+    "value": 140
+  }
+}

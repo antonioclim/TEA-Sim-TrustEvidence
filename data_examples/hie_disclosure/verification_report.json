@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "claim_boundary": {
+    "clinical_truth": "not established",
+    "completeness": "not established",
+    "inclusion": "proves membership in the declared local tree state",
+    "issuer_signature": "authenticates the declared core under the fixture key assumptions",
+    "payload_commitment": "binds withheld bytes and nonce; it is not encryption"
+  },
+  "issues": [],
+  "primary_code": "PASS",
+  "profile": "TE-HIE-Envelope-1"
+}

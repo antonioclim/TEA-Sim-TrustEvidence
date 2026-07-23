@@ -1,0 +1,5 @@
+Synthetic Hospital A cross-organisational disclosure policy
+version: 6
+purpose: treatment
+recipient: Synthetic Hospital B care team
+clinical payload remains in the authorised FHIR exchange and is not copied into portable audit evidence

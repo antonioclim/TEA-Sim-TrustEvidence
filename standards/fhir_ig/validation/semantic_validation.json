@@ -1,0 +1,41 @@
+{
+  "authorisation_decision_id": "D-204",
+  "binary_content_type": "application/json",
+  "canonical_envelope_sha256": "a210b264ac5e0e10a629aae86181912aae69c990f0d89cbbe118e247b45049dd",
+  "case_id": "HIE-DISCLOSURE-001",
+  "claim_boundary": {
+    "audit_detail_valueString": "permitted for non-clinical decision, version and digest details",
+    "clinical_payload": "excluded from portable bundle; present only in source fixture bundle",
+    "fhir_validation": "reported separately by the official validator toolchain",
+    "patient_identity": "pseudonymous synthetic token",
+    "source_resource": "identified by type plus versioned identifier; not copied into the portable bundle"
+  },
+  "consent_reference_present": true,
+  "consent_source_identifier_present": true,
+  "diagnostic_report_identifier_present": true,
+  "document_content_type": "application/json",
+  "envelope_schema_accepted": true,
+  "event_schema_accepted": true,
+  "exact_binary_bytes_preserved": true,
+  "forbidden_clinical_value_paths": [],
+  "forbidden_portable_resource_types": [],
+  "policy_version": "6",
+  "portable_resource_types": [
+    "Patient",
+    "Organization",
+    "Organization",
+    "Device",
+    "Device",
+    "Practitioner",
+    "PractitionerRole",
+    "Consent",
+    "AuditEvent",
+    "AuditEvent",
+    "Provenance",
+    "Binary",
+    "DocumentReference"
+  ],
+  "provenance_source_identifier_present": true,
+  "status": "PASS",
+  "unresolved_local_source_reference_paths": []
+}

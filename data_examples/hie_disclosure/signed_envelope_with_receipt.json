@@ -1,0 +1,136 @@
+{
+  "backend_receipt": {
+    "backend_id": "urn:te:backend:a2-cmpb-reference",
+    "backend_type": "local-a2-merkle",
+    "core_digest": "9208f631a3bd39f353edb2c08753a896a58e8e10ed3d71526b329aa8a181a68c",
+    "hash_profile": "TE-HASH-1",
+    "inclusion_proof": {
+      "leaf_index": 0,
+      "profile": "TE-A2-Inclusion-1",
+      "siblings": [],
+      "tree_size": 1
+    },
+    "inclusion_proof_digest": "0b655630eb1194002b655238a2f9a680210053338fe3ae8f116948ee64856c4d",
+    "issued_at": "2026-07-14T09:30:02.000Z",
+    "leaf_hash": "b472ec5050fc85d96ab8c2e0fb676198a37b31407f55669cbf45100e60bd5625",
+    "leaf_index": 0,
+    "log_id": "urn:te:log:cmpb-reference",
+    "profile": "TE-A2-Receipt-1",
+    "receipt_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-backend-v1",
+      "signature": "pGTPzo3l4jk0HC8g1UoTBd---i3ORyTqusvA2vPEfxvzYqRtdc5B8Vr5P7QoR9Z9qvNk4Mx7VRnsqfwSJC-UDg"
+    },
+    "root_digest": "b472ec5050fc85d96ab8c2e0fb676198a37b31407f55669cbf45100e60bd5625",
+    "signer_key_id": "urn:te:key:fixture-backend-v1",
+    "tree_profile": "TE-A2-Binary-Merkle-1",
+    "tree_size": 1
+  },
+  "envelope_version": "1.0.0",
+  "evidence_core": {
+    "actor": {
+      "actor_ref_token": "urn:te:actor-token:authorised-reader-b",
+      "actor_type": "human-role",
+      "organisation_ref_token": "urn:te:org-token:hospital-b",
+      "role_code": "authorised-reader"
+    },
+    "consent_binding": {
+      "consent_ref_token": "urn:te:consent-token:hie-001",
+      "consent_state": "active",
+      "consent_version": "3"
+    },
+    "emitted_at": "2026-07-14T09:30:01.000Z",
+    "emitter": {
+      "emitter_id": "urn:te:emitter:evidence-service-a",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "organisation_ref_token": "urn:te:org-token:hospital-a",
+      "role_code": "evidence-service"
+    },
+    "emitter_signature": {
+      "algorithm": "Ed25519",
+      "key_id": "urn:te:key:fixture-emitter-v1",
+      "signature": "2hhRJMvaZqp9oWKQRI8MGEFbrsUMThlkgyYwosmDh2Xqf7VTI0Ufw29BldcvKJ7n72d3o57LBBwGPJIbKnUmBg"
+    },
+    "event_facts": {
+      "disclosure_channel_code": "secure-transfer",
+      "recipient_ref_token": "urn:te:org-token:hospital-b",
+      "recipient_role_code": "care-team"
+    },
+    "event_id": "urn:te:event:hie-disclosure-001",
+    "event_type": "disclosure-event",
+    "evidence_id": "urn:uuid:b9a6f94e-22d2-56e5-8d7e-dad53909e2c5",
+    "objects": [
+      {
+        "data_category_code": "laboratory-diagnostic-report",
+        "object_ref_token": "urn:te:fhir-token:diagnostic-report-hie-001-v2",
+        "object_role": "target",
+        "payload_binding": {
+          "commitment": "c298d4231801d976d9d50c4093cd507d770d5962715e4fe840eb54d133f3f1bd",
+          "commitment_context": "diagnostic-report-source-v1",
+          "commitment_profile": "sha256-nonce-v1",
+          "representation_profile": "application/fhir+json-rfc8785-v1"
+        },
+        "resource_class": "diagnostic-report",
+        "resource_version_token": "2",
+        "subject_ref_token": "urn:te:subject-token:hie-001"
+      },
+      {
+        "data_category_code": "authorisation-context",
+        "object_ref_token": "urn:te:consent-token:hie-001",
+        "object_role": "consent",
+        "resource_class": "consent-record",
+        "resource_version_token": "3"
+      },
+      {
+        "data_category_code": "authorisation-context",
+        "object_ref_token": "urn:te:policy-token:hie-disclosure",
+        "object_role": "policy",
+        "resource_class": "policy-record",
+        "resource_version_token": "6"
+      },
+      {
+        "data_category_code": "authorisation-context",
+        "object_ref_token": "urn:te:decision:D-204",
+        "object_role": "decision",
+        "resource_class": "authorisation-decision-record",
+        "resource_version_token": "1"
+      },
+      {
+        "data_category_code": "provenance-context",
+        "object_ref_token": "urn:te:provenance-token:hie-001",
+        "object_role": "provenance",
+        "resource_class": "provenance-record",
+        "resource_version_token": "1"
+      }
+    ],
+    "occurred_at": "2026-07-14T09:30:00.000Z",
+    "outcome": {
+      "code": "success",
+      "reason_code": "consent-permit"
+    },
+    "policy_binding": {
+      "policy_digest": "664f077f67c3aa214b1ddfb7e1bc7ef9d0d877d08d9f8222d63e25e0a4cef84f",
+      "policy_ref_token": "urn:te:policy-token:hie-disclosure",
+      "policy_source_ref_token": "urn:te:policy-source:hospital-a",
+      "policy_version": "6"
+    },
+    "privacy_profile": {
+      "minimisation_profile": "TE-HIE-Min-1",
+      "retention_class": "bounded-evaluation",
+      "tokenisation_profile": "TE-Token-Pseudonymous-1"
+    },
+    "purpose_code": "treatment",
+    "subject_context": {
+      "rotation_scope": "episode",
+      "status": "pseudonymous",
+      "subject_ref_token": "urn:te:subject-token:hie-001",
+      "token_system": "urn:te:token-system:hie-fixture-v1"
+    },
+    "time_source": {
+      "max_skew_ms": 1000,
+      "precision_ms": 1,
+      "source_id": "urn:te:time-source:hie-fixture-clock"
+    }
+  },
+  "profile": "TE-HIE-Envelope-1"
+}

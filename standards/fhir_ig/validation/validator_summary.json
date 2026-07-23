@@ -1,0 +1,271 @@
+{
+  "claim_boundary": "validator results apply only to the exact resources, packages, terminology service and tool versions recorded by the C3 workflow",
+  "failures": [],
+  "negative": [
+    {
+      "counts": {
+        "error": 2,
+        "fatal": 0,
+        "information": 2,
+        "success": 0,
+        "warning": 1
+      },
+      "expected_failure_family": "required BALP recipient agent",
+      "expected_failure_observed": true,
+      "file": "AuditEvent-privacy-disclosure-missing-recipient.operationoutcome.json",
+      "issues": [
+        {
+          "code": "code-invalid",
+          "details": "The Coding provided (http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle#disclose) was not found in the value set 'Audit Event Sub-Type' (http://hl7.org/fhir/ValueSet/audit-event-sub-type|4.0.1), and a code should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable).  (error message = The provided code 'http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle#disclose' was not found in the value set 'http://hl7.org/fhir/ValueSet/audit-event-sub-type|4.0.1')",
+          "diagnostics": "",
+          "expression": "AuditEvent.subtype[0]",
+          "location": "",
+          "severity": "warning"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "AuditEvent.subtype[1]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "AuditEvent.entity[1]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "structure",
+          "details": "AuditEvent.agent: minimum required = 2, but only found 1 (from https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4)",
+          "diagnostics": "",
+          "expression": "AuditEvent",
+          "location": "",
+          "severity": "error"
+        },
+        {
+          "code": "structure",
+          "details": "Slice 'AuditEvent.agent:recipient': a matching slice is required, but not found (from https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4). Note that other slices are allowed in addition to this required slice",
+          "diagnostics": "",
+          "expression": "AuditEvent",
+          "location": "",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "counts": {
+        "error": 2,
+        "fatal": 0,
+        "information": 4,
+        "success": 0,
+        "warning": 1
+      },
+      "expected_failure_family": "Observation excluded from the portable evidence Bundle profile",
+      "expected_failure_observed": true,
+      "file": "Bundle-portable-evidence-with-clinical-payload.operationoutcome.json",
+      "issues": [
+        {
+          "code": "code-invalid",
+          "details": "The Coding provided (http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle#disclose) was not found in the value set 'Audit Event Sub-Type' (http://hl7.org/fhir/ValueSet/audit-event-sub-type|4.0.1), and a code should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable).  (error message = The provided code 'http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle#disclose' was not found in the value set 'http://hl7.org/fhir/ValueSet/audit-event-sub-type|4.0.1')",
+          "diagnostics": "",
+          "expression": "Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.subtype[0]",
+          "location": "",
+          "severity": "warning"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.subtype[1]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.agent[2]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.entity[1]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "business-rule",
+          "details": "Reference to draft CodeSystem https://example.org/fhir/trustevidence-hie/CodeSystem/te-evidence-type|0.1.0",
+          "diagnostics": "",
+          "expression": "Bundle.entry[12].resource/*DocumentReference/trustevidence-document-hie-001*/.type",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "informational",
+          "details": "The type 'Observation' is not valid - no resources allowed here (allowed = Patient, Organization, Device, Practitioner, PractitionerRole, Consent, AuditEvent, Provenance, Binary, DocumentReference)",
+          "diagnostics": "",
+          "expression": "Bundle.entry[13].resource/*Observation/observation-sodium-hie-001*/",
+          "location": "",
+          "severity": "error"
+        },
+        {
+          "code": "structure",
+          "details": "Unknown type Observation",
+          "diagnostics": "",
+          "expression": "Bundle.entry[13].resource",
+          "location": "",
+          "severity": "error"
+        }
+      ]
+    }
+  ],
+  "negative_count": 2,
+  "positive": [
+    {
+      "counts": {
+        "error": 0,
+        "fatal": 0,
+        "information": 1,
+        "success": 0,
+        "warning": 0
+      },
+      "file": "AuditEvent-authorisation-decision-hie-001.operationoutcome.json",
+      "issues": [
+        {
+          "code": "informational",
+          "details": "All OK",
+          "diagnostics": "",
+          "expression": "",
+          "location": "",
+          "severity": "information"
+        }
+      ]
+    },
+    {
+      "counts": {
+        "error": 0,
+        "fatal": 0,
+        "information": 3,
+        "success": 0,
+        "warning": 1
+      },
+      "file": "AuditEvent-privacy-disclosure-source-hie-001.operationoutcome.json",
+      "issues": [
+        {
+          "code": "code-invalid",
+          "details": "The Coding provided (http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle#disclose) was not found in the value set 'Audit Event Sub-Type' (http://hl7.org/fhir/ValueSet/audit-event-sub-type|4.0.1), and a code should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable).  (error message = The provided code 'http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle#disclose' was not found in the value set 'http://hl7.org/fhir/ValueSet/audit-event-sub-type|4.0.1')",
+          "diagnostics": "",
+          "expression": "AuditEvent.subtype[0]",
+          "location": "",
+          "severity": "warning"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "AuditEvent.subtype[1]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "AuditEvent.agent[2]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "AuditEvent.entity[1]",
+          "location": "",
+          "severity": "information"
+        }
+      ]
+    },
+    {
+      "counts": {
+        "error": 0,
+        "fatal": 0,
+        "information": 4,
+        "success": 0,
+        "warning": 1
+      },
+      "file": "Bundle-portable-evidence-bundle-hie-001.operationoutcome.json",
+      "issues": [
+        {
+          "code": "code-invalid",
+          "details": "The Coding provided (http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle#disclose) was not found in the value set 'Audit Event Sub-Type' (http://hl7.org/fhir/ValueSet/audit-event-sub-type|4.0.1), and a code should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable).  (error message = The provided code 'http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle#disclose' was not found in the value set 'http://hl7.org/fhir/ValueSet/audit-event-sub-type|4.0.1')",
+          "diagnostics": "",
+          "expression": "Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.subtype[0]",
+          "location": "",
+          "severity": "warning"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.subtype[1]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.agent[2]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "informational",
+          "details": "This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)",
+          "diagnostics": "",
+          "expression": "Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.entity[1]",
+          "location": "",
+          "severity": "information"
+        },
+        {
+          "code": "business-rule",
+          "details": "Reference to draft CodeSystem https://example.org/fhir/trustevidence-hie/CodeSystem/te-evidence-type|0.1.0",
+          "diagnostics": "",
+          "expression": "Bundle.entry[12].resource/*DocumentReference/trustevidence-document-hie-001*/.type",
+          "location": "",
+          "severity": "information"
+        }
+      ]
+    },
+    {
+      "counts": {
+        "error": 0,
+        "fatal": 0,
+        "information": 1,
+        "success": 0,
+        "warning": 0
+      },
+      "file": "source_clinical_bundle.operationoutcome.json",
+      "issues": [
+        {
+          "code": "informational",
+          "details": "All OK",
+          "diagnostics": "",
+          "expression": "",
+          "location": "",
+          "severity": "information"
+        }
+      ]
+    }
+  ],
+  "positive_count": 4,
+  "status": "PASS"
+}

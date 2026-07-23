@@ -1,0 +1,78 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "te-evidence-document-reference",
+  "url": "https://example.org/fhir/trustevidence-hie/StructureDefinition/te-evidence-document-reference",
+  "name": "TEEvidenceDocumentReference",
+  "title": "TrustEvidence Evidence Document Reference",
+  "status": "draft",
+  "description": "DocumentReference that points to the exact signed TrustEvidence Binary and related audit artefacts.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DocumentReference",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DocumentReference",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentReference.status",
+        "path": "DocumentReference.status",
+        "fixedCode": "current"
+      },
+      {
+        "id": "DocumentReference.type",
+        "path": "DocumentReference.type",
+        "min": 1,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://example.org/fhir/trustevidence-hie/ValueSet/te-evidence-type-vs"
+        }
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.date",
+        "path": "DocumentReference.date",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.author",
+        "path": "DocumentReference.author",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.custodian",
+        "path": "DocumentReference.custodian",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.content",
+        "path": "DocumentReference.content",
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.content.attachment.contentType",
+        "path": "DocumentReference.content.attachment.contentType",
+        "fixedCode": "application/json"
+      },
+      {
+        "id": "DocumentReference.content.attachment.url",
+        "path": "DocumentReference.content.attachment.url",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.content.attachment.hash",
+        "path": "DocumentReference.content.attachment.hash",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.context.related",
+        "path": "DocumentReference.context.related",
+        "min": 3
+      }
+    ]
+  }
+}
