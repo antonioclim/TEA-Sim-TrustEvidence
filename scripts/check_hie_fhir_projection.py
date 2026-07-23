@@ -28,9 +28,7 @@ FORBIDDEN_CLINICAL_KEYS = {
     "conclusion",
 }
 SOURCE_REFERENCE = "DiagnosticReport/diagnostic-report-hie-001/_history/2"
-SOURCE_IDENTIFIER_SYSTEM = (
-    "https://example.org/fhir/trustevidence-hie/identifier/source-resource"
-)
+SOURCE_IDENTIFIER_SYSTEM = "urn:trustevidence:identifier:source-resource"
 
 
 def _load(path: Path) -> Any:
