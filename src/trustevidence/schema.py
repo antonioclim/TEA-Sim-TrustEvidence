@@ -15,6 +15,8 @@ SCHEMA_FILES = {
     "monitoring_event": "monitoring_event.schema.json",
     "trust_evidence_envelope": "trust_evidence_envelope.schema.json",
     "curation_result": "curation_result.schema.json",
+    "hie_disclosure_event": "hie_disclosure_event.schema.json",
+    "hie_trust_evidence_envelope": "hie_trust_evidence_envelope.schema.json",
 }
 
 
@@ -59,7 +61,10 @@ def _classify(error: Any) -> str:
 
 
 def validate_structure(name: str, instance: Any) -> list[errors.ValidationIssue]:
-    structural = sorted(_validator(name).iter_errors(instance), key=lambda e: (len(e.absolute_path), list(map(str, e.absolute_path)), e.message))
+    structural = sorted(
+        _validator(name).iter_errors(instance),
+        key=lambda e: (len(e.absolute_path), list(map(str, e.absolute_path)), e.message),
+    )
     return [
         errors.ValidationIssue(
             code=_classify(error),
