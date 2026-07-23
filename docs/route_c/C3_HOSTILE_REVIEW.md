@@ -1,41 +1,54 @@
-# Hostile review of Phase C3
+# Final hostile review of Phase C3
 
-## Audit status
+## Audit verdict
 
-This is the pre-materialisation hostile audit for the Route C cross-organisational healthcare case and official FHIR validation pathway. It must be updated after retained evidence and the final full release contract pass. Until then, Gate C3 remains open.
+```text
+Hero-case implementation:                PASS
+Semantic and payload-custody checks:     PASS
+Official hosted FHIR toolchain:          PASS
+Positive Validator units:                4/4 without fatal or error findings
+Intended negative Validator units:       2/2 rejected for registered families
+Retained repository evidence:            PASS
+Offline retained-evidence checker:       PASS
+Complete hosted release contract:        PASS
+Integrity patch:                         0 bytes
+Gate C3:                                 PASS
+```
+
+This verdict is bounded to the exact retained Route C corpus, local implementation-guide package, tool versions, terminology endpoint and JAR digests. A hostile reviewer should continue to assume that no broader healthcare, conformance, privacy, deployment or cryptographic property exists unless later phases provide separate evidence.
 
 ## Adversarial thesis
 
-A hostile reviewer should assume that the C3 work is an elaborate self-consistent demonstration that still fails to establish anything beyond the author's own fixtures. The burden is therefore to show, without rhetorical substitution, which parts are independently exercised by official tooling, which parts remain project-specific and which interpretations are prohibited.
+The strongest hostile interpretation is that C3 is a well-engineered, self-consistent synthetic demonstration. That criticism is partly correct. C3 is not a hospital deployment, not a patient study and not a certification exercise. Its value lies in the fact that the artefacts are concrete, independently exercised by official tools, retained with their failures and warnings, and constrained by an explicit claim ceiling.
 
 ## Attack 1 — “This is still not a real medical example”
 
 ### Attack
 
-The case is synthetic. Calling it “real” would evade Reviewer 1's request rather than satisfy it.
+Reviewer 1 requested a real evidence entity/resource containing real data. A purely synthetic case could be presented as an evasion.
 
 ### Finding
 
-The case is concrete rather than operational:
+The case is medically concrete but not operational:
 
-- a versioned DiagnosticReport;
-- three laboratory Observations with explicit values in the source Bundle;
+- versioned DiagnosticReport;
+- three laboratory Observations with explicit source values;
 - source and recipient hospitals;
-- a treatment purpose;
+- treatment purpose;
 - Consent version 3;
 - policy version 6;
-- authorisation decision D-204;
-- a signed evidence envelope;
-- a local A2 receipt;
-- a portable FHIR projection.
+- decision D-204;
+- signed evidence envelope;
+- local A2 receipt;
+- portable FHIR projection.
 
-The clinical values remain outside the portable evidence. All resources are labelled synthetic.
+The case is labelled synthetic at every relevant layer. Clinical values remain under source custody and are not copied into the portable Bundle.
 
 ### Verdict
 
-**Defensible only as a complete synthetic medical case.** The manuscript and response must not use `real patient`, `operational hospital`, `clinical deployment` or `real-world validation`.
+**Defensible as a complete synthetic medical case only.** The manuscript and response must not say `real patient`, `operational hospital`, `clinical deployment` or `real-world validation`. The reviewer request is answered through concreteness and inspectability, not by falsely claiming a clinical deployment.
 
-## Attack 2 — “The boundary merely removes data until the example passes”
+## Attack 2 — “The boundary merely removes data until the fixture passes”
 
 ### Attack
 
@@ -43,61 +56,68 @@ A minimisation claim is trivial if fields are excluded without an accountability
 
 ### Finding
 
-The field decisions are governed by frozen questions and recorded in `C3_NECESSITY_AUDIT.md` and `HIE_BOUNDARY_MATRIX.csv`. Consent state, policy version, decision identity and event outcome are deliberately distinct. The source DiagnosticReport is identified by type and version; the exact source Bundle is committed; clinical values, direct identity and the nonce are excluded.
+The field decisions were frozen through nine accountability questions and recorded in:
+
+```text
+docs/route_c/C3_NECESSITY_AUDIT.md
+docs/route_c/HIE_BOUNDARY_MATRIX.csv
+```
+
+Consent state, policy version, decision identity and event outcome remain distinct. The source DiagnosticReport is version-identified; the exact source Bundle is committed; clinical values, direct identity and the nonce are excluded.
 
 ### Residual weakness
 
-No clinician, auditor, data-protection officer or legal expert has validated that the selected field set is institutionally sufficient.
+No clinician, auditor, data-protection officer or legal expert has established institutional sufficiency.
 
 ### Verdict
 
-**Bounded design evidence, not expert-validated minimisation.** RQ1 may be supported for the frozen case only.
+**Bounded design evidence, not expert-validated minimisation.** RQ1 may be supported for the frozen case, not universally.
 
-## Attack 3 — “The author invented a new schema instead of using FHIR”
+## Attack 3 — “The author invented a private schema instead of using FHIR”
 
 ### Attack
 
-A project JSON envelope can become a private parallel standard.
+A project JSON envelope may become an unrecognised parallel standard.
 
 ### Finding
 
-FHIR R4 and applicable BALP AuditEvent profiles are used as the structured healthcare projection. The project envelope retains the exact signed semantic statement and local receipt. The Binary carries exact canonical JSON bytes; the FHIR resources make selected semantics inspectable. The manuscript must explain that these layers serve different purposes.
+FHIR R4 and applicable BALP AuditEvent profiles are used for the structured healthcare projection. The project envelope carries the exact signed semantic statement and local receipt. The Binary preserves exact canonical JSON bytes; the FHIR resources expose selected semantics for healthcare tooling.
 
 ### Residual weakness
 
-No independent implementation consumes the project envelope, and no standards body recognises `TE-HIE-Envelope-1` or `TE-HIE-Min-1`.
+No independent implementation consumes `TE-HIE-Envelope-1`, and no standards body recognises the project profile.
 
 ### Verdict
 
-**Executable reference profile only.** No new-standard claim is permitted.
+**Executable reference profile only.** No new-standard or universal interoperability claim is permitted.
 
-## Attack 4 — “The FHIR Bundle cheats by referencing absent resources”
+## Attack 4 — “The portable Bundle cheats by referencing an absent local resource”
 
 ### Attack
 
-A relative `DiagnosticReport/.../_history/2` reference in a portable Bundle could be read as a broken local reference.
+A relative `DiagnosticReport/.../_history/2` reference inside the portable Bundle would be a dangling local link rather than a meaningful cross-organisational reference.
 
 ### Finding
 
-The source resource is represented by a typed, versioned identifier rather than a local `reference` element. The semantic checker fails if the unresolved relative source reference reappears. The positive portable Bundle excludes DiagnosticReport and Observation resources.
+The source resource is represented by type plus a versioned identifier, not a local `reference` element. The semantic checker fails if the relative source reference reappears. The positive portable Bundle contains neither DiagnosticReport nor Observation resources.
 
 ### Verdict
 
-**Attack addressed for the exact corpus.** Operational resolver behaviour remains untested.
+**Addressed for the exact corpus.** Operational resolver and enterprise identifier-governance behaviour remain untested.
 
-## Attack 5 — “The signed bytes and the FHIR representation are different objects”
+## Attack 5 — “The signature authenticates different bytes from the FHIR resources”
 
 ### Attack
 
-A signature over one serialisation does not authenticate a separately generated FHIR representation.
+A signature over a project JSON serialisation cannot automatically authenticate a separately generated FHIR representation.
 
 ### Finding
 
-The project does not claim that the FHIR serialisation is the signed source of truth. The exact canonical signed-envelope bytes are embedded in a Binary and verified byte-for-byte after Base64 decoding. The structured projection is checked for selected semantic parity.
+The project does not claim that the FHIR serialisation is the signed source of truth. The exact canonical signed-envelope bytes are embedded in `Binary` and compared byte-for-byte after Base64 decoding. Selected structured fields are checked for semantic parity.
 
 ### Residual weakness
 
-Only the fields included in the local parity checker are cross-layer assertions. No generic bidirectional converter or independent cross-language implementation exists.
+Only the fields in the local parity checker are cross-layer assertions. No generic bidirectional converter or cross-language implementation exists.
 
 ### Verdict
 
@@ -111,184 +131,293 @@ Hashing with a nonce does not encrypt clinical data.
 
 ### Finding
 
-The implementation and claim ledger call the mechanism a nonce-based payload commitment. The nonce is private test material, and the candidate source bytes are required for verification. Encryption is not implemented by this mechanism.
+The mechanism is consistently identified as a nonce-based payload commitment. The candidate bytes and nonce are required for verification. The nonce is retained as private fixture material and is absent from the portable Bundle.
 
 ### Verdict
 
-**Terminology must remain strict.** The response to Reviewer 1 must distinguish commitment, signature, transport encryption and storage encryption.
+**Terminology remains strict.** C4 and C7 must distinguish:
 
-## Attack 7 — “The Merkle receipt is SCITT or a standard COSE Receipt in disguise”
+- payload commitment;
+- issuer signature;
+- receipt signature;
+- TLS or other transport confidentiality, if deployed;
+- encryption at rest, if deployed.
+
+No confidentiality-by-hashing claim is permitted.
+
+## Attack 7 — “The Merkle receipt is SCITT or a COSE Receipt in disguise”
 
 ### Attack
 
-Using RFC-shaped Merkle algorithms may invite an unsupported standards claim.
+The use of Merkle inclusion and consistency concepts may invite unsupported standards language.
 
 ### Finding
 
-The receipt fields, signature framing, backend identity and application semantics are project-specific. The implementation is labelled a `project-specific local A2 Merkle receipt`. It does not implement a public transparency service, gossip, witnessing, SCITT registration or RFC 9942 COSE Receipt structure.
+The receipt framing, fields, signature, backend identity and application semantics are project-specific. The implementation does not provide SCITT registration, COSE Receipt structures, gossip, public witnessing or a transparency service.
 
 ### Verdict
 
-**Local receipt claim only.** C4 must extend the mutation corpus before the stronger Route C receipt wording is allowed.
+**Project-specific local A2 receipt only.** C4 must execute the expanded receipt mutation corpus before stronger adversarial wording is allowed.
 
-## Attack 8 — “Official validation merely validates the author's profile”
+## Attack 8 — “Official validation only validates the author's permissive profile”
 
 ### Attack
 
-A local profile can be made permissive, so passing it is not meaningful.
+A local profile may be made permissive enough that passing it proves little.
 
 ### Finding
 
-The declared toolchain validates against:
+The declared toolchain applies:
 
 - FHIR R4 4.0.1;
 - IHE BALP 1.1.4;
 - the local Route C package;
-- an official FHIR terminology server;
+- the FHIR terminology endpoint;
 - four positive units;
 - two intended negative units.
 
-The privacy-disclosure and authorisation AuditEvents are validated separately against applicable BALP profiles. The local portable Bundle profile closes `entry.resource` to evidence-resource types and rejects an appended Observation.
+The authorisation and privacy-disclosure AuditEvents are separately validated against the applicable BALP profiles. The local portable Bundle profile closes `entry.resource` to declared evidence-resource types and rejects an appended Observation.
 
 ### Residual weakness
 
-The result remains corpus-bounded. It is not an IHE certification event and does not validate all possible instances.
+The result is corpus-bounded and is not an IHE certification event.
 
 ### Verdict
 
 **Meaningful bounded validator evidence, not broad conformance.**
 
-## Attack 9 — “The negative tests fail for arbitrary reasons”
+## Attack 9 — “The negative examples fail for arbitrary reasons”
 
 ### Attack
 
-A malformed or multiply invalid negative example proves little.
+A malformed or multiply invalid file may fail without testing the intended property.
 
 ### Finding
 
-The summariser maintains an explicit expected-failure registry. It requires the missing-recipient AuditEvent to expose the recipient/minimum-cardinality failure family and the payload-containing Bundle to expose the Observation/profile-closure failure family. A negative unit rejected only for an unrelated reason fails the C3 summary.
+The validator summariser contains an expected-failure registry. It requires:
+
+- the missing-recipient AuditEvent to expose recipient/minimum-cardinality errors;
+- the payload-containing Bundle to expose Observation/profile-closure errors.
+
+A negative unit rejected only for an unrelated reason fails the summary.
 
 ### Verdict
 
-**Attack addressed for the two declared families.** C4 must provide the broader cryptographic and receipt mutation programme.
+**Addressed for the two declared FHIR failure families.** This does not replace the broader C4 cryptographic mutation suite.
 
-## Attack 10 — “Warnings were hidden or waved away”
+## Attack 10 — “The warnings were hidden or waved away”
 
 ### Attack
 
-A publisher run with dozens of warnings can be misreported as a clean validation.
+A publisher result with dozens of warnings may be misreported as clean validation.
 
 ### Finding
 
-The gate requires zero errors, zero broken links and zero suppressed warnings or hints. Every warning family is retained and adjudicated in `standards/fhir_ig/WARNING_ADJUDICATION.md`. Avoidable missing-description warnings have been remediated and require a rerun. Synthetic-namespace, optional OID and base-template warnings remain explicit limitations.
+The final retained publisher evidence reports:
+
+```text
+errors:               0
+warnings:            33
+information/hints:   16
+broken links:         0
+suppressed warnings:  0
+suppressed hints:     0
+```
+
+The warning register explains:
+
+- four unused base-template fragments;
+- two OID recommendations;
+- twenty-seven synthetic namespace or local URL findings.
+
+Fourteen avoidable missing-description warnings identified in an earlier run were corrected. Nothing was suppressed.
 
 ### Verdict
 
-**No warning-free claim is permitted.** Final counts must be taken from retained outputs, not memory.
+**No warning-free claim is permitted.** The bounded pass is nevertheless defensible because there are zero errors, zero broken links and no hidden findings.
 
-## Attack 11 — “The repository cannot reproduce the official result”
+## Attack 11 — “An ephemeral Actions artefact is not reproducible evidence”
 
 ### Attack
 
-An ephemeral Actions artefact is not a durable research package.
+A passing workflow artefact may expire and cannot by itself support a published claim.
 
 ### Finding
 
-C3 introduces a materialisation workflow that must retain:
+The branch retains:
 
-- the generated hero-case resources;
+- generated hero-case resources;
 - generated FSH conformance resources;
 - compact IG package;
-- SUSHI log;
-- IG Publisher log and QA;
-- HL7 Validator OperationOutcomes;
+- SUSHI and IG Publisher logs;
+- IG Publisher QA;
+- positive and negative Validator OperationOutcomes;
 - semantic and validator summaries;
 - tool versions and JAR digests;
 - file manifest and checksums.
 
-The full release contract is being extended with an offline retained-evidence checker.
-
-### Stop condition
-
-Until the materialisation commit exists and a subsequent hosted `make release-check` passes, C3 is not complete.
+`check_c3_retained_evidence.py` verifies this package offline. The complete hosted `make release-check` passed on the retained tree.
 
 ### Verdict
 
-**Open pending materialisation and final green CI.**
+**Attack addressed.** The hosted ZIP remains convenient evidence, but the durable repository package is authoritative.
 
-## Attack 12 — “The case breaks v2.1 compatibility”
+## Attack 12 — “The retained package contains downloaded template and build debris”
 
 ### Attack
 
-Adding an HIE case could silently change the personal-monitoring semantics or invalidate retained v2.1 results.
+A release archive containing a downloaded IG template, rendered site and caches is bloated, unstable and potentially misleading.
 
 ### Finding
 
-The HIE input and envelope schemas are separate. The existing personal-monitoring schemas and `TE-PHM-Min-1` are retained. The HIE wrapper adapts only the Route C fixture. Existing deterministic outputs must continue to match their retained references under the full release contract.
+An early materialisation exposed exactly this problem. The following are now cleaned, excluded from integrity generation and rejected by the offline checker:
+
+```text
+standards/fhir_ig/output
+standards/fhir_ig/temp
+standards/fhir_ig/input-cache
+standards/fhir_ig/template
+```
+
+The final integrity rebuild removed the generated-template rows. The final integrity patch was zero bytes.
 
 ### Verdict
 
-**Compatibility must be demonstrated by the final release-check, not inferred from code organisation.**
+**Attack addressed.** Build products are not distributed as scientific evidence.
 
-## Attack 13 — “The privacy claim is stronger than the scan”
+## Attack 13 — “The HIE case silently breaks v2.1 behaviour”
 
 ### Attack
 
-Absence of a deny-list term does not prove privacy or anonymity.
+Adding HIE semantics might alter the personal-monitoring schemas, canonicalisation or retained baseline outputs.
 
 ### Finding
 
-The checker tests declared resource types, clinical-value keys, exact Binary bytes and selected source-identifier relations. It does not model linkage attacks, metadata inference or all possible sensitive content.
+The HIE input and envelope schemas are separate. `TE-PHM-Min-1` remains unchanged. The full hosted release contract passed:
+
+- 41 unit/regression pytest items;
+- 8 property-test items;
+- 29,105 bounded checks;
+- deterministic retained-output comparison;
+- legacy result contracts;
+- metadata and integrity checks;
+- quick baseline pipeline;
+- the new HIE checks.
 
 ### Verdict
 
-Allowed wording is limited to:
+**Backward compatibility demonstrated for the executed regression contract.** This is not a promise of compatibility for untested external consumers.
+
+## Attack 14 — “The privacy claim is stronger than the checker”
+
+### Attack
+
+Absence of deny-list terms does not prove privacy or anonymity.
+
+### Finding
+
+The checker covers declared resource types, declared clinical-value paths, exact Binary bytes and selected source-identifier relations. It does not model linkage attacks, metadata inference or all possible sensitive content.
+
+### Verdict
+
+Allowed:
 
 > No declared forbidden clinical field or forbidden clinical resource type was found in the inspected positive portable artefacts.
 
-The following remain forbidden:
+Forbidden:
 
 - privacy guaranteed;
 - anonymous;
 - zero re-identification risk;
 - GDPR compliant.
 
-## Attack 14 — “RQ2 is rewritten after observing the result”
+## Attack 15 — “The research question was rewritten after the result”
 
 ### Attack
 
-The question and claim may be tuned to fit whatever the validators accept.
+The question and claim may have been tuned to whatever the validators accepted.
 
 ### Finding
 
-The four Route C research questions and Claim–Evidence Ledger were frozen in C2 before the final C3 toolchain execution. C3 repairs implementation defects, but the gate and prohibited wording remain unchanged.
+The four Route C research questions, Claim–Evidence Ledger and prohibited wording were frozen in C2. C3 repaired implementation defects while preserving the gate and claim ceiling. Failed intermediate runs and the repair history remain documented.
 
 ### Verdict
 
-**Acceptable if the final report preserves all failed attempts and does not erase the repair history.**
+**Attack addressed.** The result is post-specification repair, not retrospective research-question substitution.
 
-## Current hard blockers
+## Attack 16 — “The positive corpus still contains terminology warnings”
 
-At this pre-materialisation point, the blockers are:
+### Attack
 
-1. retained C3 artefacts have not yet been committed;
-2. integrity manifests do not yet cover the generated C3 evidence;
-3. the offline retained-evidence checker has not yet passed in hosted CI;
-4. the complete `make release-check` has not yet returned `PASS` on the materialised branch;
-5. final publisher warning counts after description remediation are not yet frozen;
-6. Claim–Evidence Ledger and standards status still describe the pre-C3 state.
+The privacy-disclosure AuditEvent and Bundle retain a warning for `iso-21089-lifecycle#disclose`, so the result may be overstated.
 
-## Provisional verdict
+### Finding
+
+The warning is present in the retained OperationOutcomes and is not suppressed. The positive units have zero fatal and error findings under the declared environment. The manuscript will identify the exact corpus, profiles and toolchain rather than claim universal compliance.
+
+### Verdict
+
+**Bounded pass, not universal conformance.** The warning remains a visible limitation.
+
+## Attack 17 — “C3 still does not answer total EHR overhead”
+
+### Attack
+
+Reviewer 1 explicitly requested total overhead.
+
+### Finding
+
+C3 provides an executable end-to-end case but does not provide the preregistered paired B0–B2 measurement. Existing local A2 timings are not a substitute for the complete reference-pipeline increment.
+
+### Verdict
+
+**Open by design and transferred to C5.** C3 must not be used to declare the overhead comment closed.
+
+## Attack 18 — “C3 security evidence is too narrow”
+
+### Attack
+
+The retained case and two FHIR negatives do not establish robust signature, commitment and receipt mutation resistance.
+
+### Finding
+
+C1 retains baseline tests and C3 retains the concrete signed case. The wider Route C adversarial families — actor substitution, policy and Consent version mutation, wrong key, signature bytes, nonce, index, size, root, path and checkpoint state — remain unexecuted.
+
+### Verdict
+
+**Open by design and transferred to C4.**
+
+## Final claim boundary
+
+C3 permits:
+
+- complete synthetic case;
+- case-level four-class boundary instantiation;
+- exact signed-byte preservation;
+- absence of declared clinical payload types/paths in inspected positive portable artefacts;
+- four positive units without fatal/error findings;
+- two intended negative rejections;
+- retained compact evidence and all-green hosted release contract.
+
+C3 does not permit:
+
+- real patient or operational hospital claim;
+- universal FHIR/BALP conformance;
+- certification;
+- privacy or anonymity guarantee;
+- production deployment or scalability;
+- clinical truth;
+- legal compliance;
+- SCITT/RFC 9942 conformance;
+- total EHR overhead;
+- expert validation.
+
+## Final hostile verdict
+
+> C3 survives hostile review because it does not depend on rhetorical novelty or an ephemeral green badge. The branch contains a concrete synthetic medical case, exact signed bytes, a bounded FHIR/BALP-facing projection, official positive and intended-negative validator evidence, complete warning disclosure, an offline retained-evidence checker, current integrity manifests and an all-green hosted release contract. Its remaining weaknesses are explicit later-phase obligations rather than concealed C3 claims.
 
 ```text
-hero case implementation                 PASS
-semantic/privacy checker                 PASS in hosted successful run
-official FHIR toolchain                  PASS in hosted successful run
-positive Validator units                 4/4 without error
-intended negative Validator units        2/2 rejected
-retained repository evidence             OPEN
-full release contract                    OPEN
-Gate C3                                  NOT YET PASSED
+Gate C3 = PASS
+C3 open blockers = 0
+Transferred blockers = C4 security mutations; C5 B0–B2 overhead; C6 release-wide QA; C7 manuscript; C8 response package
 ```
-
-C3 may be closed only after the retained artefacts, manifests, claim registry, standards status and final hosted CI all agree on one commit.
