@@ -52,25 +52,57 @@ jobs:
           python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
           python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
 
-      - name: Execute the frozen W1 confirmatory experiment
+      - name: Execute the frozen W1 confirmatory experiment with retained transcript
         if: steps.decision.outputs.run == 'true'
         shell: bash
         run: |
-          python experiments/run_hie_incremental_overhead.py \
-            --output-dir results_expected/cmpb_reference/c5_hie_overhead
-          python experiments/run_hie_incremental_overhead.py --check
-          python scripts/make_reproducibility_manifest.py
-          python scripts/validate_result_contracts.py
-          python scripts/rebuild_integrity_files.py
+          set +e
+          {
+            python experiments/run_hie_incremental_overhead.py \
+              --output-dir results_expected/cmpb_reference/c5_hie_overhead
+            status=$?
+            if test "$status" -eq 0; then
+              python experiments/run_hie_incremental_overhead.py --check
+              status=$?
+            fi
+            if test "$status" -eq 0; then
+              python scripts/make_reproducibility_manifest.py
+              status=$?
+            fi
+            if test "$status" -eq 0; then
+              python scripts/validate_result_contracts.py
+              status=$?
+            fi
+            if test "$status" -eq 0; then
+              python scripts/rebuild_integrity_files.py
+              status=$?
+            fi
+          } 2>&1 | tee "${RUNNER_TEMP}/c5-visible-materialisation.log"
+          pipeline_status=${PIPESTATUS[0]}
+          printf '%s\n' "$pipeline_status" > "${RUNNER_TEMP}/c5-visible-exit-code.txt"
+          exit 0
 
-      - name: Upload C5 evidence before repository mutation
+      - name: Upload C5 transcript and partial evidence
         if: always() && steps.decision.outputs.run == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: route-c-c5-overhead-visible-materialisation
-          path: results_expected/cmpb_reference/c5_hie_overhead
-          if-no-files-found: error
+          name: route-c-c5-overhead-visible-diagnostic
+          path: |
+            ${{ runner.temp }}/c5-visible-materialisation.log
+            ${{ runner.temp }}/c5-visible-exit-code.txt
+            results_expected/cmpb_reference/c5_hie_overhead
+          if-no-files-found: warn
           retention-days: 30
+
+      - name: Reject a failed confirmatory execution
+        if: steps.decision.outputs.run == 'true'
+        shell: bash
+        run: |
+          status=$(cat "${RUNNER_TEMP}/c5-visible-exit-code.txt")
+          if test "$status" -ne 0; then
+            echo "C5 confirmatory execution failed with status $status."
+            exit "$status"
+          fi
 
       - name: Commit retained evidence and integrity manifests
         if: steps.decision.outputs.run == 'true'
