@@ -18,7 +18,7 @@ A hostile reviewer should assume that a locally timed Python reference pipeline 
 - three public Draft 2020-12 C5 result contracts;
 - source-fixture, source-file and retained-output digests;
 - the pre-measurement import failures and subsequent software repair;
-- the post-synchronisation hosted release workflow and zero-byte integrity patch.
+- the post-report hosted release workflow and zero-byte integrity patch.
 
 ## Attack 1 — “The experiment measures total overhead in an operational EHR exchange”
 
@@ -222,8 +222,36 @@ scales to large hospital networks
 cost reduction demonstrated
 ```
 
-## Gate condition
+## Final gate verdict
 
-The scientific C5 corpus satisfies its registered process, decision and result-contract criteria. The temporary materialisation workflow has been removed, reviewer and claim registries have been updated, and hosted workflow `30018761233` passed the dedicated C5 check, complete `make release-check`, C3 and C4 regressions and a zero-byte integrity-diff check on the synchronised pre-report tree.
+Hosted workflow `30019941895`, executed on tree `2e511289dc1863077123d4a955cc1f3240386646` after the completion report, hostile review and reviewer-evidence registries were included in the manifests, passed:
 
-Final Gate C5 closure requires one last all-green hosted run after this hostile verdict and the completion report are entered into `FILE_MANIFEST.tsv` and `SHA256SUMS.txt`. No further timing collection or empirical amendment is permitted.
+- the dedicated C5 retained-evidence check;
+- the complete `make release-check` contract;
+- C3 official FHIR regression;
+- C4 security regression;
+- regenerated integrity comparison with a zero-byte patch.
+
+The final artifact digests were:
+
+```text
+C5 validation:
+sha256:e1125e3eb333b67d15f1d0a5120e0449d18e5c9c818419af496cc6b67fe18b31
+
+release-check transcript:
+sha256:fb0fc3006833b44c51fa9e2876d7874859a79e169aa931b76ac58b32c143987b
+
+integrity package:
+sha256:9a148d22d112428f799e32b824ef725cc86ba138560aa2b6159702d2bfa2685d
+```
+
+Accordingly:
+
+```text
+Gate C5 = PASS
+scientific blockers = 0
+release-mechanics blockers = 0
+additional C5 measurement authorised = no
+```
+
+The gate closes only the bounded W1 local reference-pipeline question. It does not convert the result into production, scalability, network, database, deployability or organisational-cost evidence.
