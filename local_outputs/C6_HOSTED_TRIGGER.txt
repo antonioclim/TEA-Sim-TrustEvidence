@@ -1,0 +1,1 @@
+Temporary ignored trigger for the hosted C6 gate.
