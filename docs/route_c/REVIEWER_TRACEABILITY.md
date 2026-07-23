@@ -37,11 +37,11 @@ The detailed register controls identifiers, severity, Route C phase, minimum evi
 |---|---|---|
 | Concrete medical exchange and complete evidence object | C3 synthetic DiagnosticReport disclosure case | Source resources, field classification, signed envelope, FHIR projection, local receipt, verification report and checksums |
 | Merkle explanation and purpose | C4 property-specific mechanism and mutations | Inclusion, consistency, stale-state, relabelling and explicit authorised-backend limitation results |
-| Process, steps and tools | C3–C5 Input–Processing–Output chain | Executable commands, exact versions and retained outputs |
+| Process, steps and tools | C3–C5 Input–Processing–Output chain | Executable commands, exact versions, retained outputs and the frozen B0–B2 timing boundaries |
 | State of the art | C2 direct literature synthesis | Verified source registry and comparator matrix |
 | Readable figures and tables | C7 redesign | Final-size vector/raster QA and reviewer-PDF inspection |
 | Encryption | C4 controls table | Exact distinction among commitment, signature, receipt, TLS and optional at-rest controls; no implemented encryption claim |
-| Total overhead | C5 B0–B2 local incremental experiment | Independent paired runs, p50/p95/p99, byte measures and raw results |
+| Total overhead | C5 B0–B2 local incremental experiment | Five excluded pilot blocks, twenty retained paired blocks, p50/p95/p99, canonical application-byte and storage-proxy increments, raw timings and explicit non-production wording |
 
 ## Reviewer 2 evidence path
 
@@ -49,13 +49,13 @@ The detailed register controls identifiers, severity, Route C phase, minimum evi
 |---|---|
 | Title and abstract | Frozen eight-word title; abstract written after results freeze |
 | Recent and direct literature | C2 DOI/canonical registry and critical comparator synthesis |
-| Validity and verification | Separate standards, semantic, implementation, security, empirical and reproducibility evidence |
+| Validity and verification | Separate standards, semantic, implementation, security, C5 paired empirical and reproducibility evidence |
 | Terminology and acronyms | Canonical terminology and first-use expansion; `TrustEvidence` only |
 | Data and metadata | C3 source registry, concrete synthetic resources, transformations and case provenance |
 | Input–Processing–Output | Frozen processing pipeline and end-to-end hero case |
 | Figures and tables | Reduced visual count, larger type, vector sources and visual audit |
 | Results structure | Results follow RQ and method order; interpretation moves to Discussion |
-| Numerical consistency | Generated number registry and cross-document audit |
+| Numerical consistency | C5 machine-readable aggregates become the number source; C7–C8 perform the final cross-document audit |
 
 ## Reviewer 3 evidence path
 
@@ -70,10 +70,10 @@ The request concerning generative artificial intelligence, programming occupatio
 | TrustEvidence identity and novelty | C2 Scientific Identity Card and hostile novelty test | Healthcare-specific boundary model and executable reference profile |
 | Difference from FHIR AuditEvent, Provenance and Consent | C2 delta matrix plus C3 mapping and official validation | FHIR provides representation; TrustEvidence selects and binds the declared portable evidence set |
 | Difference from cryptographic integrations | C2 literature and C4 mechanism audit | No new canonicalisation, signature, Merkle, SCITT or COSE Receipt primitive |
-| Scalability | C5 bounded local workloads only | No large-network claim |
+| Scalability | C5 executed one synthetic workload on one four-vCPU hosted runner | No large-network, concurrency, network or distributed-service claim |
 | Deployability | C6/C7 component and release analysis | No hospital-readiness claim |
 | Interoperability beyond FHIR | C3 semantic round trip and exact-byte preservation | Audit-evidence interoperability, not improved clinical semantics |
-| Cost and complexity | C5 processing/byte increments and component inventory | No organisational cost-reduction claim |
+| Cost and complexity | C5 local processing and canonical application-byte increments; C6 adds the component inventory | No organisational cost-reduction, network-cost or database-cost claim |
 | Accountability, transparency and trust | C4/C7 property-specific discussion | Attributable evidence and bounded local inclusion/consistency; backend honesty, completeness and organisational trust not measured |
 
 ## Closure statuses
@@ -92,4 +92,8 @@ C2 closes the design-level concerns concerning title, artefact identity, researc
 
 C3 supplies the complete synthetic healthcare case, the field-level boundary instantiation and the bounded official FHIR toolchain evidence.
 
-C4 supplies the executed semantic, issuer, commitment, receipt, proof and retained-state mutation corpus. Its most important negative result is that a valid backend receipt does not independently prove truthful tree size, actual log population or completeness. Reviewer-facing closure remains partial until C7 integrates these results into the article and C8 resolves every comment to exact manuscript locations.
+C4 supplies the executed semantic, issuer, commitment, receipt, proof and retained-state mutation corpus. Its most important negative result is that a valid backend receipt does not independently prove truthful tree size, actual log population or completeness.
+
+C5 supplies the preregistered W1 B0–B2 paired local experiment: five pilot blocks retained and excluded, twenty confirmatory paired blocks, sixty process runs, 7,680 operation timings, p50/p95/p99 paired increments, canonical application-byte increments and a labelled local storage proxy. The evidence closes the empirical workstream only at the local reference-pipeline level; W2 was prospectively omitted and no production-EHR, hospital-latency, network, database, scalability or organisational-cost result is claimed.
+
+Reviewer-facing closure remains partial until C7 integrates the C2–C5 evidence into the article and C8 resolves every comment to exact manuscript locations.
