@@ -201,12 +201,33 @@ def main() -> None:
     except (tarfile.TarError, OSError) as exc:
         failures.append(f"retained IG package is unreadable: {exc}")
 
-    for forbidden_dir in (FHIR / "output", FHIR / "temp", FHIR / "input-cache"):
+    forbidden_relatives = (
+        "standards/fhir_ig/output",
+        "standards/fhir_ig/temp",
+        "standards/fhir_ig/input-cache",
+        "standards/fhir_ig/template",
+    )
+    for relative in forbidden_relatives:
+        forbidden_dir = ROOT / relative
         require(
             not forbidden_dir.exists(),
-            f"generated site/cache retained unexpectedly: {forbidden_dir.relative_to(ROOT)}",
+            f"generated site/cache/template retained unexpectedly: {relative}",
             failures,
         )
+
+    manifest = ROOT / "FILE_MANIFEST.tsv"
+    if manifest.is_file():
+        manifest_paths = {
+            line.split("\t", 1)[0]
+            for line in manifest.read_text(encoding="utf-8").splitlines()[1:]
+            if line.strip()
+        }
+        for prefix in forbidden_relatives:
+            require(
+                not any(path == prefix or path.startswith(prefix + "/") for path in manifest_paths),
+                f"integrity manifest retains generated path prefix: {prefix}",
+                failures,
+            )
 
     if failures:
         raise SystemExit("C3-RETAINED-EVIDENCE: FAIL\n" + "\n".join(failures))
