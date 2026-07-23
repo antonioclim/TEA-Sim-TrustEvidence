@@ -15,7 +15,10 @@ This document defines the strongest wording that the emergency JCIS revision may
 7. Exact same-state replay is accepted by the bounded verifier; freshness and duplicate suppression are higher-layer controls.
 8. A SUSHI build is not FHIR conformance. Official-validator wording is permitted only for the exact corpus, package versions and tools that were executed.
 9. Synthetic or public-derived data are not operational patient deployment evidence.
-10. Local timing results describe the measured reference pipeline and host; they are not production estimates.
+10. Local timing results describe the measured reference pipeline, workload, process design and host; they are not production estimates.
+11. Operation-level samples define within-process percentiles. The C5 inferential unit is the independent paired process block, not each operation.
+12. A deterministic bootstrap interval over the retained paired blocks describes the observed run and resampling design; it is not a population interval for hospitals or EHR products.
+13. Canonical application-byte and local-storage-proxy values are neither network-byte nor database-storage measurements.
 
 ## Conditional claims
 
@@ -29,7 +32,7 @@ This document defines the strongest wording that the emergency JCIS revision may
 | RC-C06 | Payload commitments detected the reported changes when the retained nonce and payload bytes were supplied | commitment mutation tests | commitment is neither encryption nor clinical validation |
 | RC-C07 | The local A2 model rejected the registered inconsistent receipt and retained-state cases and reported its expected limitation acceptances | receipt, proof, checkpoint, limitation and mutation results | local project-specific model; no truthful-tree-size, completeness or public-transparency claim |
 | RC-C08 | No forbidden clinical fields were identified by the executed scans | package, log, result and evidence scans | absence is limited to the declared scan corpus and rules |
-| RC-C09 | The B0-B2 experiment measured local incremental processing and message-size overhead | preregistered inputs, at least 20 independent runs, raw data, p50/p95/p99 | not total production EHR overhead |
+| RC-C09 | For the frozen synthetic W1 case on the reported host, the B0--B2 experiment measured the reported paired local processing, canonical application-byte and storage-proxy increments | frozen protocol; five excluded pilot blocks; twenty retained paired process blocks; raw M0--M7 data; p50/p95/p99; paired increments; result contracts | not production EHR overhead, hospital latency, network cost, database storage, scalability, cost reduction or negligible overhead |
 | RC-C10 | The exact release was reproducible under the declared fresh-extraction procedure | CI, fresh extraction, manifests, checksums and regenerated outputs | environment- and version-bounded |
 
 ## Claims prohibited in Route C
@@ -52,7 +55,11 @@ The manuscript, supplement, repository, release notes and reviewer response must
 - formal verification;
 - expert validation or consensus;
 - scalability to large healthcare networks;
-- superiority over all FHIR or healthcare-audit implementations.
+- superiority over all FHIR or healthcare-audit implementations;
+- total production EHR overhead or end-to-end hospital latency;
+- negligible, acceptable or equivalent overhead without a prospective margin and operational criterion;
+- network-byte, database-storage or cloud-cost interpretation of C5 application-byte and storage-proxy values;
+- generalisation of the W1 timing result to other workloads, institutions or systems.
 
 ## Wording controls
 
@@ -65,11 +72,15 @@ The manuscript, supplement, repository, release notes and reviewer response must
 | receipt proves the log contained N events | the authorised backend receipt asserted tree size N; actual log population was not independently established |
 | FHIR compliant | the reported examples passed the named FHIR validation toolchain |
 | real-world validation | synthetic or public-derived case evaluation |
-| total EHR overhead | total local reference-pipeline increment over the declared baseline |
+| total EHR overhead | paired local reference-pipeline increment for the frozen W1 case on the reported host |
+| hospital p95 or p99 | within-process M7 percentile for 128 sequential local operations |
+| 16,205 network bytes | 16,205 additional canonical application bytes for the exact retained fixture |
+| 215,339 database bytes | 215,339-byte final project storage proxy after 128 local B2 operations |
+| negligible overhead | the reported increment, without an acceptability or equivalence claim |
 | trust improvement | attributable, context-bound audit evidence |
 | complete audit trail | completeness was not established |
 | expert validated | no expert-validation result is claimed |
 
 ## Demotion rule
 
-If a required test or validator is absent, fails, or is not reproducible on the release candidate, the associated claim is either removed or rewritten as a limitation. A failure must not be hidden in repository documentation while the manuscript retains the stronger wording. When an empirical result falsifies a preregistered expected rejection, the original failure must remain traceable and the final protocol must identify the resulting limitation rather than silently redefining it as a security success.
+If a required test or validator is absent, fails, or is not reproducible on the release candidate, the associated claim is either removed or rewritten as a limitation. A failure must not be hidden in repository documentation while the manuscript retains the stronger wording. When an empirical result falsifies a preregistered expected rejection, the original failure must remain traceable and the final protocol must identify the resulting limitation rather than silently redefining it as a security success. Empirical magnitudes must remain attached to their experimental unit, workload, host, timing boundary and omitted deployment components.
