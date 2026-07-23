@@ -36,11 +36,11 @@ The detailed register controls identifiers, severity, Route C phase, minimum evi
 | Request family | Route C response | Minimum closure evidence |
 |---|---|---|
 | Concrete medical exchange and complete evidence object | C3 synthetic DiagnosticReport disclosure case | Source resources, field classification, signed envelope, FHIR projection, local receipt, verification report and checksums |
-| Merkle explanation and purpose | C4 property-specific mechanism and mutations | Inclusion, consistency, stale-state and relabelling results plus bounded wording |
+| Merkle explanation and purpose | C4 property-specific mechanism and mutations | Inclusion, consistency, stale-state, relabelling and explicit authorised-backend limitation results |
 | Process, steps and tools | C3–C5 Input–Processing–Output chain | Executable commands, exact versions and retained outputs |
 | State of the art | C2 direct literature synthesis | Verified source registry and comparator matrix |
 | Readable figures and tables | C7 redesign | Final-size vector/raster QA and reviewer-PDF inspection |
-| Encryption | C4 controls table | Exact distinction among commitment, signature, TLS and optional at-rest controls |
+| Encryption | C4 controls table | Exact distinction among commitment, signature, receipt, TLS and optional at-rest controls; no implemented encryption claim |
 | Total overhead | C5 B0–B2 local incremental experiment | Independent paired runs, p50/p95/p99, byte measures and raw results |
 
 ## Reviewer 2 evidence path
@@ -74,7 +74,7 @@ The request concerning generative artificial intelligence, programming occupatio
 | Deployability | C6/C7 component and release analysis | No hospital-readiness claim |
 | Interoperability beyond FHIR | C3 semantic round trip and exact-byte preservation | Audit-evidence interoperability, not improved clinical semantics |
 | Cost and complexity | C5 processing/byte increments and component inventory | No organisational cost-reduction claim |
-| Accountability, transparency and trust | C4/C7 property-specific discussion | Attributable evidence and bounded local inclusion/consistency; organisational trust not measured |
+| Accountability, transparency and trust | C4/C7 property-specific discussion | Attributable evidence and bounded local inclusion/consistency; backend honesty, completeness and organisational trust not measured |
 
 ## Closure statuses
 
@@ -86,6 +86,10 @@ The request concerning generative artificial intelligence, programming occupatio
 - `NOT-APPLICABLE` — the request demonstrably concerns another manuscript.
 - `OPEN` — submission is blocked if the request is major and no justified bounded response exists.
 
-## C2 status
+## Current phase status
 
-C2 closes only design-level concerns: title, artefact identity, RQs, novelty boundary, literature plan, reviewer atomisation and manuscript architecture. C3–C6 evidence requests remain open until their outputs are executed.
+C2 closes the design-level concerns concerning title, artefact identity, research questions, novelty boundary, literature plan, reviewer atomisation and manuscript architecture.
+
+C3 supplies the complete synthetic healthcare case, the field-level boundary instantiation and the bounded official FHIR toolchain evidence.
+
+C4 supplies the executed semantic, issuer, commitment, receipt, proof and retained-state mutation corpus. Its most important negative result is that a valid backend receipt does not independently prove truthful tree size, actual log population or completeness. Reviewer-facing closure remains partial until C7 integrates these results into the article and C8 resolves every comment to exact manuscript locations.
