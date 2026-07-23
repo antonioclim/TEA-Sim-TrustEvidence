@@ -1,7 +1,7 @@
 PYTHON ?= python
 export PYTHONDONTWRITEBYTECODE := 1
 
-.PHONY: compile test property bounded results-manifest result-contracts metadata integrity hie security quick analyse figures tables compare clean final-check release-check
+.PHONY: compile test property bounded results-manifest result-contracts metadata integrity hie security overhead quick analyse figures tables compare clean final-check release-check
 
 compile:
 	@tmp=$$(mktemp -d); PYTHONPYCACHEPREFIX=$$tmp $(PYTHON) -m compileall -q src tests property_tests experiments scripts bounded_model; rm -rf $$tmp
@@ -36,6 +36,9 @@ hie:
 security:
 	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_security_mutations.py --check
 
+overhead:
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_incremental_overhead.py --check
+
 quick:
 	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_cmpb_curation_pipeline.py --quick
 
@@ -66,6 +69,7 @@ final-check:
 	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_hero_case.py --check
 	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) scripts/check_c3_retained_evidence.py
 	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_security_mutations.py --check
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_incremental_overhead.py --check
 
-release-check: clean compile test property bounded results-manifest result-contracts metadata integrity hie security quick analyse figures tables compare final-check
+release-check: clean compile test property bounded results-manifest result-contracts metadata integrity hie security overhead quick analyse figures tables compare final-check
 	@echo "RELEASE-CHECK: PASS"

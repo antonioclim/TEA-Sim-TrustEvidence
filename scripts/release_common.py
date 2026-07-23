@@ -86,6 +86,8 @@ def generator_for(rel: str) -> str:
         return "scripts/make_reproducibility_manifest.py"
     if rel.startswith("results_expected/cmpb_reference/c4_hie_security/"):
         return "experiments/run_hie_security_mutations.py"
+    if rel.startswith("results_expected/cmpb_reference/c5_hie_overhead/"):
+        return "experiments/run_hie_incremental_overhead.py"
     if rel.startswith("schemas/results/"):
         return "source-controlled result contract"
     if rel.startswith("figures/outputs/"):
@@ -110,6 +112,8 @@ def sources_for(rel: str) -> str:
         return "all retained result files except this manifest"
     if rel.startswith("results_expected/cmpb_reference/c4_hie_security/"):
         return "retained HIE hero case; Route C security protocol; local A2 verifier"
+    if rel.startswith("results_expected/cmpb_reference/c5_hie_overhead/"):
+        return "retained HIE hero case; C5 execution plan; B0-B2 experiment driver"
     if rel.startswith("schemas/results/"):
         return "retained result CSV structures"
     if rel.startswith("figures/outputs/"):
@@ -126,6 +130,8 @@ def reproducibility_class_for(rel: str) -> str:
         return "byte-deterministic"
     if rel.startswith("schemas/results/"):
         return "source-controlled"
+    if rel.startswith("results_expected/cmpb_reference/c5_hie_overhead/"):
+        return "measurement-variable"
     if rel.startswith("results_expected/cmpb_reference/raw_runs/timing_samples.csv") or rel.endswith("workload_passage_summary.csv") or rel.endswith("hardware_profile.json") or rel.endswith("run_metadata.json"):
         return "measurement-variable"
     if rel.startswith("figures/outputs/"):

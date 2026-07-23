@@ -1,0 +1,261 @@
+{
+  "$id": "urn:te:schema:result-row:hie_overhead_run:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_projection_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "baseline": {
+      "enum": [
+        "B0",
+        "B1",
+        "B2"
+      ],
+      "type": "string"
+    },
+    "baseline_order": {
+      "type": "string"
+    },
+    "complete_portable_envelope_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "end_utc": {
+      "type": "string"
+    },
+    "expected_invalid_cases": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "expected_invalid_rejections": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "false_accepts": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "false_rejects": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "inclusion_proof_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "m0_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m1_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m2_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m3_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m4_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m5_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m6_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m7_p50_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m7_p95_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m7_p99_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m7_sum_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "operation_count": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "order_position": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "paired_block_id": {
+      "type": "string"
+    },
+    "passed": {
+      "enum": [
+        "true",
+        "false"
+      ],
+      "type": "string"
+    },
+    "payload_exclusion_findings": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "pilot",
+        "retained"
+      ],
+      "type": "string"
+    },
+    "process_pid": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "process_wall_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "receipt_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "retry_count": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "run_duration_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "seed": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "signature_material_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "software_status": {
+      "type": "string"
+    },
+    "source_digest_preserved": {
+      "enum": [
+        "true",
+        "false"
+      ],
+      "type": "string"
+    },
+    "source_fhir_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "start_utc": {
+      "type": "string"
+    },
+    "storage_proxy_final_bytes": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "total_application_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "trust_evidence_envelope_bytes_median": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "valid_cases": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "validation_failures": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "verification_failures": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "warmup_count": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "workload_id": {
+      "enum": [
+        "W1-HIE-DISCLOSURE",
+        "W2-WEARABLE-BATCH"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "software_status",
+    "phase",
+    "workload_id",
+    "paired_block_id",
+    "baseline",
+    "baseline_order",
+    "order_position",
+    "seed",
+    "warmup_count",
+    "operation_count",
+    "process_pid",
+    "start_utc",
+    "end_utc",
+    "process_wall_ms",
+    "run_duration_ms",
+    "m7_sum_ms",
+    "m7_p50_ms",
+    "m7_p95_ms",
+    "m7_p99_ms",
+    "m0_p50_ms",
+    "m1_p50_ms",
+    "m2_p50_ms",
+    "m3_p50_ms",
+    "m4_p50_ms",
+    "m5_p50_ms",
+    "m6_p50_ms",
+    "source_fhir_bytes_median",
+    "audit_projection_bytes_median",
+    "trust_evidence_envelope_bytes_median",
+    "complete_portable_envelope_bytes_median",
+    "signature_material_bytes_median",
+    "receipt_bytes_median",
+    "inclusion_proof_bytes_median",
+    "total_application_bytes_median",
+    "storage_proxy_final_bytes",
+    "valid_cases",
+    "validation_failures",
+    "verification_failures",
+    "expected_invalid_cases",
+    "expected_invalid_rejections",
+    "false_accepts",
+    "false_rejects",
+    "retry_count",
+    "source_sha256",
+    "source_digest_preserved",
+    "payload_exclusion_findings",
+    "passed"
+  ],
+  "title": "C5 HIE overhead process-run parsed CSV row",
+  "type": "object"
+}

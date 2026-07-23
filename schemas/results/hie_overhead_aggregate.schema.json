@@ -1,0 +1,95 @@
+{
+  "$id": "urn:te:schema:result-row:hie_overhead_aggregate:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ci95_high": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "ci95_low": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "comparison": {
+      "enum": [
+        "B1-B0",
+        "B2-B1",
+        "B2-B0"
+      ],
+      "type": "string"
+    },
+    "estimator": {
+      "type": "string"
+    },
+    "maximum_increment": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "mean_increment": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "median_increment": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "metric": {
+      "enum": [
+        "run_duration_ms",
+        "m7_p50_ms",
+        "m7_p95_ms",
+        "m7_p99_ms",
+        "total_application_bytes_median",
+        "storage_proxy_final_bytes"
+      ],
+      "type": "string"
+    },
+    "minimum_increment": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "n_pairs": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "unit": {
+      "enum": [
+        "ms",
+        "bytes"
+      ],
+      "type": "string"
+    },
+    "workload_id": {
+      "enum": [
+        "W1-HIE-DISCLOSURE",
+        "W2-WEARABLE-BATCH"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "workload_id",
+    "comparison",
+    "metric",
+    "unit",
+    "n_pairs",
+    "median_increment",
+    "mean_increment",
+    "ci95_low",
+    "ci95_high",
+    "minimum_increment",
+    "maximum_increment",
+    "estimator",
+    "claim_boundary"
+  ],
+  "title": "C5 HIE overhead aggregate-estimate parsed CSV row",
+  "type": "object"
+}

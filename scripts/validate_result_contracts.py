@@ -26,6 +26,18 @@ CONTRACTS = [
     ("bounded_model_summary.csv", "bounded_model_summary.schema.json"),
     ("workload_passage_summary.csv", "workload_passage_summary.schema.json"),
     ("receipt_size_summary.csv", "receipt_size_summary.schema.json"),
+    (
+        "c5_hie_overhead/retained_runs.csv",
+        "hie_overhead_run.schema.json",
+    ),
+    (
+        "c5_hie_overhead/paired_increments.csv",
+        "hie_overhead_pair.schema.json",
+    ),
+    (
+        "c5_hie_overhead/aggregate_estimates.csv",
+        "hie_overhead_aggregate.schema.json",
+    ),
     ("reproducibility_manifest.csv", "reproducibility_manifest.schema.json"),
 ]
 

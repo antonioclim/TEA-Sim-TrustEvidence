@@ -1,0 +1,75 @@
+{
+  "$id": "urn:te:schema:result-row:hie_overhead_pair:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_order": {
+      "type": "string"
+    },
+    "comparison": {
+      "enum": [
+        "B1-B0",
+        "B2-B1",
+        "B2-B0"
+      ],
+      "type": "string"
+    },
+    "m7_p50_increment_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m7_p95_increment_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "m7_p99_increment_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "paired_block_id": {
+      "type": "string"
+    },
+    "run_duration_increment_ms": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "seed": {
+      "pattern": "^-?\\d+$",
+      "type": "string"
+    },
+    "storage_proxy_bytes_increment": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "total_application_bytes_increment": {
+      "pattern": "^-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$",
+      "type": "string"
+    },
+    "workload_id": {
+      "enum": [
+        "W1-HIE-DISCLOSURE",
+        "W2-WEARABLE-BATCH"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "workload_id",
+    "paired_block_id",
+    "seed",
+    "baseline_order",
+    "comparison",
+    "run_duration_increment_ms",
+    "m7_p50_increment_ms",
+    "m7_p95_increment_ms",
+    "m7_p99_increment_ms",
+    "total_application_bytes_increment",
+    "storage_proxy_bytes_increment"
+  ],
+  "title": "C5 HIE overhead paired-increment parsed CSV row",
+  "type": "object"
+}
