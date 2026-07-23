@@ -14,8 +14,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  apply:
-    name: Apply frozen C5 implementation bundle
+  cleanup:
+    name: Remove staged C5 transfer chunks
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
@@ -26,45 +26,16 @@ jobs:
           ref: revision/jcis-route-c
           fetch-depth: 1
 
-      - name: Reconstruct and verify the implementation archive
+      - name: Remove and commit transfer chunks
         shell: bash
         run: |
-          cat scripts/c5_implementation_bundle.part00 \
-              scripts/c5_implementation_bundle.part01 \
-              scripts/c5_implementation_bundle.part02 \
-              scripts/c5_implementation_bundle.part03 \
-              scripts/c5_implementation_bundle.part04 \
-            | base64 -d > /tmp/c5-implementation.tar.gz
-          echo '3ca4ee853d82aad7d656f1791a1cc958f6bc2b9653cb6c236ed61b73e6ddb37b  /tmp/c5-implementation.tar.gz' | sha256sum --check
-          tar -xzf /tmp/c5-implementation.tar.gz
-
-      - name: Verify implementation
-        shell: bash
-        run: |
-          python -m py_compile \
-            experiments/run_hie_incremental_overhead.py \
-            tests/test_hie_overhead_route_c.py
-
-      - name: Commit non-workflow implementation files
-        shell: bash
-        run: |
+          if ! compgen -G 'scripts/c5_implementation_bundle.part0*' > /dev/null; then
+            echo 'C5 transfer chunks are already absent.'
+            exit 0
+          fi
+          rm -f scripts/c5_implementation_bundle.part0*
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add \
-            Makefile \
-            scripts/validate_result_contracts.py \
-            scripts/release_common.py \
-            experiments/run_hie_incremental_overhead.py \
-            tests/test_hie_overhead_route_c.py \
-            data_examples/c5_overhead \
-            docs/route_c/C5_EXECUTION_PLAN.md \
-            docs/route_c/C5_MATERIALISATION_TRIGGER.md \
-            schemas/results/hie_overhead_run.schema.json \
-            schemas/results/hie_overhead_pair.schema.json \
-            schemas/results/hie_overhead_aggregate.schema.json
-          if git diff --cached --quiet; then
-            echo 'No non-workflow C5 implementation changes were generated.'
-            exit 1
-          fi
-          git commit -m 'feat(route-c): implement frozen C5 overhead experiment'
+          git add -u scripts/c5_implementation_bundle.part0*
+          git commit -m 'chore(route-c): remove C5 transfer chunks'
           git push origin HEAD:revision/jcis-route-c
