@@ -36,9 +36,9 @@ sha256sum "$PUBLISHER_JAR" "$VALIDATOR_JAR" > "$VALIDATION_DIR/tool_sha256.txt"
   echo "python=$(python --version 2>&1)"
   echo "java=$(java -version 2>&1 | head -n 1)"
   echo "node=$(node --version)"
+  echo "ruby=$(ruby --version)"
+  echo "jekyll=$(jekyll --version)"
   echo "sushi=$(sushi --version 2>&1 | tail -n 1)"
-  echo "publisher=$(java -jar "$PUBLISHER_JAR" -version 2>&1 | tail -n 1)"
-  echo "validator=$(java -jar "$VALIDATOR_JAR" -version 2>&1 | tail -n 1)"
 } > "$VALIDATION_DIR/tool_versions.txt"
 
 java -jar "$PUBLISHER_JAR" -ig standards/fhir_ig/ig.ini -tx n/a \
@@ -63,10 +63,15 @@ validate_one() {
   printf '%s\t%s\t%s\n' "$kind" "$status" "$source" >> "$VALIDATION_DIR/validator_status.tsv"
 }
 
-for source in standards/fhir_ig/input/resources/*.json; do
+POSITIVE_FILES=(
+  standards/fhir_ig/input/resources/Bundle-portable-evidence-bundle-hie-001.json
+  data_examples/hie_disclosure/source/source_clinical_bundle.json
+  standards/fhir_ig/input/resources/AuditEvent-authorisation-decision-hie-001.json
+  standards/fhir_ig/input/resources/AuditEvent-privacy-disclosure-source-hie-001.json
+)
+for source in "${POSITIVE_FILES[@]}"; do
   validate_one positive "$source"
 done
-validate_one positive data_examples/hie_disclosure/source/source_clinical_bundle.json
 for source in standards/fhir_ig/negative/*.json; do
   validate_one negative "$source"
 done
