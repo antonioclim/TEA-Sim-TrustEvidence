@@ -96,7 +96,7 @@ jobs:
 
       - name: Build the deterministic hero case
         run: |
-          python experiments/build_hie_hero_case.py --write
+          python experiments/run_hie_hero_case.py --write
           python scripts/check_hie_fhir_projection.py --output standards/fhir_ig/validation/semantic_validation.json
 
       - name: Compile the minimal implementation guide with SUSHI
@@ -218,9 +218,9 @@ jobs:
       - name: Build or verify the deterministic hero case
         run: |
           if test -f data_examples/hie_disclosure/case_manifest.json; then
-            python experiments/build_hie_hero_case.py --check
+            python experiments/run_hie_hero_case.py --check
           else
-            python experiments/build_hie_hero_case.py --write
+            python experiments/run_hie_hero_case.py --write
           fi
           python scripts/check_hie_fhir_projection.py --output "${RUNNER_TEMP}/semantic_validation.json"
 
