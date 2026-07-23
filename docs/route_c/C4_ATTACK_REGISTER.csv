@@ -1,0 +1,17 @@
+family_id,case_ids,attack_surface,expected_outcome,minimum_observation,claim_boundary
+C4-A01,POS-HIE-*,positive reference,accepted,PASS under correct key registries and expected backend/log,exact synthetic fixtures only
+C4-A02,CORE-001:CORE-005;CORE-007:CORE-012,portable semantic facts,rejected,issuer-signature or declared binding error,unauthorised change detection not truth
+C4-A03,CORE-006;CORE-013:CORE-015;CORE-018,closed profile and frozen case semantics,rejected,registered schema or semantic code,profile-specific admission only
+C4-A04,CORE-016:CORE-019,issuer signature and trust registry,rejected,TE-E-CORE-SIGNATURE,declared registry only
+C4-A05,LIM-ISSUER-*,authorised or compromised issuer,accepted,PASS with newly signed core and receipt,signatures do not prove statement truth
+C4-A06,RCP-*,receipt and proof without re-signing,rejected,receipt/proof/identity code,local receipt profile only
+C4-A07,RSIG-001:RSIG-008,malformed receipt re-signed by test backend,rejected,binding path digest or identity code,backend signature alone is insufficient
+C4-A08,RSIG-009,backend trust registry,rejected,TE-E-RECEIPT-SIGNATURE,declared registry only
+C4-A09,RPL-001,receipt transplanted to another signed core,rejected,TE-E-RECEIPT-BINDING,no general freshness claim
+C4-A10,STATE-002:STATE-008;STATE-010,retained checkpoint,rejected,rollback fork consistency or identity code and unchanged state,local retained state only
+C4-A11,STATE-001;STATE-009,valid same state and valid prefix extension,accepted,no unintended state change then one intended advancement,no persistence or crash recovery
+C4-A12,LIM-BACKEND-001,coherent split view without retained state,accepted,PASS,global non-equivocation not established
+C4-A13,LIM-REPLAY-001,exact same-state duplicate replay,accepted,PASS,replay suppression not implemented
+C4-A14,COMMIT-001,exact committed payload and nonce,accepted,PASS,authorised-side candidate verification only
+C4-A15,COMMIT-002:COMMIT-007,payload nonce representation and context,rejected,commitment mismatch or nonce validation,commitment is not encryption
+C4-A16,COMMIT-008:COMMIT-009,portable artefact custody,absent,no test nonce or declared source markers found,no general privacy or anonymity claim
