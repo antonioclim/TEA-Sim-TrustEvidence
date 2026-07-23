@@ -1,35 +1,75 @@
-name: Route C C6 Source Snapshot
+name: Route C C6 Apply Candidate Patch
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
+      - revision/jcis-route-c
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  snapshot:
-    name: Materialise C6 source snapshot
+  apply-candidate:
+    name: Apply the controlled C6 candidate patch
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.head_commit.message == 'ci(route-c): apply C6 candidate patch'
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
-      - name: Check out the Route C branch
+      - name: Check out the controlled Route C branch
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: revision/jcis-route-c
+          fetch-depth: 0
 
-      - name: Upload source snapshot
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: route-c-c6-source-snapshot
-          path: |
-            .
-            !.git/**
-            !.venv/**
-            !dist/**
-            !build/**
-          include-hidden-files: true
-          if-no-files-found: error
-          retention-days: 3
+      - name: Reassemble and authenticate the staged patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .github/c6_patch_parts/part-*.txt > /tmp/c6.patch.xz.b64
+          printf '%s  %s\n' \
+            '899b889f19470443fd7e30a354eefb90dd2b116998659cf8009b779d5073a13f' \
+            '/tmp/c6.patch.xz.b64' | sha256sum --check --strict -
+          base64 --decode /tmp/c6.patch.xz.b64 | xz --decompress > /tmp/c6.patch
+          printf '%s  %s\n' \
+            'c695f53da23985f783b97b43fc92450076e4461022b2a6f0a5e51ae5a94c6699' \
+            '/tmp/c6.patch' | sha256sum --check --strict -
+
+      - name: Apply the release-candidate tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git apply --check --whitespace=error-all /tmp/c6.patch
+          git apply --whitespace=error-all /tmp/c6.patch
+          rm -rf .github/c6_patch_parts
+          rm -f .github/workflows/c6-source-snapshot.yml
+          python scripts/rebuild_integrity_files.py
+          git diff --check
+
+      - name: Execute pre-commit C6 governance checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/check_public_metadata.py
+          python scripts/check_action_pins.py
+          python scripts/audit_public_distribution.py
+          python scripts/make_reproducibility_manifest.py --check
+          python scripts/repository_check.py
+          python scripts/verify_sha256sums.py SHA256SUMS.txt
+          python scripts/verify_file_manifest.py FILE_MANIFEST.tsv
+
+      - name: Commit the integrated v2.2.0 release candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'The C6 patch produced no candidate-tree change.'
+            exit 1
+          fi
+          git commit -m 'feat(route-c): construct v2.2.0 release candidate'
+          git push origin HEAD:revision/jcis-route-c
