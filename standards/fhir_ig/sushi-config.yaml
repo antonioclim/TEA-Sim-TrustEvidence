@@ -1,0 +1,21 @@
+id: org.trustevidence.hie
+canonical: https://example.org/fhir/trustevidence-hie
+name: TrustEvidenceHIE
+title: TrustEvidence HIE Reference Profile
+status: draft
+version: 0.1.0
+fhirVersion: 4.0.1
+copyrightYear: 2026+
+releaseLabel: ci-build
+publisher:
+  name: Anonymous Route C Research Artefact
+  url: https://example.org/trustevidence
+dependencies:
+  ihe.iti.balp: 1.1.4
+parameters:
+  show-inherited-invariants: false
+  apply-contact: false
+  apply-jurisdiction: false
+  apply-publisher: false
+menu:
+  Home: index.html
