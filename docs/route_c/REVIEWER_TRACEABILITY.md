@@ -2,70 +2,79 @@
 
 ## Purpose
 
-This register maps the JCIS revision requests to Route C evidence. It prevents a textual clarification from being used to close a request that requires an executed artefact or measurement.
+This document provides the high-level reviewer-to-evidence map. The authoritative atomised register is:
+
+```text
+docs/route_c/REVIEWER_COMMENT_REGISTRY.csv
+```
+
+The detailed register controls identifiers, severity, Route C phase, minimum evidence, current status, manuscript destination and closure rule. This summary must not be used to close a request independently.
+
+## Evidence-level rule
+
+- Presentation requests may be closed by a verified manuscript change.
+- Specification requests require an inspectable artefact.
+- Validation, security and performance requests require executed outputs.
+- Production, organisational, legal and clinical-effectiveness questions remain explicit limitations under Route C.
+- A planned task never closes an evidence request.
 
 ## Editorial requirements
 
 | ID | Requirement | Route C evidence |
 |---|---|---|
-| ED-01 | point-to-point response | C8 response document and closure matrix |
-| ED-02 | revised Word manuscript with visible changes | anonymous tracked DOCX |
-| ED-03 | title no longer than eight words | title decision and word-count audit |
-| ED-04 | manuscript no longer than 10,000 words | generated word-count report |
-| ED-05 | authorship unchanged | title-page and portal parity audit |
-| ED-06 | JCIS reference and formatting requirements | manuscript QA report |
-| ED-07 | unnumbered headings and subheadings | heading audit |
+| ED-01 | Point-to-point response | C8 response document and closure matrix |
+| ED-02 | Revised Word manuscript with visible changes | Anonymous tracked or controlled highlighted DOCX plus parity report |
+| ED-03 | Title no longer than eight words | Frozen eight-word title and title audit |
+| ED-04 | Manuscript no longer than 10,000 words | 9,300-word internal budget and final count |
+| ED-05 | Avoid unnecessary self-citation | Citation and self-citation audit |
+| ED-06 | Authorship unchanged | Title-page and portal parity audit |
+| ED-07 | JCIS reference and formatting requirements | Manuscript QA report |
+| ED-08 | Unnumbered headings and subheadings | Heading audit |
 
-## Reviewer 1
+## Reviewer 1 evidence path
 
-| ID | Request | Route C action | Minimum evidence |
-|---|---|---|---|
-| R1-01 | specific health-data examples | C3 disclosure hero case | complete retained synthetic case |
-| R1-02 | explain Merkle trees and their purpose | C4 mechanism and claim-boundary section | receipt/proof tests and diagram |
-| R1-03 | explain process, steps and tools | C3-C5 IPO pipeline | executable commands and artefacts |
-| R1-04 | extend the state of the art | C2 critical literature synthesis | verified direct-comparator matrix |
-| R1-05 | readable tables and figures | C7 redesign | visual QA at final size |
-| R1-06 | complete evidence entity with concrete data | C3 populated envelope | source, envelope, receipt and verification report |
-| R1-07 | explain encryption | C4 cryptographic-controls table | exact distinction between commitment, signature and encryption |
-| R1-08 | total overhead of adding TrustEvidence | C5 B0-B2 experiment | retained independent runs and p50/p95/p99 |
+| Request family | Route C response | Minimum closure evidence |
+|---|---|---|
+| Concrete medical exchange and complete evidence object | C3 synthetic DiagnosticReport disclosure case | Source resources, field classification, signed envelope, FHIR projection, local receipt, verification report and checksums |
+| Merkle explanation and purpose | C4 property-specific mechanism and mutations | Inclusion, consistency, stale-state and relabelling results plus bounded wording |
+| Process, steps and tools | C3–C5 Input–Processing–Output chain | Executable commands, exact versions and retained outputs |
+| State of the art | C2 direct literature synthesis | Verified source registry and comparator matrix |
+| Readable figures and tables | C7 redesign | Final-size vector/raster QA and reviewer-PDF inspection |
+| Encryption | C4 controls table | Exact distinction among commitment, signature, TLS and optional at-rest controls |
+| Total overhead | C5 B0–B2 local incremental experiment | Independent paired runs, p50/p95/p99, byte measures and raw results |
 
-## Reviewer 2
+## Reviewer 2 evidence path
 
 | Concern family | Route C response |
 |---|---|
-| title and abstract | new eight-word title; abstract written after results freeze |
-| recent literature | direct and recent healthcare audit, provenance, consent and integrity work |
-| validity | explicit structural, semantic, standards, cryptographic and empirical evidence classes |
-| terminology | first-use definitions, acronym reduction and terminology sheet |
-| data and metadata | C3 case registry, source resources, field classification and provenance |
-| Input-Processing-Output | one end-to-end case and algorithm diagram |
-| figures and tables | reduced visual count, larger type, vector sources and visual audit |
-| Results organisation | Results follow RQ and method order; interpretation moves to Discussion |
-| numerical consistency | generated number registry and cross-document audit |
+| Title and abstract | Frozen eight-word title; abstract written after results freeze |
+| Recent and direct literature | C2 DOI/canonical registry and critical comparator synthesis |
+| Validity and verification | Separate standards, semantic, implementation, security, empirical and reproducibility evidence |
+| Terminology and acronyms | Canonical terminology and first-use expansion; `TrustEvidence` only |
+| Data and metadata | C3 source registry, concrete synthetic resources, transformations and case provenance |
+| Input–Processing–Output | Frozen processing pipeline and end-to-end hero case |
+| Figures and tables | Reduced visual count, larger type, vector sources and visual audit |
+| Results structure | Results follow RQ and method order; interpretation moves to Discussion |
+| Numerical consistency | Generated number registry and cross-document audit |
 
-## Reviewer 3
+## Reviewer 3 evidence path
 
-The general concerns regarding contribution, methodology, literature, structure and abstract are addressed in C2 and C7. The references to generative artificial intelligence, programming occupations and labour-market transformation appear to concern a different manuscript. Route C will respond respectfully to that mismatch and will not add unrelated literature.
+The general concerns regarding contribution, methodology, literature, structure and abstract remain mandatory and are owned by C2 and C7.
 
-## Reviewer 4
+The request concerning generative artificial intelligence, programming occupations and labour-market transformation is recorded as `R3-06`, severity `MISMATCH`, status `NOT-APPLICABLE`. C8 will respond respectfully to the apparent mismatch without introducing unrelated literature.
 
-| ID | Request | Route C response | Claim ceiling |
-|---|---|---|---|
-| R4-01 | define the identity and novelty of TrustEvidence | C2 scientific identity and comparator matrix | healthcare-specific boundary and reference profile |
-| R4-02 | distinguish from FHIR AuditEvent, Provenance and Consent | C2/C3 mapping and hero case | FHIR provides representation; TrustEvidence defines the selected boundary and binding |
-| R4-03 | distinguish from cryptographic integrations | C2/C4 literature and controls | no claim to a new signature or Merkle primitive |
-| R4-04 | assess scalability | C5 local state-size and timing evidence only if executed | no large-network claim |
-| R4-05 | discuss deployability | C7 bounded reference-deployment analysis | no hospital-readiness claim |
-| R4-06 | explain interoperability beyond FHIR | C3 semantic and byte-preservation tests | audit-evidence interoperability, not improved clinical semantics |
-| R4-07 | address cost and complexity | C5 measured local increments and component inventory | no organisational cost-reduction claim |
-| R4-08 | accountability, transparency and trust | C4/C7 property-specific discussion | attributable evidence and local transparency properties; trust not measured |
+## Reviewer 4 evidence path
 
-## Evidence-level rule
-
-- Presentation requests may be closed by manuscript evidence.
-- Specification requests require an inspectable artefact.
-- Validation and performance requests require executed outputs.
-- Production, organisational and clinical-effectiveness questions remain limitations under Route C.
+| Request family | Route C response | Claim ceiling |
+|---|---|---|
+| TrustEvidence identity and novelty | C2 Scientific Identity Card and hostile novelty test | Healthcare-specific boundary model and executable reference profile |
+| Difference from FHIR AuditEvent, Provenance and Consent | C2 delta matrix plus C3 mapping and official validation | FHIR provides representation; TrustEvidence selects and binds the declared portable evidence set |
+| Difference from cryptographic integrations | C2 literature and C4 mechanism audit | No new canonicalisation, signature, Merkle, SCITT or COSE Receipt primitive |
+| Scalability | C5 bounded local workloads only | No large-network claim |
+| Deployability | C6/C7 component and release analysis | No hospital-readiness claim |
+| Interoperability beyond FHIR | C3 semantic round trip and exact-byte preservation | Audit-evidence interoperability, not improved clinical semantics |
+| Cost and complexity | C5 processing/byte increments and component inventory | No organisational cost-reduction claim |
+| Accountability, transparency and trust | C4/C7 property-specific discussion | Attributable evidence and bounded local inclusion/consistency; organisational trust not measured |
 
 ## Closure statuses
 
@@ -73,6 +82,10 @@ The general concerns regarding contribution, methodology, literature, structure 
 - `CLOSED-ARTEFACT` — an inspectable validated artefact closes the request.
 - `CLOSED-MANUSCRIPT` — a presentation or definition problem is repaired.
 - `CLOSED-CLAIM-BOUNDARY` — unsupported wording was removed or narrowed.
-- `PARTIAL` — only the declared bounded portion was addressed.
+- `PARTIAL` — only the declared bounded portion was addressed and the residual limit is explicit.
 - `NOT-APPLICABLE` — the request demonstrably concerns another manuscript.
 - `OPEN` — submission is blocked if the request is major and no justified bounded response exists.
+
+## C2 status
+
+C2 closes only design-level concerns: title, artefact identity, RQs, novelty boundary, literature plan, reviewer atomisation and manuscript architecture. C3–C6 evidence requests remain open until their outputs are executed.
