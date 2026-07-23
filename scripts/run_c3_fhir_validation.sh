@@ -21,13 +21,15 @@ sushi standards/fhir_ig 2>&1 | tee "$VALIDATION_DIR/sushi.log"
 
 PUBLISHER_JAR="$TOOLS_DIR/publisher.jar"
 VALIDATOR_JAR="$TOOLS_DIR/validator_cli.jar"
+PUBLISHER_URL="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar"
+VALIDATOR_URL="https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar"
 if [[ ! -s "$PUBLISHER_JAR" ]]; then
-  curl --fail --location --retry 4 --output "$PUBLISHER_JAR" \
-    https://github.com/FHIR/latest-ig-publisher/raw/master/org.hl7.fhir.publisher.jar
+  echo "Downloading IG Publisher from $PUBLISHER_URL"
+  curl --fail-with-body --location --retry 4 --retry-all-errors --output "$PUBLISHER_JAR" "$PUBLISHER_URL"
 fi
 if [[ ! -s "$VALIDATOR_JAR" ]]; then
-  curl --fail --location --retry 4 --output "$VALIDATOR_JAR" \
-    https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar
+  echo "Downloading FHIR Validator from $VALIDATOR_URL"
+  curl --fail-with-body --location --retry 4 --retry-all-errors --output "$VALIDATOR_JAR" "$VALIDATOR_URL"
 fi
 sha256sum "$PUBLISHER_JAR" "$VALIDATOR_JAR" > "$VALIDATION_DIR/tool_sha256.txt"
 {
