@@ -42,9 +42,11 @@ jobs:
               'except ModuleNotFoundError:  # direct script execution places experiments/ on sys.path\n'
               '    import run_hie_hero_case as hie_case\n'
           )
-          if old in text:
+          if new in text:
+              pass
+          elif old in text:
               path.write_text(text.replace(old, new, 1), encoding='utf-8', newline='\n')
-          elif new not in text:
+          else:
               raise SystemExit('C5 import repair: expected source pattern not found')
           PY
           if git diff --quiet -- experiments/run_hie_incremental_overhead.py; then
