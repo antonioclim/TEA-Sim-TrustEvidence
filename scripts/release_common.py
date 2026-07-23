@@ -84,6 +84,8 @@ def role_for(rel: str) -> str:
 def generator_for(rel: str) -> str:
     if rel == "results_expected/cmpb_reference/reproducibility_manifest.csv":
         return "scripts/make_reproducibility_manifest.py"
+    if rel.startswith("results_expected/cmpb_reference/c4_hie_security/"):
+        return "experiments/run_hie_security_mutations.py"
     if rel.startswith("schemas/results/"):
         return "source-controlled result contract"
     if rel.startswith("figures/outputs/"):
@@ -106,6 +108,8 @@ def generator_for(rel: str) -> str:
 def sources_for(rel: str) -> str:
     if rel == "results_expected/cmpb_reference/reproducibility_manifest.csv":
         return "all retained result files except this manifest"
+    if rel.startswith("results_expected/cmpb_reference/c4_hie_security/"):
+        return "retained HIE hero case; Route C security protocol; local A2 verifier"
     if rel.startswith("schemas/results/"):
         return "retained result CSV structures"
     if rel.startswith("figures/outputs/"):
