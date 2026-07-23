@@ -27,7 +27,15 @@ def sha256(path: Path) -> str:
 def run(command: list[str]) -> None:
     env = os.environ.copy()
     env["PYTHONDONTWRITEBYTECODE"] = "1"
-    result = subprocess.run(command, cwd=ROOT, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False)
+    result = subprocess.run(
+        command,
+        cwd=ROOT,
+        env=env,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
     if result.returncode:
         print(result.stdout)
         raise SystemExit(result.returncode)
@@ -50,6 +58,22 @@ def main() -> int:
             if not (deterministic / name).is_file() or sha256(deterministic / name) != sha256(REFERENCE / name):
                 errors.append(f"deterministic mismatch: {name}")
 
+        c4 = tmp / "c4_hie_security"
+        run([
+            sys.executable,
+            str(ROOT / "experiments/run_hie_security_mutations.py"),
+            "--output-dir",
+            str(c4),
+        ])
+        for name in (
+            "hie_security_mutation_results.csv",
+            "hie_security_mutation_run.json",
+            "hie_security_case_evidence.jsonl",
+        ):
+            retained = REFERENCE / "c4_hie_security" / name
+            if not (c4 / name).is_file() or not retained.is_file() or sha256(c4 / name) != sha256(retained):
+                errors.append(f"deterministic mismatch: c4_hie_security/{name}")
+
         quick1 = tmp / "quick1"
         quick2 = tmp / "quick2"
         run([sys.executable, str(ROOT / "experiments/run_workload_passage.py"), "--quick", "--output-dir", str(quick1)])
@@ -67,7 +91,6 @@ def main() -> int:
         if sizes1 != sizes2:
             errors.append("quick receipt/proof sizes are not deterministic")
 
-    # Check retained full workload internal consistency without requiring timing equality.
     meta = json.loads((REFERENCE / "run_metadata.json").read_text(encoding="utf-8"))
     if meta.get("total_events") != 32256 or meta.get("successful_receipt_checks") != 1152:
         errors.append("retained full workload counts differ from protocol")
