@@ -26,12 +26,50 @@ jobs:
           ref: revision/jcis-route-c
           fetch-depth: 1
 
+      - name: Commit the direct-execution import repair before measurement
+        id: repair
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('experiments/run_hie_incremental_overhead.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'from experiments import run_hie_hero_case as hie_case\n'
+          new = (
+              'try:\n'
+              '    from experiments import run_hie_hero_case as hie_case\n'
+              'except ModuleNotFoundError:  # direct script execution places experiments/ on sys.path\n'
+              '    import run_hie_hero_case as hie_case\n'
+          )
+          if old in text:
+              path.write_text(text.replace(old, new, 1), encoding='utf-8', newline='\n')
+          elif new not in text:
+              raise SystemExit('C5 import repair: expected source pattern not found')
+          PY
+          if git diff --quiet -- experiments/run_hie_incremental_overhead.py; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            echo 'The direct-execution import repair is already committed.'
+            exit 0
+          fi
+          python -m py_compile experiments/run_hie_incremental_overhead.py
+          python scripts/rebuild_integrity_files.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add experiments/run_hie_incremental_overhead.py FILE_MANIFEST.tsv SHA256SUMS.txt
+          git commit -m 'fix(route-c): support direct C5 runner execution'
+          git push origin HEAD:revision/jcis-route-c
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+
       - name: Determine whether materialisation is required
         id: decision
         shell: bash
         run: |
-          if test -f docs/route_c/C5_MATERIALISATION_TRIGGER.md && \
-             ! test -f results_expected/cmpb_reference/c5_hie_overhead/run_summary.json; then
+          if test "${{ steps.repair.outputs.changed }}" = 'true'; then
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+            echo 'Software repair was committed first; the synchronised follow-up run will measure it.'
+          elif test -f docs/route_c/C5_MATERIALISATION_TRIGGER.md && \
+               ! test -f results_expected/cmpb_reference/c5_hie_overhead/run_summary.json; then
             echo 'run=true' >> "$GITHUB_OUTPUT"
             echo 'Frozen C5 evidence is absent; one confirmatory materialisation is required.'
           else
@@ -57,29 +95,29 @@ jobs:
         shell: bash
         run: |
           set +e
-          {
-            python experiments/run_hie_incremental_overhead.py \
-              --output-dir results_expected/cmpb_reference/c5_hie_overhead
-            status=$?
-            if test "$status" -eq 0; then
-              python experiments/run_hie_incremental_overhead.py --check
-              status=$?
-            fi
-            if test "$status" -eq 0; then
-              python scripts/make_reproducibility_manifest.py
-              status=$?
-            fi
-            if test "$status" -eq 0; then
-              python scripts/validate_result_contracts.py
-              status=$?
-            fi
-            if test "$status" -eq 0; then
-              python scripts/rebuild_integrity_files.py
-              status=$?
-            fi
-          } 2>&1 | tee "${RUNNER_TEMP}/c5-visible-materialisation.log"
-          pipeline_status=${PIPESTATUS[0]}
-          printf '%s\n' "$pipeline_status" > "${RUNNER_TEMP}/c5-visible-exit-code.txt"
+          log="${RUNNER_TEMP}/c5-visible-materialisation.log"
+          : > "$log"
+          python experiments/run_hie_incremental_overhead.py \
+            --output-dir results_expected/cmpb_reference/c5_hie_overhead \
+            2>&1 | tee -a "$log"
+          status=${PIPESTATUS[0]}
+          if test "$status" -eq 0; then
+            python experiments/run_hie_incremental_overhead.py --check 2>&1 | tee -a "$log"
+            status=${PIPESTATUS[0]}
+          fi
+          if test "$status" -eq 0; then
+            python scripts/make_reproducibility_manifest.py 2>&1 | tee -a "$log"
+            status=${PIPESTATUS[0]}
+          fi
+          if test "$status" -eq 0; then
+            python scripts/validate_result_contracts.py 2>&1 | tee -a "$log"
+            status=${PIPESTATUS[0]}
+          fi
+          if test "$status" -eq 0; then
+            python scripts/rebuild_integrity_files.py 2>&1 | tee -a "$log"
+            status=${PIPESTATUS[0]}
+          fi
+          printf '%s\n' "$status" > "${RUNNER_TEMP}/c5-visible-exit-code.txt"
           exit 0
 
       - name: Upload C5 transcript and partial evidence
