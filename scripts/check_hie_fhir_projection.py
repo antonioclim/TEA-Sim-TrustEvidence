@@ -17,6 +17,16 @@ CASE = ROOT / "data_examples" / "hie_disclosure"
 FHIR = ROOT / "standards" / "fhir_ig" / "input" / "resources"
 
 FORBIDDEN_PORTABLE_TYPES = {"Observation", "DiagnosticReport"}
+FORBIDDEN_CLINICAL_KEYS = {
+    "valuequantity",
+    "valueinteger",
+    "valuedecimal",
+    "clinical_note",
+    "diagnosis",
+    "diagnostic_payload",
+    "raw_payload",
+    "conclusion",
+}
 
 
 def _load(path: Path) -> Any:
@@ -54,10 +64,7 @@ def main() -> None:
     forbidden_terms = []
     for path, key, value in _walk(portable):
         normal = key.lower().replace("-", "_")
-        if normal in {
-            "valuequantity", "valueinteger", "valuedecimal", "valuestring",
-            "clinical_note", "diagnosis", "conclusion",
-        }:
+        if normal in FORBIDDEN_CLINICAL_KEYS:
             forbidden_terms.append(path)
 
     audit_events = {
@@ -98,6 +105,7 @@ def main() -> None:
             "clinical_payload": "excluded from portable bundle; present only in source fixture bundle",
             "patient_identity": "pseudonymous synthetic token",
             "fhir_validation": "reported separately by the official validator toolchain",
+            "audit_detail_valueString": "permitted for non-clinical decision, version and digest details",
         },
     }
     failures = [
