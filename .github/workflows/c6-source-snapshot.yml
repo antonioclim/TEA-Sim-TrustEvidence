@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - revision/jcis-route-c
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -13,6 +16,7 @@ jobs:
   apply-candidate:
     name: Apply the controlled C6 candidate patch
     if: >-
+      github.event_name == 'pull_request' ||
       github.event_name == 'workflow_dispatch' ||
       github.event.head_commit.message == 'ci(route-c): apply C6 candidate patch'
     runs-on: ubuntu-24.04
