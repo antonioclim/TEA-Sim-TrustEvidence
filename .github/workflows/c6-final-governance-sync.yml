@@ -1,0 +1,142 @@
+name: Route C C6 Final Governance Sync
+
+on:
+  push:
+    branches:
+      - revision/jcis-route-c-ci
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Synchronise C6 governance and integrity records
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out the controlled Route C candidate
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: revision/jcis-route-c
+          fetch-depth: 0
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.13'
+
+      - name: Promote C6 evidence statuses without altering scientific results
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+
+          root = Path('.')
+
+          ledger_path = root / 'docs/route_c/CLAIM_EVIDENCE_LEDGER.csv'
+          with ledger_path.open(encoding='utf-8', newline='') as handle:
+              rows = list(csv.DictReader(handle))
+          ledger_updates = {
+              'RC-C04': {
+                  'current_evidence': 'C1 baseline canonicalisation tests; C3 exact canonical envelope bytes and digest; C4 byte-deterministic security corpus; C6 hosted candidate run 30033737668 reproduced the complete release contract before and after fresh extraction',
+                  'current_status': 'EXECUTED-C6-HOSTED-RELEASE-CANDIDATE',
+                  'allowed_wording_now': 'The v2.2.0-rc.1 candidate reproduced the retained canonical bytes under the declared TE application profile and rejected the reported unsupported inputs.',
+                  'allowed_wording_after_gate': 'The final v2.2.0 release reproduced the canonical bytes and rejected the reported unsupported inputs after C9 publication verification.',
+              },
+              'RC-C08': {
+                  'current_evidence': 'C3 semantic report found no forbidden resource type declared clinical-value path or dangling local source reference; C4 portable scans found neither the deterministic test nonce nor declared clinical source markers; C5 reported zero declared payload-exclusion findings; C6 audited 360 curated public files and 335 source text files with zero declared residue or common secret-pattern findings',
+                  'current_status': 'EXECUTED-C6-RELEASE-WIDE-SCAN',
+                  'allowed_wording_now': 'The executed C3-C6 scans found no declared forbidden clinical field submission residue or common secret pattern in the inspected portable artefacts and curated release-candidate distribution; this is not a privacy guarantee.',
+                  'allowed_wording_after_gate': 'The final release-wide scans identified no declared forbidden fields or common secret patterns in the inspected distribution.',
+              },
+              'RC-C10': {
+                  'current_evidence': 'C6 hosted run 30033737668 passed the branch release contract deterministic double archive construction archive validation fresh-environment installation a second complete release contract C3-C5 regressions and zero source-tree drift; the 360-file ZIP SHA-256 is dc842582f299a366879146f905d6be80f5688b3810c4cbebf9e0a925014a317c',
+                  'current_status': 'EXECUTED-C6-HOSTED-FRESH-EXTRACTION',
+                  'allowed_wording_now': 'The exact v2.2.0-rc.1 candidate passed the declared hosted branch and fresh-extraction release contracts with matching archive-specific manifests and checksums.',
+                  'allowed_wording_after_gate': 'The exact final v2.2.0 release passed the declared hosted fresh-extraction and publication-parity checks.',
+              },
+              'RC-C11': {
+                  'current_evidence': 'C3-C5 identify source custody issuer authorisation recipient verifier key-registry retained-state replay backend-honesty and local cost boundaries; C6 adds an explicit implemented-component and missing-production-control inventory covering FHIR integration identity Consent policy KMS confidentiality persistence concurrency availability observability governance witnessing and clinical safety',
+                  'current_status': 'C6-COMPONENT-INVENTORY-C7-DISCUSSION-PENDING',
+                  'allowed_wording_now': 'The candidate identifies implemented reference components and the operational integration points that remain absent; it does not establish hospital deployability scalability or organisational benefit.',
+                  'allowed_wording_after_gate': 'The Discussion identifies measured reference costs and explicit deployment prerequisites without claiming hospital readiness.',
+              },
+              'RC-C12': {
+                  'current_evidence': 'Route C reviewer registry exists; C3 closes the complete-case and bounded-validator workstreams; C4 closes the executed security-mutation workstream and establishes encryption and backend-truth boundaries; C5 supplies local paired overhead evidence; C6 supplies the reproducible release candidate component inventory and publication boundary; manuscript anchors and final response remain pending',
+                  'current_status': 'PARTIAL-C6',
+                  'allowed_wording_now': 'Reviewer requirements are mapped to executed C3-C6 evidence and later manuscript and submission obligations; no final editorial closure is claimed yet.',
+              },
+          }
+          for row in rows:
+              update = ledger_updates.get(row['claim_id'])
+              if update:
+                  row.update(update)
+          with ledger_path.open('w', encoding='utf-8', newline='') as handle:
+              writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator='\n')
+              writer.writeheader()
+              writer.writerows(rows)
+
+          registry_path = root / 'docs/route_c/REVIEWER_COMMENT_REGISTRY.csv'
+          with registry_path.open(encoding='utf-8', newline='') as handle:
+              registry = list(csv.DictReader(handle))
+          status_updates = {
+              'R1-04': 'EXECUTED-C3-C6-MANUSCRIPT-PENDING',
+              'R2-04': 'EXECUTED-C3-C6-MANUSCRIPT-PENDING',
+              'R2-17': 'EXECUTED-C1-C6-MANUSCRIPT-PENDING',
+              'R3-02': 'EXECUTED-C3-C6-MANUSCRIPT-PENDING',
+              'R4-07': 'CLOSED-ARTEFACT-C6-MANUSCRIPT-PENDING',
+              'R4-09': 'EXECUTED-C5-C6-C7-PENDING',
+          }
+          for row in registry:
+              if row['comment_id'] in status_updates:
+                  row['current_status'] = status_updates[row['comment_id']]
+          with registry_path.open('w', encoding='utf-8', newline='') as handle:
+              writer = csv.DictWriter(handle, fieldnames=list(registry[0]), lineterminator='\n')
+              writer.writeheader()
+              writer.writerows(registry)
+
+          trace_path = root / 'docs/route_c/REVIEWER_TRACEABILITY.md'
+          trace = trace_path.read_text(encoding='utf-8')
+          old = 'Reviewer-facing closure remains partial until C7 integrates the C2–C5 evidence into the article and C8 resolves every comment to exact manuscript locations.\n'
+          new = (
+              'C6 supplies the unpublished v2.2.0-rc.1 candidate, coherent no-DOI metadata, a 360-file curated distribution, immutable-SHA workflow references, deterministic double archive construction, archive-specific manifests and checksums, a complete hosted branch contract, a complete fresh-extraction contract and an implemented-component versus missing-production-control inventory. The result supports reproducibility and a bounded deployability discussion; it does not establish hospital readiness, production scalability, privacy, organisational cost reduction or publication status.\n\n'
+              'Reviewer-facing closure remains partial until C7 integrates the C2–C6 evidence into the article and C8 resolves every comment to exact manuscript locations.\n'
+          )
+          if old not in trace:
+              raise SystemExit('expected reviewer-traceability closing paragraph not found')
+          trace_path.write_text(trace.replace(old, new), encoding='utf-8', newline='\n')
+          PY
+
+      - name: Rebuild and verify branch integrity catalogues
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/rebuild_integrity_files.py
+          python scripts/verify_sha256sums.py SHA256SUMS.txt
+          python scripts/verify_file_manifest.py FILE_MANIFEST.tsv
+          python scripts/check_public_metadata.py
+          python scripts/check_action_pins.py
+          python scripts/audit_public_distribution.py
+          git diff --check
+
+      - name: Commit final C6 governance and integrity records
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/route_c/C6_COMPLETION_REPORT.md
+          git add docs/route_c/C6_HOSTILE_REVIEW.md
+          git add docs/route_c/CLAIM_EVIDENCE_LEDGER.csv
+          git add docs/route_c/REVIEWER_COMMENT_REGISTRY.csv
+          git add docs/route_c/REVIEWER_TRACEABILITY.md
+          git add FILE_MANIFEST.tsv SHA256SUMS.txt
+          if git diff --cached --quiet; then
+            echo 'C6 governance and integrity records are already synchronised.'
+            exit 0
+          fi
+          git commit -m 'docs(route-c): close C6 release-candidate gate'
+          git push origin HEAD:revision/jcis-route-c
