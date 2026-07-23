@@ -11,10 +11,14 @@ This document prevents cryptographic mechanisms in the Route C reference package
 | Deterministic application-profile canonicalisation | Produces stable bytes for the signed HIE core and committed source fixture | Deterministic bytes for admitted inputs | Semantic correctness, cross-language equivalence beyond tested vectors |
 | SHA-256 nonce-based payload commitment | Binds exact source Bundle bytes, representation profile, context and nonce | Candidate-byte and nonce substitution detection | Encryption, confidentiality, clinical correctness, proof of possession by an operational custodian |
 | Ed25519 issuer signature | Signs the declared HIE evidence core | Unauthorised mutation detection under the fixture key registry | Identity proofing, truth of actor/Consent/policy/clinical claims, legal non-repudiation, post-compromise security |
-| Ed25519 receipt signature | Signs the project-specific local A2 receipt | Receipt-origin and receipt-byte authentication under the fixture registry | Completeness, public witnessing, trustworthy log operation after key compromise |
-| Merkle inclusion path | Binds one core digest to one declared root, index and tree size | Membership in the supplied local tree state | Event completeness, ordering truth beyond supplied state, global consistency |
+| Ed25519 receipt signature | Signs the project-specific local A2 receipt | Receipt-origin and receipt-byte authentication under the fixture registry | Backend honesty, truthful tree-size assertion, event completeness, public witnessing, trustworthy log operation after key compromise |
+| Merkle inclusion path | Binds one core digest to one declared root, index, path and tree-size statement | Membership relative to the supplied local tree statement | Actual log population, event completeness, truthful backend operation, ordering truth beyond supplied state, global consistency |
 | Retained checkpoint plus consistency proof | Compares a received state with one locally retained prior state | Rollback detection, verifier-visible same-size fork detection and accepted prefix extension | Gossip, cross-verifier comparison, public transparency, global non-equivocation |
 | Closed JSON Schema | Rejects unknown and structurally inadmissible fields | Profile admission for the exact version | Safe interpretation of future extensions or universal semantic interoperability |
+
+## Falsified expectation retained by C4
+
+The first hosted C4 run expected a coherently relabelled and re-signed tree size to fail inclusion verification. It was accepted. The case is retained as `LIM-BACKEND-002`: a valid backend signature authenticates the supplied tree-size statement but does not independently prove the actual number of captured events or the operational honesty of the backend. The original failed workflow and artifact digest are recorded in `C4_PROTOCOL_DEVIATION.md`.
 
 ## Encryption statement
 
@@ -32,7 +36,7 @@ The nonce is absent from the signed portable envelope and FHIR Portable Evidence
 
 Permitted:
 
-> Hashing is used for exact-byte integrity commitments, while Ed25519 signatures authenticate the issuer statement and local receipt under the declared test key registries. The supplied reference pipeline does not encrypt the portable evidence or the clinical payload. Transport and at-rest encryption remain deployment controls and were not evaluated.
+> Hashing is used for exact-byte integrity commitments, while Ed25519 signatures authenticate the issuer statement and local receipt under the declared test key registries. The supplied reference pipeline does not encrypt the portable evidence or the clinical payload. A valid receipt authenticates a backend assertion but does not prove event completeness or truthful log population. Transport and at-rest encryption remain deployment controls and were not evaluated.
 
 Prohibited:
 
@@ -41,6 +45,7 @@ Prohibited:
 - immutable;
 - non-repudiable;
 - complete audit trail;
+- truthful tree size proven by a receipt;
 - privacy guaranteed;
 - secure hospital deployment;
 - SCITT or RFC 9942 conformant;
