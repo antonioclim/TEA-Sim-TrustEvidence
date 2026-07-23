@@ -3,7 +3,7 @@ name: Route C FHIR C3
 on:
   push:
     branches:
-      - revision/jcis-route-c
+      - 'revision/jcis-route-c*'
   pull_request:
     branches:
       - main
