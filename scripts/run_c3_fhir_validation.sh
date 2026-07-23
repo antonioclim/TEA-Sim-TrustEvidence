@@ -11,6 +11,7 @@ else
   VALIDATION_DIR="${RUNNER_TEMP:-/tmp}/route-c-c3-validation"
 fi
 TOOLS_DIR="${RUNNER_TEMP:-/tmp}/route-c-fhir-tools"
+TX_SERVER="${FHIR_TX_SERVER:-https://tx.fhir.org/r4}"
 mkdir -p "$VALIDATION_DIR/positive" "$VALIDATION_DIR/negative" "$TOOLS_DIR"
 rm -f "$VALIDATION_DIR"/positive/*.json "$VALIDATION_DIR"/negative/*.json
 rm -rf standards/fhir_ig/output standards/fhir_ig/temp standards/fhir_ig/fsh-generated
@@ -40,11 +41,12 @@ sha256sum "$PUBLISHER_JAR" "$VALIDATOR_JAR" > "$VALIDATION_DIR/tool_sha256.txt"
   echo "ruby=$(ruby --version)"
   echo "jekyll=$(jekyll --version)"
   echo "sushi=$(sushi --version 2>&1 | tail -n 1)"
-  echo "publisher=$(java -jar "$PUBLISHER_JAR" -version 2>&1 | tail -n 1 || true)"
+  echo "terminology_server=$TX_SERVER"
+  echo "publisher_sha256=$(sha256sum "$PUBLISHER_JAR" | cut -d' ' -f1)"
   echo "validator=$(java -jar "$VALIDATOR_JAR" -version 2>&1 | head -n 1 || true)"
 } > "$VALIDATION_DIR/tool_versions.txt"
 
-java -jar "$PUBLISHER_JAR" -ig standards/fhir_ig/ig.ini -tx n/a \
+java -jar "$PUBLISHER_JAR" -ig standards/fhir_ig/ig.ini -tx "$TX_SERVER" \
   2>&1 | tee "$VALIDATION_DIR/ig-publisher.log"
 
 test -f standards/fhir_ig/output/qa.json
@@ -66,7 +68,7 @@ validate_one() {
   set +e
   java -jar "$VALIDATOR_JAR" "$source" \
     -version 4.0.1 -ig "$PACKAGE" -ig ihe.iti.balp#1.1.4 \
-    -tx n/a -output "$output"
+    -tx "$TX_SERVER" -output "$output"
   local status=$?
   set -e
   printf '%s\t%s\t%s\n' "$kind" "$status" "$source" >> "$VALIDATION_DIR/validator_status.tsv"
