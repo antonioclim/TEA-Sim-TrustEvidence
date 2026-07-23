@@ -96,4 +96,6 @@ C4 supplies the executed semantic, issuer, commitment, receipt, proof and retain
 
 C5 supplies the preregistered W1 B0–B2 paired local experiment: five pilot blocks retained and excluded, twenty confirmatory paired blocks, sixty process runs, 7,680 operation timings, p50/p95/p99 paired increments, canonical application-byte increments and a labelled local storage proxy. The evidence closes the empirical workstream only at the local reference-pipeline level; W2 was prospectively omitted and no production-EHR, hospital-latency, network, database, scalability or organisational-cost result is claimed.
 
-Reviewer-facing closure remains partial until C7 integrates the C2–C5 evidence into the article and C8 resolves every comment to exact manuscript locations.
+C6 supplies the unpublished v2.2.0-rc.1 candidate, coherent no-DOI metadata, a 360-file curated distribution, immutable-SHA workflow references, deterministic double archive construction, archive-specific manifests and checksums, a complete hosted branch contract, a complete fresh-extraction contract and an implemented-component versus missing-production-control inventory. The result supports reproducibility and a bounded deployability discussion; it does not establish hospital readiness, production scalability, privacy, organisational cost reduction or publication status.
+
+Reviewer-facing closure remains partial until C7 integrates the C2–C6 evidence into the article and C8 resolves every comment to exact manuscript locations.
