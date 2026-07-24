@@ -4,26 +4,61 @@
 from __future__ import annotations
 
 import json
-import re
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-IGNORED_DIRS = {".git",".venv","venv","__pycache__",".pytest_cache",".hypothesis",".mypy_cache",".ruff_cache",".tox",".nox","build","dist","htmlcov","results_local","local_outputs","node_modules"}
-REQUIRED = {"pyproject.toml","README.md","LICENSE","CITATION.cff",".zenodo.json","FILE_MANIFEST.tsv","SHA256SUMS.txt","RELEASE_METADATA.json","RELEASE_NOTES_v2.2.0.md","docs/PUBLIC_RELEASE_SCOPE.md","docs/DEPLOYABILITY_AND_COMPONENTS.md"}
+IGNORED_DIRS = {
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".hypothesis",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".tox",
+    ".nox",
+    "build",
+    "dist",
+    "htmlcov",
+    "results_local",
+    "local_outputs",
+    "node_modules",
+}
+REQUIRED = {
+    "pyproject.toml",
+    "README.md",
+    "LICENSE",
+    "CITATION.cff",
+    ".zenodo.json",
+    "FILE_MANIFEST.tsv",
+    "SHA256SUMS.txt",
+    "RELEASE_METADATA.json",
+    "RELEASE_NOTES_v2.2.0.md",
+    "docs/PUBLIC_RELEASE_SCOPE.md",
+    "docs/DEPLOYABILITY_AND_COMPONENTS.md",
+}
 FORBIDDEN_SUFFIXES = {".pyc", ".pyo"}
 
 
 def ignored(rel: Path) -> bool:
-    return any(part in IGNORED_DIRS or part.endswith(".egg-info") for part in rel.parts) or rel.suffix in FORBIDDEN_SUFFIXES or rel.name in {".DS_Store","Thumbs.db",".coverage"}
+    return (
+        any(part in IGNORED_DIRS or part.endswith(".egg-info") for part in rel.parts)
+        or rel.suffix in FORBIDDEN_SUFFIXES
+        or rel.name in {".DS_Store", "Thumbs.db", ".coverage"}
+    )
 
 
 def main() -> int:
     missing = sorted(path for path in REQUIRED if not (ROOT / path).is_file())
     if missing:
         raise SystemExit("Missing required files: " + ", ".join(missing))
-    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
-    if not re.search(r'^version\s*=\s*["']2\.2\.0["']', pyproject, re.M):
+
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]
+    if project.get("version") != "2.2.0":
         raise SystemExit("pyproject.toml does not declare version 2.2.0")
+
     release = json.loads((ROOT / "RELEASE_METADATA.json").read_text(encoding="utf-8"))
     expected = {
         "release_state": "final-release",
@@ -39,7 +74,8 @@ def main() -> int:
     for key, value in expected.items():
         if release.get(key) != value:
             raise SystemExit(f"RELEASE_METADATA.json {key} mismatch")
-    distributed = []
+
+    distributed: list[Path] = []
     for path in ROOT.rglob("*"):
         if not path.is_file():
             continue
@@ -47,7 +83,11 @@ def main() -> int:
         if ignored(rel):
             continue
         distributed.append(path)
-    print(f"REPOSITORY-CHECK: PASS ({len(distributed)} distributed files; DOI 10.5281/zenodo.21533962)")
+
+    print(
+        "REPOSITORY-CHECK: PASS "
+        f"({len(distributed)} distributed files; DOI 10.5281/zenodo.21533962)"
+    )
     return 0
 
 
