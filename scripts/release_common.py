@@ -1,4 +1,4 @@
-"""Shared release-tree helpers for the v2.2.0 release candidate."""
+"""Shared release-tree helpers for the v2.2.0 final release."""
 
 from __future__ import annotations
 
@@ -8,12 +8,12 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET_VERSION = "2.2.0"
-PACKAGE_VERSION = "2.2.0rc1"
-CANDIDATE_VERSION = "2.2.0-rc.1"
-CANDIDATE_TAG = "v2.2.0-rc.1"
-EXPECTED_ROOT = "TEA-Sim-TrustEvidence-v2.2.0-rc.1"
-ASSET_NAME = "TEA-Sim-TrustEvidence-v2.2.0-rc.1.zip"
-ASSET_CHECKSUM_NAME = "TEA-Sim-TrustEvidence-v2.2.0-rc.1.sha256"
+PACKAGE_VERSION = "2.2.0"
+RELEASE_VERSION = "2.2.0"
+RELEASE_TAG = "v2.2.0"
+EXPECTED_ROOT = "TEA-Sim-TrustEvidence-v2.2.0"
+ASSET_NAME = "TEA-Sim-TrustEvidence-v2.2.0.zip"
+ASSET_CHECKSUM_NAME = "TEA-Sim-TrustEvidence-v2.2.0.sha256"
 MANIFEST_PATH = "FILE_MANIFEST.tsv"
 CHECKSUM_PATH = "SHA256SUMS.txt"
 

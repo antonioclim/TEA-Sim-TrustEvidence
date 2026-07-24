@@ -6,7 +6,7 @@ The v2.2.0 line is an additive healthcare-information-exchange extension. It doe
 
 | Layer | v2.1.0 | v2.2.0 line |
 |---|---|---|
-| Python distribution | `2.1.0` | `2.2.0rc1` in C6; `2.2.0` after C9 |
+| Python distribution | `2.1.0` | `2.2.0` |
 | Personal-monitoring envelope | `2.1.0` | remains `2.1.0` |
 | HIE disclosure event | absent | `1.0.0` |
 | HIE TrustEvidence envelope | absent | `1.0.0`, profile `TE-HIE-Envelope-1` |

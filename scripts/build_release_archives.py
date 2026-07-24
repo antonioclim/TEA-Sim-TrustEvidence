@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the deterministic curated v2.2.0-rc.1 release-candidate asset."""
+"""Build the deterministic curated v2.2.0 final-release asset."""
 
 from __future__ import annotations
 
@@ -140,9 +140,9 @@ def main() -> int:
         encoding="utf-8",
         newline="\n",
     )
-    print(f"RELEASE-CANDIDATE-ASSET: {asset}")
-    print(f"RELEASE-CANDIDATE-SHA256: {digest}")
-    print(f"RELEASE-CANDIDATE-CHECKSUM: {checksum}")
+    print(f"RELEASE-ASSET: {asset}")
+    print(f"RELEASE-SHA256: {digest}")
+    print(f"RELEASE-CHECKSUM: {checksum}")
     return 0
 
 

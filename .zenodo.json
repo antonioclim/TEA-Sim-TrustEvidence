@@ -1,13 +1,14 @@
 {
-  "title": "TEA-Sim v2.2.0-rc.1: Portable audit evidence for health information exchange",
+  "title": "TEA-Sim v2.2.0: Portable audit evidence for health information exchange",
   "upload_type": "software",
-  "version": "2.2.0-rc.1",
-  "description": "Unreleased release-candidate metadata for a reproducible healthcare audit-evidence boundary and executable reference profile. The package contains a complete synthetic cross-organisational DiagnosticReport disclosure case, a bounded FHIR R4/BALP-facing implementation guide and retained official-validator evidence, registered semantic/signature/receipt/checkpoint mutations, a local A2 Merkle receipt model, and a paired B0-B2 local processing/application-byte/storage-proxy experiment. The package does not claim production EHR performance, hospital deployment readiness, clinical or legal validation, universal FHIR/BALP conformance, large-network scalability, event completeness, backend honesty, public transparency, organisational trust improvement or cost reduction.",
+  "version": "2.2.0",
+  "publication_date": "2026-07-24",
+  "description": "TEA-Sim TrustEvidence v2.2.0 is a reproducible healthcare audit-evidence boundary and executable reference profile. The release contains a complete synthetic cross-organisational DiagnosticReport disclosure case, a bounded FHIR R4/BALP-facing implementation guide with retained official-validator evidence, registered semantic, signature, receipt and checkpoint mutation results, a project-specific local A2 Merkle receipt model, and a paired B0-B2 local processing, application-byte and storage-proxy experiment. The release supports bounded claims about the synthetic case, the declared validation corpus, registered mutation decisions, exact signed-byte preservation, local retained-checkpoint behaviour and the reported W1 B0-B2 increments. It does not claim production EHR performance, hospital deployment readiness, clinical or legal validation, universal FHIR/BALP conformance, large-network scalability, event completeness, backend honesty, public transparency, organisational trust improvement or cost reduction.",
   "creators": [
     {
       "name": "Clim, Antonio",
       "orcid": "0000-0003-4745-0431",
-      "affiliation": "Faculty of Cybernetics, Statistics and Economic Informatics, Bucharest University of Economic Studies"
+      "affiliation": "Department of Economic Informatics and Cybernetics, Bucharest University of Economic Studies, Bucharest, Romania"
     }
   ],
   "license": "Apache-2.0",
@@ -26,13 +27,19 @@
       "resource_type": "software"
     },
     {
+      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.2.0",
+      "relation": "isSupplementedBy",
+      "scheme": "url",
+      "resource_type": "software"
+    },
+    {
       "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence",
       "relation": "isSupplementedBy",
       "scheme": "url",
       "resource_type": "software"
     }
   ],
-  "notes": "DRAFT ONLY: no v2.2.0 DOI, public GitHub tag or public GitHub release exists at the C6 release-candidate gate. C9 must replace the candidate version, add the publication date and exact-version DOI, point to the final v2.2.0 release, and verify that GitHub and Zenodo use the identical canonical ZIP byte stream. Previous exact-version DOI: 10.5281/zenodo.21318387.",
+  "notes": "Exact-version DOI: 10.5281/zenodo.21533962. Canonical release asset: TEA-Sim-TrustEvidence-v2.2.0.zip. The identical canonical ZIP byte stream is intended for the GitHub v2.2.0 release and this Zenodo version.",
   "access_right": "open",
   "language": "eng"
 }

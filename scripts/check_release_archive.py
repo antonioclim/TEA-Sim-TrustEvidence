@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the deterministic curated release-candidate ZIP and catalogues."""
+"""Validate the deterministic curated release ZIP and catalogues."""
 
 from __future__ import annotations
 

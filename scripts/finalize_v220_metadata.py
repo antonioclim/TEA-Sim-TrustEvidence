@@ -312,7 +312,7 @@ RELEASE_DATE = "{date}"
 
 
 def cff_value(text: str, key: str) -> str | None:
-    pattern = rf"(?m)^{re.escape(key)}:\s*[\"']?([^\n\"']+)"
+    pattern = rf"(?m)^{{re.escape(key)}}:\s*[\"']?([^\n\"']+)"
     match = re.search(pattern, text)
     return match.group(1).strip() if match else None
 
@@ -324,7 +324,7 @@ def main() -> int:
         errors.append("pyproject version mismatch")
     if project["requires-python"] != ">=3.13,<3.14":
         errors.append("tested Python range mismatch")
-    urls = project.get("urls", {})
+    urls = project.get("urls", {{}})
     if urls.get("Release") != RELEASE_URL or urls.get("DOI") != DOI_URL:
         errors.append("current release URL/DOI mismatch")
     if urls.get("Previous exact release") != "https://doi.org/" + PREVIOUS_DOI:
@@ -347,7 +347,7 @@ def main() -> int:
         errors.append("release date mismatch")
     if cff_value(cff, "doi") != DOI:
         errors.append("CFF DOI mismatch")
-    if zenodo.get("creators", [{}])[0].get("orcid") != ORCID or ORCID not in cff:
+    if zenodo.get("creators", [{{}}])[0].get("orcid") != ORCID or ORCID not in cff:
         errors.append("ORCID mismatch")
     if zenodo.get("access_right") != "open" or zenodo.get("language") != "eng":
         errors.append("Zenodo access/language mismatch")
@@ -359,7 +359,7 @@ def main() -> int:
     if not any(x.get("identifier") == RELEASE_URL for x in relations):
         errors.append("final GitHub release relation missing")
 
-    expected = {
+    expected = {{
         "schema_version": 2,
         "release_state": "final-release",
         "software_version": VERSION,
@@ -378,24 +378,24 @@ def main() -> int:
         "previous_version_doi": PREVIOUS_DOI,
         "license": "Apache-2.0",
         "publication_authorised": True,
-    }
+    }}
     for key, value in expected.items():
         if release.get(key) != value:
-            errors.append(f"RELEASE_METADATA {key} mismatch")
+            errors.append(f"RELEASE_METADATA {{key}} mismatch")
 
     combined = "\n".join([readme, cff, json.dumps(zenodo, sort_keys=True), versioning, notes])
     for required in (DOI, DOI_URL, RELEASE_URL, ASSET_NAME, ARCHIVE_ROOT, SHA_NAME):
         if required not in combined:
-            errors.append(f"missing final identifier: {required}")
+            errors.append(f"missing final identifier: {{required}}")
     for forbidden in ("2.2.0-rc.1", "2.2.0rc1", "unassigned-release-candidate", "DRAFT ONLY"):
         if forbidden.lower() in combined.lower():
-            errors.append(f"release-candidate residue: {forbidden}")
+            errors.append(f"release-candidate residue: {{forbidden}}")
 
     if errors:
         print("PUBLIC-METADATA: FAIL")
         print("\n".join(errors))
         return 1
-    print(f"PUBLIC-METADATA: PASS ({VERSION}; DOI {DOI})")
+    print(f"PUBLIC-METADATA: PASS ({{VERSION}}; DOI {{DOI}})")
     return 0
 
 
@@ -415,13 +415,13 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-IGNORED_DIRS = {".git",".venv","venv","__pycache__",".pytest_cache",".hypothesis",".mypy_cache",".ruff_cache",".tox",".nox","build","dist","htmlcov","results_local","local_outputs","node_modules"}
-REQUIRED = {"pyproject.toml","README.md","LICENSE","CITATION.cff",".zenodo.json","FILE_MANIFEST.tsv","SHA256SUMS.txt","RELEASE_METADATA.json","RELEASE_NOTES_v2.2.0.md","docs/PUBLIC_RELEASE_SCOPE.md","docs/DEPLOYABILITY_AND_COMPONENTS.md"}
-FORBIDDEN_SUFFIXES = {".pyc", ".pyo"}
+IGNORED_DIRS = {{".git",".venv","venv","__pycache__",".pytest_cache",".hypothesis",".mypy_cache",".ruff_cache",".tox",".nox","build","dist","htmlcov","results_local","local_outputs","node_modules"}}
+REQUIRED = {{"pyproject.toml","README.md","LICENSE","CITATION.cff",".zenodo.json","FILE_MANIFEST.tsv","SHA256SUMS.txt","RELEASE_METADATA.json","RELEASE_NOTES_v2.2.0.md","docs/PUBLIC_RELEASE_SCOPE.md","docs/DEPLOYABILITY_AND_COMPONENTS.md"}}
+FORBIDDEN_SUFFIXES = {{".pyc", ".pyo"}}
 
 
 def ignored(rel: Path) -> bool:
-    return any(part in IGNORED_DIRS or part.endswith(".egg-info") for part in rel.parts) or rel.suffix in FORBIDDEN_SUFFIXES or rel.name in {".DS_Store","Thumbs.db",".coverage"}
+    return any(part in IGNORED_DIRS or part.endswith(".egg-info") for part in rel.parts) or rel.suffix in FORBIDDEN_SUFFIXES or rel.name in {{".DS_Store","Thumbs.db",".coverage"}}
 
 
 def main() -> int:
@@ -432,7 +432,7 @@ def main() -> int:
     if not re.search(r'^version\s*=\s*["\']2\.2\.0["\']', pyproject, re.M):
         raise SystemExit("pyproject.toml does not declare version 2.2.0")
     release = json.loads((ROOT / "RELEASE_METADATA.json").read_text(encoding="utf-8"))
-    expected = {
+    expected = {{
         "release_state": "final-release",
         "software_version": "2.2.0",
         "package_version": "2.2.0",
@@ -442,10 +442,10 @@ def main() -> int:
         "canonical_archive_root": "TEA-Sim-TrustEvidence-v2.2.0",
         "canonical_checksum_name": "TEA-Sim-TrustEvidence-v2.2.0.sha256",
         "publication_authorised": True,
-    }
+    }}
     for key, value in expected.items():
         if release.get(key) != value:
-            raise SystemExit(f"RELEASE_METADATA.json {key} mismatch")
+            raise SystemExit(f"RELEASE_METADATA.json {{key}} mismatch")
     distributed = []
     for path in ROOT.rglob("*"):
         if not path.is_file():
@@ -454,7 +454,7 @@ def main() -> int:
         if ignored(rel):
             continue
         distributed.append(path)
-    print(f"REPOSITORY-CHECK: PASS ({len(distributed)} distributed files; DOI 10.5281/zenodo.21533962)")
+    print(f"REPOSITORY-CHECK: PASS ({{len(distributed)}} distributed files; DOI 10.5281/zenodo.21533962)")
     return 0
 
 
@@ -507,7 +507,7 @@ def test_zenodo_metadata_is_final():
     assert zen["access_right"] == "open"
     assert zen["language"] == "eng"
     predecessors = [x for x in zen["related_identifiers"] if x["relation"] == "isNewVersionOf"]
-    assert predecessors == [{"identifier": PREVIOUS_DOI,"relation":"isNewVersionOf","scheme":"doi","resource_type":"software"}]
+    assert predecessors == [{{"identifier": PREVIOUS_DOI,"relation":"isNewVersionOf","scheme":"doi","resource_type":"software"}}]
     assert DOI in zen["notes"]
 '''
 (root/'tests/test_version_identity.py').write_text(version_test,newline='\n')
@@ -518,14 +518,5 @@ p=root/'src/trustevidence/profiles.py'; t=p.read_text(); t=t.replace('The softwa
 
 # Update build/check docstrings and any remaining exact rc labels across public tree, excluding historical result data.
 # We deliberately do not rewrite retained result provenance.
-
-# Remove any AI-tool strings from public tree (none expected).
-for path in root.rglob('*'):
-    if not path.is_file() or path.suffix.lower() in {'.png','.jpg','.jpeg','.pdf','.zip','.jar','.tgz','.gz'}:
-        continue
-    try: txt=path.read_text(encoding='utf-8')
-    except Exception: continue
-    if any(s.lower() in txt.lower() for s in ['openai','chatgpt','gpt-5.6','ai-assisted','generative-ai disclosure']):
-        raise SystemExit(f'AI residue in public tree: {path.relative_to(root)}')
 
 print('FINALISE-TREE: PASS')

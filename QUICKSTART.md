@@ -37,8 +37,8 @@ python scripts/make_reproducibility_manifest.py --check
 mkdir -p dist
 python scripts/build_release_archives.py --output-dir dist
 python scripts/check_release_archive.py \
-  --archive dist/TEA-Sim-TrustEvidence-v2.2.0-rc.1.zip \
-  --checksum dist/TEA-Sim-TrustEvidence-v2.2.0-rc.1.sha256 \
+  --archive dist/TEA-Sim-TrustEvidence-v2.2.0.zip \
+  --checksum dist/TEA-Sim-TrustEvidence-v2.2.0.sha256 \
   --extract-dir dist/fresh-extraction
 ```
 

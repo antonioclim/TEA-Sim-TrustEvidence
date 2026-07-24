@@ -1,7 +1,7 @@
 {
   "Pillow": "12.2.0",
   "cryptography": "49.0.0",
-  "evidence_boundary": "C6 release-candidate environment: local Python 3.13.5/Linux plus hosted Python 3.13.x validation; no production deployment claim",
+  "evidence_boundary": "v2.2.0 release environment: local Python 3.13.5/Linux plus hosted Python 3.13.x validation; no production deployment claim",
   "fhir_toolchain": {
     "java": "17",
     "jekyll": "4.4.1",
@@ -18,5 +18,5 @@
   "pytest": "9.1.1",
   "python": "3.13.5",
   "rfc8785": "0.1.4",
-  "teasim-trustevidence": "2.2.0rc1"
+  "teasim-trustevidence": "2.2.0"
 }

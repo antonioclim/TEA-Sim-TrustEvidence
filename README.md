@@ -1,10 +1,14 @@
-# TEA-Sim v2.2.0-rc.1: Portable audit evidence for health information exchange
+# TEA-Sim v2.2.0: Portable audit evidence for health information exchange
 
-TEA-Sim TrustEvidence is a healthcare-specific audit-evidence boundary and executable reference profile. It distinguishes the audit facts that may cross organisational boundaries from clinical payloads that remain under source custody. This branch is the **unreleased v2.2.0 release candidate**; it is not a public v2.2.0 release and has no v2.2.0 DOI.
+TEA-Sim TrustEvidence is a healthcare-specific audit-evidence boundary and executable reference profile. It distinguishes audit facts that may cross organisational boundaries from clinical payloads that remain under source custody.
 
-## What this candidate executes
+- Exact-version DOI: <https://doi.org/10.5281/zenodo.21533962>
+- GitHub release: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.2.0>
+- Canonical asset: `TEA-Sim-TrustEvidence-v2.2.0.zip`
 
-The candidate retains the v2.1.0 personal-monitoring schema and adds a separate health-information-exchange profile with:
+## What this release executes
+
+The release retains the v2.1.0 personal-monitoring schema and adds a separate health-information-exchange profile with:
 
 - `HIE-DISCLOSURE-001`, a complete synthetic DiagnosticReport disclosure from Synthetic Hospital A to Synthetic Hospital B;
 - Consent version 3, policy version 6 and authorisation decision D-204 bindings;
@@ -23,7 +27,7 @@ These values are **not** production-EHR latency, network traffic, database stora
 
 ## Cryptographic and confidentiality boundary
 
-SHA-256 is used for exact-byte commitments and Merkle hashing. Ed25519 authenticates issuer and backend statements under deterministic test registries. Base64 in FHIR Binary is encoding, not encryption. The candidate does not implement or evaluate operational transport security, at-rest encryption, hardware security modules, certificate lifecycle management, key rotation or revocation.
+SHA-256 is used for exact-byte commitments and Merkle hashing. Ed25519 authenticates issuer and backend statements under deterministic test registries. Base64 in FHIR Binary is encoding, not encryption. The release does not implement or evaluate operational transport security, at-rest encryption, hardware security modules, certificate lifecycle management, key rotation or revocation.
 
 ## Quick start
 
@@ -38,7 +42,7 @@ python -m pip install --disable-pip-version-check --no-input --no-build-isolatio
 make release-check
 ```
 
-The detailed route is in `REVIEWER_REPRODUCTION.md`. The hosted workflow separately re-runs the official FHIR toolchain and the C6 fresh-extraction release-candidate gate.
+The detailed route is in `REVIEWER_REPRODUCTION.md`. The hosted workflow separately re-runs the official FHIR toolchain and the deterministic fresh-extraction release gate.
 
 ## Component and deployment boundary
 
@@ -46,13 +50,13 @@ The detailed route is in `REVIEWER_REPRODUCTION.md`. The hosted workflow separat
 
 ## Reproducibility and retained evidence
 
-The v2.1.0 monitoring reference corpus is preserved as a historical schema-profile corpus. Route C adds the C3 FHIR validation evidence, C4 mutation corpus and C5 paired local measurements. Measurement-variable outputs are retained rather than regenerated to manufacture byte equality; their contracts, row counts, derivations and source digests are checked.
+The v2.1.0 monitoring reference corpus is preserved as a historical schema-profile corpus. Version 2.2.0 adds the C3 FHIR validation evidence, C4 mutation corpus and C5 paired local measurements. Measurement-variable outputs are retained rather than regenerated to manufacture byte equality; their contracts, row counts, derivations and source digests are checked.
 
-The public release-candidate archive is deterministically built, contains archive-specific `FILE_MANIFEST.tsv` and `SHA256SUMS.txt`, excludes submission-specific `docs/route_c/` governance material, and is tested after fresh extraction. `docs/PUBLIC_RELEASE_SCOPE.md` defines that distribution boundary.
+The canonical public archive is deterministically built, contains archive-specific `FILE_MANIFEST.tsv` and `SHA256SUMS.txt`, excludes submission-specific `docs/route_c/` governance material, and is tested after fresh extraction. `docs/PUBLIC_RELEASE_SCOPE.md` defines that distribution boundary.
 
 ## Claim ceiling
 
-The candidate supports bounded claims about the synthetic hero case, the declared official-validator corpus, registered mutation decisions, exact signed-byte preservation, local retained-checkpoint behaviour and the reported W1 B0-B2 increments. It does not establish:
+The release supports bounded claims about the synthetic hero case, the declared official-validator corpus, registered mutation decisions, exact signed-byte preservation, local retained-checkpoint behaviour and the reported W1 B0-B2 increments. It does not establish:
 
 - real-patient or operational-hospital validation;
 - universal FHIR/BALP conformance or HL7/IHE certification;
@@ -65,13 +69,6 @@ The candidate supports bounded claims about the synthetic hero case, the declare
 - network/database/cloud cost, organisational cost reduction or improved organisational trust;
 - expert validation or consensus.
 
-## Release-candidate status and citation
+## Citation
 
-- Candidate package version: `2.2.0rc1` (PEP 440)
-- Candidate display version: `2.2.0-rc.1`
-- Controlled review location: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/pull/1>
-- Canonical candidate asset name: `TEA-Sim-TrustEvidence-v2.2.0-rc.1.zip`
-- Previous published version: `v2.1.0`
-- Previous exact-version DOI: <https://doi.org/10.5281/zenodo.21318387>
-
-No v2.2.0 DOI or public v2.2.0 GitHub release exists at this gate. Before publication, cite the candidate by version and exact commit. C9 will create the final `v2.2.0` tag, publish the canonical archive, assign the exact-version Zenodo DOI and update all citation metadata.
+Clim, A. (2026). *TEA-Sim v2.2.0: Portable audit evidence for health information exchange* (Version 2.2.0) [Computer software]. Zenodo. <https://doi.org/10.5281/zenodo.21533962>
