@@ -1,0 +1,1 @@
+Trigger target-branch FILE_MANIFEST.tsv and SHA256SUMS.txt regeneration after repairing final metadata validators.
