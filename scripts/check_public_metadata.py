@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import json
-import re
 import tomllib
 from pathlib import Path
 
@@ -24,14 +23,17 @@ RELEASE_DATE = "2026-07-24"
 
 
 def cff_value(text: str, key: str) -> str | None:
-    pattern = rf"(?m)^{re.escape(key)}:\s*["']?([^
-"']+)"
-    match = re.search(pattern, text)
-    return match.group(1).strip() if match else None
+    """Return a simple top-level scalar from the project's CFF file."""
+    prefix = f"{key}:"
+    for line in text.splitlines():
+        if line.startswith(prefix):
+            return line.split(":", 1)[1].strip().strip("\"'")
+    return None
 
 
 def main() -> int:
     errors: list[str] = []
+
     project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]
     if project["version"] != VERSION:
         errors.append("pyproject version mismatch")
@@ -66,10 +68,10 @@ def main() -> int:
         errors.append("Zenodo access/language mismatch")
 
     relations = zenodo.get("related_identifiers", [])
-    predecessors = [x for x in relations if x.get("relation") == "isNewVersionOf"]
+    predecessors = [item for item in relations if item.get("relation") == "isNewVersionOf"]
     if len(predecessors) != 1 or predecessors[0].get("identifier") != PREVIOUS_DOI:
         errors.append("previous-version relation mismatch")
-    if not any(x.get("identifier") == RELEASE_URL for x in relations):
+    if not any(item.get("identifier") == RELEASE_URL for item in relations):
         errors.append("final GitHub release relation missing")
 
     expected = {
@@ -96,8 +98,7 @@ def main() -> int:
         if release.get(key) != value:
             errors.append(f"RELEASE_METADATA {key} mismatch")
 
-    combined = "
-".join([readme, cff, json.dumps(zenodo, sort_keys=True), versioning, notes])
+    combined = "\n".join([readme, cff, json.dumps(zenodo, sort_keys=True), versioning, notes])
     for required in (DOI, DOI_URL, RELEASE_URL, ASSET_NAME, ARCHIVE_ROOT, SHA_NAME):
         if required not in combined:
             errors.append(f"missing final identifier: {required}")
@@ -107,9 +108,9 @@ def main() -> int:
 
     if errors:
         print("PUBLIC-METADATA: FAIL")
-        print("
-".join(errors))
+        print("\n".join(errors))
         return 1
+
     print(f"PUBLIC-METADATA: PASS ({VERSION}; DOI {DOI})")
     return 0
 
