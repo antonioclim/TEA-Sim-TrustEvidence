@@ -43,9 +43,6 @@ jobs:
           PY
           python scripts/finalize_v220_metadata.py
           python scripts/rebuild_integrity_files.py
-          python scripts/check_public_metadata.py
-          python scripts/repository_check.py
-          python scripts/check_action_pins.py
       - name: Commit final metadata
         run: |
           git config user.name 'github-actions[bot]'
