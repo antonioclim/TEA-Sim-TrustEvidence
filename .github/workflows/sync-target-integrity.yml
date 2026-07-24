@@ -1,13 +1,18 @@
 name: Sync Route C target integrity files
 
 on:
-  push:
+  pull_request:
     branches:
-      - revision/jcis-route-c-ci
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   sync:
@@ -35,5 +40,3 @@ jobs:
             git commit -m 'release: synchronise final v2.2.0 integrity files'
             git push origin HEAD:revision/jcis-route-c
           fi
-
-# Trigger final target-branch integrity synchronisation.
