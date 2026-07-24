@@ -35,11 +35,32 @@ jobs:
           from pathlib import Path
           path = Path('scripts/finalize_v220_metadata.py')
           text = path.read_text(encoding='utf-8')
+
+          # Repair literal braces inside the three generated Python f-string blocks.
+          blocks = {
+              'check': ['doi', 'doi_url', 'repo', 'release_url', 'date'],
+              'repo_check': ['doi'],
+              'version_test': ['doi', 'doi_url', 'release_url', 'date'],
+          }
+          for name, placeholders in blocks.items():
+              prefix = name + "=f'''"
+              start = text.index(prefix) + len(prefix)
+              end = text.index("\n'''", start)
+              block = text[start:end]
+              block = block.replace('{{', '{').replace('}}', '}')
+              block = block.replace('{', '{{').replace('}', '}}')
+              for placeholder in placeholders:
+                  block = block.replace('{{' + placeholder + '}}', '{' + placeholder + '}')
+              text = text[:start] + block + text[end:]
+
+          # Remove the temporary self-scan before execution; distribution scans run separately.
           marker = '# Remove any AI-tool strings from public tree (none expected).'
           if marker in text:
               start = text.index(marker)
               end = text.index("print('FINALISE-TREE: PASS')", start)
-              path.write_text(text[:start] + text[end:], encoding='utf-8', newline='\n')
+              text = text[:start] + text[end:]
+
+          path.write_text(text, encoding='utf-8', newline='\n')
           PY
       - name: Apply final v2.2.0 metadata
         id: apply
