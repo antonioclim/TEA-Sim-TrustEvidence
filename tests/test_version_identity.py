@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import re
 import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,20 @@ def test_software_version_identity():
     assert data["project"]["requires-python"] == ">=3.13,<3.14"
     assert data["project"]["urls"]["Release"] == RELEASE_URL
     assert data["project"]["urls"]["DOI"] == DOI_URL
+
+
+def test_curation_result_schema_accepts_final_software_version():
+    schema = json.loads(
+        (ROOT / "src" / "trustevidence" / "schemas" / "curation_result.schema.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    pattern = schema["properties"]["software_version"]["pattern"]
+    assert re.fullmatch(pattern, "2.1.0")
+    assert re.fullmatch(pattern, "2.2.0rc1")
+    assert re.fullmatch(pattern, "2.2.0")
+    assert re.fullmatch(pattern, "2.2.0+local.1")
+    assert not re.fullmatch(pattern, "2.3.0")
 
 
 def test_release_metadata_is_final():
@@ -41,5 +56,12 @@ def test_zenodo_metadata_is_final():
     assert zen["access_right"] == "open"
     assert zen["language"] == "eng"
     predecessors = [x for x in zen["related_identifiers"] if x["relation"] == "isNewVersionOf"]
-    assert predecessors == [{"identifier": PREVIOUS_DOI,"relation":"isNewVersionOf","scheme":"doi","resource_type":"software"}]
+    assert predecessors == [
+        {
+            "identifier": PREVIOUS_DOI,
+            "relation": "isNewVersionOf",
+            "scheme": "doi",
+            "resource_type": "software",
+        }
+    ]
     assert DOI in zen["notes"]
