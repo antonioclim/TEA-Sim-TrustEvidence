@@ -1,1 +1,1 @@
-"""Packaged JSON Schema resources for the v2.1.0 method."""
+"""Packaged JSON Schemas for the v2.1 monitoring and v1 HIE profiles."""

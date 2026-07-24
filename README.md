@@ -1,24 +1,33 @@
-# TEA-Sim v2.1.0: Schema-first curation of personal health monitoring evidence
+# TEA-Sim v2.2.0: Portable audit evidence for health information exchange
 
-TEA-Sim is a reference implementation for treating audit evidence as a biomedical data-curation object. It transforms declared metadata about monitoring-object registration, access, consent transitions, provenance, disclosure, aggregation and failures into a closed, signed evidence envelope without placing raw physiological values in that public envelope.
+TEA-Sim TrustEvidence is a healthcare-specific audit-evidence boundary and executable reference profile. It distinguishes audit facts that may cross organisational boundaries from clinical payloads that remain under source custody.
+
+- Exact-version DOI: <https://doi.org/10.5281/zenodo.21533962>
+- GitHub release: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.2.0>
+- Canonical asset: `TEA-Sim-TrustEvidence-v2.2.0.zip`
 
 ## What this release executes
 
-The package provides:
+The release retains the v2.1.0 personal-monitoring schema and adds a separate health-information-exchange profile with:
 
-- closed JSON Schema Draft 2020-12 resources for monitoring events, evidence envelopes and curation results;
-- semantic and minimisation checks for seven monitoring-accountability event classes;
-- TE-JCS-1 canonicalisation using an RFC 8785 implementation under an explicit application profile;
-- deterministic Ed25519 test-fixture signatures and nonce-based payload commitments;
-- a project-specific, RFC-9162-shaped local A2 Merkle receipt and retained-checkpoint consistency verifier;
-- controlled schema, canonicalisation, signature, receipt, proof and consistency mutations;
-- deterministic Hypothesis tests and finite bounded executable checks;
-- bounded synthetic workload passage at 128, 512 and 2,048 leaves;
-- reproducible figures generated from retained CSV/JSON sources.
+- `HIE-DISCLOSURE-001`, a complete synthetic DiagnosticReport disclosure from Synthetic Hospital A to Synthetic Hospital B;
+- Consent version 3, policy version 6 and authorisation decision D-204 bindings;
+- a signed TrustEvidence envelope containing references, audit facts and a source-payload commitment, but not the DiagnosticReport or Observation payload values;
+- a project-specific local A2 Merkle receipt, inclusion material and retained-checkpoint verification;
+- a FHIR R4/BALP-facing implementation-guide corpus with retained SUSHI, IG Publisher and HL7 FHIR Validator evidence for the declared positive and intended-negative examples;
+- 67 registered C4 security cases, including preserved limitation acceptances and the explicit result that an authorised receipt does not prove truthful tree size, actual log population, completeness or backend honesty;
+- a frozen C5 B0-B2 paired local experiment with five excluded pilot blocks, twenty confirmatory paired blocks, sixty process runs and 7,680 retained operation timings;
+- deterministic unit, property and finite bounded checks, result contracts, file manifests and SHA-256 catalogues.
 
-## Public envelope boundary
+## C5 local incremental result
 
-The public evidence envelope may retain pseudonymous subject tokens, actor and emitter roles, controlled purpose codes, object/version tokens, consent and policy bindings, provenance relations, aggregation counts and signed receipt material. It excludes raw monitoring samples, direct identifiers, credentials and payload-commitment nonces. A commitment can bind withheld payload bytes and a withheld nonce; it is not encryption, anonymisation or evidence that the source payload was clinically correct.
+For the exact synthetic W1 disclosure case on the reported GitHub-hosted runner, the complete B2 reference path added median local operation-level increments of 9.023 ms at p50, 9.290 ms at p95 and 9.668 ms at p99 relative to B0 local source processing. The exact fixture added 16,205 canonical application bytes and produced a 215,339-byte project-defined local storage proxy after 128 operations.
+
+These values are **not** production-EHR latency, network traffic, database storage, service-level performance, scalability or organisational cost results. No negligible-overhead or equivalence margin was defined.
+
+## Cryptographic and confidentiality boundary
+
+SHA-256 is used for exact-byte commitments and Merkle hashing. Ed25519 authenticates issuer and backend statements under deterministic test registries. Base64 in FHIR Binary is encoding, not encryption. The release does not implement or evaluate operational transport security, at-rest encryption, hardware security modules, certificate lifecycle management, key rotation or revocation.
 
 ## Quick start
 
@@ -27,30 +36,39 @@ Use Python 3.13 in a fresh virtual environment:
 ```bash
 python -m venv .venv
 . .venv/bin/activate
-python -m pip install -e '.[test,figures]'
+python -m pip install --disable-pip-version-check --no-input setuptools==82.0.1 wheel==0.46.3
+python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
+python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
 make release-check
 ```
 
-The detailed stepwise route is in `REVIEWER_REPRODUCTION.md`.
+The detailed route is in `REVIEWER_REPRODUCTION.md`. The hosted workflow separately re-runs the official FHIR toolchain and the deterministic fresh-extraction release gate.
 
-## Evidence status
+## Component and deployment boundary
 
-The retained schema, canonicalisation, mutation, consistency, property and bounded outputs were regenerated by the integrated package. The full workload executes 12 repetitions at 128, 512 and 2,048 leaves; its raw event and timing rows are retained in `results_expected/cmpb_reference/`. Timing values are descriptive single-host measurements, not comparative benchmarks.
+`docs/DEPLOYABILITY_AND_COMPONENTS.md` lists the implemented components, integration points and omitted operational controls. The package is a reference implementation, not a hospital-ready system. In particular, it does not provide an operational FHIR server, identity provider, consent-decision service, durable replicated log, database, queue, HSM/KMS, monitoring platform, recovery process or organisational operating model.
 
-## Limitations
+## Reproducibility and retained evidence
 
-This is a local reference implementation over synthetic monitoring-accountability events. It does not provide clinical validation, production deployment, patient recruitment, operational key management, confidentiality, global non-equivocation, witness gossip, legal compliance, FHIR/BALP conformance, IHE certification or complete formal verification. Duplicate evidence material may occur at more than one leaf; inclusion does not by itself establish occurrence uniqueness.
+The v2.1.0 monitoring reference corpus is preserved as a historical schema-profile corpus. Version 2.2.0 adds the C3 FHIR validation evidence, C4 mutation corpus and C5 paired local measurements. Measurement-variable outputs are retained rather than regenerated to manufacture byte equality; their contracts, row counts, derivations and source digests are checked.
 
-## Public records and citation
+The canonical public archive is deterministically built, contains archive-specific `FILE_MANIFEST.tsv` and `SHA256SUMS.txt`, excludes submission-specific `docs/route_c/` governance material, and is tested after fresh extraction. `docs/PUBLIC_RELEASE_SCOPE.md` defines that distribution boundary.
 
-- Software DOI: `10.5281/zenodo.21318387`
-- DOI link: <https://doi.org/10.5281/zenodo.21318387>
-- GitHub repository: <https://github.com/antonioclim/TEA-Sim-TrustEvidence>
-- GitHub release: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0>
-- Canonical release asset: `TEA-Sim-TrustEvidence-v2.1.0.zip`
+## Claim ceiling
 
-Recommended citation:
+The release supports bounded claims about the synthetic hero case, the declared official-validator corpus, registered mutation decisions, exact signed-byte preservation, local retained-checkpoint behaviour and the reported W1 B0-B2 increments. It does not establish:
 
-> Clim, A. (2026). *TEA-Sim v2.1.0: Schema-first curation of personal health monitoring evidence* (Version 2.1.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21318387
+- real-patient or operational-hospital validation;
+- universal FHIR/BALP conformance or HL7/IHE certification;
+- SCITT or RFC 9942 conformance;
+- clinical, consent, policy or identity truth;
+- encryption, confidentiality, privacy compliance or legal compliance;
+- truthful tree size, actual log population, complete event capture or public transparency;
+- replay prevention, global non-equivocation or backend honesty;
+- production readiness, large-network scalability or hospital service-level acceptability;
+- network/database/cloud cost, organisational cost reduction or improved organisational trust;
+- expert validation or consensus.
 
-The previous published version is v2.0.1, DOI `10.5281/zenodo.21226180`. Cite v2.1.0 with the DOI above when using this release.
+## Citation
+
+Clim, A. (2026). *TEA-Sim v2.2.0: Portable audit evidence for health information exchange* (Version 2.2.0) [Computer software]. Zenodo. <https://doi.org/10.5281/zenodo.21533962>

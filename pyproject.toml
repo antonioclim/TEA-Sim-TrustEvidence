@@ -4,17 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "teasim-trustevidence"
-version = "2.1.0"
-description = "Schema-first curation of personal health monitoring evidence"
+version = "2.2.0"
+description = "Portable audit evidence for health information exchange"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
 license = "Apache-2.0"
 authors = [{name = "Antonio Clim", email = "antonio.clim@csie.ase.ro"}]
 keywords = [
-  "personal health monitoring",
-  "biomedical informatics",
-  "data curation",
+  "health information exchange",
   "audit evidence",
+  "FHIR",
+  "Merkle receipts",
   "reproducibility",
 ]
 dependencies = [
@@ -39,9 +39,10 @@ teasim = "trustevidence.cli:main"
 
 [project.urls]
 Repository = "https://github.com/antonioclim/TEA-Sim-TrustEvidence"
-Release = "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0"
-"Archived release" = "https://doi.org/10.5281/zenodo.21318387"
-"Previous version" = "https://doi.org/10.5281/zenodo.21226180"
+Release = "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.2.0"
+DOI = "https://doi.org/10.5281/zenodo.21533962"
+"Previous exact release" = "https://doi.org/10.5281/zenodo.21318387"
+"Previous source release" = "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0"
 
 [tool.setuptools.packages.find]
 where = ["src"]

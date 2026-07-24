@@ -1,0 +1,35 @@
+{
+  "command_parameters": {
+    "bootstrap_resamples": 10000,
+    "operations": 128,
+    "pilot_blocks": 5,
+    "retained_blocks": 20,
+    "warmup": 8,
+    "workloads": [
+      "W1-HIE-DISCLOSURE"
+    ]
+  },
+  "output_files": {
+    "README.md": "fc0036414c818f875ae88ffe68ff4699174c8d7b22e52315058c72c29cf708c3",
+    "aggregate_estimates.csv": "1d70d9fd5fa83c1653a79cacc152f570e4fda734b02ce21415686308f63d01b4",
+    "hardware_profile.json": "96e81dfa4d3fc6ce722450c6506a9eb69a59395051929d5c40a84ef8c1321eae",
+    "paired_increments.csv": "527557ad25ec2cb9e8ff691c7352be33839a5741634aaee5c6814451b12072d3",
+    "pilot_operation_timings.jsonl": "202188bdd3db581f0cbdbcc93d29001d945c6a6ad178c5da43b1703af5e9970f",
+    "pilot_runs.csv": "e95a313956fd7304e5a53d45b94c6c0825ab8c0f0a7e975988b0051acf21bb73",
+    "retained_operation_timings.jsonl": "d2e513f118a263ebb89aaf18ebf30fa4bd109019a5354ea7ea44149a2bbd428c",
+    "retained_runs.csv": "094c6e7dff8c5034344a87d250e6f6df79419ffb3cb37a68568c749c8490ac45",
+    "run_summary.json": "2651a5537f75063124f67705a00ae2632a006256c7e3fb2a8fe39b653b70e941"
+  },
+  "python_executable": "/opt/hostedtoolcache/Python/3.13.14/x64/bin/python",
+  "run_id": "route-c-hie-overhead-001",
+  "source_commit": "5550c4792ba18780a56dbd4bd6cf3962c2d64198",
+  "source_files": {
+    "data_examples/c5_overhead/wearable_monitoring_batch.json": "b4be353f61863776248573df3eeaf62a5a0d082fbd023583493bb28773681c89",
+    "data_examples/hie_disclosure/source/source_clinical_bundle.json": "39317f3610c05383bdc655b5a04a999886ce7ee1f8678ee265153e7c1ab55301",
+    "data_examples/personal_monitoring/aggregation_event.json": "a8e5c70ca1ae3f8ce23ca473dc419c88a21b81418e519b3f535503c3f93aec55",
+    "docs/route_c/MEASUREMENT_PROTOCOL.md": "47ce0db93a76c9a093de899a33727e540395d5f57d0869820909b061645431cf",
+    "experiments/run_hie_incremental_overhead.py": "ad1b3e66a5bce35f36b2ff4bfb44ef8ef2b3ffca5132a5adb10d8fa4595c31b7"
+  },
+  "workflow_attempt": "1",
+  "workflow_run_id": "30014318281"
+}

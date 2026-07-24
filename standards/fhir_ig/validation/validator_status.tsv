@@ -1,0 +1,6 @@
+positive	0	standards/fhir_ig/input/resources/Bundle-portable-evidence-bundle-hie-001.json
+positive	0	data_examples/hie_disclosure/source/source_clinical_bundle.json
+positive	0	standards/fhir_ig/input/resources/AuditEvent-authorisation-decision-hie-001.json
+positive	0	standards/fhir_ig/input/resources/AuditEvent-privacy-disclosure-source-hie-001.json
+negative	1	standards/fhir_ig/negative/AuditEvent-privacy-disclosure-missing-recipient.json
+negative	1	standards/fhir_ig/negative/Bundle-portable-evidence-with-clinical-payload.json

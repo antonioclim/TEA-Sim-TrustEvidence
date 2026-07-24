@@ -1,0 +1,4 @@
+== Suppressed Messages ==
+
+# Route C suppresses no IG Publisher errors or warnings. This file exists so
+# the released HL7 template can record an explicit zero-suppression policy.

@@ -1,0 +1,23 @@
+{
+  "active": true,
+  "id": "recipient-role-b",
+  "identifier": [
+    {
+      "system": "urn:te:actor-token",
+      "value": "authorised-reader-b"
+    }
+  ],
+  "meta": {
+    "security": [
+      {
+        "code": "HTEST",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+      }
+    ]
+  },
+  "resourceType": "Practitioner",
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Practitioner reference artefact.</div>",
+    "status": "generated"
+  }
+}

@@ -1,39 +1,45 @@
 {
-  "title": "TEA-Sim v2.1.0: Schema-first curation of personal health monitoring evidence",
+  "title": "TEA-Sim v2.2.0: Portable audit evidence for health information exchange",
   "upload_type": "software",
-  "publication_date": "2026-07-12",
-  "version": "2.1.0",
-  "description": "Reproducible reference implementation and evidence package for schema-first curation, payload minimisation, deterministic canonicalisation, signing and local receipt verification in synthetic personal health monitoring workflows. The package includes controlled mutation tests, property-based and finite bounded checks, an externally informed synthetic workload passage, figures and machine-readable results. It does not claim clinical validation, production deployment, legal compliance, FHIR/BALP conformance, global non-equivocation or complete formal verification.",
+  "version": "2.2.0",
+  "publication_date": "2026-07-24",
+  "description": "TEA-Sim TrustEvidence v2.2.0 is a reproducible healthcare audit-evidence boundary and executable reference profile. The release contains a complete synthetic cross-organisational DiagnosticReport disclosure case, a bounded FHIR R4/BALP-facing implementation guide with retained official-validator evidence, registered semantic, signature, receipt and checkpoint mutation results, a project-specific local A2 Merkle receipt model, and a paired B0-B2 local processing, application-byte and storage-proxy experiment. The release supports bounded claims about the synthetic case, the declared validation corpus, registered mutation decisions, exact signed-byte preservation, local retained-checkpoint behaviour and the reported W1 B0-B2 increments. It does not claim production EHR performance, hospital deployment readiness, clinical or legal validation, universal FHIR/BALP conformance, large-network scalability, event completeness, backend honesty, public transparency, organisational trust improvement or cost reduction.",
   "creators": [
     {
       "name": "Clim, Antonio",
       "orcid": "0000-0003-4745-0431",
-      "affiliation": "Faculty of Cybernetics, Statistics and Economic Informatics, Bucharest University of Economic Studies"
+      "affiliation": "Department of Economic Informatics and Cybernetics, Bucharest University of Economic Studies, Bucharest, Romania"
     }
   ],
   "license": "Apache-2.0",
   "keywords": [
-    "personal health monitoring",
-    "biomedical informatics",
-    "data curation",
+    "health information exchange",
     "audit evidence",
+    "FHIR",
+    "Merkle receipts",
     "reproducibility"
   ],
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.21226180",
+      "identifier": "10.5281/zenodo.21318387",
       "relation": "isNewVersionOf",
       "scheme": "doi",
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0",
+      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.2.0",
+      "relation": "isSupplementedBy",
+      "scheme": "url",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/antonioclim/TEA-Sim-TrustEvidence",
       "relation": "isSupplementedBy",
       "scheme": "url",
       "resource_type": "software"
     }
   ],
-  "notes": "Current version DOI: 10.5281/zenodo.21318387. Previous version DOI: 10.5281/zenodo.21226180. GitHub repository: https://github.com/antonioclim/TEA-Sim-TrustEvidence. GitHub release: https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.1.0. The workload is externally informed and synthetic; timing values are single-host descriptive observations.",
+  "notes": "Exact-version DOI: 10.5281/zenodo.21533962. Canonical release asset: TEA-Sim-TrustEvidence-v2.2.0.zip. The identical canonical ZIP byte stream is intended for the GitHub v2.2.0 release and this Zenodo version.",
   "access_right": "open",
   "language": "eng"
 }

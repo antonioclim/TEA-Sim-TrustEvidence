@@ -1,0 +1,7 @@
+Output File                                              Name                         Type        FSH File      Lines
+CodeSystem-te-evidence-type.json                         TEEvidenceType               CodeSystem  profiles.fsh  3 - 10
+StructureDefinition-te-evidence-document-reference.json  TEEvidenceDocumentReference  Profile     profiles.fsh  28 - 44
+StructureDefinition-te-evidence-provenance.json          TEEvidenceProvenance         Profile     profiles.fsh  46 - 55
+StructureDefinition-te-portable-evidence-binary.json     TEPortableEvidenceBinary     Profile     profiles.fsh  19 - 26
+StructureDefinition-te-portable-evidence-bundle.json     TEPortableEvidenceBundle     Profile     profiles.fsh  57 - 66
+ValueSet-te-evidence-type-vs.json                        TEEvidenceTypeVS             ValueSet    profiles.fsh  12 - 17

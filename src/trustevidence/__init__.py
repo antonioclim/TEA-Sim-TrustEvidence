@@ -1,11 +1,15 @@
-"""Public API for the v2.1.0 schema and receipt-binding layer."""
+"""Public API for the TEA-Sim v2.2.0 release.
+
+The pre-existing personal-monitoring envelope profile remains version 2.1.0;
+the software distribution version is independent from that wire/schema version.
+"""
 
 from importlib.metadata import PackageNotFoundError, version
 
 try:
     __version__ = version("teasim-trustevidence")
 except PackageNotFoundError:
-    __version__ = "2.1.0+uninstalled"
+    __version__ = "2.2.0+uninstalled"
 
 from .canonical import canonicalise_rfc8785, canonicalise_te, strict_json_loads
 from .crypto import commit_payload, verify_payload_commitment

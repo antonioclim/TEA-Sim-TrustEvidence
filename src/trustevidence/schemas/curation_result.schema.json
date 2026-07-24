@@ -197,7 +197,7 @@
       "type": "object"
     },
     "software_version": {
-      "pattern": "^2\\.1\\.0(?:\\+[A-Za-z0-9.-]+)?$",
+      "pattern": "^(?:2\\.1\\.0|2\\.2\\.0rc1|2\\.2\\.0)(?:\\+[A-Za-z0-9.-]+)?$",
       "type": "string"
     },
     "stages": {

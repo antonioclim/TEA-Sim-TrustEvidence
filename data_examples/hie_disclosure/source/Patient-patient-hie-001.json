@@ -1,0 +1,23 @@
+{
+  "active": true,
+  "id": "patient-hie-001",
+  "identifier": [
+    {
+      "system": "urn:te:token-system:hie-fixture-v1",
+      "value": "subject-hie-001"
+    }
+  ],
+  "meta": {
+    "security": [
+      {
+        "code": "HTEST",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+      }
+    ]
+  },
+  "resourceType": "Patient",
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Patient reference artefact.</div>",
+    "status": "generated"
+  }
+}

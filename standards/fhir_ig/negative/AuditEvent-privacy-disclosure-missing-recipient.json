@@ -1,0 +1,115 @@
+{
+  "action": "R",
+  "agent": [
+    {
+      "network": {
+        "address": "synthetic-hospital-a.example",
+        "type": "1"
+      },
+      "requestor": false,
+      "type": {
+        "coding": [
+          {
+            "code": "110153",
+            "system": "http://dicom.nema.org/resources/ontology/DCM"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Device/evidence-service-a"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": {
+        "code": "1",
+        "display": "Patient",
+        "system": "http://terminology.hl7.org/CodeSystem/object-role"
+      },
+      "type": {
+        "code": "1",
+        "system": "http://terminology.hl7.org/CodeSystem/audit-entity-type"
+      },
+      "what": {
+        "reference": "Patient/patient-hie-001"
+      }
+    },
+    {
+      "role": {
+        "code": "3",
+        "display": "Report",
+        "system": "http://terminology.hl7.org/CodeSystem/object-role"
+      },
+      "type": {
+        "code": "DiagnosticReport",
+        "system": "http://hl7.org/fhir/resource-types"
+      },
+      "what": {
+        "display": "Synthetic DiagnosticReport version 2 retained by Hospital A",
+        "identifier": {
+          "system": "urn:trustevidence:identifier:source-resource",
+          "value": "DiagnosticReport/diagnostic-report-hie-001/_history/2"
+        },
+        "type": "DiagnosticReport"
+      }
+    }
+  ],
+  "id": "privacy-disclosure-source-missing-recipient",
+  "meta": {
+    "profile": [
+      "https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source"
+    ],
+    "security": [
+      {
+        "code": "HTEST",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+      }
+    ]
+  },
+  "outcome": "0",
+  "purposeOfEvent": [
+    {
+      "coding": [
+        {
+          "code": "TREAT",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+        }
+      ]
+    }
+  ],
+  "recorded": "2026-07-14T09:30:00.000Z",
+  "resourceType": "AuditEvent",
+  "source": {
+    "observer": {
+      "reference": "Device/evidence-service-a"
+    },
+    "site": "synthetic-hospital-a.example",
+    "type": [
+      {
+        "code": "4",
+        "display": "Application Server",
+        "system": "http://terminology.hl7.org/CodeSystem/security-source-type"
+      }
+    ]
+  },
+  "subtype": [
+    {
+      "code": "disclose",
+      "system": "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"
+    },
+    {
+      "code": "read",
+      "system": "http://hl7.org/fhir/restful-interaction"
+    }
+  ],
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic AuditEvent reference artefact.</div>",
+    "status": "generated"
+  },
+  "type": {
+    "code": "110106",
+    "display": "Export",
+    "system": "http://dicom.nema.org/resources/ontology/DCM"
+  }
+}

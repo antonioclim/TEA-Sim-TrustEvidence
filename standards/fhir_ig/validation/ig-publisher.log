@@ -1,0 +1,192 @@
+FHIR IG Publisher Version 2.2.11 (Git# 0ec4807574e3). Built 2026-07-15T17:53:55.408Z (7 days old)   
+Detected Java version: 17.0.19 from /usr/lib/jvm/temurin-17-jdk-amd64 on Linux/amd64 (64bit). 3998MB available
+dir = /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence, path = /opt/hostedtoolcache/Ruby/3.3.12/x64/bin:/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64/bin:/opt/hostedtoolcache/node/22.23.1/x64/bin:/opt/hostedtoolcache/Python/3.13.14/x64/bin:/opt/hostedtoolcache/Python/3.13.14/x64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+Parameters: -ig standards/fhir_ig/ig.ini -tx https://tx.fhir.org/r4                                 
+Character encoding = UTF-8 / UTF-8                                                                  
+Start Clock @ Thursday, July 23, 2026 at 10:42:44 AM Coordinated Universal Time (2026-07-23T10:42:44Z)
+                                                                                                    
+Build FHIR IG from /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/ig.ini (00:00.067 / 00:00.067, 30Mb)
+No FHIR settings file at /home/runner/.fhir/fhir-settings.json; using defaults (no API keys or npm path) (00:00.002 / 00:00.069, 30Mb)
+Package Cache: /home/runner/.fhir/packages                                                           (00:00.002 / 00:00.072, 30Mb)
+Run Sushi on /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig         (00:00.007 / 00:00.080, 31Mb)
+Sushi: info  Running SUSHI v3.20.0 (implements FHIR Shorthand specification v3.0.0)                  (00:00.433 / 00:00.514, 32Mb)
+Sushi: info  Arguments:                                                                              (00:00.000 / 00:00.514, 32Mb)
+Sushi: info    --out /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig (00:00.000 / 00:00.515, 32Mb)
+Sushi: info    /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig       (00:00.000 / 00:00.516, 32Mb)
+Sushi: info  Using configuration file: /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/sushi-config.yaml (00:00.345 / 00:00.861, 32Mb)
+Sushi: info  Importing FSH text...                                                                   (00:00.094 / 00:00.956, 32Mb)
+Sushi: info  Preprocessed 1 documents with 1 aliases.                                                (00:00.079 / 00:01.036, 32Mb)
+Sushi: info  Imported 6 definitions and 0 instances.                                                 (00:00.006 / 00:01.042, 32Mb)
+Sushi: info  Loaded virtual package sushi-r5forR4#1.0.0 with 7 resources                             (00:00.086 / 00:01.128, 32Mb)
+Sushi: info  Resolved hl7.fhir.uv.tools.r4#latest to concrete version 1.1.2                          (00:00.741 / 00:01.869, 32Mb)
+Sushi: info  Loaded hl7.fhir.uv.tools.r4#1.1.2 with 119 resources                                    (00:00.047 / 00:01.917, 32Mb)
+Sushi: info  Resolved hl7.terminology.r4#latest to concrete version 7.2.0                            (00:00.179 / 00:02.096, 32Mb)
+Sushi: info  Loaded hl7.terminology.r4#7.2.0 with 4165 resources                                     (00:00.880 / 00:02.976, 32Mb)
+Sushi: info  Loaded ihe.iti.balp#1.1.4 with 38 resources                                             (00:00.028 / 00:03.005, 32Mb)
+Sushi: info  Loaded hl7.fhir.r4.core#4.0.1 with 4581 resources                                       (00:00.720 / 00:03.725, 32Mb)
+Sushi: info  Resolved hl7.fhir.uv.extensions.r4#latest to concrete version 5.3.0                     (00:00.181 / 00:03.907, 32Mb)
+Sushi: info  Loaded hl7.fhir.uv.extensions.r4#5.3.0 with 885 resources                               (00:00.180 / 00:04.088, 32Mb)
+Sushi: info  Loaded virtual package sushi-local#LOCAL with 14 resources                              (00:00.013 / 00:04.101, 32Mb)
+Sushi: info  Converting FSH to FHIR resources...                                                     (00:00.016 / 00:04.117, 32Mb)
+Sushi: info  Converted 4 FHIR StructureDefinitions.                                                  (00:00.150 / 00:04.268, 32Mb)
+Sushi: info  Converted 1 FHIR CodeSystems.                                                           (00:00.018 / 00:04.287, 32Mb)
+Sushi: info  Converted 1 FHIR ValueSets.                                                             (00:00.014 / 00:04.301, 32Mb)
+Sushi: info  Exporting FHIR resources as JSON...                                                     (00:00.000 / 00:04.301, 32Mb)
+Sushi: info  Exported 6 FHIR resources as JSON.                                                      (00:00.015 / 00:04.317, 32Mb)
+Sushi: info  Assembling Implementation Guide sources...                                              (00:00.001 / 00:04.318, 32Mb)
+Sushi: info  Generated ImplementationGuide-org.trustevidence.hie.json                                (00:00.028 / 00:04.346, 32Mb)
+Sushi: info  Assembled Implementation Guide sources; ready for IG Publisher.                         (00:00.000 / 00:04.347, 32Mb)
+Sushi: info  The _build script hosted at https://github.com/HL7/ig-publisher-scripts is useful for downloading and running the IG Publisher. (00:00.000 / 00:04.347, 32Mb)
+Sushi: ========================= SUSHI RESULTS ===========================                           (00:00.001 / 00:04.349, 32Mb)
+Sushi: |  -------------------------------------------------------------  |                           (00:00.000 / 00:04.349, 32Mb)
+Sushi: | |    Profiles   |  Extensions  |   Logicals   |   Resources   | |                           (00:00.000 / 00:04.350, 32Mb)
+Sushi: | |-------------------------------------------------------------| |                           (00:00.000 / 00:04.350, 32Mb)
+Sushi: | |       4       |      0       |      0       |       0       | |                           (00:00.000 / 00:04.351, 32Mb)
+Sushi: |  -------------------------------------------------------------  |                           (00:00.003 / 00:04.355, 32Mb)
+Sushi: |  -------------------------------------------------------------  |                           (00:00.000 / 00:04.355, 32Mb)
+Sushi: | |      ValueSets     |    CodeSystems    |     Instances      | |                           (00:00.000 / 00:04.356, 32Mb)
+Sushi: | |-------------------------------------------------------------| |                           (00:00.000 / 00:04.356, 32Mb)
+Sushi: | |         1          |         1         |         0          | |                           (00:00.000 / 00:04.357, 32Mb)
+Sushi: |  -------------------------------------------------------------  |                           (00:00.000 / 00:04.358, 32Mb)
+Sushi: |                                                                 |                           (00:00.000 / 00:04.358, 32Mb)
+Sushi: ===================================================================                           (00:00.000 / 00:04.359, 32Mb)
+Sushi: | You're swimming in success!            0 Errors      0 Warnings |                           (00:00.000 / 00:04.359, 32Mb)
+Sushi: ===================================================================                           (00:00.000 / 00:04.360, 32Mb)
+Root directory: /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig      (00:00.008 / 00:04.369, 32Mb)
+Unable to load IG as an r5 IG - try R4 (property code is a class com.google.gson.JsonPrimitive looking for an object) (00:00.390 / 00:04.759, 51Mb)
+Load Template from fhir.base.template#current                                                        (00:00.366 / 00:05.126, 27Mb)
+[33mThis content depends on fhir.base.template which is no longer considered secure to use
+[0;39m[33mSee Security notification at https://www.fhir.org/guides/security-notices/2026-03-npm-dependencies.html
+[0;39m[39mInstalling fhir.base.template#current to the package cache
+[0;39m[39m  Fetching:
+[0;39m[39m
+[0;39m[39mInstalling fhir.base.template#current
+[0;39m[39m done.
+[0;39m[39m loaded @ /home/runner/.fhir/packages/fhir.base.template#current
+[0;39mScanning directory: /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/template
+======================================================================
+Terminology Cache is at /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input-cache/txcache. 0 files in cache (00:06.709 / 00:11.835, 120Mb)
+Core Package hl7.fhir.r4.core#4.0.1                                                                  (00:00.000 / 00:11.836, 120Mb)
+Running Terminology Log: /tmp/ohfu-fhir-ig-10714552750192762935.html
+Connect to Terminology Server at https://tx.fhir.org/r4                                              (00:08.470 / 00:20.307, 427Mb)
+[39mInstalling hl7.fhir.pubpack#0.2.5 to the package cache
+[0;39m[39m  Fetching:
+[0;39m[39m
+[0;39m[39mInstalling hl7.fhir.pubpack#0.2.5
+[0;39m[39m done.
+[0;39m[39m loaded @ /home/runner/.fhir/packages/hl7.fhir.pubpack#0.2.5
+[0;39m[39mLoad Package hl7.fhir.pubpack#0.2.5
+[0;39m[39mInstalling hl7.fhir.xver-extensions#0.1.0 to the package cache
+[0;39m[39m  Fetching:
+[0;39m[39m
+[0;39m[39mInstalling hl7.fhir.xver-extensions#0.1.0
+[0;39m[39m done.
+[0;39m[39m loaded @ /home/runner/.fhir/packages/hl7.fhir.xver-extensions#0.1.0
+[0;39m[39mLoad Package hl7.fhir.xver-extensions#0.1.0
+[0;39m[39mLoad Package hl7.terminology.r4#7.2.0
+[0;39m[39mLoad Package hl7.fhir.uv.extensions.r4#5.3.0
+[0;39m[39mInstalling hl7.terminology.r4#6.5.0 to the package cache
+[0;39m[39m  Fetching:
+[0;39m[39m
+[0;39m[39mInstalling hl7.terminology.r4#6.5.0
+[0;39m[39m done.
+[0;39m[39m loaded @ /home/runner/.fhir/packages/hl7.terminology.r4#6.5.0
+[0;39m[39mInstalling hl7.fhir.uv.extensions.r4#5.2.0 to the package cache
+[0;39m[39m  Fetching:
+[0;39m[39m
+[0;39m[39mInstalling hl7.fhir.uv.extensions.r4#5.2.0
+[0;39m[39m done.
+[0;39m[39m loaded @ /home/runner/.fhir/packages/hl7.fhir.uv.extensions.r4#5.2.0
+[0;39m[39mLoad Package hl7.fhir.uv.extensions.r4#5.2.0
+[0;39m[39mLoad Package hl7.terminology.r4#6.5.0
+[0;39m[39mLoad Package ihe.iti.balp#1.1.4
+[0;39m[39mLoad Package hl7.fhir.uv.tools.r4#1.1.2
+[0;39mLoad R5 Specials
+[39mInstalling hl7.fhir.r5.core#5.0.0 to the package cache
+[0;39m[39m  Fetching:
+[0;39m[39m
+[0;39m[39mInstalling hl7.fhir.r5.core#5.0.0
+[0;39m[39m done.
+[0;39m[39m loaded @ /home/runner/.fhir/packages/hl7.fhir.r5.core#5.0.0
+[0;39mInitialization complete                                                                              (00:23.073 / 00:43.380, 353Mb)
+Load IG                                                                                              (00:00.000 / 00:43.381, 353Mb)
+Load Content                                                                                         (00:00.003 / 00:43.384, 354Mb)
+Using en-US as the default narrative language. (no language information in Implementation Guide)     (00:00.041 / 00:43.425, 358Mb)
+Process Loaded Resources                                                                             (00:00.329 / 00:43.754, 379Mb)
+Generating Snapshots                                                                                 (00:00.096 / 00:43.851, 389Mb)
+
+Signing Certificate: RSA key for Subject: OU=IG Publisher, L=Ann Arbor, CN=hl7.org, O=HL7, ST=Missouri, C=us from: OU=IG Publisher, L=Ann Arbor, CN=hl7.org, O=HL7, ST=Missouri, C=us
+Fetch https://example.org/fhir/trustevidence-hie/package-list.json for version check                 (00:00.178 / 00:44.030, 428Mb)
+Checking Language                                                                                    (00:00.078 / 00:44.108, 432Mb)
+Load Dependency Info                                                                                 (00:00.001 / 00:44.109, 432Mb)
+Load Info                                                                                            (00:00.001 / 00:44.111, 432Mb)
+Load Paths                                                                                           (00:00.000 / 00:44.111, 433Mb)
+Check R4 / R4B                                                                                       (00:00.000 / 00:44.112, 433Mb)
+Assign Comparison Ids                                                                                (00:00.025 / 00:44.137, 437Mb)
+Propagating status                                                                                   (00:00.000 / 00:44.137, 437Mb)
+Generating Narratives                                                                                (00:00.000 / 00:44.138, 437Mb)
+Validating Conformance Resources                                                                     (00:00.894 / 00:45.032, 500Mb)
+Check profiles & code systems                                                                        (00:10.548 / 00:55.580, 457Mb)
+Check realm rules                                                                                    (00:00.001 / 00:55.581, 457Mb)
+Previous Version Comparison                                                                          (00:00.000 / 00:55.582, 457Mb)
+.. loaded. Process                                                                                   (00:00.000 / 00:55.582, 457Mb)
+  ...ImplementationGuide org.trustevidence.hie                                                       (00:00.000 / 00:55.582, 457Mb)
+  ...CodeSystem te-evidence-type                                                                     (00:00.000 / 00:55.583, 457Mb)
+  ...StructureDefinition te-evidence-document-reference                                              (00:00.000 / 00:55.583, 457Mb)
+  ...StructureDefinition te-evidence-provenance                                                      (00:00.000 / 00:55.583, 457Mb)
+  ...StructureDefinition te-portable-evidence-binary                                                 (00:00.000 / 00:55.583, 457Mb)
+  ...StructureDefinition te-portable-evidence-bundle                                                 (00:00.000 / 00:55.584, 457Mb)
+  ...ValueSet te-evidence-type-vs                                                                    (00:00.000 / 00:55.584, 457Mb)
+finish previous version comparison                                                                   (00:00.000 / 00:55.584, 457Mb)
+finish ipa version                                                                                   (00:00.000 / 00:55.584, 457Mb)
+finish ips version                                                                                   (00:00.000 / 00:55.585, 457Mb)
+comparisons done                                                                                     (00:00.000 / 00:55.585, 457Mb)
+Checking for Bundles to sign                                                                         (00:00.009 / 00:55.594, 458Mb)
+Validating Resources                                                                                 (00:00.000 / 00:55.595, 458Mb)
+Processing Provenance Records                                                                        (00:04.314 / 00:59.909, 850Mb)
+Generating Outputs in /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/output (00:00.000 / 00:59.909, 850Mb)
+Generate Native Outputs                                                                              (00:00.131 / 01:00.040, 864Mb)
+Run Template                                                                                         (00:01.442 / 01:01.483, 391Mb)
+Generate HTML Outputs                                                                                (00:01.961 / 01:03.445, 428Mb)
+Generate Spreadsheets                                                                                (00:02.081 / 01:05.526, 952Mb)
+Generate Summaries                                                                                   (00:02.265 / 01:07.792, 586Mb)
+Generating Summary Outputs                                                                           (00:00.000 / 01:07.793, 586Mb)
+DB Cumulative Time invested: 00:00:00.87
+Sending Usage Stats to Server                                                                        (00:02.655 / 01:10.449, 869Mb)
+## Memory (MB): Use = 870, Free = 291, Total = 1162, Max = 3998                                      (00:00.003 / 01:10.453, 870Mb)
+Reclaiming memory...                                                                                 (00:00.000 / 01:10.453, 870Mb)
+Generating combined package                                                                          (00:00.002 / 01:10.455, 870Mb)
+Error generating combined package: /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/output/package.tgz (No such file or directory) (00:00.003 / 01:10.458, 870Mb)
+## Memory (MB): Use = 351, Free = 810, Total = 1162, Max = 3998                                      (00:00.247 / 01:10.706, 352Mb)
+Run jekyll: jekyll build --destination "/home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/output" (in folder /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/temp/pages) (00:00.001 / 01:10.707, 352Mb)
+Troubleshooting Note: usual cases for Jekyll to fail are:                                            (00:00.000 / 01:10.707, 352Mb)
+* A failure to produce a fragment that is already logged in the output above                         (00:00.000 / 01:10.707, 352Mb)
+* A reference to a manually edited file that hasn't been provided                                    (00:00.000 / 01:10.708, 352Mb)
+Jekyll: Source: /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/temp/pages (00:00.407 / 01:11.116, 357Mb)
+Jekyll: Generating...                                                                                (00:00.000 / 01:11.116, 357Mb)
+Jekyll: done in 0.713 seconds.                                                                       (00:00.712 / 01:11.828, 357Mb)
+[39m
+[0;39m[39mInstalling org.trustevidence.hie#dev
+[0;39m[39m done.
+[0;39m[39m loaded @ /home/runner/.fhir/packages/org.trustevidence.hie#dev
+[0;39mChecking Output HTML                                                                                 (00:00.958 / 01:12.787, 520Mb)
+Processed /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/output - % reduction = 99 (8383974 ==> 106496)
+found 785 files                                                                                      (00:00.300 / 01:13.087, 723Mb)
+.........................................
+.........................................
+  ... 785 html files, 0 pages invalid xhtml (0%)                                                     (00:02.963 / 01:16.051, 830Mb)
+  ... 35608 links, 0 broken links (0%)                                                               (00:00.000 / 01:16.052, 830Mb)
+Generate fragment-usage-analysis.csv                                                                 (00:00.000 / 01:16.052, 830Mb)
+Build final .zip                                                                                     (00:00.009 / 01:16.061, 831Mb)
+Final .zip built                                                                                     (00:00.625 / 01:16.686, 837Mb)
+[39mInstalling hl7.terminology.r4#7.1.0 to the package cache
+[0;39m[39m  Fetching:
+[0;39m[39m
+[0;39m[39mInstalling hl7.terminology.r4#7.1.0
+[0;39m[39m done.
+[0;39m[39m loaded @ /home/runner/.fhir/packages/hl7.terminology.r4#7.1.0
+[0;39mBuilt. Times: loading: 00:00.724, generate: 00:41.106, narrative generation: 00:00.893, realm-rules: 00:00.000, previous-version: 00:00.003, jekyll: 00:01.132, validation: 00:14.859 (#21), template: 00:01.967 (#3) (00:08.528 / 01:25.215, 823Mb)
+Generating QA                                                                                        (00:00.000 / 01:25.215, 823Mb)
+Validation output in /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/output/qa.html
+Errors: 0, Warnings: 33, Info: 16, Broken Links: 0 (00:00.165 / 01:25.381, 846Mb)
+Finished @ 7/23/26, 10:44 AM. Max Memory Used = 952Mb. Log file saved in /tmp/fhir-ig-publisher-tmp.log (00:00.032 / 01:25.413, 846Mb)

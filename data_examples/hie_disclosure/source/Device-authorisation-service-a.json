@@ -1,0 +1,26 @@
+{
+  "id": "authorisation-service-a",
+  "identifier": [
+    {
+      "system": "urn:te:service-token",
+      "value": "authorisation-service-a"
+    }
+  ],
+  "meta": {
+    "security": [
+      {
+        "code": "HTEST",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+      }
+    ]
+  },
+  "owner": {
+    "reference": "Organization/hospital-a"
+  },
+  "resourceType": "Device",
+  "status": "active",
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Device reference artefact.</div>",
+    "status": "generated"
+  }
+}

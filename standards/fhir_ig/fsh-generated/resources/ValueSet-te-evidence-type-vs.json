@@ -1,0 +1,17 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "TEEvidenceTypeVS",
+  "id": "te-evidence-type-vs",
+  "title": "TrustEvidence Evidence Type Value Set",
+  "description": "Evidence-document types admitted by the bounded Route C profile.",
+  "url": "https://example.org/fhir/trustevidence-hie/ValueSet/te-evidence-type-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "https://example.org/fhir/trustevidence-hie/CodeSystem/te-evidence-type"
+      }
+    ]
+  }
+}

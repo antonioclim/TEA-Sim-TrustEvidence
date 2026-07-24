@@ -1,0 +1,824 @@
+{
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-hie-001",
+      "resource": {
+        "active": true,
+        "id": "patient-hie-001",
+        "identifier": [
+          {
+            "system": "urn:te:token-system:hie-fixture-v1",
+            "value": "subject-hie-001"
+          }
+        ],
+        "meta": {
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "resourceType": "Patient",
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Patient reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/hospital-a",
+      "resource": {
+        "active": true,
+        "id": "hospital-a",
+        "identifier": [
+          {
+            "system": "urn:te:organisation-token",
+            "value": "hospital-a"
+          }
+        ],
+        "meta": {
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "name": "Synthetic Hospital A",
+        "resourceType": "Organization",
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Organization reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/hospital-b",
+      "resource": {
+        "active": true,
+        "id": "hospital-b",
+        "identifier": [
+          {
+            "system": "urn:te:organisation-token",
+            "value": "hospital-b"
+          }
+        ],
+        "meta": {
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "name": "Synthetic Hospital B",
+        "resourceType": "Organization",
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Organization reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Device/evidence-service-a",
+      "resource": {
+        "id": "evidence-service-a",
+        "identifier": [
+          {
+            "system": "urn:te:service-token",
+            "value": "evidence-service-a"
+          }
+        ],
+        "meta": {
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "owner": {
+          "reference": "Organization/hospital-a"
+        },
+        "resourceType": "Device",
+        "status": "active",
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Device reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Device/authorisation-service-a",
+      "resource": {
+        "id": "authorisation-service-a",
+        "identifier": [
+          {
+            "system": "urn:te:service-token",
+            "value": "authorisation-service-a"
+          }
+        ],
+        "meta": {
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "owner": {
+          "reference": "Organization/hospital-a"
+        },
+        "resourceType": "Device",
+        "status": "active",
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Device reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Practitioner/recipient-role-b",
+      "resource": {
+        "active": true,
+        "id": "recipient-role-b",
+        "identifier": [
+          {
+            "system": "urn:te:actor-token",
+            "value": "authorised-reader-b"
+          }
+        ],
+        "meta": {
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "resourceType": "Practitioner",
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Practitioner reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/PractitionerRole/authorised-reader-b",
+      "resource": {
+        "active": true,
+        "code": [
+          {
+            "coding": [
+              {
+                "code": "doctor",
+                "display": "Doctor",
+                "system": "http://terminology.hl7.org/CodeSystem/practitioner-role"
+              }
+            ]
+          }
+        ],
+        "id": "authorised-reader-b",
+        "meta": {
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "organization": {
+          "reference": "Organization/hospital-b"
+        },
+        "practitioner": {
+          "reference": "Practitioner/recipient-role-b"
+        },
+        "resourceType": "PractitionerRole",
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic PractitionerRole reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Consent/consent-hie-001",
+      "resource": {
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "59284-0",
+                "display": "Patient Consent",
+                "system": "http://loinc.org"
+              }
+            ]
+          }
+        ],
+        "dateTime": "2026-07-14T09:00:00Z",
+        "id": "consent-hie-001",
+        "meta": {
+          "lastUpdated": "2026-07-14T09:00:00Z",
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ],
+          "versionId": "3"
+        },
+        "organization": [
+          {
+            "reference": "Organization/hospital-a"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/patient-hie-001"
+        },
+        "performer": [
+          {
+            "reference": "Organization/hospital-a"
+          }
+        ],
+        "policy": [
+          {
+            "authority": "urn:te:policy-authority:hospital-a",
+            "uri": "urn:te:policy-token:hie-disclosure"
+          }
+        ],
+        "provision": {
+          "action": [
+            {
+              "coding": [
+                {
+                  "code": "disclose",
+                  "display": "Disclose",
+                  "system": "http://terminology.hl7.org/CodeSystem/consentaction"
+                }
+              ]
+            }
+          ],
+          "actor": [
+            {
+              "reference": {
+                "reference": "Organization/hospital-b"
+              },
+              "role": {
+                "coding": [
+                  {
+                    "code": "IRCP",
+                    "display": "information recipient",
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                  }
+                ]
+              }
+            }
+          ],
+          "data": [
+            {
+              "meaning": "instance",
+              "reference": {
+                "display": "Synthetic DiagnosticReport version 2 retained by Hospital A",
+                "identifier": {
+                  "system": "urn:trustevidence:identifier:source-resource",
+                  "value": "DiagnosticReport/diagnostic-report-hie-001/_history/2"
+                },
+                "type": "DiagnosticReport"
+              }
+            }
+          ],
+          "period": {
+            "end": "2026-12-31T23:59:59Z",
+            "start": "2026-07-14T09:00:00Z"
+          },
+          "purpose": [
+            {
+              "code": "TREAT",
+              "display": "treatment",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ],
+          "type": "permit"
+        },
+        "resourceType": "Consent",
+        "scope": {
+          "coding": [
+            {
+              "code": "patient-privacy",
+              "display": "Privacy Consent",
+              "system": "http://terminology.hl7.org/CodeSystem/consentscope"
+            }
+          ]
+        },
+        "status": "active",
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Consent reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/AuditEvent/authorisation-decision-hie-001",
+      "resource": {
+        "action": "E",
+        "agent": [
+          {
+            "network": {
+              "address": "198.51.100.10",
+              "type": "2"
+            },
+            "requestor": false,
+            "type": {
+              "coding": [
+                {
+                  "code": "110150",
+                  "system": "http://dicom.nema.org/resources/ontology/DCM"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Device/evidence-service-a"
+            }
+          },
+          {
+            "purposeOfUse": [
+              {
+                "coding": [
+                  {
+                    "code": "TREAT",
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+                  }
+                ]
+              }
+            ],
+            "requestor": true,
+            "type": {
+              "coding": [
+                {
+                  "code": "IRCP",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/authorised-reader-b"
+            }
+          },
+          {
+            "requestor": false,
+            "type": {
+              "coding": [
+                {
+                  "code": "PROV",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleClass"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/hospital-a"
+            }
+          },
+          {
+            "requestor": false,
+            "type": {
+              "coding": [
+                {
+                  "code": "authserver",
+                  "system": "http://terminology.hl7.org/CodeSystem/extra-security-role-type"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Device/authorisation-service-a"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": {
+              "code": "1",
+              "display": "Patient",
+              "system": "http://terminology.hl7.org/CodeSystem/object-role"
+            },
+            "type": {
+              "code": "1",
+              "system": "http://terminology.hl7.org/CodeSystem/audit-entity-type"
+            },
+            "what": {
+              "reference": "Patient/patient-hie-001"
+            }
+          },
+          {
+            "detail": [
+              {
+                "type": "authorisation-decision-id",
+                "valueString": "D-204"
+              },
+              {
+                "type": "policy-version",
+                "valueString": "6"
+              },
+              {
+                "type": "policy-digest",
+                "valueString": "664f077f67c3aa214b1ddfb7e1bc7ef9d0d877d08d9f8222d63e25e0a4cef84f"
+              }
+            ],
+            "type": {
+              "code": "Consent",
+              "system": "http://hl7.org/fhir/resource-types"
+            },
+            "what": {
+              "reference": "Consent/consent-hie-001"
+            }
+          }
+        ],
+        "id": "authorisation-decision-hie-001",
+        "meta": {
+          "profile": [
+            "https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.AuthZconsent"
+          ],
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "outcome": "0",
+        "recorded": "2026-07-14T09:29:59.000Z",
+        "resourceType": "AuditEvent",
+        "source": {
+          "observer": {
+            "reference": "Device/authorisation-service-a"
+          },
+          "site": "synthetic-hospital-a.example",
+          "type": [
+            {
+              "code": "6",
+              "display": "Security Server",
+              "system": "http://terminology.hl7.org/CodeSystem/security-source-type"
+            }
+          ]
+        },
+        "subtype": [
+          {
+            "code": "AuthZ-Consent",
+            "system": "https://profiles.ihe.net/ITI/BALP/CodeSystem/AuthZsubType"
+          }
+        ],
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic AuditEvent reference artefact.</div>",
+          "status": "generated"
+        },
+        "type": {
+          "code": "110113",
+          "display": "Security Alert",
+          "system": "http://dicom.nema.org/resources/ontology/DCM"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/AuditEvent/privacy-disclosure-source-hie-001",
+      "resource": {
+        "action": "R",
+        "agent": [
+          {
+            "network": {
+              "address": "synthetic-hospital-a.example",
+              "type": "1"
+            },
+            "requestor": false,
+            "type": {
+              "coding": [
+                {
+                  "code": "110153",
+                  "system": "http://dicom.nema.org/resources/ontology/DCM"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Device/evidence-service-a"
+            }
+          },
+          {
+            "network": {
+              "address": "https://synthetic-hospital-b.example/fhir",
+              "type": "5"
+            },
+            "requestor": false,
+            "type": {
+              "coding": [
+                {
+                  "code": "110152",
+                  "system": "http://dicom.nema.org/resources/ontology/DCM"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/hospital-b"
+            }
+          },
+          {
+            "purposeOfUse": [
+              {
+                "coding": [
+                  {
+                    "code": "TREAT",
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+                  }
+                ]
+              }
+            ],
+            "requestor": true,
+            "type": {
+              "coding": [
+                {
+                  "code": "IRCP",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/authorised-reader-b"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": {
+              "code": "1",
+              "display": "Patient",
+              "system": "http://terminology.hl7.org/CodeSystem/object-role"
+            },
+            "type": {
+              "code": "1",
+              "system": "http://terminology.hl7.org/CodeSystem/audit-entity-type"
+            },
+            "what": {
+              "reference": "Patient/patient-hie-001"
+            }
+          },
+          {
+            "role": {
+              "code": "3",
+              "display": "Report",
+              "system": "http://terminology.hl7.org/CodeSystem/object-role"
+            },
+            "type": {
+              "code": "DiagnosticReport",
+              "system": "http://hl7.org/fhir/resource-types"
+            },
+            "what": {
+              "display": "Synthetic DiagnosticReport version 2 retained by Hospital A",
+              "identifier": {
+                "system": "urn:trustevidence:identifier:source-resource",
+                "value": "DiagnosticReport/diagnostic-report-hie-001/_history/2"
+              },
+              "type": "DiagnosticReport"
+            }
+          }
+        ],
+        "id": "privacy-disclosure-source-hie-001",
+        "meta": {
+          "profile": [
+            "https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source"
+          ],
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "outcome": "0",
+        "purposeOfEvent": [
+          {
+            "coding": [
+              {
+                "code": "TREAT",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+              }
+            ]
+          }
+        ],
+        "recorded": "2026-07-14T09:30:00.000Z",
+        "resourceType": "AuditEvent",
+        "source": {
+          "observer": {
+            "reference": "Device/evidence-service-a"
+          },
+          "site": "synthetic-hospital-a.example",
+          "type": [
+            {
+              "code": "4",
+              "display": "Application Server",
+              "system": "http://terminology.hl7.org/CodeSystem/security-source-type"
+            }
+          ]
+        },
+        "subtype": [
+          {
+            "code": "disclose",
+            "system": "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"
+          },
+          {
+            "code": "read",
+            "system": "http://hl7.org/fhir/restful-interaction"
+          }
+        ],
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic AuditEvent reference artefact.</div>",
+          "status": "generated"
+        },
+        "type": {
+          "code": "110106",
+          "display": "Export",
+          "system": "http://dicom.nema.org/resources/ontology/DCM"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/evidence-provenance-hie-001",
+      "resource": {
+        "agent": [
+          {
+            "onBehalfOf": {
+              "reference": "Organization/hospital-a"
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "assembler",
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Device/evidence-service-a"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "Synthetic DiagnosticReport version 2 retained by Hospital A",
+              "identifier": {
+                "system": "urn:trustevidence:identifier:source-resource",
+                "value": "DiagnosticReport/diagnostic-report-hie-001/_history/2"
+              },
+              "type": "DiagnosticReport"
+            }
+          }
+        ],
+        "id": "evidence-provenance-hie-001",
+        "meta": {
+          "profile": [
+            "https://example.org/fhir/trustevidence-hie/StructureDefinition/te-evidence-provenance"
+          ],
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "occurredPeriod": {
+          "end": "2026-07-14T09:30:01Z",
+          "start": "2026-07-14T09:29:59Z"
+        },
+        "recorded": "2026-07-14T09:30:01Z",
+        "resourceType": "Provenance",
+        "target": [
+          {
+            "reference": "AuditEvent/authorisation-decision-hie-001"
+          },
+          {
+            "reference": "AuditEvent/privacy-disclosure-source-hie-001"
+          },
+          {
+            "reference": "Binary/trustevidence-envelope-hie-001"
+          }
+        ],
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic Provenance reference artefact.</div>",
+          "status": "generated"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Binary/trustevidence-envelope-hie-001",
+      "resource": {
+        "contentType": "application/json",
+        "data": "eyJiYWNrZW5kX3JlY2VpcHQiOnsiYmFja2VuZF9pZCI6InVybjp0ZTpiYWNrZW5kOmEyLWNtcGItcmVmZXJlbmNlIiwiYmFja2VuZF90eXBlIjoibG9jYWwtYTItbWVya2xlIiwiY29yZV9kaWdlc3QiOiI5MjA4ZjYzMWEzYmQzOWYzNTNlZGIyYzA4NzUzYTg5NmE1OGU4ZTEwZWQzZDcxNTI2YjMyOWFhOGExODFhNjhjIiwiaGFzaF9wcm9maWxlIjoiVEUtSEFTSC0xIiwiaW5jbHVzaW9uX3Byb29mIjp7ImxlYWZfaW5kZXgiOjAsInByb2ZpbGUiOiJURS1BMi1JbmNsdXNpb24tMSIsInNpYmxpbmdzIjpbXSwidHJlZV9zaXplIjoxfSwiaW5jbHVzaW9uX3Byb29mX2RpZ2VzdCI6IjBiNjU1NjMwZWIxMTk0MDAyYjY1NTIzOGEyZjlhNjgwMjEwMDUzMzM4ZmUzYWU4ZjExNjk0OGVlNjQ4NTZjNGQiLCJpc3N1ZWRfYXQiOiIyMDI2LTA3LTE0VDA5OjMwOjAyLjAwMFoiLCJsZWFmX2hhc2giOiJiNDcyZWM1MDUwZmM4NWQ5NmFiOGMyZTBmYjY3NjE5OGEzN2IzMTQwN2Y1NTY2OWNiZjQ1MTAwZTYwYmQ1NjI1IiwibGVhZl9pbmRleCI6MCwibG9nX2lkIjoidXJuOnRlOmxvZzpjbXBiLXJlZmVyZW5jZSIsInByb2ZpbGUiOiJURS1BMi1SZWNlaXB0LTEiLCJyZWNlaXB0X3NpZ25hdHVyZSI6eyJhbGdvcml0aG0iOiJFZDI1NTE5Iiwia2V5X2lkIjoidXJuOnRlOmtleTpmaXh0dXJlLWJhY2tlbmQtdjEiLCJzaWduYXR1cmUiOiJwR1RQem8zbDRqazBIQzhnMVVvVEJkLS0taTNPUnlUcXVzdkEydlBFZnh2ellxUnRkYzVCOFZyNVA3UW9SOVo5cXZOazRNeDdWUm5zcWZ3U0pDLVVEZyJ9LCJyb290X2RpZ2VzdCI6ImI0NzJlYzUwNTBmYzg1ZDk2YWI4YzJlMGZiNjc2MTk4YTM3YjMxNDA3ZjU1NjY5Y2JmNDUxMDBlNjBiZDU2MjUiLCJzaWduZXJfa2V5X2lkIjoidXJuOnRlOmtleTpmaXh0dXJlLWJhY2tlbmQtdjEiLCJ0cmVlX3Byb2ZpbGUiOiJURS1BMi1CaW5hcnktTWVya2xlLTEiLCJ0cmVlX3NpemUiOjF9LCJlbnZlbG9wZV92ZXJzaW9uIjoiMS4wLjAiLCJldmlkZW5jZV9jb3JlIjp7ImFjdG9yIjp7ImFjdG9yX3JlZl90b2tlbiI6InVybjp0ZTphY3Rvci10b2tlbjphdXRob3Jpc2VkLXJlYWRlci1iIiwiYWN0b3JfdHlwZSI6Imh1bWFuLXJvbGUiLCJvcmdhbmlzYXRpb25fcmVmX3Rva2VuIjoidXJuOnRlOm9yZy10b2tlbjpob3NwaXRhbC1iIiwicm9sZV9jb2RlIjoiYXV0aG9yaXNlZC1yZWFkZXIifSwiY29uc2VudF9iaW5kaW5nIjp7ImNvbnNlbnRfcmVmX3Rva2VuIjoidXJuOnRlOmNvbnNlbnQtdG9rZW46aGllLTAwMSIsImNvbnNlbnRfc3RhdGUiOiJhY3RpdmUiLCJjb25zZW50X3ZlcnNpb24iOiIzIn0sImVtaXR0ZWRfYXQiOiIyMDI2LTA3LTE0VDA5OjMwOjAxLjAwMFoiLCJlbWl0dGVyIjp7ImVtaXR0ZXJfaWQiOiJ1cm46dGU6ZW1pdHRlcjpldmlkZW5jZS1zZXJ2aWNlLWEiLCJrZXlfaWQiOiJ1cm46dGU6a2V5OmZpeHR1cmUtZW1pdHRlci12MSIsIm9yZ2FuaXNhdGlvbl9yZWZfdG9rZW4iOiJ1cm46dGU6b3JnLXRva2VuOmhvc3BpdGFsLWEiLCJyb2xlX2NvZGUiOiJldmlkZW5jZS1zZXJ2aWNlIn0sImVtaXR0ZXJfc2lnbmF0dXJlIjp7ImFsZ29yaXRobSI6IkVkMjU1MTkiLCJrZXlfaWQiOiJ1cm46dGU6a2V5OmZpeHR1cmUtZW1pdHRlci12MSIsInNpZ25hdHVyZSI6IjJoaFJKTXZhWnFwOW9XS1FSSThNR0VGYnJzVU1UaGxrZ3lZd29zbURoMlhxZjdWVEkwVWZ3MjlCbGRjdktKN243MmQzbzU3TEJCd0dQSkliS25VbUJnIn0sImV2ZW50X2ZhY3RzIjp7ImRpc2Nsb3N1cmVfY2hhbm5lbF9jb2RlIjoic2VjdXJlLXRyYW5zZmVyIiwicmVjaXBpZW50X3JlZl90b2tlbiI6InVybjp0ZTpvcmctdG9rZW46aG9zcGl0YWwtYiIsInJlY2lwaWVudF9yb2xlX2NvZGUiOiJjYXJlLXRlYW0ifSwiZXZlbnRfaWQiOiJ1cm46dGU6ZXZlbnQ6aGllLWRpc2Nsb3N1cmUtMDAxIiwiZXZlbnRfdHlwZSI6ImRpc2Nsb3N1cmUtZXZlbnQiLCJldmlkZW5jZV9pZCI6InVybjp1dWlkOmI5YTZmOTRlLTIyZDItNTZlNS04ZDdlLWRhZDUzOTA5ZTJjNSIsIm9iamVjdHMiOlt7ImRhdGFfY2F0ZWdvcnlfY29kZSI6ImxhYm9yYXRvcnktZGlhZ25vc3RpYy1yZXBvcnQiLCJvYmplY3RfcmVmX3Rva2VuIjoidXJuOnRlOmZoaXItdG9rZW46ZGlhZ25vc3RpYy1yZXBvcnQtaGllLTAwMS12MiIsIm9iamVjdF9yb2xlIjoidGFyZ2V0IiwicGF5bG9hZF9iaW5kaW5nIjp7ImNvbW1pdG1lbnQiOiJjMjk4ZDQyMzE4MDFkOTc2ZDlkNTBjNDA5M2NkNTA3ZDc3MGQ1OTYyNzE1ZTRmZTg0MGViNTRkMTMzZjNmMWJkIiwiY29tbWl0bWVudF9jb250ZXh0IjoiZGlhZ25vc3RpYy1yZXBvcnQtc291cmNlLXYxIiwiY29tbWl0bWVudF9wcm9maWxlIjoic2hhMjU2LW5vbmNlLXYxIiwicmVwcmVzZW50YXRpb25fcHJvZmlsZSI6ImFwcGxpY2F0aW9uL2ZoaXIranNvbi1yZmM4Nzg1LXYxIn0sInJlc291cmNlX2NsYXNzIjoiZGlhZ25vc3RpYy1yZXBvcnQiLCJyZXNvdXJjZV92ZXJzaW9uX3Rva2VuIjoiMiIsInN1YmplY3RfcmVmX3Rva2VuIjoidXJuOnRlOnN1YmplY3QtdG9rZW46aGllLTAwMSJ9LHsiZGF0YV9jYXRlZ29yeV9jb2RlIjoiYXV0aG9yaXNhdGlvbi1jb250ZXh0Iiwib2JqZWN0X3JlZl90b2tlbiI6InVybjp0ZTpjb25zZW50LXRva2VuOmhpZS0wMDEiLCJvYmplY3Rfcm9sZSI6ImNvbnNlbnQiLCJyZXNvdXJjZV9jbGFzcyI6ImNvbnNlbnQtcmVjb3JkIiwicmVzb3VyY2VfdmVyc2lvbl90b2tlbiI6IjMifSx7ImRhdGFfY2F0ZWdvcnlfY29kZSI6ImF1dGhvcmlzYXRpb24tY29udGV4dCIsIm9iamVjdF9yZWZfdG9rZW4iOiJ1cm46dGU6cG9saWN5LXRva2VuOmhpZS1kaXNjbG9zdXJlIiwib2JqZWN0X3JvbGUiOiJwb2xpY3kiLCJyZXNvdXJjZV9jbGFzcyI6InBvbGljeS1yZWNvcmQiLCJyZXNvdXJjZV92ZXJzaW9uX3Rva2VuIjoiNiJ9LHsiZGF0YV9jYXRlZ29yeV9jb2RlIjoiYXV0aG9yaXNhdGlvbi1jb250ZXh0Iiwib2JqZWN0X3JlZl90b2tlbiI6InVybjp0ZTpkZWNpc2lvbjpELTIwNCIsIm9iamVjdF9yb2xlIjoiZGVjaXNpb24iLCJyZXNvdXJjZV9jbGFzcyI6ImF1dGhvcmlzYXRpb24tZGVjaXNpb24tcmVjb3JkIiwicmVzb3VyY2VfdmVyc2lvbl90b2tlbiI6IjEifSx7ImRhdGFfY2F0ZWdvcnlfY29kZSI6InByb3ZlbmFuY2UtY29udGV4dCIsIm9iamVjdF9yZWZfdG9rZW4iOiJ1cm46dGU6cHJvdmVuYW5jZS10b2tlbjpoaWUtMDAxIiwib2JqZWN0X3JvbGUiOiJwcm92ZW5hbmNlIiwicmVzb3VyY2VfY2xhc3MiOiJwcm92ZW5hbmNlLXJlY29yZCIsInJlc291cmNlX3ZlcnNpb25fdG9rZW4iOiIxIn1dLCJvY2N1cnJlZF9hdCI6IjIwMjYtMDctMTRUMDk6MzA6MDAuMDAwWiIsIm91dGNvbWUiOnsiY29kZSI6InN1Y2Nlc3MiLCJyZWFzb25fY29kZSI6ImNvbnNlbnQtcGVybWl0In0sInBvbGljeV9iaW5kaW5nIjp7InBvbGljeV9kaWdlc3QiOiI2NjRmMDc3ZjY3YzNhYTIxNGIxZGRmYjdlMWJjN2VmOWQwZDg3N2QwOGQ5ZjgyMjJkNjNlMjVlMGE0Y2VmODRmIiwicG9saWN5X3JlZl90b2tlbiI6InVybjp0ZTpwb2xpY3ktdG9rZW46aGllLWRpc2Nsb3N1cmUiLCJwb2xpY3lfc291cmNlX3JlZl90b2tlbiI6InVybjp0ZTpwb2xpY3ktc291cmNlOmhvc3BpdGFsLWEiLCJwb2xpY3lfdmVyc2lvbiI6IjYifSwicHJpdmFjeV9wcm9maWxlIjp7Im1pbmltaXNhdGlvbl9wcm9maWxlIjoiVEUtSElFLU1pbi0xIiwicmV0ZW50aW9uX2NsYXNzIjoiYm91bmRlZC1ldmFsdWF0aW9uIiwidG9rZW5pc2F0aW9uX3Byb2ZpbGUiOiJURS1Ub2tlbi1Qc2V1ZG9ueW1vdXMtMSJ9LCJwdXJwb3NlX2NvZGUiOiJ0cmVhdG1lbnQiLCJzdWJqZWN0X2NvbnRleHQiOnsicm90YXRpb25fc2NvcGUiOiJlcGlzb2RlIiwic3RhdHVzIjoicHNldWRvbnltb3VzIiwic3ViamVjdF9yZWZfdG9rZW4iOiJ1cm46dGU6c3ViamVjdC10b2tlbjpoaWUtMDAxIiwidG9rZW5fc3lzdGVtIjoidXJuOnRlOnRva2VuLXN5c3RlbTpoaWUtZml4dHVyZS12MSJ9LCJ0aW1lX3NvdXJjZSI6eyJtYXhfc2tld19tcyI6MTAwMCwicHJlY2lzaW9uX21zIjoxLCJzb3VyY2VfaWQiOiJ1cm46dGU6dGltZS1zb3VyY2U6aGllLWZpeHR1cmUtY2xvY2sifX0sInByb2ZpbGUiOiJURS1ISUUtRW52ZWxvcGUtMSJ9",
+        "id": "trustevidence-envelope-hie-001",
+        "meta": {
+          "profile": [
+            "https://example.org/fhir/trustevidence-hie/StructureDefinition/te-portable-evidence-binary"
+          ],
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "resourceType": "Binary",
+        "securityContext": {
+          "reference": "Patient/patient-hie-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/trustevidence-document-hie-001",
+      "resource": {
+        "author": [
+          {
+            "reference": "Device/evidence-service-a"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/json",
+              "creation": "2026-07-14T09:30:01Z",
+              "hash": "ohCyZKxeDhCmKaroYYGRKq5pyZDw2Jy74RjiR7RQSd0=",
+              "title": "Signed TrustEvidence envelope with local A2 receipt",
+              "url": "Binary/trustevidence-envelope-hie-001"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "AuditEvent/authorisation-decision-hie-001"
+            },
+            {
+              "reference": "AuditEvent/privacy-disclosure-source-hie-001"
+            },
+            {
+              "reference": "Provenance/evidence-provenance-hie-001"
+            }
+          ]
+        },
+        "custodian": {
+          "reference": "Organization/hospital-a"
+        },
+        "date": "2026-07-14T09:30:01Z",
+        "id": "trustevidence-document-hie-001",
+        "masterIdentifier": {
+          "system": "urn:te:evidence-id",
+          "value": "hie-disclosure-001"
+        },
+        "meta": {
+          "profile": [
+            "https://example.org/fhir/trustevidence-hie/StructureDefinition/te-evidence-document-reference"
+          ],
+          "security": [
+            {
+              "code": "HTEST",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        },
+        "resourceType": "DocumentReference",
+        "status": "current",
+        "subject": {
+          "reference": "Patient/patient-hie-001"
+        },
+        "text": {
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic DocumentReference reference artefact.</div>",
+          "status": "generated"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "portable-audit-evidence",
+              "display": "Portable audit evidence",
+              "system": "https://example.org/fhir/trustevidence-hie/CodeSystem/te-evidence-type"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "id": "portable-evidence-bundle-hie-001",
+  "identifier": {
+    "system": "urn:te:evidence-bundle",
+    "value": "hie-disclosure-001"
+  },
+  "meta": {
+    "profile": [
+      "https://example.org/fhir/trustevidence-hie/StructureDefinition/te-portable-evidence-bundle"
+    ],
+    "security": [
+      {
+        "code": "HTEST",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+      }
+    ]
+  },
+  "resourceType": "Bundle",
+  "timestamp": "2026-07-14T09:30:01Z",
+  "type": "collection"
+}

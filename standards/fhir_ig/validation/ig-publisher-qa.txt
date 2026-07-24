@@ -1,0 +1,100 @@
+TrustEvidenceHIE : Validation Results
+=========================================
+
+err = 0, warn = 33, info = 16
+IG Publisher Version: 2.2.11
+Generated Thu Jul 23 10:44:09 UTC 2026. FHIR version 4.0.1 for org.trustevidence.hie#0.1.0 (canonical = https://example.org/fhir/trustevidence-hie)
+ Build Errors : 0 / 4 / 0
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/fsh-generated/resources/CodeSystem-te-evidence-type : 0 / 1 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/fsh-generated/resources/ImplementationGuide-org.trustevidence.hie : 0 / 0 / 2
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/fsh-generated/resources/StructureDefinition-te-evidence-document-reference : 0 / 0 / 3
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/fsh-generated/resources/StructureDefinition-te-evidence-provenance : 0 / 0 / 2
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/fsh-generated/resources/StructureDefinition-te-portable-evidence-binary : 0 / 0 / 2
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/fsh-generated/resources/StructureDefinition-te-portable-evidence-bundle : 0 / 0 / 2
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/fsh-generated/resources/ValueSet-te-evidence-type-vs : 0 / 1 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/AuditEvent-authorisation-decision-hie-001 : 0 / 0 / 2
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/AuditEvent-privacy-disclosure-source-hie-001 : 0 / 1 / 4
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Binary-trustevidence-envelope-hie-001 : 0 / 0 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Bundle-portable-evidence-bundle-hie-001 : 0 / 14 / 25
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Consent-consent-hie-001 : 0 / 3 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Device-authorisation-service-a : 0 / 1 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Device-evidence-service-a : 0 / 1 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/DocumentReference-trustevidence-document-hie-001 : 0 / 2 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Organization-hospital-a : 0 / 1 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Organization-hospital-b : 0 / 1 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Patient-patient-hie-001 : 0 / 1 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Practitioner-recipient-role-b : 0 / 1 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/PractitionerRole-authorised-reader-b : 0 / 0 / 1
+ /home/runner/work/TEA-Sim-TrustEvidence/TEA-Sim-TrustEvidence/standards/fhir_ig/input/resources/Provenance-evidence-provenance-hie-001 : 0 / 1 / 1
+</table>
+== n/a ==
+WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
+WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
+== fsh-generated/resources/CodeSystem-te-evidence-type.json ==
+WARNING: Resource: The resource CodeSystem/te-evidence-type should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/ImplementationGuide-org.trustevidence.hie.json ==
+INFORMATION: Resource: The resource ImplementationGuide/org.trustevidence.hie could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/StructureDefinition-te-evidence-document-reference.json ==
+INFORMATION: StructureDefinition/te-evidence-document-reference: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
+INFORMATION: Resource: The resource StructureDefinition/te-evidence-document-reference could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/StructureDefinition-te-evidence-provenance.json ==
+INFORMATION: Resource: The resource StructureDefinition/te-evidence-provenance could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/StructureDefinition-te-portable-evidence-binary.json ==
+INFORMATION: Resource: The resource StructureDefinition/te-portable-evidence-binary could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/StructureDefinition-te-portable-evidence-bundle.json ==
+INFORMATION: Resource: The resource StructureDefinition/te-portable-evidence-bundle could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/ValueSet-te-evidence-type-vs.json ==
+WARNING: Resource: The resource ValueSet/te-evidence-type-vs should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== input/resources/AuditEvent-authorisation-decision-hie-001.json ==
+INFORMATION: AuditEvent/authorisation-decision-hie-001: AuditEvent.agent[3].type: Reference to experimental CodeSystem http://terminology.hl7.org/CodeSystem/extra-security-role-type|1.0.1
+== input/resources/AuditEvent-privacy-disclosure-source-hie-001.json ==
+INFORMATION: AuditEvent/privacy-disclosure-source-hie-001: AuditEvent.subtype[1]: This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: AuditEvent/privacy-disclosure-source-hie-001: AuditEvent.agent[2]: This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: AuditEvent/privacy-disclosure-source-hie-001: AuditEvent.entity[1]: This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: AuditEvent/privacy-disclosure-source-hie-001: AuditEvent.entity[1].what.identifier.system: No definition could be found for URL value 'urn:trustevidence:identifier:source-resource'
+== input/resources/Binary-trustevidence-envelope-hie-001.json ==
+== input/resources/Bundle-portable-evidence-bundle-hie-001.json ==
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.identifier.system: No definition could be found for URL value 'urn:te:evidence-bundle'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[0].resource/*Patient/patient-hie-001*/.identifier[0].system: No definition could be found for URL value 'urn:te:token-system:hie-fixture-v1'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[1].resource/*Organization/hospital-a*/.identifier[0].system: No definition could be found for URL value 'urn:te:organisation-token'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[2].resource/*Organization/hospital-b*/.identifier[0].system: No definition could be found for URL value 'urn:te:organisation-token'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[3].resource/*Device/evidence-service-a*/.identifier[0].system: No definition could be found for URL value 'urn:te:service-token'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[4].resource/*Device/authorisation-service-a*/.identifier[0].system: No definition could be found for URL value 'urn:te:service-token'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[5].resource/*Practitioner/recipient-role-b*/.identifier[0].system: No definition could be found for URL value 'urn:te:actor-token'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[7].resource/*Consent/consent-hie-001*/.policy[0].authority: No definition could be found for URL value 'urn:te:policy-authority:hospital-a'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[7].resource/*Consent/consent-hie-001*/.policy[0].uri: No definition could be found for URL value 'urn:te:policy-token:hie-disclosure'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[7].resource/*Consent/consent-hie-001*/.provision.data[0].reference.identifier.system: No definition could be found for URL value 'urn:trustevidence:identifier:source-resource'
+INFORMATION: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[8].resource/*AuditEvent/authorisation-decision-hie-001*/.agent[3].type: Reference to experimental CodeSystem http://terminology.hl7.org/CodeSystem/extra-security-role-type|1.0.1
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.entity[1].what.identifier.system: No definition could be found for URL value 'urn:trustevidence:identifier:source-resource'
+INFORMATION: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.subtype[1]: This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.agent[2]: This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[9].resource/*AuditEvent/privacy-disclosure-source-hie-001*/.entity[1]: This element does not match any known slice defined in the profile https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.PrivacyDisclosure.Source|1.1.4 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[10].resource/*Provenance/evidence-provenance-hie-001*/.entity[0].what.identifier.system: No definition could be found for URL value 'urn:trustevidence:identifier:source-resource'
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[12].resource/*DocumentReference/trustevidence-document-hie-001*/.masterIdentifier.system: No definition could be found for URL value 'urn:te:evidence-id'
+INFORMATION: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[12].resource/*DocumentReference/trustevidence-document-hie-001*/.type: Reference to draft CodeSystem https://example.org/fhir/trustevidence-hie/CodeSystem/te-evidence-type|0.1.0
+INFORMATION: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[12].resource/*DocumentReference/trustevidence-document-hie-001*/.type: None of the codings provided are in the value set 'Document Type Value Set' (http://hl7.org/fhir/ValueSet/c80-doc-typecodes|4.0.1), and a coding is recommended to come from this value set (codes = https://example.org/fhir/trustevidence-hie/CodeSystem/te-evidence-type#portable-audit-evidence)
+WARNING: Bundle/portable-evidence-bundle-hie-001: Bundle.entry[12].resource/*DocumentReference/trustevidence-document-hie-001*/.content[0].attachment.url: No definition could be found for URL value 'Binary/trustevidence-envelope-hie-001'
+== input/resources/Consent-consent-hie-001.json ==
+WARNING: Consent/consent-hie-001: Consent.policy[0].authority: No definition could be found for URL value 'urn:te:policy-authority:hospital-a'
+WARNING: Consent/consent-hie-001: Consent.policy[0].uri: No definition could be found for URL value 'urn:te:policy-token:hie-disclosure'
+WARNING: Consent/consent-hie-001: Consent.provision.data[0].reference.identifier.system: No definition could be found for URL value 'urn:trustevidence:identifier:source-resource'
+== input/resources/Device-authorisation-service-a.json ==
+WARNING: Device/authorisation-service-a: Device.identifier[0].system: No definition could be found for URL value 'urn:te:service-token'
+== input/resources/Device-evidence-service-a.json ==
+WARNING: Device/evidence-service-a: Device.identifier[0].system: No definition could be found for URL value 'urn:te:service-token'
+== input/resources/DocumentReference-trustevidence-document-hie-001.json ==
+WARNING: DocumentReference/trustevidence-document-hie-001: DocumentReference.masterIdentifier.system: No definition could be found for URL value 'urn:te:evidence-id'
+WARNING: DocumentReference/trustevidence-document-hie-001: DocumentReference.content[0].attachment.url: No definition could be found for URL value 'Binary/trustevidence-envelope-hie-001'
+== input/resources/Organization-hospital-a.json ==
+WARNING: Organization/hospital-a: Organization.identifier[0].system: No definition could be found for URL value 'urn:te:organisation-token'
+== input/resources/Organization-hospital-b.json ==
+WARNING: Organization/hospital-b: Organization.identifier[0].system: No definition could be found for URL value 'urn:te:organisation-token'
+== input/resources/Patient-patient-hie-001.json ==
+WARNING: Patient/patient-hie-001: Patient.identifier[0].system: No definition could be found for URL value 'urn:te:token-system:hie-fixture-v1'
+== input/resources/Practitioner-recipient-role-b.json ==
+WARNING: Practitioner/recipient-role-b: Practitioner.identifier[0].system: No definition could be found for URL value 'urn:te:actor-token'
+== input/resources/PractitionerRole-authorised-reader-b.json ==
+== input/resources/Provenance-evidence-provenance-hie-001.json ==
+WARNING: Provenance/evidence-provenance-hie-001: Provenance.entity[0].what.identifier.system: No definition could be found for URL value 'urn:trustevidence:identifier:source-resource'

@@ -1,0 +1,75 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "te-portable-evidence-bundle",
+  "url": "https://example.org/fhir/trustevidence-hie/StructureDefinition/te-portable-evidence-bundle",
+  "name": "TEPortableEvidenceBundle",
+  "title": "TrustEvidence Portable Evidence Bundle",
+  "status": "draft",
+  "description": "Collection bundle containing pseudonymous context, BALP AuditEvents, Consent, Provenance and the exact signed-envelope Binary; clinical Observation and DiagnosticReport resources are not admitted.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Bundle",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Bundle",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Bundle.identifier",
+        "path": "Bundle.identifier",
+        "min": 1
+      },
+      {
+        "id": "Bundle.type",
+        "path": "Bundle.type",
+        "fixedCode": "collection"
+      },
+      {
+        "id": "Bundle.timestamp",
+        "path": "Bundle.timestamp",
+        "min": 1
+      },
+      {
+        "id": "Bundle.entry",
+        "path": "Bundle.entry",
+        "min": 10
+      },
+      {
+        "id": "Bundle.entry.resource",
+        "path": "Bundle.entry.resource",
+        "type": [
+          {
+            "code": "Patient"
+          },
+          {
+            "code": "Organization"
+          },
+          {
+            "code": "Device"
+          },
+          {
+            "code": "Practitioner"
+          },
+          {
+            "code": "PractitionerRole"
+          },
+          {
+            "code": "Consent"
+          },
+          {
+            "code": "AuditEvent"
+          },
+          {
+            "code": "Provenance"
+          },
+          {
+            "code": "Binary"
+          },
+          {
+            "code": "DocumentReference"
+          }
+        ]
+      }
+    ]
+  }
+}

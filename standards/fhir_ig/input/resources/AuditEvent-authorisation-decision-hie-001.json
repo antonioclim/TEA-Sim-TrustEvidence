@@ -1,0 +1,157 @@
+{
+  "action": "E",
+  "agent": [
+    {
+      "network": {
+        "address": "198.51.100.10",
+        "type": "2"
+      },
+      "requestor": false,
+      "type": {
+        "coding": [
+          {
+            "code": "110150",
+            "system": "http://dicom.nema.org/resources/ontology/DCM"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Device/evidence-service-a"
+      }
+    },
+    {
+      "purposeOfUse": [
+        {
+          "coding": [
+            {
+              "code": "TREAT",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+            }
+          ]
+        }
+      ],
+      "requestor": true,
+      "type": {
+        "coding": [
+          {
+            "code": "IRCP",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+          }
+        ]
+      },
+      "who": {
+        "reference": "PractitionerRole/authorised-reader-b"
+      }
+    },
+    {
+      "requestor": false,
+      "type": {
+        "coding": [
+          {
+            "code": "PROV",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleClass"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/hospital-a"
+      }
+    },
+    {
+      "requestor": false,
+      "type": {
+        "coding": [
+          {
+            "code": "authserver",
+            "system": "http://terminology.hl7.org/CodeSystem/extra-security-role-type"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Device/authorisation-service-a"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": {
+        "code": "1",
+        "display": "Patient",
+        "system": "http://terminology.hl7.org/CodeSystem/object-role"
+      },
+      "type": {
+        "code": "1",
+        "system": "http://terminology.hl7.org/CodeSystem/audit-entity-type"
+      },
+      "what": {
+        "reference": "Patient/patient-hie-001"
+      }
+    },
+    {
+      "detail": [
+        {
+          "type": "authorisation-decision-id",
+          "valueString": "D-204"
+        },
+        {
+          "type": "policy-version",
+          "valueString": "6"
+        },
+        {
+          "type": "policy-digest",
+          "valueString": "664f077f67c3aa214b1ddfb7e1bc7ef9d0d877d08d9f8222d63e25e0a4cef84f"
+        }
+      ],
+      "type": {
+        "code": "Consent",
+        "system": "http://hl7.org/fhir/resource-types"
+      },
+      "what": {
+        "reference": "Consent/consent-hie-001"
+      }
+    }
+  ],
+  "id": "authorisation-decision-hie-001",
+  "meta": {
+    "profile": [
+      "https://profiles.ihe.net/ITI/BALP/StructureDefinition/IHE.BasicAudit.AuthZconsent"
+    ],
+    "security": [
+      {
+        "code": "HTEST",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+      }
+    ]
+  },
+  "outcome": "0",
+  "recorded": "2026-07-14T09:29:59.000Z",
+  "resourceType": "AuditEvent",
+  "source": {
+    "observer": {
+      "reference": "Device/authorisation-service-a"
+    },
+    "site": "synthetic-hospital-a.example",
+    "type": [
+      {
+        "code": "6",
+        "display": "Security Server",
+        "system": "http://terminology.hl7.org/CodeSystem/security-source-type"
+      }
+    ]
+  },
+  "subtype": [
+    {
+      "code": "AuthZ-Consent",
+      "system": "https://profiles.ihe.net/ITI/BALP/CodeSystem/AuthZsubType"
+    }
+  ],
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Synthetic AuditEvent reference artefact.</div>",
+    "status": "generated"
+  },
+  "type": {
+    "code": "110113",
+    "display": "Security Alert",
+    "system": "http://dicom.nema.org/resources/ontology/DCM"
+  }
+}

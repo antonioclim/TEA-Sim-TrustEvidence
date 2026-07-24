@@ -1,0 +1,235 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "org.trustevidence.hie",
+  "url": "https://example.org/fhir/trustevidence-hie/ImplementationGuide/org.trustevidence.hie",
+  "version": "0.1.0",
+  "name": "TrustEvidenceHIE",
+  "title": "TrustEvidence HIE Reference Profile",
+  "status": "draft",
+  "publisher": "Anonymous Route C Research Artefact",
+  "contact": [
+    {
+      "name": "Anonymous Route C Research Artefact",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://example.org/trustevidence"
+        }
+      ]
+    }
+  ],
+  "packageId": "org.trustevidence.hie",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "ihe.iti.balp",
+      "version": "1.1.4",
+      "uri": "https://profiles.ihe.net/ITI/BALP/ImplementationGuide/ihe.iti.balp",
+      "id": "ihe_iti_balp"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "Device/authorisation-service-a"
+        },
+        "description": "Synthetic service that records decision D-204 under Consent version 3 and policy version 6.",
+        "exampleBoolean": true,
+        "name": "Authorisation decision service"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/authorised-reader-b"
+        },
+        "description": "Treatment-related role linking the pseudonymous practitioner to Synthetic Hospital B.",
+        "exampleBoolean": true,
+        "name": "Authorised reader role"
+      },
+      {
+        "reference": {
+          "reference": "AuditEvent/authorisation-decision-hie-001"
+        },
+        "description": "AuditEvent representing the consent-policy decision that authorised the synthetic treatment disclosure.",
+        "exampleBoolean": true,
+        "name": "BALP-facing authorisation decision event"
+      },
+      {
+        "reference": {
+          "reference": "AuditEvent/privacy-disclosure-source-hie-001"
+        },
+        "description": "AuditEvent representing disclosure from Synthetic Hospital A to Synthetic Hospital B.",
+        "exampleBoolean": true,
+        "name": "BALP-facing privacy disclosure event"
+      },
+      {
+        "reference": {
+          "reference": "Consent/consent-hie-001"
+        },
+        "description": "Portable Consent derivative that records the active state and version without copying the clinical payload.",
+        "exampleBoolean": true,
+        "name": "Consent derivative for the hero case"
+      },
+      {
+        "reference": {
+          "reference": "Device/evidence-service-a"
+        },
+        "description": "Synthetic service that constructs and signs the TrustEvidence envelope at the source boundary.",
+        "exampleBoolean": true,
+        "name": "Evidence construction service"
+      },
+      {
+        "reference": {
+          "reference": "Binary/trustevidence-envelope-hie-001"
+        },
+        "description": "Binary carrying the exact canonical JSON bytes of the signed envelope and local A2 receipt.",
+        "exampleBoolean": true,
+        "name": "Exact signed TrustEvidence bytes"
+      },
+      {
+        "reference": {
+          "reference": "Bundle/portable-evidence-bundle-hie-001"
+        },
+        "description": "Collection Bundle containing the portable evidence projection while excluding DiagnosticReport and Observation resources.",
+        "exampleBoolean": true,
+        "name": "Portable TrustEvidence bundle"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/recipient-role-b"
+        },
+        "description": "Synthetic practitioner-role subject represented without a direct personal identifier.",
+        "exampleBoolean": true,
+        "name": "Pseudonymous authorised reader"
+      },
+      {
+        "reference": {
+          "reference": "Patient/patient-hie-001"
+        },
+        "description": "Pairwise pseudonymous patient context used only to link the portable evidence resources.",
+        "exampleBoolean": true,
+        "name": "Pseudonymous synthetic patient context"
+      },
+      {
+        "reference": {
+          "reference": "Organization/hospital-a"
+        },
+        "description": "Synthetic source organisation that retains the clinical DiagnosticReport and issues the portable evidence.",
+        "exampleBoolean": true,
+        "name": "Synthetic Hospital A"
+      },
+      {
+        "reference": {
+          "reference": "Organization/hospital-b"
+        },
+        "description": "Synthetic recipient organisation whose authorised care-team role receives the disclosure.",
+        "exampleBoolean": true,
+        "name": "Synthetic Hospital B"
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/trustevidence-document-hie-001"
+        },
+        "description": "DocumentReference identifying the exact Binary and the related AuditEvent and Provenance resources.",
+        "exampleBoolean": true,
+        "name": "TrustEvidence document reference"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/te-evidence-document-reference"
+        },
+        "name": "TrustEvidence Evidence Document Reference",
+        "description": "DocumentReference that points to the exact signed TrustEvidence Binary and related audit artefacts.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/te-evidence-provenance"
+        },
+        "name": "TrustEvidence Evidence Provenance",
+        "description": "Provenance linking the disclosure AuditEvents and exact signed-envelope Binary to the version-identified source DiagnosticReport retained by the source custodian.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/te-evidence-type"
+        },
+        "name": "TrustEvidence Evidence Type",
+        "description": "Project-defined evidence-document types for the bounded Route C reference profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/te-evidence-type-vs"
+        },
+        "name": "TrustEvidence Evidence Type Value Set",
+        "description": "Evidence-document types admitted by the bounded Route C profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/te-portable-evidence-binary"
+        },
+        "name": "TrustEvidence Portable Evidence Binary",
+        "description": "Exact canonical JSON bytes of a signed TrustEvidence envelope with its project-specific local A2 receipt.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/te-portable-evidence-bundle"
+        },
+        "name": "TrustEvidence Portable Evidence Bundle",
+        "description": "Collection bundle containing pseudonymous context, BALP AuditEvents, Consent, Provenance and the exact signed-envelope Binary; clinical Observation and DiagnosticReport resources are not admitted.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Provenance/evidence-provenance-hie-001"
+        },
+        "description": "Provenance linking the two AuditEvents and exact signed-envelope Binary to the version-identified source report.",
+        "exampleBoolean": true,
+        "name": "TrustEvidence projection provenance"
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Home",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2026+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "ci-build"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "false"
+      },
+      {
+        "code": "apply-jurisdiction",
+        "value": "false"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "false"
+      }
+    ]
+  }
+}

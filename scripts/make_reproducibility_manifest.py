@@ -30,11 +30,17 @@ def content() -> str:
         if not path.is_file() or path == OUTPUT:
             continue
         rel = path.relative_to(ROOT).as_posix()
+        if rel.startswith("results_expected/cmpb_reference/c4_hie_security/"):
+            status = "retained Route C C4 security evidence"
+        elif rel.startswith("results_expected/cmpb_reference/c5_hie_overhead/"):
+            status = "retained Route C C5 confirmatory evidence"
+        else:
+            status = "preserved v2.1.0 reference output"
         rows.append({
             "path": rel,
             "sha256": digest(path),
             "evidence_class": reproducibility_class_for(rel),
-            "verification_status": "retained v2.1.0 reference output",
+            "verification_status": status,
             "command_or_source": generator_for(rel),
         })
     with tempfile.TemporaryDirectory() as tmp:

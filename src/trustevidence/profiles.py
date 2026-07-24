@@ -1,6 +1,12 @@
-"""Central profile and version identifiers for v2.1.0."""
+"""Central profile and version identifiers.
+
+The software distribution is v2.2.0.  The established personal-
+monitoring method and envelope remain at version 2.1.0 because Route C adds a
+separate HIE profile rather than relabelling historical objects.
+"""
 
 SOFTWARE_RELEASE_LABEL = "v2.1.0"
+DISTRIBUTION_RELEASE_LABEL = "v2.2.0"
 ENVELOPE_VERSION = "2.1.0"
 INPUT_VERSION = "1.0.0"
 RESULT_VERSION = "1.0.0"

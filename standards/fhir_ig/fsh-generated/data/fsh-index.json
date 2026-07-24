@@ -1,0 +1,50 @@
+[
+  {
+    "outputFile": "CodeSystem-te-evidence-type.json",
+    "fshName": "TEEvidenceType",
+    "fshType": "CodeSystem",
+    "fshFile": "profiles.fsh",
+    "startLine": 3,
+    "endLine": 10
+  },
+  {
+    "outputFile": "StructureDefinition-te-evidence-document-reference.json",
+    "fshName": "TEEvidenceDocumentReference",
+    "fshType": "Profile",
+    "fshFile": "profiles.fsh",
+    "startLine": 28,
+    "endLine": 44
+  },
+  {
+    "outputFile": "StructureDefinition-te-evidence-provenance.json",
+    "fshName": "TEEvidenceProvenance",
+    "fshType": "Profile",
+    "fshFile": "profiles.fsh",
+    "startLine": 46,
+    "endLine": 55
+  },
+  {
+    "outputFile": "StructureDefinition-te-portable-evidence-binary.json",
+    "fshName": "TEPortableEvidenceBinary",
+    "fshType": "Profile",
+    "fshFile": "profiles.fsh",
+    "startLine": 19,
+    "endLine": 26
+  },
+  {
+    "outputFile": "StructureDefinition-te-portable-evidence-bundle.json",
+    "fshName": "TEPortableEvidenceBundle",
+    "fshType": "Profile",
+    "fshFile": "profiles.fsh",
+    "startLine": 57,
+    "endLine": 66
+  },
+  {
+    "outputFile": "ValueSet-te-evidence-type-vs.json",
+    "fshName": "TEEvidenceTypeVS",
+    "fshType": "ValueSet",
+    "fshFile": "profiles.fsh",
+    "startLine": 12,
+    "endLine": 17
+  }
+]

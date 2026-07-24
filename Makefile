@@ -1,7 +1,7 @@
 PYTHON ?= python
 export PYTHONDONTWRITEBYTECODE := 1
 
-.PHONY: compile test property bounded results-manifest result-contracts metadata integrity quick analyse figures tables compare clean final-check release-check
+.PHONY: compile test property bounded results-manifest result-contracts metadata action-pins distribution integrity hie security overhead quick analyse figures tables compare clean final-check release-check candidate-archive
 
 compile:
 	@tmp=$$(mktemp -d); PYTHONPYCACHEPREFIX=$$tmp $(PYTHON) -m compileall -q src tests property_tests experiments scripts bounded_model; rm -rf $$tmp
@@ -25,9 +25,25 @@ metadata:
 	$(PYTHON) scripts/check_public_metadata.py
 	$(PYTHON) scripts/repository_check.py
 
+action-pins:
+	$(PYTHON) scripts/check_action_pins.py
+
+distribution:
+	$(PYTHON) scripts/audit_public_distribution.py
+
 integrity:
 	$(PYTHON) scripts/verify_sha256sums.py SHA256SUMS.txt
 	$(PYTHON) scripts/verify_file_manifest.py FILE_MANIFEST.tsv
+
+hie:
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_hero_case.py --check
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) scripts/check_c3_retained_evidence.py
+
+security:
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_security_mutations.py --check
+
+overhead:
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_incremental_overhead.py --check
 
 quick:
 	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_cmpb_curation_pipeline.py --quick
@@ -54,8 +70,17 @@ final-check:
 	$(PYTHON) scripts/validate_result_contracts.py
 	$(PYTHON) scripts/check_public_metadata.py
 	$(PYTHON) scripts/repository_check.py
+	$(PYTHON) scripts/check_action_pins.py
+	$(PYTHON) scripts/audit_public_distribution.py
 	$(PYTHON) scripts/verify_sha256sums.py SHA256SUMS.txt
 	$(PYTHON) scripts/verify_file_manifest.py FILE_MANIFEST.tsv
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_hero_case.py --check
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) scripts/check_c3_retained_evidence.py
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_security_mutations.py --check
+	PYTHONDONTWRITEBYTECODE=1 $(PYTHON) experiments/run_hie_incremental_overhead.py --check
 
-release-check: clean compile test property bounded results-manifest result-contracts metadata integrity quick analyse figures tables compare final-check
+release-check: clean compile test property bounded results-manifest result-contracts metadata action-pins distribution integrity hie security overhead quick analyse figures tables compare final-check
 	@echo "RELEASE-CHECK: PASS"
+
+candidate-archive:
+	@tmp=$$(mktemp -d); $(PYTHON) scripts/build_release_archives.py --output-dir $$tmp; ls -l $$tmp; rm -rf $$tmp

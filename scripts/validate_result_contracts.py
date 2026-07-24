@@ -12,24 +12,40 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results_expected" / "cmpb_reference"
 SCHEMAS = ROOT / "schemas" / "results"
-CONTRACTS = {
-    "schema_validation_summary.csv": "schema_validation_summary.schema.json",
-    "field_deletion_results.csv": "field_deletion_results.schema.json",
-    "competency_question_results.csv": "competency_question_results.schema.json",
-    "canonicalisation_determinism.csv": "canonicalisation_determinism.schema.json",
-    "mutation_test_results.csv": "mutation_test_results.schema.json",
-    "property_test_summary.csv": "property_test_summary.schema.json",
-    "bounded_model_summary.csv": "bounded_model_summary.schema.json",
-    "workload_passage_summary.csv": "workload_passage_summary.schema.json",
-    "receipt_size_summary.csv": "receipt_size_summary.schema.json",
-    "reproducibility_manifest.csv": "reproducibility_manifest.schema.json",
-}
+CONTRACTS = [
+    ("schema_validation_summary.csv", "schema_validation_summary.schema.json"),
+    ("field_deletion_results.csv", "field_deletion_results.schema.json"),
+    ("competency_question_results.csv", "competency_question_results.schema.json"),
+    ("canonicalisation_determinism.csv", "canonicalisation_determinism.schema.json"),
+    ("mutation_test_results.csv", "mutation_test_results.schema.json"),
+    (
+        "c4_hie_security/hie_security_mutation_results.csv",
+        "mutation_test_results.schema.json",
+    ),
+    ("property_test_summary.csv", "property_test_summary.schema.json"),
+    ("bounded_model_summary.csv", "bounded_model_summary.schema.json"),
+    ("workload_passage_summary.csv", "workload_passage_summary.schema.json"),
+    ("receipt_size_summary.csv", "receipt_size_summary.schema.json"),
+    (
+        "c5_hie_overhead/retained_runs.csv",
+        "hie_overhead_run.schema.json",
+    ),
+    (
+        "c5_hie_overhead/paired_increments.csv",
+        "hie_overhead_pair.schema.json",
+    ),
+    (
+        "c5_hie_overhead/aggregate_estimates.csv",
+        "hie_overhead_aggregate.schema.json",
+    ),
+    ("reproducibility_manifest.csv", "reproducibility_manifest.schema.json"),
+]
 
 
 def main() -> int:
     errors: list[str] = []
     validated = 0
-    for csv_name, schema_name in CONTRACTS.items():
+    for csv_name, schema_name in CONTRACTS:
         csv_path = RESULTS / csv_name
         schema_path = SCHEMAS / schema_name
         if not csv_path.is_file() or not schema_path.is_file():
