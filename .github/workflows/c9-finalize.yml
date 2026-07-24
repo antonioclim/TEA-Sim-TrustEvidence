@@ -44,3 +44,5 @@ jobs:
             git commit -m 'release: finalise TEA-Sim TrustEvidence v2.2.0 metadata'
             git push origin HEAD:revision/jcis-route-c
           fi
+
+# Triggered after DOI reservation to materialise the final v2.2.0 metadata.
