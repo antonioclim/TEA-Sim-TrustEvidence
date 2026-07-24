@@ -35,3 +35,5 @@ jobs:
             git commit -m 'release: synchronise final v2.2.0 integrity files'
             git push origin HEAD:revision/jcis-route-c
           fi
+
+# Trigger final target-branch integrity synchronisation.
