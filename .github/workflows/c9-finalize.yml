@@ -2,20 +2,23 @@ name: C9 Finalise v2.2.0 metadata
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
-      - revision/jcis-route-c
-    paths:
-      - scripts/finalize_v220_metadata.py
-      - .github/workflows/c9-finalize.yml
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   finalise:
     runs-on: ubuntu-24.04
-    if: github.ref == 'refs/heads/revision/jcis-route-c'
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'revision/jcis-route-c'
     steps:
       - name: Check out Route C branch
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -45,4 +48,4 @@ jobs:
             git push origin HEAD:revision/jcis-route-c
           fi
 
-# Triggered after DOI reservation to materialise the final v2.2.0 metadata.
+# One-time workflow for the DOI-bound finalisation commit.
