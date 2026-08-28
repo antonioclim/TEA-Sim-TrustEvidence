@@ -3,7 +3,7 @@
   "upload_type": "software",
   "version": "2.2.0",
   "publication_date": "2026-07-24",
-  "description": "TEA-Sim TrustEvidence v2.2.0 is a reproducible healthcare audit-evidence boundary and executable reference profile. The release contains a complete synthetic cross-organisational DiagnosticReport disclosure case, a bounded FHIR R4/BALP-facing implementation guide with retained official-validator evidence, registered semantic, signature, receipt and checkpoint mutation results, a project-specific local A2 Merkle receipt model, and a paired B0-B2 local processing, application-byte and storage-proxy experiment. The release supports bounded claims about the synthetic case, the declared validation corpus, registered mutation decisions, exact signed-byte preservation, local retained-checkpoint behaviour and the reported W1 B0-B2 increments. It does not claim production EHR performance, hospital deployment readiness, clinical or legal validation, universal FHIR/BALP conformance, large-network scalability, event completeness, backend honesty, public transparency, organisational trust improvement or cost reduction.",
+  "description": "TEA-Sim TrustEvidence v2.2.0 is a reproducible healthcare audit-evidence boundary and executable reference profile. The release contains a complete synthetic cross-organisational DiagnosticReport disclosure case, a bounded FHIR R4/BALP-facing implementation guide with retained official-validator evidence, registered semantic, signature, receipt and checkpoint mutation results, a project-specific local A2 Merkle receipt model, and a paired B0-B2 local processing, application-byte and storage-proxy experiment. The release supports bounded claims about the synthetic case, the declared validation corpus, registered mutation decisions, exact signed-byte preservation, local retained-checkpoint behaviour and the reported W1 B0-B2 increments. It does not claim production EHR performance, hospital deployment readiness, clinical or legal validation, universal FHIR/BALP conformance, large-network scalability, event completeness, backend honesty, public transparency, organisational trust improvement or cost reduction. The software supports the peer-reviewed article 'Designing Portable Audit Evidence for Health Information Exchange' in the Journal of Computer Information Systems (DOI 10.1080/08874417.2026.2720000).",
   "creators": [
     {
       "name": "Clim, Antonio",
@@ -37,9 +37,15 @@
       "relation": "isSupplementedBy",
       "scheme": "url",
       "resource_type": "software"
+    },
+    {
+      "identifier": "10.1080/08874417.2026.2720000",
+      "relation": "isSupplementTo",
+      "scheme": "doi",
+      "resource_type": "publication-article"
     }
   ],
-  "notes": "Exact-version DOI: 10.5281/zenodo.21533962. Canonical release asset: TEA-Sim-TrustEvidence-v2.2.0.zip. The identical canonical ZIP byte stream is intended for the GitHub v2.2.0 release and this Zenodo version.",
+  "notes": "Exact-version DOI: 10.5281/zenodo.21533962. Canonical release asset: TEA-Sim-TrustEvidence-v2.2.0.zip. Canonical asset size: 6,026,306 bytes. Canonical SHA-256: e9b2b6e3829f4158e561812cbb146a5b212877d6c39e740467777cc9944b7a3c. The identical canonical ZIP byte stream is used for the GitHub v2.2.0 release and this Zenodo version.",
   "access_right": "open",
   "language": "eng"
 }
