@@ -5,6 +5,15 @@ TEA-Sim TrustEvidence is a healthcare-specific audit-evidence boundary and execu
 - Exact-version DOI: <https://doi.org/10.5281/zenodo.21533962>
 - GitHub release: <https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.2.0>
 - Canonical asset: `TEA-Sim-TrustEvidence-v2.2.0.zip`
+- Related peer-reviewed article: <https://doi.org/10.1080/08874417.2026.2720000>
+
+## Related research and publication boundary
+
+The software supports the peer-reviewed article:
+
+> Clim, A. (2026). Designing portable audit evidence for health information exchange. *Journal of Computer Information Systems*. <https://doi.org/10.1080/08874417.2026.2720000>
+
+The article reports the design rationale and bounded evaluation of the audit-evidence boundary. This repository provides the citable software, schemas, fixtures, validators, retained evidence and reproduction routes. A software metapaper may describe implementation, quality control, availability and reuse, but must not duplicate the article's research questions, numerical results or contribution argument. See `docs/RELATED_RESEARCH_AND_REUSE.md`.
 
 ## What this release executes
 
@@ -44,6 +53,24 @@ make release-check
 
 The detailed route is in `REVIEWER_REPRODUCTION.md`. The hosted workflow separately re-runs the official FHIR toolchain and the deterministic fresh-extraction release gate.
 
+## Independent reproduction
+
+A non-author reproducer may run the controlled reporting wrapper:
+
+```bash
+python scripts/run_independent_reproduction.py --mode core
+```
+
+The wrapper records the software version, environment, commit, commands, exit status and captured outputs under the ignored `results_local/` directory. Full instructions and the signed report template are in `independent_reproduction/`.
+
+## Reuse
+
+`docs/RELATED_RESEARCH_AND_REUSE.md` defines three bounded reuse routes:
+
+1. profile a new cross-organisational healthcare event without copying its clinical payload;
+2. reuse the mutation and result-contract corpus for research or teaching;
+3. replace the local A2 backend while retaining the field/custody boundary and competency questions.
+
 ## Component and deployment boundary
 
 `docs/DEPLOYABILITY_AND_COMPONENTS.md` lists the implemented components, integration points and omitted operational controls. The package is a reference implementation, not a hospital-ready system. In particular, it does not provide an operational FHIR server, identity provider, consent-decision service, durable replicated log, database, queue, HSM/KMS, monitoring platform, recovery process or organisational operating model.
@@ -53,6 +80,14 @@ The detailed route is in `REVIEWER_REPRODUCTION.md`. The hosted workflow separat
 The v2.1.0 monitoring reference corpus is preserved as a historical schema-profile corpus. Version 2.2.0 adds the C3 FHIR validation evidence, C4 mutation corpus and C5 paired local measurements. Measurement-variable outputs are retained rather than regenerated to manufacture byte equality; their contracts, row counts, derivations and source digests are checked.
 
 The canonical public archive is deterministically built, contains archive-specific `FILE_MANIFEST.tsv` and `SHA256SUMS.txt`, excludes submission-specific `docs/route_c/` governance material, and is tested after fresh extraction. `docs/PUBLIC_RELEASE_SCOPE.md` defines that distribution boundary.
+
+The `v2.2.0` tag and manually uploaded canonical release asset remain immutable. Later commits on `main` may correct metadata or improve public documentation. They do not alter the bytes, claims or identity of the archived v2.2.0 asset and must not be cited as a replacement release.
+
+## Support, contribution and security
+
+- Routine support: `SUPPORT.md`
+- Contributions: `CONTRIBUTING.md`
+- Security reporting and claim boundary: `SECURITY.md`
 
 ## Claim ceiling
 
