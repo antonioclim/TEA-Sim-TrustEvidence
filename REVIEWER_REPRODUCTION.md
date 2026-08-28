@@ -1,5 +1,27 @@
 # Reviewer reproduction
 
+## Controlled report route
+
+After installing the locked Python 3.13 environment, a reviewer or independent reproducer may run:
+
+```bash
+python scripts/run_independent_reproduction.py --mode core
+```
+
+The wrapper executes non-destructive metadata, integrity, HIE, security and overhead checks and records:
+
+- software and package version;
+- repository commit, where Git is available;
+- host and Python information;
+- each command and elapsed time;
+- exit status;
+- captured standard output and standard error;
+- an overall pass/fail decision.
+
+Reports are written under `results_local/independent_reproduction/`, which is excluded from the public distribution. The reproducer should complete `independent_reproduction/REPORT_TEMPLATE.md` and return the report without credentials, tokens, private keys or local clinical data.
+
+Use `--mode full` to include unit/regression tests, property tests, finite bounded checks, the quick curation pipeline and reference-output comparison.
+
 ## One-command local route
 
 After installing the locked Python 3.13 environment, run:
@@ -49,3 +71,7 @@ python scripts/check_release_archive.py \
 ```
 
 Run `make release-check` from the extracted canonical root after installing the same lock file. Successful execution supports version- and environment-bounded reproducibility of the reference implementation. It does not establish clinical utility, production readiness, hospital deployability, legal compliance, organisational effectiveness, event completeness, backend honesty or global non-equivocation.
+
+## Release versus main
+
+The canonical scientific software object is the immutable `v2.2.0` release asset archived under DOI `10.5281/zenodo.21533962`. Post-release documentation and metadata corrections on `main` do not alter that asset. An independent report must identify whether it reproduced the tagged release or a later commit on `main`.
