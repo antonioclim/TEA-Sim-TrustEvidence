@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased — post-release documentation and metadata hardening
+
+- Aligned source metadata with the v2.2.0 health-information-exchange identity.
+- Added the DOI and bounded relationship of the associated peer-reviewed article.
+- Added public support, contribution and security-reporting policies.
+- Added a controlled independent-reproduction wrapper and report template.
+- Added bounded reuse routes for research, teaching and backend substitution.
+- Clarified that the v2.2.0 tag and canonical release asset remain immutable; these post-release changes do not create or relabel a software release.
+
 ## v2.2.0 — 2026-07-24
 
 Exact-version DOI: https://doi.org/10.5281/zenodo.21533962
