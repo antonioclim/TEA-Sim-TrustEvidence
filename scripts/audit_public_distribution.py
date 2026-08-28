@@ -38,9 +38,16 @@ TEXT_SUFFIXES = {
 }
 FORBIDDEN_TEXT = {
     "264354984": "submission identifier",
-    "Journal of Computer Information Systems": "venue name",
     "A revise decision has been made": "editorial email residue",
     "Reviewer: 1": "reviewer email residue",
+}
+RELATED_ARTICLE_VENUE = "Journal of Computer Information Systems"
+RELATED_ARTICLE_METADATA_ALLOWLIST = {
+    ".zenodo.json",
+    "CITATION.cff",
+    "README.md",
+    "RELEASE_METADATA.json",
+    "docs/RELATED_RESEARCH_AND_REUSE.md",
 }
 SECRET_PATTERNS = {
     "GitHub classic token": re.compile(r"\bgh[pousr]_[A-Za-z0-9]{30,}\b"),
@@ -101,6 +108,11 @@ def main() -> int:
         for token, label in FORBIDDEN_TEXT.items():
             if token.lower() in text.lower():
                 errors.append(f"{label}: {rel}")
+        if (
+            RELATED_ARTICLE_VENUE.lower() in text.lower()
+            and rel not in RELATED_ARTICLE_METADATA_ALLOWLIST
+        ):
+            errors.append(f"unapproved venue reference: {rel}")
         for label, pattern in SECRET_PATTERNS.items():
             if pattern.search(text):
                 errors.append(f"{label}: {rel}")
@@ -112,6 +124,9 @@ def main() -> int:
         "scanned_text_files": scanned_text_files,
         "excluded_prefixes_enforced": ["docs/route_c/"],
         "test_fixture_allowlist": sorted(FIXTURE_ALLOWED),
+        "accepted_publication_metadata_allowlist": sorted(
+            RELATED_ARTICLE_METADATA_ALLOWLIST
+        ),
         "errors": errors,
     }
     if args.report:
