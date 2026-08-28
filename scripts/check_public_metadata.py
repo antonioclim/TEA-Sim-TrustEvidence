@@ -13,9 +13,13 @@ VERSION = "2.2.0"
 DOI = "10.5281/zenodo.21533962"
 DOI_URL = "https://doi.org/10.5281/zenodo.21533962"
 PREVIOUS_DOI = "10.5281/zenodo.21318387"
+ARTICLE_TITLE = "Designing Portable Audit Evidence for Health Information Exchange"
+ARTICLE_DOI = "10.1080/08874417.2026.2720000"
 REPOSITORY = "https://github.com/antonioclim/TEA-Sim-TrustEvidence"
 RELEASE_URL = "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/tag/v2.2.0"
 ASSET_NAME = "TEA-Sim-TrustEvidence-v2.2.0.zip"
+ASSET_SIZE = 6_026_306
+ASSET_SHA256 = "e9b2b6e3829f4158e561812cbb146a5b212877d6c39e740467777cc9944b7a3c"
 ARCHIVE_ROOT = "TEA-Sim-TrustEvidence-v2.2.0"
 SHA_NAME = "TEA-Sim-TrustEvidence-v2.2.0.sha256"
 ORCID = "0000-0003-4745-0431"
@@ -73,6 +77,12 @@ def main() -> int:
         errors.append("previous-version relation mismatch")
     if not any(item.get("identifier") == RELEASE_URL for item in relations):
         errors.append("final GitHub release relation missing")
+    if not any(
+        item.get("identifier") == ARTICLE_DOI
+        and item.get("relation") == "isSupplementTo"
+        for item in relations
+    ):
+        errors.append("related article relation missing")
 
     expected = {
         "schema_version": 2,
@@ -89,18 +99,39 @@ def main() -> int:
         "canonical_asset_name": ASSET_NAME,
         "canonical_archive_root": ARCHIVE_ROOT,
         "canonical_checksum_name": SHA_NAME,
+        "canonical_asset_size_bytes": ASSET_SIZE,
+        "canonical_asset_sha256": ASSET_SHA256,
         "previous_version": "2.1.0",
         "previous_version_doi": PREVIOUS_DOI,
         "license": "Apache-2.0",
         "publication_authorised": True,
+        "release_asset_immutable": True,
+        "post_release_documentation_updates_permitted": True,
     }
     for key, value in expected.items():
         if release.get(key) != value:
             errors.append(f"RELEASE_METADATA {key} mismatch")
 
+    article = release.get("related_article", {})
+    if (
+        article.get("title") != ARTICLE_TITLE
+        or article.get("doi") != ARTICLE_DOI
+        or article.get("status") != "accepted-in-production"
+    ):
+        errors.append("RELEASE_METADATA related article mismatch")
+
     combined = "\n".join([readme, cff, json.dumps(zenodo, sort_keys=True), versioning, notes])
-    for required in (DOI, DOI_URL, RELEASE_URL, ASSET_NAME, ARCHIVE_ROOT, SHA_NAME):
-        if required not in combined:
+    for required in (
+        DOI,
+        DOI_URL,
+        RELEASE_URL,
+        ASSET_NAME,
+        ARCHIVE_ROOT,
+        SHA_NAME,
+        ARTICLE_DOI,
+        ASSET_SHA256,
+    ):
+        if required not in combined and required not in json.dumps(release, sort_keys=True):
             errors.append(f"missing final identifier: {required}")
     for forbidden in ("2.2.0-rc.1", "2.2.0rc1", "unassigned-release-candidate", "DRAFT ONLY"):
         if forbidden.lower() in combined.lower():
@@ -111,7 +142,9 @@ def main() -> int:
         print("\n".join(errors))
         return 1
 
-    print(f"PUBLIC-METADATA: PASS ({VERSION}; DOI {DOI})")
+    print(
+        f"PUBLIC-METADATA: PASS ({VERSION}; DOI {DOI}; related article {ARTICLE_DOI})"
+    )
     return 0
 
 
