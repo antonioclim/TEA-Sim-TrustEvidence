@@ -44,6 +44,18 @@ make release-check
 
 The detailed route is in `REVIEWER_REPRODUCTION.md`. The hosted workflow separately re-runs the official FHIR toolchain and the deterministic fresh-extraction release gate.
 
+## Documentation, reuse and participation
+
+- `SOFTWARE_SCOPE_NOTE.md` defines the relationship between the personal-monitoring and health-information-exchange modules.
+- `QUICKSTART.md` gives the supported local installation route.
+- `REVIEWER_REPRODUCTION.md` gives the version-bounded reviewer route.
+- `docs/INDEPENDENT_REPRODUCTION_PROTOCOL.md` defines a non-author reproduction report.
+- `docs/REUSE_EXAMPLES.md` provides executable reuse paths.
+- `SUPPORT.md` defines the support boundary.
+- `CONTRIBUTING.md` defines contribution, data-safety and claim-discipline requirements.
+- `SECURITY.md` gives the private vulnerability-reporting route.
+- `CODE_OF_CONDUCT.md` defines participation expectations.
+
 ## Component and deployment boundary
 
 `docs/DEPLOYABILITY_AND_COMPONENTS.md` lists the implemented components, integration points and omitted operational controls. The package is a reference implementation, not a hospital-ready system. In particular, it does not provide an operational FHIR server, identity provider, consent-decision service, durable replicated log, database, queue, HSM/KMS, monitoring platform, recovery process or organisational operating model.
