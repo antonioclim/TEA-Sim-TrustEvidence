@@ -38,6 +38,14 @@ REQUIRED = {
     "RELEASE_NOTES_v2.2.0.md",
     "docs/PUBLIC_RELEASE_SCOPE.md",
     "docs/DEPLOYABILITY_AND_COMPONENTS.md",
+    "docs/POST_RELEASE_DOCUMENTATION_POLICY.md",
+    "SUPPORT.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "independent_reproduction/README.md",
+    "independent_reproduction/REPORT_TEMPLATE.md",
+    "scripts/run_independent_reproduction.py",
+    "scripts/check_immutable_release_asset.py",
 }
 FORBIDDEN_SUFFIXES = {".pyc", ".pyo"}
 
@@ -62,6 +70,7 @@ def main() -> int:
     release = json.loads((ROOT / "RELEASE_METADATA.json").read_text(encoding="utf-8"))
     expected = {
         "release_state": "final-release",
+        "source_state": "post-release-documentation",
         "software_version": "2.2.0",
         "package_version": "2.2.0",
         "git_tag": "v2.2.0",
@@ -69,7 +78,13 @@ def main() -> int:
         "canonical_asset_name": "TEA-Sim-TrustEvidence-v2.2.0.zip",
         "canonical_archive_root": "TEA-Sim-TrustEvidence-v2.2.0",
         "canonical_checksum_name": "TEA-Sim-TrustEvidence-v2.2.0.sha256",
+        "canonical_asset_size_bytes": 6026306,
+        "canonical_asset_sha256": "e9b2b6e3829f4158e561812cbb146a5b212877d6c39e740467777cc9944b7a3c",
+        "immutable_release_commit_sha": "ac44a59c690bd18906163ed901477a8173208694",
         "publication_authorised": True,
+        "release_asset_immutable": True,
+        "release_asset_build_authorised": False,
+        "post_release_documentation_updates_permitted": True,
     }
     for key, value in expected.items():
         if release.get(key) != value:
