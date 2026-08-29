@@ -7,6 +7,7 @@ import argparse
 import csv
 import hashlib
 import io
+import json
 import stat
 import zipfile
 from pathlib import Path
@@ -18,6 +19,7 @@ try:  # direct script execution and package import are both supported
         CHECKSUM_PATH,
         EXPECTED_ROOT,
         MANIFEST_PATH,
+        ROOT,
         public_release_files,
         relative,
         role_for,
@@ -30,6 +32,7 @@ except ImportError:  # pragma: no cover - exercised by command-line execution
         CHECKSUM_PATH,
         EXPECTED_ROOT,
         MANIFEST_PATH,
+        ROOT,
         public_release_files,
         relative,
         role_for,
@@ -44,6 +47,22 @@ EXECUTABLE_PREFIXES = (
     "figures/scripts/",
     "tables/scripts/",
 )
+
+
+class ReleaseBuildRefused(RuntimeError):
+    """Raised when a published release version is immutable in this source state."""
+
+
+def require_release_build_authorised() -> None:
+    metadata = json.loads((ROOT / "RELEASE_METADATA.json").read_text(encoding="utf-8"))
+    if metadata.get("release_asset_build_authorised") is not True:
+        commit = metadata.get("immutable_release_commit_sha", "unknown")
+        digest = metadata.get("canonical_asset_sha256", "unknown")
+        raise ReleaseBuildRefused(
+            "the v2.2.0 asset is immutable and may not be rebuilt from the "
+            "post-release documentation state; use the published asset from "
+            f"commit {commit} with SHA-256 {digest}, or create a new version"
+        )
 
 
 def archive_payload() -> dict[str, bytes]:
@@ -84,6 +103,7 @@ def archive_payload() -> dict[str, bytes]:
 
 
 def build(destination: Path) -> str:
+    require_release_build_authorised()
     destination.parent.mkdir(parents=True, exist_ok=True)
     payload = archive_payload()
     with zipfile.ZipFile(
@@ -134,7 +154,11 @@ def main() -> int:
 
     asset = args.output_dir / ASSET_NAME
     checksum = args.output_dir / ASSET_CHECKSUM_NAME
-    digest = build(asset)
+    try:
+        digest = build(asset)
+    except ReleaseBuildRefused as exc:
+        print(f"RELEASE-BUILD-REFUSED: {exc}")
+        return 2
     checksum.write_text(
         f"{digest}  {ASSET_NAME}\n",
         encoding="utf-8",
