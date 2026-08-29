@@ -218,13 +218,15 @@ jobs:
       - name: Reject unexplained generated drift
         run: git diff --exit-code
 
-  release-package:
-    name: C6 deterministic archive and fresh extraction
+  immutable-release:
+    name: Immutable v2.2.0 asset and post-release main
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
-      - name: Check out repository
+      - name: Check out repository and release tag
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python 3.13
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -235,70 +237,91 @@ jobs:
             pyproject.toml
             environment/requirements-lock-py313-linux.txt
 
-      - name: Install locked release environment
+      - name: Install locked reference environment
         run: |
           python -m pip install --disable-pip-version-check --no-input setuptools==82.0.1 wheel==0.46.3
           python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
           python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
 
-      - name: Execute pre-archive release contract
+      - name: Execute post-release main contract
         shell: bash
         run: |
           set -o pipefail
-          make release-check 2>&1 | tee "${RUNNER_TEMP}/c6-pre-archive-release-check.log"
+          make release-check 2>&1 | tee "${RUNNER_TEMP}/post-release-main-check.log"
 
-      - name: Audit public distribution and build release twice
+      - name: Confirm same-version archive build is refused
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "${RUNNER_TEMP}/release-a" "${RUNNER_TEMP}/release-b" "${RUNNER_TEMP}/reports"
-          python scripts/audit_public_distribution.py \
-            --report "${RUNNER_TEMP}/reports/public-distribution-audit.json"
-          python scripts/build_release_archives.py --output-dir "${RUNNER_TEMP}/release-a"
-          python scripts/build_release_archives.py --output-dir "${RUNNER_TEMP}/release-b"
-          cmp "${RUNNER_TEMP}/release-a/TEA-Sim-TrustEvidence-v2.2.0.zip" \
-              "${RUNNER_TEMP}/release-b/TEA-Sim-TrustEvidence-v2.2.0.zip"
-          cmp "${RUNNER_TEMP}/release-a/TEA-Sim-TrustEvidence-v2.2.0.sha256" \
-              "${RUNNER_TEMP}/release-b/TEA-Sim-TrustEvidence-v2.2.0.sha256"
-          echo 'C6-DETERMINISTIC-ARCHIVE: PASS'
+          tmp="$(mktemp -d)"
+          set +e
+          output="$(python scripts/build_release_archives.py --output-dir "${tmp}" 2>&1)"
+          status=$?
+          set -e
+          printf '%s\n' "${output}" | tee "${RUNNER_TEMP}/release-build-refusal.log"
+          rm -rf "${tmp}"
+          if test "${status}" -eq 0; then
+            echo 'A post-release source tree rebuilt v2.2.0 unexpectedly.' >&2
+            exit 1
+          fi
+          printf '%s\n' "${output}" | grep -F 'RELEASE-BUILD-REFUSED:'
 
-      - name: Validate and extract release archive
+      - name: Download immutable public release asset
         shell: bash
         run: |
           set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/immutable-release" "${RUNNER_TEMP}/reports"
+          curl --fail --location --retry 5 --retry-all-errors \
+            --output "${RUNNER_TEMP}/immutable-release/TEA-Sim-TrustEvidence-v2.2.0.zip" \
+            "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/download/v2.2.0/TEA-Sim-TrustEvidence-v2.2.0.zip"
+          curl --fail --location --retry 5 --retry-all-errors \
+            --output "${RUNNER_TEMP}/immutable-release/TEA-Sim-TrustEvidence-v2.2.0.sha256" \
+            "https://github.com/antonioclim/TEA-Sim-TrustEvidence/releases/download/v2.2.0/TEA-Sim-TrustEvidence-v2.2.0.sha256"
+
+      - name: Verify immutable asset identity and archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/check_immutable_release_asset.py \
+            --archive "${RUNNER_TEMP}/immutable-release/TEA-Sim-TrustEvidence-v2.2.0.zip" \
+            --checksum "${RUNNER_TEMP}/immutable-release/TEA-Sim-TrustEvidence-v2.2.0.sha256" \
+            | tee "${RUNNER_TEMP}/immutable-release-identity.log"
           python scripts/check_release_archive.py \
-            --archive "${RUNNER_TEMP}/release-a/TEA-Sim-TrustEvidence-v2.2.0.zip" \
-            --checksum "${RUNNER_TEMP}/release-a/TEA-Sim-TrustEvidence-v2.2.0.sha256" \
-            --extract-dir "${RUNNER_TEMP}/fresh-extraction" \
-            --report "${RUNNER_TEMP}/reports/release-archive-audit.json"
+            --archive "${RUNNER_TEMP}/immutable-release/TEA-Sim-TrustEvidence-v2.2.0.zip" \
+            --checksum "${RUNNER_TEMP}/immutable-release/TEA-Sim-TrustEvidence-v2.2.0.sha256" \
+            --extract-dir "${RUNNER_TEMP}/immutable-extraction" \
+            --report "${RUNNER_TEMP}/reports/immutable-release-archive-audit.json"
 
-      - name: Execute complete contract from fresh extraction
+      - name: Execute exact released-asset contract
         shell: bash
         run: |
           set -euo pipefail
-          python -m venv "${RUNNER_TEMP}/fresh-venv"
-          . "${RUNNER_TEMP}/fresh-venv/bin/activate"
-          cd "${RUNNER_TEMP}/fresh-extraction/TEA-Sim-TrustEvidence-v2.2.0"
+          python -m venv "${RUNNER_TEMP}/immutable-venv"
+          . "${RUNNER_TEMP}/immutable-venv/bin/activate"
+          cd "${RUNNER_TEMP}/immutable-extraction/TEA-Sim-TrustEvidence-v2.2.0"
           python -m pip install --disable-pip-version-check --no-input setuptools==82.0.1 wheel==0.46.3
           python -m pip install --disable-pip-version-check --no-input -r environment/requirements-lock-py313-linux.txt
           python -m pip install --disable-pip-version-check --no-input --no-build-isolation --no-deps -e .
           set -o pipefail
-          make release-check 2>&1 | tee "${RUNNER_TEMP}/c6-fresh-extraction-release-check.log"
+          make release-check 2>&1 | tee "${RUNNER_TEMP}/immutable-release-check.log"
 
-      - name: Reject source-tree drift
-        run: git diff --exit-code
+      - name: Verify immutable release commit and source-tree cleanliness
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-list -n 1 v2.2.0)" = "ac44a59c690bd18906163ed901477a8173208694"
+          git diff --exit-code
 
-      - name: Upload v2.2.0 release package
+      - name: Upload immutable-release verification evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: teasim-trustevidence-v2.2.0
+          name: immutable-v2.2.0-verification
           path: |
-            ${{ runner.temp }}/release-a/TEA-Sim-TrustEvidence-v2.2.0.zip
-            ${{ runner.temp }}/release-a/TEA-Sim-TrustEvidence-v2.2.0.sha256
-            ${{ runner.temp }}/reports/public-distribution-audit.json
-            ${{ runner.temp }}/reports/release-archive-audit.json
-            ${{ runner.temp }}/c6-pre-archive-release-check.log
-            ${{ runner.temp }}/c6-fresh-extraction-release-check.log
+            ${{ runner.temp }}/post-release-main-check.log
+            ${{ runner.temp }}/release-build-refusal.log
+            ${{ runner.temp }}/immutable-release-identity.log
+            ${{ runner.temp }}/immutable-release-check.log
+            ${{ runner.temp }}/reports/immutable-release-archive-audit.json
           if-no-files-found: error
           retention-days: 30
