@@ -83,6 +83,8 @@ The canonical public archive is deterministically built, contains archive-specif
 
 The `v2.2.0` tag and manually uploaded canonical release asset remain immutable. Later commits on `main` may correct metadata or improve public documentation. They do not alter the bytes, claims or identity of the archived v2.2.0 asset and must not be cited as a replacement release.
 
+To prevent an accidental same-version rewrite, the archive builder intentionally refuses to emit another `v2.2.0` ZIP from the post-release `main` state. Reproduce the immutable release from the published canonical asset; create a new version and DOI for any future distributable source snapshot.
+
 ## Support, contribution and security
 
 - Routine support: `SUPPORT.md`

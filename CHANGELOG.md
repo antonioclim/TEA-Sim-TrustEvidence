@@ -8,6 +8,7 @@
 - Added a controlled independent-reproduction wrapper and report template.
 - Added bounded reuse routes for research, teaching and backend substitution.
 - Clarified that the v2.2.0 tag and canonical release asset remain immutable; these post-release changes do not create or relabel a software release.
+- Added an executable build guard and CI verification route that prevent post-release `main` from emitting different bytes under the v2.2.0 filename and DOI.
 
 ## v2.2.0 — 2026-07-24
 

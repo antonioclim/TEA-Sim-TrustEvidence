@@ -26,3 +26,7 @@ Exclusion from the public ZIP does not delete the internal branch records. The p
 ## Publication boundary
 
 C6 may build and validate a release-candidate archive. It does not authorise a public tag, GitHub release, Zenodo publication or DOI claim. Those actions belong to C9 after manuscript and submission-package gates.
+
+## Post-release source state
+
+The original v2.2.0 release archive was created from the immutable tagged release commit. Later documentation changes on `main` are not part of that archive. The same-version archive builder is disabled on post-release `main`; a new distributable snapshot requires a new version and DOI.

@@ -38,3 +38,13 @@ A metadata-only correction to the published Zenodo record does not require a new
 ## Citation rule
 
 For scientific reproduction, cite and execute the exact tagged release. For a later `main` commit, record its commit SHA separately and do not describe it as the archived v2.2.0 byte stream.
+
+## Build guard
+
+The current `main` branch is explicitly marked `post-release-documentation` in `RELEASE_METADATA.json`. Its `release_asset_build_authorised` field is `false`. `scripts/build_release_archives.py` therefore refuses to create another archive named `TEA-Sim-TrustEvidence-v2.2.0.zip`.
+
+This guard prevents a later documentation snapshot from producing different bytes under an already published version, filename and DOI. The current CI downloads and verifies the immutable public asset instead of rebuilding it from post-release `main`.
+
+## Future distribution
+
+Any source snapshot that includes post-release files from `main` and is intended for archival distribution requires a new software version, tag, canonical asset and exact-version DOI. Documentation-only commits may remain on `main` without being presented as v2.2.0 release bytes.

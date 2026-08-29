@@ -1,7 +1,7 @@
 PYTHON ?= python
 export PYTHONDONTWRITEBYTECODE := 1
 
-.PHONY: compile test property bounded results-manifest result-contracts metadata action-pins distribution integrity hie security overhead quick analyse figures tables compare clean final-check release-check candidate-archive
+.PHONY: compile test property bounded results-manifest result-contracts metadata action-pins distribution integrity hie security overhead quick analyse figures tables compare clean final-check release-check immutable-release candidate-archive
 
 compile:
 	@tmp=$$(mktemp -d); PYTHONPYCACHEPREFIX=$$tmp $(PYTHON) -m compileall -q src tests property_tests experiments scripts bounded_model; rm -rf $$tmp
@@ -82,5 +82,10 @@ final-check:
 release-check: clean compile test property bounded results-manifest result-contracts metadata action-pins distribution integrity hie security overhead quick analyse figures tables compare final-check
 	@echo "RELEASE-CHECK: PASS"
 
+immutable-release:
+	$(PYTHON) scripts/check_immutable_release_asset.py
+
+# Intentionally refuses on post-release main. A new distributable snapshot requires
+# a new version, tag and DOI.
 candidate-archive:
-	@tmp=$$(mktemp -d); $(PYTHON) scripts/build_release_archives.py --output-dir $$tmp; ls -l $$tmp; rm -rf $$tmp
+	@tmp=$$(mktemp -d); status=0; $(PYTHON) scripts/build_release_archives.py --output-dir $$tmp || status=$$?; rm -rf $$tmp; exit $$status
