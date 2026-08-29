@@ -24,6 +24,7 @@ ARCHIVE_ROOT = "TEA-Sim-TrustEvidence-v2.2.0"
 SHA_NAME = "TEA-Sim-TrustEvidence-v2.2.0.sha256"
 ORCID = "0000-0003-4745-0431"
 RELEASE_DATE = "2026-07-24"
+RELEASE_COMMIT = "ac44a59c690bd18906163ed901477a8173208694"
 
 
 def cff_value(text: str, key: str) -> str | None:
@@ -87,6 +88,7 @@ def main() -> int:
     expected = {
         "schema_version": 2,
         "release_state": "final-release",
+        "source_state": "post-release-documentation",
         "software_version": VERSION,
         "package_version": VERSION,
         "release_date": RELEASE_DATE,
@@ -101,11 +103,13 @@ def main() -> int:
         "canonical_checksum_name": SHA_NAME,
         "canonical_asset_size_bytes": ASSET_SIZE,
         "canonical_asset_sha256": ASSET_SHA256,
+        "immutable_release_commit_sha": RELEASE_COMMIT,
         "previous_version": "2.1.0",
         "previous_version_doi": PREVIOUS_DOI,
         "license": "Apache-2.0",
         "publication_authorised": True,
         "release_asset_immutable": True,
+        "release_asset_build_authorised": False,
         "post_release_documentation_updates_permitted": True,
     }
     for key, value in expected.items():
@@ -120,7 +124,10 @@ def main() -> int:
     ):
         errors.append("RELEASE_METADATA related article mismatch")
 
-    combined = "\n".join([readme, cff, json.dumps(zenodo, sort_keys=True), versioning, notes])
+    policy = (ROOT / "docs" / "POST_RELEASE_DOCUMENTATION_POLICY.md").read_text(encoding="utf-8")
+    combined = "\n".join(
+        [readme, cff, json.dumps(zenodo, sort_keys=True), versioning, notes, policy]
+    )
     for required in (
         DOI,
         DOI_URL,
@@ -130,6 +137,7 @@ def main() -> int:
         SHA_NAME,
         ARTICLE_DOI,
         ASSET_SHA256,
+        RELEASE_COMMIT,
     ):
         if required not in combined and required not in json.dumps(release, sort_keys=True):
             errors.append(f"missing final identifier: {required}")
