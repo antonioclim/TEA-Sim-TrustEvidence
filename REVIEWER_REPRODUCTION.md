@@ -1,5 +1,11 @@
 # Reviewer reproduction
 
+## Choose the software object
+
+For reproduction of the citable v2.2.0 software object, use the manually uploaded canonical release asset and verify SHA-256 `e9b2b6e3829f4158e561812cbb146a5b212877d6c39e740467777cc9944b7a3c`. The `v2.2.0` tag and asset are immutable.
+
+The current `main` branch contains later metadata, support and independent-reproduction documentation. Record its commit SHA if it is used. It is not the archived v2.2.0 byte stream and its archive builder deliberately refuses a same-version rebuild.
+
 ## Controlled report route
 
 After installing the locked Python 3.13 environment, a reviewer or independent reproducer may run:
@@ -55,23 +61,14 @@ This route uses the recorded FHIR R4, local IG and applicable BALP packages. Its
 
 The retained W1 experiment reports paired local reference-pipeline increments. The independent inferential unit is the paired process block, not each operation. The values are not production-EHR latency, network bytes, database storage, scalability or service-level results.
 
-## Candidate archive route
+## Immutable release-asset route
 
-Build and validate the deterministic release:
+Download `TEA-Sim-TrustEvidence-v2.2.0.zip` and `TEA-Sim-TrustEvidence-v2.2.0.sha256` from the v2.2.0 GitHub Release, then run:
 
 ```bash
-mkdir -p dist
-python scripts/audit_public_distribution.py --report dist/public-distribution-audit.json
-python scripts/build_release_archives.py --output-dir dist
-python scripts/check_release_archive.py \
-  --archive dist/TEA-Sim-TrustEvidence-v2.2.0.zip \
-  --checksum dist/TEA-Sim-TrustEvidence-v2.2.0.sha256 \
-  --extract-dir dist/fresh-extraction \
-  --report dist/release-archive-audit.json
+python scripts/check_immutable_release_asset.py \
+  --archive /path/to/TEA-Sim-TrustEvidence-v2.2.0.zip \
+  --checksum /path/to/TEA-Sim-TrustEvidence-v2.2.0.sha256
 ```
 
 Run `make release-check` from the extracted canonical root after installing the same lock file. Successful execution supports version- and environment-bounded reproducibility of the reference implementation. It does not establish clinical utility, production readiness, hospital deployability, legal compliance, organisational effectiveness, event completeness, backend honesty or global non-equivocation.
-
-## Release versus main
-
-The canonical scientific software object is the immutable `v2.2.0` release asset archived under DOI `10.5281/zenodo.21533962`. Post-release documentation and metadata corrections on `main` do not alter that asset. An independent report must identify whether it reproduced the tagged release or a later commit on `main`.
