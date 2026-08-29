@@ -1,6 +1,7 @@
 {
   "schema_version": 2,
   "release_state": "final-release",
+  "source_state": "post-release-documentation",
   "software_version": "2.2.0",
   "package_version": "2.2.0",
   "release_date": "2026-07-24",
@@ -15,6 +16,7 @@
   "canonical_checksum_name": "TEA-Sim-TrustEvidence-v2.2.0.sha256",
   "canonical_asset_size_bytes": 6026306,
   "canonical_asset_sha256": "e9b2b6e3829f4158e561812cbb146a5b212877d6c39e740467777cc9944b7a3c",
+  "immutable_release_commit_sha": "ac44a59c690bd18906163ed901477a8173208694",
   "previous_version": "2.1.0",
   "previous_version_doi": "10.5281/zenodo.21318387",
   "related_article": {
@@ -26,5 +28,6 @@
   "license": "Apache-2.0",
   "publication_authorised": true,
   "release_asset_immutable": true,
+  "release_asset_build_authorised": false,
   "post_release_documentation_updates_permitted": true
 }
